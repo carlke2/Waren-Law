@@ -2,6 +2,9 @@ import { parseEnv } from './env.schema.js';
 
 const valid = {
   DATABASE_URL: 'postgresql://user:pass@localhost:5432/db',
+  DIRECT_URL: 'postgresql://user:pass@localhost:5432/db',
+  UPLOADS_DIR: 'uploads',
+  PUBLIC_MEDIA_BASE_URL: 'http://localhost:4000/uploads',
   FRONTEND_URL: 'http://localhost:3000',
   SESSION_SECRET: 'x'.repeat(32),
 };

@@ -5,7 +5,7 @@ export default defineConfig({
   schema: 'prisma/schema.prisma',
   migrations: { path: 'prisma/migrations' },
   datasource: {
-    // `prisma generate` doesn't connect, so it must not require a real URL.
-    url: process.env.DATABASE_URL ?? 'postgresql://unset:unset@localhost:5432/unset',
+    // Migrations can't run through the transaction pooler. `prisma generate` needs no real URL.
+    url: process.env.DIRECT_URL || 'postgresql://unset:unset@localhost:5432/unset',
   },
 });
