@@ -2,6 +2,12 @@ import { ArgumentsHost, Catch, ExceptionFilter, HttpException, Logger } from '@n
 import type { Request, Response } from 'express';
 import { STATUS_CODES } from 'node:http';
 
+// Prisma leaves the message empty for driver failures: the cause is only in these fields.
+function databaseFailure(exception: unknown): string {
+  const { code, meta } = exception as { code?: unknown; meta?: unknown };
+  return code ? `[${String(code)}] ${JSON.stringify(meta ?? {})}` : '';
+}
+
 @Catch()
 export class JsonExceptionFilter implements ExceptionFilter {
   private readonly logger = new Logger('Exception');
@@ -28,7 +34,7 @@ export class JsonExceptionFilter implements ExceptionFilter {
       }
     } else {
       this.logger.error(
-        `${request.method} ${request.path}`,
+        `${request.method} ${request.path} ${databaseFailure(exception)}`.trimEnd(),
         exception instanceof Error ? exception.stack : String(exception),
       );
     }

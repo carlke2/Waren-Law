@@ -4,13 +4,20 @@ import Link from 'next/link';
 import { ArrowIcon } from '@/components/ui/icons';
 import { dictionary } from '@/lib/dictionary';
 
-export function PracticeAreaCard({ area }: { area: PracticeAreaSummary }) {
+export function PracticeAreaCard({
+  area,
+  headingLevel = 3,
+}: {
+  area: PracticeAreaSummary;
+  headingLevel?: 2 | 3;
+}) {
+  const Title = `h${headingLevel}` as const;
   return (
     <Link
       href={ROUTES.root(area.slug)}
       className="group flex h-full flex-col rounded-md border border-line bg-surface p-6 transition-shadow duration-(--duration-calm) hover:shadow-card"
     >
-      <h3 className="text-h4">{area.name}</h3>
+      <Title className="text-h4">{area.name}</Title>
       <p className="mt-2 grow text-small text-ink-muted">{area.shortSummary}</p>
       <span className="mt-4 inline-flex items-center gap-2 text-small font-medium text-gold-700">
         {dictionary.common.readMore}

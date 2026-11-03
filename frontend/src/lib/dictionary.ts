@@ -44,8 +44,7 @@ export const dictionary = {
   },
   consent: {
     title: 'Your cookie choices',
-    description:
-      'We use optional cookies to understand how the site is used and to measure advertising. They load only if you accept.',
+    description: 'Optional analytics and advertising cookies load only if you accept.',
     policyLink: 'Read our cookie policy',
     accept: 'Accept all',
     reject: 'Reject optional cookies',
