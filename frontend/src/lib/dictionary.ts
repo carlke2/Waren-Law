@@ -151,6 +151,54 @@ export const dictionary = {
       'Recording requests will be available soon. Please contact us in the meantime.',
     states: { upcoming: 'Upcoming', recording: 'Recording', past: 'Past webinar' },
   },
+  contact: {
+    formHeading: 'Send us a message',
+    officesHeading: 'Our offices',
+    showMap: (office: string) => `Show map for ${office}`,
+    mapTitle: (office: string) => `Map of ${office}`,
+    mapNotice: 'The map is provided by Google and loads only if you choose to show it.',
+  },
+  contactForm: {
+    firstName: 'First name',
+    lastName: 'Last name',
+    email: 'Email address',
+    phone: 'Phone number',
+    message: 'Your message',
+    honeypot: 'Leave this field empty',
+    submit: 'Send message',
+    notYetAvailable: 'Online messages will open soon. Please call, email or use WhatsApp for now.',
+    privacyNotice:
+      'We use your details only to respond to your enquiry. Please do not include confidential information.',
+    privacyLink: 'Read our privacy policy',
+    errors: {
+      firstName: 'Please enter your first name.',
+      lastName: 'Please enter your last name.',
+      email: 'Please enter a valid email address.',
+      phone: 'Please enter a shorter phone number.',
+      message: 'Please enter your message.',
+    },
+  },
+  partners: {
+    visitWebsite: (name: string) => `Visit ${name}`,
+    jointOffice: 'Our joint office',
+  },
+  legal: {
+    needsReview:
+      'NEEDS ADVOCATE REVIEW: this text is a draft and has not yet been approved by the firm.',
+  },
+  search: {
+    title: 'Search',
+    label: 'Search the site',
+    submit: 'Search',
+    noResults: 'Nothing matched your search. Try different words, or contact us directly.',
+    count: (count: number, query: string) =>
+      `${count} ${count === 1 ? 'result' : 'results'} for “${query}”`,
+    types: {
+      insight: 'Insight',
+      practice_area: 'Area of expertise',
+      team_member: 'Team',
+    },
+  },
   admin: {
     title: 'Admin',
     comingSoon: 'The admin panel arrives in Version 2.',

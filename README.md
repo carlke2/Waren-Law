@@ -36,11 +36,15 @@ In `backend/.env`, set:
 
 Never commit these values or paste them into chat, tickets or logs.
 
+Locally and on staging, also set `PREVIEW_UNREVIEWED_PAGES=true` to show pages awaiting advocate review (decision 0011). Leave it out in production.
+
 ```bash
 pnpm dev
 ```
 
-This runs the shared package (watch), the backend at http://localhost:4000 and the frontend at http://localhost:3000. The home page shows the backend and database status.
+This runs the shared package (watch), the backend at http://localhost:4000 and the frontend at http://localhost:3000.
+
+A production frontend build needs the backend running, because it pre-renders every page from the API. To build without it, as CI does, set `SKIP_PRERENDER=true`; pages then render on request.
 
 ### Tests and offline work
 

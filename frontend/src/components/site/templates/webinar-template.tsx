@@ -28,7 +28,7 @@ export async function WebinarTemplate({ webinar }: { webinar: WebinarDetail }) {
       >
         <p className="mt-4 flex flex-wrap items-center gap-3 text-small">
           <Badge>{webinarStateLabel(webinar.state)}</Badge>
-          {webinar.startsAt ? <span>{formatDate(webinar.startsAt)}</span> : null}
+          {webinar.startsAt ? <span>{formatDate(webinar.startsAt, webinar.timezone)}</span> : null}
         </p>
         <WebinarAction webinar={webinar} />
       </PageHero>

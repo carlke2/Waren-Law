@@ -56,7 +56,7 @@ export async function InsightListing({ page, category }: InsightListingProps) {
           <ul className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {list.items.map((insight) => (
               <li key={insight.slug}>
-                <InsightCard insight={insight} />
+                <InsightCard insight={insight} headingLevel={2} />
               </li>
             ))}
           </ul>

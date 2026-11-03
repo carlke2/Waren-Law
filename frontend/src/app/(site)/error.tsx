@@ -1,6 +1,6 @@
 'use client';
 
-import { ROUTES } from '@waren/shared';
+import { ROUTES } from '@waren/shared/constants';
 import { Button, ButtonLink } from '@/components/ui/button';
 import { Section } from '@/components/ui/layout';
 import { Heading, Lead } from '@/components/ui/typography';

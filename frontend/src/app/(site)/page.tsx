@@ -84,6 +84,7 @@ export default async function HomePage() {
               alt={hero.media.alt}
               fill
               priority
+              fetchPriority="high"
               sizes={HERO_IMAGE_SIZES}
               className="object-cover"
             />

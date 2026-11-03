@@ -3,7 +3,7 @@
 import type { SiteSettings } from '@waren/shared';
 import Link from 'next/link';
 import { useEffect, useState, useSyncExternalStore } from 'react';
-import { ROUTES } from '@waren/shared';
+import { ROUTES } from '@waren/shared/constants';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/form';
 import {

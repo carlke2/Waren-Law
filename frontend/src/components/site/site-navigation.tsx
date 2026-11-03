@@ -1,6 +1,6 @@
 'use client';
 
-import { ROUTES } from '@waren/shared';
+import { ROUTES } from '@waren/shared/constants';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react';
