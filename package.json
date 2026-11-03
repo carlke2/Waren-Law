@@ -1,11 +1,27 @@
 {
   "name": "waren-law",
   "private": true,
+  "type": "module",
   "packageManager": "pnpm@12.16.1",
+  "engines": {
+    "node": ">=26"
+  },
   "scripts": {
     "dev": "pnpm -r --parallel run --if-present dev",
     "build": "pnpm -r run --if-present build",
-    "lint": "pnpm -r run --if-present lint",
-    "test": "pnpm -r run --if-present test"
+    "lint": "eslint .",
+    "typecheck": "pnpm -r run --if-present typecheck",
+    "test": "pnpm -r run --if-present test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.14.0",
+    "prettier": "^3.9.10",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.72.1"
   }
 }
