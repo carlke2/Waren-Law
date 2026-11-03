@@ -12,6 +12,8 @@ export const envSchema = z.object({
   PORT: z.coerce.number().int().min(1).max(65535).default(4000),
   DATABASE_URL: postgresUrl,
   DIRECT_URL: postgresUrl,
+  DATABASE_SSL: z.enum(['disable', 'require', 'verify']).default('require'),
+  DATABASE_SSL_CA_PATH: optionalString,
   FRONTEND_URL: z.url(),
   SESSION_SECRET: z.string().min(32, 'SESSION_SECRET must be at least 32 characters'),
   RATE_LIMIT_PER_MINUTE: z.coerce.number().int().positive().default(300),

@@ -17,5 +17,6 @@ NestJS API (Node.js + TypeScript), PostgreSQL via Prisma. See `docs/STRUCTURE.md
 - `GET /health` returns `{ "status": "ok", "database": "up" }`, or 503 if the database is down.
 - Helmet headers, CORS for `FRONTEND_URL` only (with credentials), rate limiting by client address.
 - Every error is JSON: `{ statusCode, error, message, details?, path, timestamp }`.
+- Database connections use TLS (`DATABASE_SSL`).
 - The app connects through the pooled `DATABASE_URL`; migrations use `DIRECT_URL` (`prisma.config.ts`).
 - The environment is validated at start-up (`src/config/env.schema.ts`); see `.env.example`.

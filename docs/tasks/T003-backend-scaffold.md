@@ -1,6 +1,6 @@
 # T003: Backend scaffold (NestJS)
 
-**Status:** Blocked
+**Status:** Done
 **Week:** 1 (Version 1, Day 1)
 **Priority:** High
 
@@ -8,7 +8,7 @@
 `main.ts`, `app.module.ts`; `config/` with env validation (`NODE_ENV`, `PORT`, `DATABASE_URL`, `DIRECT_URL`, `FRONTEND_URL`, `SESSION_SECRET`, `SMTP_*`, `UPLOADS_DIR`, `PUBLIC_MEDIA_BASE_URL`); `database/` Prisma service; `schema.prisma` datasource uses `url = env("DATABASE_URL")` and `directUrl = env("DIRECT_URL")`; global validation pipe, JSON error filter, Helmet, CORS (only `FRONTEND_URL`, credentials), rate limiting, request logging; `GET /health` (checks DB); `backend/.env.example`; unit + e2e test for health.
 
 ## Done when
-- [ ] backend starts, `/health` reports the Supabase database ok.
+- [x] backend starts, `/health` reports the Supabase database ok.
 
 ## Files / inputs
 - `docs/prompts/03-AGENT-V1-DAY1-FOUNDATION-DATA.md`
@@ -16,6 +16,8 @@
 ## Result
 Built and aligned with decision 0006: env validation (including `DIRECT_URL`, `UPLOADS_DIR`, `PUBLIC_MEDIA_BASE_URL`), Prisma service, validation pipe, JSON error filter, Helmet, CORS, rate limiting, request logging and `GET /health`. Unit and e2e tests pass against a local PostgreSQL.
 
-**Blocked:** the done-when item needs `/health` to report the Supabase database. The owner must fill `DATABASE_URL` and `DIRECT_URL` in `backend/.env`.
+**Verified on Supabase:** the built backend returned `{"status":"ok","database":"up"}` through the pooled connection, over TLS.
+
+**Connection notes:** the direct Supabase host is IPv6-only and unreachable from this machine, so `DIRECT_URL` uses the session pooler. `DATABASE_SSL=require` encrypts connections but doesn't verify the server; `verify` needs Supabase's CA file. The `pgbouncer` flag is not needed, because the `pg` driver adapter does not use named prepared statements.
 
 **Prisma 7:** `url` and `directUrl` can't go in `schema.prisma`, so `prisma.config.ts` gives migrations `DIRECT_URL` and the driver adapter uses `DATABASE_URL` (decision 0007).

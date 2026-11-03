@@ -12,6 +12,7 @@ if (!testDatabaseUrl || new URL(testDatabaseUrl).pathname !== '/waren_test') {
 process.env.NODE_ENV = 'test';
 process.env.DATABASE_URL = testDatabaseUrl;
 process.env.DIRECT_URL = testDatabaseUrl;
+process.env.DATABASE_SSL = 'disable';
 process.env.FRONTEND_URL = 'http://localhost:3000';
 process.env.SESSION_SECRET = 'test-secret-test-secret-test-secret-00';
 process.env.RATE_LIMIT_PER_MINUTE = '100000';
