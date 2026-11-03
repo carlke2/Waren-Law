@@ -36,7 +36,8 @@ Browser ──▶ FRONTEND (warenlaw.com) ──HTTPS/JSON──▶ BACKEND (api
 | Frontend | **Next.js** (App Router) + **TypeScript** (strict) + **Tailwind CSS** with design tokens |
 | Admin screens | Inside the frontend at `/admin` (hidden, not indexed), calling the backend API |
 | Backend | **Node.js + TypeScript** with **NestJS** (REST API, one module per content type) |
-| Database | **PostgreSQL** via **Prisma** ORM (migrations in the repo). Must be able to align with the firm's existing database later — see section 5 |
+| Database | **PostgreSQL on Supabase** via **Prisma** ORM (migrations in the repo; pooled `DATABASE_URL` + `DIRECT_URL`). Must be able to align with the firm's existing database later — see section 5. Decision 0006 |
+| Code standards | Minimal comments, nothing hard-coded (env / database / shared constants / design tokens / UI dictionary). Decision 0006 |
 | Shared | `shared/`: TypeScript types and validation schemas (Zod) used by both frontend and backend |
 | Media | Uploaded images stored on the server (persistent volume), served by the web server; resized/compressed on upload |
 | Auth | Single administrator account: password (argon2 hash) + TOTP two-factor, httpOnly secure session cookie on `.warenlaw.com`, lockout after failed attempts |
