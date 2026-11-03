@@ -5,8 +5,8 @@ Working repository for rebuilding **[warenlaw.com](https://warenlaw.com)** (WARE
 - **Repository:** https://github.com/carlke2/Waren-Law
 - **Start date:** 3 November 2026
 - **Duration:** flexible — plan agreed after structure review ([`docs/PLAN.md`](docs/PLAN.md))
-- **Status:** Setting up structure and rules (agent brief 01)
-- **Agent brief:** [`docs/prompts/01-AGENT-SETUP.md`](docs/prompts/01-AGENT-SETUP.md)
+- **Status:** T001 — analysing the existing WordPress site (agent brief 02)
+- **Agent brief:** [`docs/prompts/02-AGENT-WORDPRESS-ANALYSIS.md`](docs/prompts/02-AGENT-WORDPRESS-ANALYSIS.md)
 
 ## Getting started
 
