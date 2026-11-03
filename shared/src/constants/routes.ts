@@ -11,6 +11,7 @@ export const ROUTES = {
   terms: '/terms/',
   cookies: '/cookie-policy/',
   search: '/search/',
+  feed: '/feed/',
   root: (slug: string) => `/${slug}/`,
   profile: (slug: string) => `/our-team/${slug}/`,
   category: (slug: string) => `/category/${slug}/`,

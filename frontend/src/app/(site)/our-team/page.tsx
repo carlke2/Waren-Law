@@ -9,14 +9,13 @@ import { Heading, Lead } from '@/components/ui/typography';
 import { getPracticeAreas, getSettings, getTeam } from '@/lib/api/content';
 import { parseTeamFilter, teamFilterChips } from '@/lib/content/team';
 import { dictionary } from '@/lib/dictionary';
+import { pageMetadata } from '@/lib/seo/metadata';
 
 const text = dictionary.team;
 
-export const metadata: Metadata = {
-  title: text.title,
-  description: text.description,
-  alternates: { canonical: ROUTES.team },
-};
+export function generateMetadata(): Promise<Metadata> {
+  return pageMetadata({ title: text.title, description: text.description, path: ROUTES.team });
+}
 
 interface TeamPageProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;

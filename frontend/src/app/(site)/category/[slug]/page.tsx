@@ -1,8 +1,11 @@
+import { ROUTES } from '@waren/shared';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { InsightListing } from '@/components/site/insight-listing';
 import { getCategories } from '@/lib/api/content';
+import { dictionary } from '@/lib/dictionary';
 import { staticParams } from '@/lib/prerender';
+import { NOINDEX_FOLLOW, pageMetadata } from '@/lib/seo/metadata';
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
@@ -18,7 +21,13 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const category = await findCategory((await params).slug);
-  return category ? { title: category.name, description: category.description } : {};
+  if (!category) return { title: dictionary.notFound.title, robots: NOINDEX_FOLLOW };
+  return pageMetadata({
+    title: category.name,
+    description: category.description ?? dictionary.insights.lead,
+    path: ROUTES.category(category.slug),
+    noindex: category.insightCount === 0,
+  });
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {

@@ -1,3 +1,4 @@
+import { ROUTES } from '@waren/shared';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { InsightListing } from '@/components/site/insight-listing';
@@ -5,6 +6,7 @@ import { getCategories, getInsights } from '@/lib/api/content';
 import { pageNumbersAfterFirst, parsePageNumber } from '@/lib/content/insights';
 import { dictionary } from '@/lib/dictionary';
 import { staticParams } from '@/lib/prerender';
+import { NOINDEX_FOLLOW, pageMetadata } from '@/lib/seo/metadata';
 
 interface CategoryPagedProps {
   params: Promise<{ slug: string; page: string }>;
@@ -27,9 +29,12 @@ export async function generateMetadata({ params }: CategoryPagedProps): Promise<
   const { slug, page } = await params;
   const category = (await getCategories()).find((item) => item.slug === slug);
   const number = parsePageNumber(page);
-  return category && number
-    ? { title: `${category.name}: ${dictionary.pagination.page(number)}` }
-    : {};
+  if (!category || !number) return { title: dictionary.notFound.title, robots: NOINDEX_FOLLOW };
+  return pageMetadata({
+    title: `${category.name}: ${dictionary.pagination.page(number)}`,
+    description: category.description ?? dictionary.insights.lead,
+    path: ROUTES.categoryPage(slug, number),
+  });
 }
 
 export default async function CategoryPagedPage({ params }: CategoryPagedProps) {

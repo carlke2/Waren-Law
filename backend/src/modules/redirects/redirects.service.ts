@@ -6,6 +6,13 @@ import { PrismaService } from '../../database/prisma.service.js';
 export class RedirectsService {
   constructor(private readonly prisma: PrismaService) {}
 
+  async list(): Promise<RedirectResponse[]> {
+    return this.prisma.redirect.findMany({
+      select: { fromPath: true, toPath: true, statusCode: true },
+      orderBy: { fromPath: 'asc' },
+    });
+  }
+
   async lookup(path: string): Promise<RedirectResponse> {
     const redirect = await this.prisma.redirect.findUnique({ where: { fromPath: path } });
     if (!redirect) throw new NotFoundException(`No redirect for "${path}"`);

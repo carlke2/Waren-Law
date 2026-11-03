@@ -9,10 +9,11 @@ import { Section } from '@/components/ui/layout';
 import { Lead } from '@/components/ui/typography';
 import { getSettings, searchContent } from '@/lib/api/content';
 import { dictionary } from '@/lib/dictionary';
+import { NOINDEX_FOLLOW } from '@/lib/seo/metadata';
 
 const text = dictionary.search;
 
-export const metadata: Metadata = { title: text.title, robots: { index: false, follow: true } };
+export const metadata: Metadata = { title: text.title, robots: NOINDEX_FOLLOW };
 
 type SearchResult = SearchResponse['results'][number];
 

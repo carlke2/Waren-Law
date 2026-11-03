@@ -27,6 +27,7 @@ import { parseHomeContent } from '@/lib/content/sections';
 import { featuredWebinar, webinarStateLabel } from '@/lib/content/webinars';
 import { dictionary } from '@/lib/dictionary';
 import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/prerender';
+import { pageMetadata, seoMetadataInput } from '@/lib/seo/metadata';
 
 const text = dictionary.home;
 const HERO_IMAGE_SIZES = '(min-width: 64rem) 50vw, 100vw';
@@ -34,7 +35,8 @@ const HERO_IMAGE_SIZES = '(min-width: 64rem) 50vw, 100vw';
 export async function generateMetadata(): Promise<Metadata> {
   await deferToRequestWhenPrerenderIsSkipped();
   const page = await getPage(HOME_PAGE_SLUG);
-  return { title: page?.seo.metaTitle, description: page?.seo.metaDescription };
+  if (!page) return {};
+  return pageMetadata(seoMetadataInput(page.seo, page.title, ROUTES.home));
 }
 
 export default async function HomePage() {

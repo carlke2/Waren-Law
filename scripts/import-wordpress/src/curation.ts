@@ -681,6 +681,11 @@ export const SETTINGS = {
     text: 'Book a consultation and speak to one of our advocates.',
     bookingLabel: 'Book a consultation',
   },
+  [SETTING_KEYS.seo]: {
+    titleTemplate: '%s | WAREN Law Advocates LLP',
+    description:
+      'WAREN Law Advocates LLP is a firm of advocates in Nairobi and Nakuru, with a joint office in Beijing.',
+  },
   [SETTING_KEYS.homeHero]: { videoUrl: null },
   [SETTING_KEYS.aboutVideo]: { url: null, captionsUrl: null },
   [SETTING_KEYS.siteVerification]: {
@@ -691,6 +696,11 @@ export const SETTINGS = {
 
 export const SETTING_MEDIA: Record<string, { file: string; baseName: string; altText: string }> = {
   [SETTING_KEYS.homeHero]: {
+    file: '2025/11/MOK_5299-scaled-1.webp',
+    baseName: 'home-hero-team',
+    altText: 'The WAREN Law team together in the firm’s office',
+  },
+  [SETTING_KEYS.seo]: {
     file: '2025/11/MOK_5299-scaled-1.webp',
     baseName: 'home-hero-team',
     altText: 'The WAREN Law team together in the firm’s office',
@@ -721,7 +731,7 @@ export const EXPECTED_COUNTS = {
   partner: 3,
   award: 1,
   'client logo': 14,
-  setting: 10,
+  setting: 11,
 };
 
 export const IMPORT_NOTES = [

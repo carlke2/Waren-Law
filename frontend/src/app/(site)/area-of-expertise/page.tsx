@@ -1,3 +1,4 @@
+import { ROUTES } from '@waren/shared';
 import type { Metadata } from 'next';
 import { CtaBand } from '@/components/site/cta-band';
 import { PageHero } from '@/components/site/page-hero';
@@ -6,10 +7,13 @@ import { Section } from '@/components/ui/layout';
 import { getPracticeAreas, getSettings } from '@/lib/api/content';
 import { dictionary } from '@/lib/dictionary';
 import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/prerender';
+import { pageMetadata } from '@/lib/seo/metadata';
 
 const text = dictionary.practice;
 
-export const metadata: Metadata = { title: text.index, description: text.indexLead };
+export function generateMetadata(): Promise<Metadata> {
+  return pageMetadata({ title: text.index, description: text.indexLead, path: ROUTES.expertise });
+}
 
 export default async function ExpertisePage() {
   await deferToRequestWhenPrerenderIsSkipped();

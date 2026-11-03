@@ -1,6 +1,6 @@
 # T021: SEO layer + redirects
 
-**Status:** Ready
+**Status:** Done
 **Week:** 1 (Version 1, Day 3)
 **Priority:** High
 
@@ -14,10 +14,10 @@
 - Check every URL in `docs/seo/url-inventory.csv` against the production build: each returns 200 at the same path or one 301 to its `proposed_new_url`. Write the result table to `docs/reports/v1-url-check.md`.
 
 ## Done when
-- [ ] URL check shows 0 failures (or each exception explained); metadata and JSON-LD validate (record how you checked).
+- [x] URL check shows 0 failures (or each exception explained); metadata and JSON-LD validate (record how you checked).
 
 ## Files / inputs
 - `docs/prompts/05-AGENT-V1-DAY3-FORMS-SEO-RELEASE.md`
 
 ## Result
-_(Filled in by the agent: what was done, files changed, questions or blockers.)_
+Per-route metadata with absolute canonicals, Open Graph, Twitter cards and a title template from Settings; everything is noindex while `SITE_INDEXABLE=false`, and `robots.txt`, the sitemap and verification tags follow the same switch. JSON-LD covers LegalService and Organization, WebSite with SearchAction, Person, Article, FAQPage, Event and BreadcrumbList. `src/proxy.ts` issues one 301 from the cached Redirect table and pattern rules, including trailing slashes. RSS is at `/feed/`. URL check: 101 passed, 0 failed (`docs/reports/v1-url-check.md`). Metadata and JSON-LD were checked with `scripts/qa/check-seo.mjs` on rendered pages and with unit tests; Google's Rich Results Test needs a public URL, so it hasn't been run. Inventory changes: author and MailPoet targets per decision 0010, and `/insights/page/4/` now redirects to the last page because the 4 dropped posts removed that page.

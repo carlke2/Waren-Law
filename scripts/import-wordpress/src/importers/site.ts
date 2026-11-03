@@ -27,6 +27,7 @@ import { applyTextFixes, assertNoBannedClaims, cutAtCallToAction, publishedAt } 
 const REDACTED_MARKER = '[slug-redacted]';
 const DROPPED_DECISION = 'drop';
 const POST_TYPE = 'post';
+const PAGINATION_TYPE = 'other (pagination)';
 
 interface InventoryRow {
   url: string;
@@ -281,11 +282,11 @@ export async function importRedirects(db: Database, report: ImportReport): Promi
     const toPath = row.proposed_new_url.trim();
     if (toPath === row.url.trim() || !toPath) continue;
     if (row.url.includes(REDACTED_MARKER)) {
-      report.skipped.push(`Redirect skipped, source slug is redacted in the inventory: ${row.url}`);
+      report.skipped.push(`Redirect handled by a frontend pattern rule: ${row.url}`);
       continue;
     }
-    if (!toPath.startsWith('/') || !row.url.startsWith('/') || row.url.startsWith('/?')) {
-      report.skipped.push(`Redirect skipped, target undecided: ${row.url} -> ${toPath}`);
+    if (row.url.startsWith('/?') || row.type === PAGINATION_TYPE) {
+      report.skipped.push(`Redirect handled by a frontend pattern rule: ${row.url}`);
       continue;
     }
     const data = { fromPath: row.url, toPath, statusCode: 301, note: row.keep_rewrite_drop };

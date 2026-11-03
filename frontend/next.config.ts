@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   trailingSlash: true,
+  skipTrailingSlashRedirect: true,
   turbopack: { root },
   outputFileTracingRoot: root,
   async rewrites() {

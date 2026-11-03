@@ -86,17 +86,17 @@ url,type,title,in_menu,http_status,word_count,keep_rewrite_drop,proposed_new_url
 /tag/property-purchase/,tag,Property Purchase - warenlaw.com,n,200,130,drop,/insights/,301; already noindex and not linked internally
 /tag/real-estate-kenya/,tag,Real Estate Kenya - warenlaw.com,n,200,131,drop,/insights/,301; already noindex and not linked internally
 /tag/regulatory-delays/,tag,Regulatory Delays - warenlaw.com,n,200,132,drop,/insights/,301; already noindex and not linked internally
-/author/,author,Page Not Found - warenlaw.com,n,404,30,drop,/insights/,301 by pattern; slug not recorded. Replace with named advocate profiles
-/author/[slug-redacted]/,author,Waren Law - warenlaw.com,n,200,906,drop,/insights/,301 by pattern; slug not recorded. Replace with named advocate profiles
-/author/[slug-redacted]/page/2/,author,Waren Law - warenlaw.com - Page 2 of 4,n,200,882,drop,/insights/,301 by pattern; slug not recorded. Replace with named advocate profiles
-/author/[slug-redacted]/page/3/,author,Waren Law - warenlaw.com - Page 3 of 4,n,200,817,drop,/insights/,301 by pattern; slug not recorded. Replace with named advocate profiles
-/author/[slug-redacted]/page/4/,author,Waren Law - warenlaw.com - Page 4 of 4,n,200,504,drop,/insights/,301 by pattern; slug not recorded. Replace with named advocate profiles
-/zh/author/[slug-redacted]/,author,Waren Law - warenlaw.com,n,200,16,drop,/insights/,301 by pattern; slug not recorded. Replace with named advocate profiles
-/?mailpoet_page=captcha,other (MailPoet system page),MailPoet Page - warenlaw.com,n,200,16,drop,(firm decision),Subscriber-management page: old emails may link here. Keep working or replace if the newsletter continues
-/?mailpoet_page=subscriptions,other (MailPoet system page),MailPoet Page - warenlaw.com,n,200,16,drop,(firm decision),Subscriber-management page: old emails may link here. Keep working or replace if the newsletter continues
+/author/,author,Page Not Found - warenlaw.com,n,404,30,drop,/our-team/,301 by pattern; slug not recorded. Replace with named advocate profiles
+/author/[slug-redacted]/,author,Waren Law - warenlaw.com,n,200,906,drop,/our-team/,301 by pattern; slug not recorded. Replace with named advocate profiles
+/author/[slug-redacted]/page/2/,author,Waren Law - warenlaw.com - Page 2 of 4,n,200,882,drop,/our-team/,301 by pattern; slug not recorded. Replace with named advocate profiles
+/author/[slug-redacted]/page/3/,author,Waren Law - warenlaw.com - Page 3 of 4,n,200,817,drop,/our-team/,301 by pattern; slug not recorded. Replace with named advocate profiles
+/author/[slug-redacted]/page/4/,author,Waren Law - warenlaw.com - Page 4 of 4,n,200,504,drop,/our-team/,301 by pattern; slug not recorded. Replace with named advocate profiles
+/zh/author/[slug-redacted]/,author,Waren Law - warenlaw.com,n,200,16,drop,/our-team/,301 by pattern; slug not recorded. Replace with named advocate profiles
+/?mailpoet_page=captcha,other (MailPoet system page),MailPoet Page - warenlaw.com,n,200,16,drop,/insights/,Subscriber-management page: old emails may link here. Keep working or replace if the newsletter continues
+/?mailpoet_page=subscriptions,other (MailPoet system page),MailPoet Page - warenlaw.com,n,200,16,drop,/insights/,Subscriber-management page: old emails may link here. Keep working or replace if the newsletter continues
 /elementor-hf/area-of-expertise/,other (Elementor template),,n,301,0,drop,/,Already 301 to home; should not be in the sitemap
 /ephraim-ndegwa/,other (old URL),,n,301,0,keep,/our-team/ephraim-ndegwa/,Existing 301 must be preserved; fix the internal link Redirects to /our-team/ephraim-ndegwa/
 /insights/page/2/,other (pagination),Legal Insights & Updates – Waren Law Advocates LLP,n,200,929,keep,/insights/page/2/,Pagination kept in the new listing; each page self-canonical
 /insights/page/3/,other (pagination),Legal Insights & Updates – Waren Law Advocates LLP,n,200,864,keep,/insights/page/3/,Pagination kept in the new listing; each page self-canonical
-/insights/page/4/,other (pagination),Legal Insights & Updates – Waren Law Advocates LLP,n,200,551,keep,/insights/page/4/,Pagination kept in the new listing; each page self-canonical
+/insights/page/4/,other (pagination),Legal Insights & Updates – Waren Law Advocates LLP,n,200,551,keep,/insights/page/3/,Pagination kept in the new listing; each page self-canonical
 /zh/,other (zh language),Legal Insights & Updates – Waren Law Advocates LLP,n,200,11,drop,/,301; zh dropped per DIRECTION; page is an empty shell with a canonical that 404s

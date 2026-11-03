@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BlockRenderer } from '@/components/site/block-renderer';
 import { CtaBand } from '@/components/site/cta-band';
+import { JsonLd } from '@/components/site/json-ld';
 import { InsightCard } from '@/components/site/insight-card';
 import { ButtonLink } from '@/components/ui/button';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
@@ -21,6 +22,9 @@ import { Heading, Prose } from '@/components/ui/typography';
 import { getSettings, getTeam, getTeamMember } from '@/lib/api/content';
 import { dictionary } from '@/lib/dictionary';
 import { staticParams } from '@/lib/prerender';
+import { NOINDEX_FOLLOW, pageMetadata, seoMetadataInput } from '@/lib/seo/metadata';
+import { breadcrumbSchema, personSchema } from '@/lib/seo/schema';
+import { serverEnv } from '@/lib/env';
 import { formatPhone, mailLink, telLink, whatsAppLink } from '@/lib/utils/links';
 
 const text = dictionary.profile;
@@ -41,11 +45,16 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: ProfilePageProps): Promise<Metadata> {
   const member = await getTeamMember((await params).slug);
-  if (!member) return {};
-  return {
-    title: member.seo.metaTitle ?? `${member.fullName}, ${member.roleTitle}`,
+  if (!member) return { title: dictionary.notFound.title, robots: NOINDEX_FOLLOW };
+  return pageMetadata({
+    ...seoMetadataInput(
+      member.seo,
+      `${member.fullName}, ${member.roleTitle}`,
+      ROUTES.profile(member.slug),
+    ),
     description: member.seo.metaDescription ?? member.shortBio,
-  };
+    image: member.seo.ogImage ?? member.portrait,
+  });
 }
 
 function contactActions(member: TeamDetail) {
@@ -97,22 +106,23 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   const [member, settings] = await Promise.all([getTeamMember((await params).slug), getSettings()]);
   if (!member) notFound();
   const name = member.displayName ?? member.fullName;
+  const crumbs = [
+    { label: dictionary.common.home, href: ROUTES.home },
+    { label: dictionary.team.title, href: ROUTES.team },
+    { label: name },
+  ];
+  const { siteUrl } = serverEnv();
   const hasCredentials = [member.education, member.admissions, member.memberships].some(
     (list) => list?.length,
   );
 
   return (
     <>
+      <JsonLd data={personSchema(member, siteUrl)} />
+      <JsonLd data={breadcrumbSchema(crumbs, siteUrl)} />
       <div data-tone="dark" className="bg-navy-900 py-12 text-on-dark-muted md:py-16">
         <Container>
-          <Breadcrumbs
-            label={dictionary.common.breadcrumb}
-            crumbs={[
-              { label: dictionary.common.home, href: ROUTES.home },
-              { label: dictionary.team.title, href: ROUTES.team },
-              { label: name },
-            ]}
-          />
+          <Breadcrumbs label={dictionary.common.breadcrumb} crumbs={crumbs} />
           <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,24rem)_1fr] lg:gap-12">
             {member.portrait ? (
               <Image
