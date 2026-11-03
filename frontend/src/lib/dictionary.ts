@@ -128,6 +128,15 @@ export const dictionary = {
     insights: 'Related insights',
   },
   insights: {
+    title: 'Insights',
+    lead: 'Articles on Kenyan law, investment, property and succession from WAREN Law Advocates LLP.',
+    all: 'All',
+    filterLabel: 'Filter insights by category',
+    webinarsLink: 'View webinars',
+    empty: 'There are no articles in this category yet.',
+    by: 'By',
+    related: 'Related insights',
+    relatedPractice: 'Related areas of expertise',
     readingTime: (minutes: number) => `${minutes} min read`,
   },
   webinars: {
