@@ -1,6 +1,6 @@
 # Implementation plan
 
-**Agreed:** 3 November 2026 · **Version 1:** Thursday 5 November 2026 · **Production launch:** target week of 21 December 2026 (flexible)
+**Agreed:** 3 November 2026 · **Version 1:** Thursday 5 November 2026 · **V2:** Friday 20 November · **Production launch:** target week of 7 December 2026 (buffer to 21 December)
 **Inputs:** `docs/DIRECTION.md`, `docs/STRUCTURE.md`, decisions 0001–0005, audit `docs/audit/01–06`.
 
 How it runs: the planner writes a brief per batch of tasks → the agent builds on one branch per task → the owner pastes the report back → the planner reviews and releases the next batch. Client inputs arrive in parallel; **nothing waits on the firm** (defaults in decision 0004).
@@ -27,32 +27,36 @@ How it runs: the planner writes a brief per batch of tasks → the agent builds 
 
 ---
 
-## Timeline at a glance
+## Roadmap after V1
 
-| Week | Dates (2026) | Build track (agent) | Planner + client |
-|---|---|---|---|
-| 1 | 3–9 Nov | **Phase 0** Foundation: monorepo, backend, frontend, shared, CI | D1 design direction + home mockup |
-| 2 | 10–16 Nov | **Phase 1** Data model, auth, API core | D2 key page mockups · D3 client approval |
-| 3 | 17–23 Nov | **Phase 1** API complete · **Phase 2** design system + layout | Mockup tweaks |
-| 4 | 24–30 Nov | **Phase 3** Public pages (part 1) | — |
-| 5 | 1–7 Dec | **Phase 3** Public pages (part 2) · **Phase 4** Admin (start) | — |
-| 6 | 8–14 Dec | **Phase 4** Admin (finish) · **Phase 5** Migration | Client content review |
-| 7 | 15–21 Dec | **Phase 6** Staging, QA, handover, launch | Client sign-off |
+| Stage | When | Brief | Tasks | Client sees |
+|---|---|---|---|---|
+| **V1 review** | Thu 5 – Fri 6 Nov | 06 — V1 fixes | Client feedback on staging → fixes and polish | Updated staging |
+| **V2.1 Admin foundation** | Mon 9 – Wed 11 Nov | 07 | T007 auth (password + 2FA, sessions, lockout) · T009 admin content API + history · T010 media uploads | — |
+| **V2.2 Admin screens** | Thu 12 – Tue 17 Nov | 08 | T022 admin shell + login · T023 settings, offices, pages · T024 practice areas + team · T025 insights, categories, webinars · T026 media library, logos, partners, awards, testimonials · T027 history, redirects, submissions, subscribers | — |
+| **V2.3 Email + newsletter** | Wed 18 – Thu 19 Nov | 09 | Rest of T011: newsletter double opt-in, gated webinar recordings, SMTP via the firm's Google Workspace, sending switch | — |
+| **V2 release** | Fri 20 Nov | — | V2 QA, release notes | **Admin demo: firm edits its own content on staging** |
+| **V3.1 Real content** | 23 – 27 Nov | 10 | T028 full WordPress export import (all media) · T029 redirects + content QA · client fills bios, titles, approvals, video | Content review on staging |
+| **V3.2 Production readiness** | 30 Nov – 4 Dec | 11 | T030 production Docker + Nginx + HTTPS · T031 backups, monitoring · T032 full QA (accessibility, performance, security) · T033 admin guide + runbook | Final sign-off |
+| **Launch** | target week of 7 Dec (buffer to 21 Dec) | 12 | T034 DNS cutover at Hostinger (web records only, mail untouched), go-live checks, WordPress decommission | **warenlaw.com live** |
+
+Launch depends on the domain being renewed and Hostinger DNS access. Everything before launch proceeds without client input.
 
 ## Milestones
 
 | | When | What "done" means |
 |---|---|---|
-| **M1** Foundation | end of week 1 | `pnpm dev` runs frontend + backend + Postgres locally; CI green |
-| **M2** Design approved | end of week 2 | Client approves mockups of home, practice area, team, profile, article, about |
-| **M3** API complete | end of week 3 | All public + admin endpoints working and tested; admin login with 2FA |
-| **M4** Public site on staging | end of week 5 | Every public page built from approved designs, with seed content |
-| **M5** Admin + real content | end of week 6 | Admin manages all content; WordPress content migrated; redirects loaded |
-| **M6** Live | week 7 | DNS switched, site live, mail untouched, handover done |
+| **V1** | Thu 5 Nov | Full public website with real content on staging |
+| **V2** | Fri 20 Nov | Admin manages all content; media, newsletter and history working |
+| **V3** | Fri 4 Dec | Real content complete and reviewed; production server ready; QA passed |
+| **Live** | target week of 7 Dec | DNS switched, site live, mail untouched, handover done |
 
 ---
 
-## Phase 0 — Foundation (week 1)
+## Full task list
+Task IDs are fixed. V1 and the roadmap above pick tasks from these phases; a task is done once, wherever it appears.
+
+## Phase 0 — Foundation (V1)
 
 | ID | Task | Delivers | Depends on |
 |---|---|---|---|
@@ -61,7 +65,7 @@ How it runs: the planner writes a brief per batch of tasks → the agent builds 
 | T004 | **Frontend scaffold** | Next.js (App Router) + Tailwind in `frontend/`; route groups `(site)` and `admin`; typed API client in `lib/api` reading `API_URL`; placeholder home calling `/health`; `.env.example`; one test | T002 |
 | T005 | **Shared package + local stack** | `shared/` builds and is imported by both apps; first Zod schema + type (Setting); `infra/docker-compose.yml` with PostgreSQL (+ optional pgAdmin) for local dev; README "run locally" steps | T003, T004 |
 
-## Phase 1 — Data and API (weeks 2–3)
+## Phase 1 — Data and API (V1 + V2.1)
 
 | ID | Task | Delivers | Depends on |
 |---|---|---|---|
@@ -72,14 +76,14 @@ How it runs: the planner writes a brief per batch of tasks → the agent builds 
 | T010 | **Media module** | Upload endpoint; type + size limits; resize/compress to WebP variants (sharp); alt text required for images; files on a volume (`backend/uploads/` locally); delete only when unused; tests | T007 |
 | T011 | **Forms, email, newsletter, search, redirects** | Contact form endpoint (honeypot, rate limit, consent timestamp, email to firm via SMTP); newsletter subscribe / unsubscribe (double opt-in) and gated webinar recording email; Settings switch for sending; search endpoint (PostgreSQL full-text); redirects table + lookup endpoint; tests | T008 |
 
-## Phase 2 — Design system (week 3, after M2)
+## Phase 2 — Design system (V1)
 
 | ID | Task | Delivers | Depends on |
 |---|---|---|---|
-| T012 | **Design tokens + UI components** | Tailwind tokens from approved mockups (navy, gold with accessible contrast, neutrals, serif headings + sans body, spacing, radius); `components/ui`: buttons, links, inputs, select, textarea, checkbox, badge, card, tag, tabs, accordion, modal, toast; focus states; WCAG AA contrast | T004, M2 |
+| T012 | **Design tokens + UI components** | Tailwind tokens built from the current brand (navy, gold with accessible contrast, neutrals, serif headings + sans body, spacing, radius); `components/ui`: buttons, links, inputs, select, textarea, checkbox, badge, card, tag, tabs, accordion, modal, toast; focus states; WCAG AA contrast | T004 |
 | T013 | **Site layout** | Header + navigation (desktop + mobile menu), footer (offices, quick links, practice areas, socials, legal links), WhatsApp button, cookie consent banner with consent-gated tag loading, breadcrumbs, page templates (one H1 each), SEO metadata helper | T012, T008 |
 
-## Phase 3 — Public site (weeks 4–5)
+## Phase 3 — Public site (V1)
 
 | ID | Task | Delivers | Depends on |
 |---|---|---|---|
@@ -92,7 +96,7 @@ How it runs: the planner writes a brief per batch of tasks → the agent builds 
 | T020 | **Contact, Partners, legal, search, 404** | Contact (offices incl. Beijing, maps, form with privacy notice, WhatsApp, booking); Partners page; Privacy, Terms, Cookie pages; search results page; 404 | T013, T011 |
 | T021 | **SEO layer** | Per-page metadata + canonical; Open Graph; JSON-LD (LegalService, Organization, Person for advocates, Article, FAQ, Event); sitemap from indexable records; robots.txt; verification tags from Settings; redirect middleware | T014–T020 |
 
-## Phase 4 — Admin panel (weeks 5–6)
+## Phase 4 — Admin panel (V2.2)
 
 | ID | Task | Delivers | Depends on |
 |---|---|---|---|
@@ -103,14 +107,14 @@ How it runs: the planner writes a brief per batch of tasks → the agent builds 
 | T026 | **Media + trust content** | Media library (upload, alt text, usage, delete when unused); client logos (permission tick), partners, awards, testimonials (consent + approval ticks) | T022, T010 |
 | T027 | **History, redirects, submissions, subscribers** | History viewer + restore; redirects manager; contact submissions list; subscribers list with CSV export and unsubscribe; retention clean-up job | T022, T009, T011 |
 
-## Phase 5 — Content migration (week 6)
+## Phase 5 — Content migration (V1 import + V3.1)
 
 | ID | Task | Delivers | Depends on |
 |---|---|---|---|
 | T028 | **WordPress import** | Script in `scripts/` importing from a WordPress export (XML + uploads): posts, pages, categories, team, practice text, webinars; media renamed + alt text carried or flagged; all imported legal content set to `needs_advocate_review`; dry-run mode; report of gaps | T006, T010 |
 | T029 | **Redirects + content QA** | Load redirect map from `docs/seo/url-inventory.csv`; check every old URL resolves (200 or one 301); fix import issues; list content still needing the firm | T028, T021 |
 
-## Phase 6 — Infrastructure, QA, launch (week 7)
+## Phase 6 — Infrastructure, QA, launch (V1 staging + V3.2 + Launch)
 
 | ID | Task | Delivers | Depends on |
 |---|---|---|---|
@@ -122,22 +126,12 @@ How it runs: the planner writes a brief per batch of tasks → the agent builds 
 
 ---
 
-## Design track — replaced by decision 0005 (design built in code, reviewed live)
-
-| ID | Step | Output | When |
-|---|---|---|---|
-| D1 | Design direction | Colour, type, imagery and component style; home page mockup | Week 1 |
-| D2 | Key page mockups | Practice area, team, advocate profile, article, about (with video), contact; mobile + desktop | Week 2 |
-| D3 | Client approval | Approved mockups saved to `docs/brand/` and referenced by T012–T020 | End of week 2 (M2) |
-
-If approval is late, the agent continues with Phase 1 (no design dependency) and T012 starts from the latest mockups.
-
 ## Client inputs (collected in parallel — never blocking)
 
 | Input | Needed for | Until then |
 |---|---|---|
 | Domain renewed + Hostinger access | T034 launch | **Urgent: expires 29 Nov** |
-| Original logo, brand colours/fonts | D1, T012 | Use logo from the current site |
+| Original logo, brand colours/fonts | T012 | Use logo and colours from the current site |
 | Team bios, titles, preferred names, admissions, photos | T016, T024 | Current site text, marked for review |
 | Legal content approver | Publishing | Content stays `needs_advocate_review` on staging |
 | About video | T015 | Placeholder video |
