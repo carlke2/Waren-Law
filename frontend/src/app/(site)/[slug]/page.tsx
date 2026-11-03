@@ -2,6 +2,7 @@ import { HOME_PAGE_SLUG } from '@waren/shared';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { AboutTemplate } from '@/components/site/templates/about-template';
+import { PracticeAreaTemplate } from '@/components/site/templates/practice-area-template';
 import { getRootSlugs } from '@/lib/api/content';
 import { loadRootContent, rootContentSeo, type RootContent } from '@/lib/content/root-content';
 import { staticParams } from '@/lib/prerender';
@@ -33,6 +34,7 @@ function renderRoot(root: RootContent) {
   if (root.type === 'page' && root.content.template === 'about') {
     return <AboutTemplate page={root.content} />;
   }
+  if (root.type === 'practice_area') return <PracticeAreaTemplate area={root.content} />;
   notFound();
 }
 

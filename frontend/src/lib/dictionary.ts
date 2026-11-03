@@ -119,6 +119,14 @@ export const dictionary = {
     languages: 'Languages',
     insights: (name: string) => `Insights by ${name}`,
   },
+  practice: {
+    eyebrow: 'Area of expertise',
+    index: 'Areas of Expertise',
+    indexLead: 'The legal services WAREN Law Advocates LLP offers to individuals and businesses.',
+    faq: 'Frequently asked questions',
+    team: 'Advocates in this area',
+    insights: 'Related insights',
+  },
   insights: {
     readingTime: (minutes: number) => `${minutes} min read`,
   },
