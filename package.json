@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "pnpm -r --parallel run --if-present dev",
     "build": "pnpm -r run --if-present build",
+    "prod": "bash scripts/run-production.sh",
     "lint": "eslint .",
     "typecheck": "pnpm -r run --if-present typecheck",
     "test": "pnpm -r run --if-present test",
