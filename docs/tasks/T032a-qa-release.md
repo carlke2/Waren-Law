@@ -1,6 +1,6 @@
 # T032a: V1 QA + release
 
-**Status:** Ready
+**Status:** Done
 **Week:** 1 (Version 1, Day 3)
 **Priority:** High
 
@@ -15,10 +15,10 @@ On the production build:
 - Tag `v1.0.0` on `main` and push the tag.
 
 ## Done when
-- [ ] all checks pass or are listed as known gaps; tag pushed.
+- [x] all checks pass or are listed as known gaps; tag pushed.
 
 ## Files / inputs
 - `docs/prompts/05-AGENT-V1-DAY3-FORMS-SEO-RELEASE.md`
 
 ## Result
-_(Filled in by the agent: what was done, files changed, questions or blockers.)_
+Final QA on a clean production build with Supabase content: 101 of 101 URLs, 83 pages and 69 images with no link problems, 21 routes at two widths, keyboard 28 of 28, consent correct, contact form valid, invalid and honeypot all correct, and no server errors. QA found and fixed: a query that hung for 200 seconds (now limited by timeouts), a frontend retry that React's fetch de-duplication disabled (proved fixed against a failing test API), the cookie banner causing Team's slow LCP, and a heading skip. Scores and explanations are in `docs/releases/v1.md`.

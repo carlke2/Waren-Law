@@ -11,6 +11,12 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
       adapter: new PrismaPg({
         connectionString: env.DATABASE_URL,
         ssl: databaseSslOptions(env),
+        // Reconnecting after a quiet spell is slow, so idle connections stay open for a while.
+        idleTimeoutMillis: env.DATABASE_POOL_IDLE_TIMEOUT_MS,
+        keepAlive: true,
+        // Without these limits, a silently dropped connection hung a request for over 3 minutes.
+        connectionTimeoutMillis: env.DATABASE_CONNECT_TIMEOUT_MS,
+        query_timeout: env.DATABASE_QUERY_TIMEOUT_MS,
       }),
     });
   }

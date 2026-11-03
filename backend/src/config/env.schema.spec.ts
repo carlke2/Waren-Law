@@ -14,6 +14,7 @@ describe('parseEnv', () => {
     const env = parseEnv(valid);
     expect(env.PORT).toBe(4000);
     expect(env.NODE_ENV).toBe('development');
+    expect(env.DATABASE_POOL_IDLE_TIMEOUT_MS).toBe(120_000);
   });
 
   it('treats empty SMTP values as unset', () => {

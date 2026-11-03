@@ -25,7 +25,7 @@ export default async function ExpertisePage() {
         <ul className="grid gap-5 md:grid-cols-2">
           {practiceAreas.map((area) => (
             <li key={area.slug}>
-              <PracticeAreaCard area={area} />
+              <PracticeAreaCard area={area} headingLevel={2} />
             </li>
           ))}
         </ul>

@@ -68,12 +68,13 @@ export function CookieConsent({ tracking }: { tracking: SiteSettings['tracking']
       <div className="mx-auto grid max-w-site gap-4 p-gutter md:px-8">
         <div>
           <h2 className="text-h4">{text.title}</h2>
-          <p className="mt-1 max-w-reading text-small text-on-dark-muted">
-            {text.description}{' '}
-            <Link href={ROUTES.cookies} className="underline underline-offset-4">
-              {text.policyLink}
-            </Link>
-          </p>
+          <p className="mt-1 text-small text-on-dark-muted">{text.description}</p>
+          <Link
+            href={ROUTES.cookies}
+            className="text-small text-on-dark-muted underline underline-offset-4"
+          >
+            {text.policyLink}
+          </Link>
         </div>
         {showDetails ? (
           <div className="grid gap-1 md:grid-cols-2">
