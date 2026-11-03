@@ -17,7 +17,9 @@ export function WebinarCard({ webinar }: { webinar: WebinarSummary }) {
         </Link>
       </h2>
       {webinar.startsAt ? (
-        <p className="mt-1 text-caption text-ink-muted">{formatDate(webinar.startsAt)}</p>
+        <p className="mt-1 text-caption text-ink-muted">
+          {formatDate(webinar.startsAt, webinar.timezone)}
+        </p>
       ) : null}
       <p className="mt-3 text-small text-ink-muted">{webinar.summary}</p>
     </article>

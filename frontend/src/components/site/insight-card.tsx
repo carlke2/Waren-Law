@@ -7,7 +7,14 @@ import { formatDate } from '@/lib/utils/dates';
 
 const CARD_IMAGE_SIZES = '(min-width: 64rem) 24rem, (min-width: 48rem) 50vw, 100vw';
 
-export function InsightCard({ insight }: { insight: InsightSummary }) {
+export function InsightCard({
+  insight,
+  headingLevel = 3,
+}: {
+  insight: InsightSummary;
+  headingLevel?: 2 | 3;
+}) {
+  const Title = `h${headingLevel}` as const;
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-md border border-line bg-surface">
       {insight.featuredImage ? (
@@ -26,11 +33,11 @@ export function InsightCard({ insight }: { insight: InsightSummary }) {
           {insight.publishedAt ? ' · ' : null}
           {dictionary.insights.readingTime(insight.readingMinutes)}
         </p>
-        <h3 className="mt-2 text-h4">
+        <Title className="mt-2 text-h4">
           <Link href={ROUTES.root(insight.slug)} className="hover:underline underline-offset-4">
             {insight.title}
           </Link>
-        </h3>
+        </Title>
         {insight.categories.length ? (
           <p className="mt-auto pt-3 text-caption text-gold-700">
             {insight.categories.map(({ name }) => name).join(' · ')}

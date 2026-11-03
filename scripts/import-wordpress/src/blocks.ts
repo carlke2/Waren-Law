@@ -53,6 +53,21 @@ export async function resolveImages(
   return resolved;
 }
 
+const FIRST_HEADING_LEVEL = 2;
+
+export function closeHeadingGaps(blocks: readonly Block[]): Block[] {
+  let previous = FIRST_HEADING_LEVEL - 1;
+  return blocks.map((block) => {
+    if (block.type !== 'heading') return block;
+    const level = Math.min(block.level, previous + 1) as typeof block.level;
+    previous = level;
+    return { ...block, level };
+  });
+}
+
 export function toDocument(blocks: readonly Block[]): BlockDocument {
-  return blockDocumentSchema.parse({ version: BLOCK_DOCUMENT_VERSION, blocks });
+  return blockDocumentSchema.parse({
+    version: BLOCK_DOCUMENT_VERSION,
+    blocks: closeHeadingGaps(blocks),
+  });
 }

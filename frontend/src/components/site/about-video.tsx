@@ -23,7 +23,13 @@ interface AboutVideoProps {
 
 function Poster({ poster }: Pick<AboutVideoProps, 'poster'>) {
   return (
-    <Image src={poster.url} alt={poster.alt} fill sizes={POSTER_SIZES} className="object-cover" />
+    <Image
+      src={poster.url}
+      alt={poster.alt}
+      fill
+      sizes={POSTER_SIZES}
+      className="object-cover object-top"
+    />
   );
 }
 

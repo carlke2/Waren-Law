@@ -10,7 +10,13 @@ import {
   WEBINAR_SUMMARY_HEADING,
 } from '../curation.js';
 import type { Database } from '../database.js';
-import { blockText, htmlToBlocks, htmlToPlainText, normaliseText } from '../html-to-blocks.js';
+import {
+  blockText,
+  htmlToBlocks,
+  htmlToPlainText,
+  normaliseText,
+  type ParsedBlock,
+} from '../html-to-blocks.js';
 import type { MediaLibrary } from '../media.js';
 import { fetchPageSeo } from '../seo.js';
 import { ImportReport, sameIds, syncRecord } from '../sync.js';
@@ -27,6 +33,24 @@ function extractToggleFaq(html: string): FaqItem[] {
       answer: clean($(item).find('.elementor-tab-content').text()),
     }))
     .filter(({ question, answer }) => question && answer);
+}
+
+// The summary is shown in the page hero, so the body doesn't repeat it. The audience section's
+// sub-headings become cards, which the source page nests one level too deep.
+export function reshapeWebinarBody(
+  blocks: readonly ParsedBlock[],
+  summaryIndex: number,
+  audienceIndex: number,
+): ParsedBlock[] {
+  const next = summaryIndex === -1 ? undefined : blocks[summaryIndex + 2];
+  const summaryHasMore = next !== undefined && next.type !== 'heading';
+  return blocks.flatMap((block, index): ParsedBlock[] => {
+    if (index === summaryIndex + 1 && summaryIndex !== -1) return [];
+    if (index === summaryIndex && !summaryHasMore) return [];
+    if (audienceIndex === -1 || index <= audienceIndex || block.type !== 'heading') return [block];
+    if (index === audienceIndex + 1) return [{ type: 'paragraph', content: block.content }];
+    return block.level === 4 ? [{ ...block, level: 3 }] : [block];
+  });
 }
 
 export async function importWebinars(
@@ -48,9 +72,6 @@ export async function importWebinars(
       const text = blockText(block);
       return !WEBINAR_DROP_BLOCKS.test(text) && text.toLowerCase() !== title.toLowerCase();
     });
-    const blocks = await resolveImages(parsed, media, `webinar-${entry.slug}`, title);
-    assertNoBannedClaims(blocks, entry.slug);
-
     const summaryIndex = parsed.findIndex((block) =>
       WEBINAR_SUMMARY_HEADING.test(blockText(block)),
     );
@@ -59,6 +80,14 @@ export async function importWebinars(
     );
     const summaryBlock = summaryIndex === -1 ? undefined : parsed[summaryIndex + 1];
     const audienceBlock = audienceIndex === -1 ? undefined : parsed[audienceIndex + 1];
+
+    const blocks = await resolveImages(
+      reshapeWebinarBody(parsed, summaryIndex, audienceIndex),
+      media,
+      `webinar-${entry.slug}`,
+      title,
+    );
+    assertNoBannedClaims(blocks, entry.slug);
 
     const hero = entry.heroImage
       ? await media.ensure({

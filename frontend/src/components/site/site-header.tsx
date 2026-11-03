@@ -20,7 +20,7 @@ export function SiteHeader({ settings, practiceAreas }: SiteHeaderProps) {
             src={logo}
             alt={settings.firm.name}
             className="h-10 w-auto"
-            priority
+            loading="eager"
             sizes="12rem"
           />
         </Link>
