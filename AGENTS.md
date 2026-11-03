@@ -15,6 +15,18 @@ Read first, every task: this file → `docs/DIRECTION.md` → `docs/STRUCTURE.md
 7. Set the task to `Done` or `Blocked`, fill in **Result**, save the report to `docs/reports/T00X-report.md`.
 8. Record any decision you made in `docs/decisions/` (next number: Decision / Why / Consequences).
 
+## Code standards (decision 0006 — apply to every line)
+- **Minimal comments.** Self-explaining code: clear names, small functions, strong types. Comment only a non-obvious *why*. No commented-out code, banners, restating comments or generated boilerplate comments.
+- **Nothing hard-coded:**
+  - Config (URLs, ports, origins, secrets, SMTP, tracking IDs, switches) → environment variables, validated at startup, listed in `.env.example`.
+  - Firm content (text, phones, emails, addresses, socials, offices, CTA labels) → database, via the API.
+  - Fixed values (enums, routes, limits, statuses) → `shared/src/constants`; no repeated string literals.
+  - Design values (colours, fonts, spacing, radius, breakpoints) → design tokens; no raw hex or pixel values in components.
+  - UI shell wording (labels, buttons, errors) → one frontend dictionary file.
+- **Clean structure:** one responsibility per file, feature folders, no dead code, no unused exports, no `TODO`s in merged code, no `any`.
+- **Database:** Supabase PostgreSQL via Prisma only (`DATABASE_URL` pooled, `DIRECT_URL` for migrations). Never print or log connection strings.
+- Report any value you could not avoid hard-coding, with the reason.
+
 ## Never
 - Change or publish anything on the live warenlaw.com unless a task explicitly says so.
 - Put passwords, keys, tokens or client data in the repo.

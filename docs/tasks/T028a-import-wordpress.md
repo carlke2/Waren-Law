@@ -19,9 +19,10 @@ Script in `scripts/import-wordpress/` (TypeScript, run with `pnpm import:wp`), *
 - **Redirects:** load `docs/seo/url-inventory.csv` rows with a different `proposed_new_url` into the Redirect table.
 - Imported published content → `legalReviewStatus = approved` (decision 0005). Fix the known data errors while importing (Cecilia's email link, WhatsApp number format, phone link mismatch, "Intergrity" typo) and list each fix.
 - Prints a summary (counts per entity, skipped items, warnings).
+Source URLs, rate limit and paths come from env/config, not literals.
 
 ## Done when
-- [ ] a clean database + `pnpm import:wp` produces the counts above; re-running changes nothing.
+- [ ] `pnpm import:wp` fills the Supabase database with the counts above; re-running changes nothing.
 
 ## Files / inputs
 - `docs/prompts/03-AGENT-V1-DAY1-FOUNDATION-DATA.md`

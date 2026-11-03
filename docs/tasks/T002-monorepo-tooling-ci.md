@@ -14,4 +14,4 @@ pnpm workspaces wired; `tsconfig.base.json` (strict); ESLint flat config + Prett
 - `docs/prompts/03-AGENT-V1-DAY1-FOUNDATION-DATA.md`
 
 ## Result
-Root ESLint flat config, Prettier, strict `tsconfig.base.json`, root scripts and `.github/workflows/ci.yml` added. TypeScript is held at 6.0.x, because typescript-eslint and the Nest toolchain do not yet support 7.0 (decision 0006). Root `pnpm install`, `pnpm lint` and `pnpm typecheck` pass.
+Root ESLint flat config, Prettier, strict `tsconfig.base.json`, root scripts and `.github/workflows/ci.yml` added. TypeScript is held at 6.0.x, because typescript-eslint and the Nest toolchain do not yet support 7.0 (decision 0007). Root `pnpm install`, `pnpm lint` and `pnpm typecheck` pass.

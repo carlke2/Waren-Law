@@ -5,7 +5,7 @@
 **Priority:** High
 
 ## Goal
-`@waren/shared` workspace built with TypeScript (`schemas/`, `types/`, `constants/`), imported by both apps; `infra/docker-compose.yml` (PostgreSQL with volume + healthcheck; pgAdmin under a profile); root `pnpm dev` runs shared (watch) + backend + frontend; README "Run locally".
+`@waren/shared` workspace built with TypeScript (`schemas/`, `types/`, `constants/`), imported by both apps; `infra/docker-compose.yml` (optional local PostgreSQL with volume + healthcheck, for offline work/tests); root `pnpm dev` runs shared (watch) + backend + frontend; README "Run locally".
 
 ## Done when
 - [ ] fresh clone → README steps → all three running.
