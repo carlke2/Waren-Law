@@ -1,6 +1,6 @@
 # T003: Backend scaffold (NestJS)
 
-**Status:** Done
+**Status:** Blocked
 **Week:** 1 (Version 1, Day 1)
 **Priority:** High
 
@@ -14,4 +14,8 @@
 - `docs/prompts/03-AGENT-V1-DAY1-FOUNDATION-DATA.md`
 
 ## Result
-NestJS 12 app with env validation, Prisma service (driver adapter), Zod validation pipe, JSON error filter, Helmet, CORS, rate limiting, request logging and `GET /health`. Unit and e2e tests pass, and the built app answered `/health` with the database up.
+Built and aligned with decision 0006: env validation (including `DIRECT_URL`, `UPLOADS_DIR`, `PUBLIC_MEDIA_BASE_URL`), Prisma service, validation pipe, JSON error filter, Helmet, CORS, rate limiting, request logging and `GET /health`. Unit and e2e tests pass against a local PostgreSQL.
+
+**Blocked:** the done-when item needs `/health` to report the Supabase database. The owner must fill `DATABASE_URL` and `DIRECT_URL` in `backend/.env`.
+
+**Prisma 7:** `url` and `directUrl` can't go in `schema.prisma`, so `prisma.config.ts` gives migrations `DIRECT_URL` and the driver adapter uses `DATABASE_URL` (decision 0007).
