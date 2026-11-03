@@ -1,3 +1,3 @@
-# Plan
+# Implementation plan
 
-To be written by the planner. Task briefs go in [tasks/](tasks/).
+Implementation plan — to be agreed after the structure review.
