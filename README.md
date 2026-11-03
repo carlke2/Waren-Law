@@ -15,6 +15,45 @@ git clone https://github.com/carlke2/Waren-Law.git
 cd Waren-Law
 ```
 
+## Run locally
+
+You need Node 26 (`nvm use`) and pnpm through Corepack. Node 26 doesn't bundle Corepack, so install it once with `npm i -g corepack`, then run `corepack enable`.
+
+```bash
+git clone https://github.com/carlke2/Waren-Law.git
+cd Waren-Law
+nvm use
+pnpm install
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env
+```
+
+In `backend/.env`, set:
+
+- `DATABASE_URL`: Supabase pooler, transaction mode.
+- `DIRECT_URL`: Supabase direct connection with `?sslmode=require`. The direct host is IPv6-only, so without IPv6 use the session pooler (the same pooler host on port 5432).
+- `SESSION_SECRET`: the output of `openssl rand -hex 32`.
+
+Never commit these values or paste them into chat, tickets or logs.
+
+```bash
+pnpm dev
+```
+
+This runs the shared package (watch), the backend at http://localhost:4000 and the frontend at http://localhost:3000. The home page shows the backend and database status.
+
+### Tests and offline work
+
+Tests never use Supabase. They need a local PostgreSQL with a database named `waren_test`, set as `TEST_DATABASE_URL` in `backend/.env`. To run one with Docker:
+
+```bash
+cp infra/.env.example infra/.env
+docker compose --env-file infra/.env -f infra/docker-compose.yml up -d
+pnpm test
+```
+
+Fill in `POSTGRES_PASSWORD` in `infra/.env` first.
+
 ## Folder structure
 
 One repo, two apps (frontend + backend) and a shared package, managed with pnpm. Full layout and rules: [`docs/STRUCTURE.md`](docs/STRUCTURE.md).

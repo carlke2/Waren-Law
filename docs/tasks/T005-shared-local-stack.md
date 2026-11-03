@@ -1,6 +1,6 @@
 # T005: Shared package + local stack
 
-**Status:** Ready
+**Status:** In progress
 **Week:** 1 (Version 1, Day 1)
 **Priority:** High
 
