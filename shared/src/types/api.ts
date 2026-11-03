@@ -25,3 +25,6 @@ export type TestimonialResponse = z.infer<typeof api.testimonialResponseSchema>;
 export type ResolveResponse = z.infer<typeof api.resolveResponseSchema>;
 export type SearchResponse = z.infer<typeof api.searchResponseSchema>;
 export type RedirectResponse = z.infer<typeof api.redirectResponseSchema>;
+export type SiteSettings = z.infer<typeof api.siteSettingsSchema>;
+export type RootSlug = z.infer<typeof api.resolveResponseSchema>;
+export type ContactForm = z.infer<typeof api.contactFormSchema>;

@@ -76,6 +76,7 @@ describe('API against the imported content', () => {
     const cecilia = teamDetailSchema.parse(await get(`${API_ROUTES.team}/cecilia-njeri`));
     expect(cecilia.email).toBe('cwangeci@warenlaw.com');
     expect(cecilia.experience?.length).toBeGreaterThan(0);
+    expect(JSON.stringify(cecilia)).not.toMatch(/over 100 properties|hundreds of charges/);
     const janice = teamDetailSchema.parse(await get(`${API_ROUTES.team}/janice-wachuka`));
     expect(janice.longBio?.blocks.length).toBeGreaterThan(0);
     await get(`${API_ROUTES.team}/alex-maina`, 404);

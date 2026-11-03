@@ -1,5 +1,5 @@
 import type { Block } from '@waren/shared';
-import { BANNED_CLAIMS, CTA_START, TEXT_FIXES } from '../curation.js';
+import { BANNED_CLAIMS, CTA_START, OUTCOME_CLAIM_EDITS, TEXT_FIXES } from '../curation.js';
 import { blocksToPlainText, blockText, type ParsedBlock } from '../html-to-blocks.js';
 import type { ImportReport } from '../sync.js';
 
@@ -8,15 +8,19 @@ export function cutAtCallToAction(blocks: readonly ParsedBlock[]): ParsedBlock[]
   return index === -1 ? [...blocks] : blocks.slice(0, index);
 }
 
-function fixInline<T extends { text: string }>(piece: T, report: ImportReport): T {
-  let { text } = piece;
-  for (const fix of TEXT_FIXES) {
+export function fixText(value: string, report: ImportReport): string {
+  let text = value;
+  for (const fix of [...TEXT_FIXES, ...OUTCOME_CLAIM_EDITS]) {
     if (text.includes(fix.from)) {
       text = text.replace(fix.from, fix.to);
       report.fixes.add(fix.note);
     }
   }
-  return { ...piece, text };
+  return text;
+}
+
+function fixInline<T extends { text: string }>(piece: T, report: ImportReport): T {
+  return { ...piece, text: fixText(piece.text, report) };
 }
 
 export function applyTextFixes(

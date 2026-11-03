@@ -1,6 +1,7 @@
 export * from './constants/api.js';
 export * from './constants/content.js';
 export * from './constants/health.js';
+export * from './constants/routes.js';
 export * from './schemas/api.js';
 export * from './schemas/blocks.js';
 export * from './schemas/common.js';

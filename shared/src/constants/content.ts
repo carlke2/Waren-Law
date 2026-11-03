@@ -15,6 +15,7 @@ export const CHANGE_ACTIONS = [
 ] as const;
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export const HOME_PAGE_SLUG = 'home';
+export const PAGE_TEMPLATES = ['home', 'about', 'partners', 'contact', 'legal'] as const;
 export const BLOCK_DOCUMENT_VERSION = 1;
 export const HEADING_LEVELS = [2, 3, 4] as const;
 export const INLINE_MARKS = ['bold', 'italic', 'underline'] as const;
@@ -28,4 +29,7 @@ export const SETTING_KEYS = {
   booking: 'booking',
   tracking: 'tracking',
   siteVerification: 'siteVerification',
+  cta: 'cta',
+  homeHero: 'homeHero',
+  aboutVideo: 'aboutVideo',
 } as const;

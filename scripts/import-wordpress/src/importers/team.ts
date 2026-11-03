@@ -15,6 +15,7 @@ import { toKebabCase, type MediaLibrary } from '../media.js';
 import { ImportReport, sameIds, syncRecord } from '../sync.js';
 import type { WpPage } from '../wp-client.js';
 import { fetchPageSeo } from '../seo.js';
+import { applyTextFixes, assertNoBannedClaims, fixText } from './shared.js';
 
 const TEAM_PAGE_SLUG = 'our-team';
 const PROFILE_LANGUAGES_DEFAULT: string[] = [];
@@ -121,11 +122,22 @@ async function importMember(
   }
   const profile = profilePage ? parseProfile(profilePage, normaliseHref) : null;
   const longBioBlocks: Block[] | null = profile
-    ? await resolveImages(profile.longBio, media, `team-${slug}-bio`, entry.name)
+    ? await resolveImages(
+        applyTextFixes(profile.longBio, report),
+        media,
+        `team-${slug}-bio`,
+        entry.name,
+      )
     : null;
   const seo = profilePage
     ? await fetchPageSeo(`/our-team/${profilePage.slug}/`)
     : { metaTitle: null, metaDescription: null };
+
+  const experience = profile?.experience?.map((item) => fixText(item, report));
+  assertNoBannedClaims(
+    [experience?.join(' ') ?? '', longBioBlocks ? blocksToPlainText(longBioBlocks) : ''].join(' '),
+    slug,
+  );
 
   const data = {
     slug,
@@ -135,7 +147,7 @@ async function importMember(
     isAdvocate: entry.isAdvocate,
     shortBio: card.shortBio,
     longBio: longBioBlocks ? toDocument(longBioBlocks) : undefined,
-    experience: profile?.experience ?? undefined,
+    experience: experience ?? undefined,
     education: profile?.education ?? undefined,
     admissions: profile?.admissions ?? undefined,
     memberships: profile?.memberships ?? undefined,
