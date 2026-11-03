@@ -18,6 +18,10 @@ export const envSchema = z.object({
   SESSION_SECRET: z.string().min(32, 'SESSION_SECRET must be at least 32 characters'),
   RATE_LIMIT_PER_MINUTE: z.coerce.number().int().positive().default(300),
   UPLOADS_DIR: z.string().min(1),
+  PREVIEW_UNREVIEWED_PAGES: z
+    .enum(['true', 'false'])
+    .default('false')
+    .transform((value) => value === 'true'),
   PUBLIC_MEDIA_BASE_URL: z.url(),
   SMTP_HOST: optionalString,
   SMTP_PORT: z.preprocess(

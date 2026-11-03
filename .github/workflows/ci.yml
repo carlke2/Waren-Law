@@ -36,3 +36,8 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm build
+        env:
+          API_URL: http://localhost:4000
+          PUBLIC_MEDIA_BASE_URL: http://localhost:4000/uploads
+          REVALIDATE_SECONDS: '300'
+          SKIP_PRERENDER: 'true'

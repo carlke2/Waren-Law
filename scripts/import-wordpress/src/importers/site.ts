@@ -12,7 +12,9 @@ import {
   PAGES,
   PARTNERS,
   PARTNERS_PAGE_SLUG,
+  SETTING_MEDIA,
   SETTINGS,
+  type PageEntry,
 } from '../curation.js';
 import type { Database } from '../database.js';
 import { blockText, htmlToBlocks, type ParsedBlock } from '../html-to-blocks.js';
@@ -49,6 +51,24 @@ export async function droppedPostSlugs(): Promise<Set<string>> {
   );
 }
 
+async function wordpressPageBlocks(
+  entry: PageEntry,
+  page: WpPage,
+  normaliseHref: (href: string) => string,
+): Promise<ParsedBlock[]> {
+  const kept = cutAtCallToAction(
+    htmlToBlocks(page.content.rendered, {
+      skipWidgets: COMMON_SKIPPED_WIDGETS,
+      normaliseHref,
+    }),
+  ).filter((block: ParsedBlock) => {
+    const text = blockText(block);
+    if (entry.keepOnly) return entry.keepOnly.test(text);
+    return !entry.dropBlocks?.test(text);
+  });
+  return kept;
+}
+
 export async function importPages(
   db: Database,
   report: ImportReport,
@@ -58,34 +78,31 @@ export async function importPages(
 ): Promise<void> {
   for (const entry of PAGES) {
     const page = pages.find(({ slug }) => slug === entry.wordpressSlug);
-    if (!page) throw new Error(`Missing WordPress page ${entry.wordpressSlug}`);
-    const parsed = cutAtCallToAction(
-      htmlToBlocks(page.content.rendered, {
-        skipWidgets: COMMON_SKIPPED_WIDGETS,
-        normaliseHref,
-      }),
-    ).filter((block: ParsedBlock) => {
-      const text = blockText(block);
-      if (entry.keepOnly) return entry.keepOnly.test(text);
-      return !entry.dropBlocks?.test(text);
-    });
+    if (!page && !entry.authored) throw new Error(`Missing WordPress page ${entry.slug}`);
+    const parsed = page
+      ? await wordpressPageBlocks(entry, page, normaliseHref)
+      : (entry.authored?.blocks ?? []);
+    const fixed = applyTextFixes(parsed, report);
     const blocks = await resolveImages(
-      applyTextFixes(parsed, report),
+      entry.reshape ? entry.reshape(fixed) : fixed,
       media,
       `page-${entry.slug}`,
       entry.title,
     );
     assertNoBannedClaims(blocks, entry.slug);
-    const seo = await fetchPageSeo(entry.path);
+    const seo = page
+      ? await fetchPageSeo(entry.path)
+      : { metaTitle: entry.title, metaDescription: entry.authored?.metaDescription ?? null };
     const data = {
       slug: entry.slug,
       title: entry.title,
       body: toDocument(blocks),
       template: entry.template,
-      legalReviewStatus: 'approved' as const,
-      legacyWordpressId: page.id,
+      // New wording stays unapproved until the firm's advocate reviews it (decision 0005).
+      legalReviewStatus: page ? ('approved' as const) : ('needs_advocate_review' as const),
+      legacyWordpressId: page?.id ?? null,
       status: 'published' as const,
-      publishedAt: publishedAt(page.date_gmt),
+      publishedAt: page ? publishedAt(page.date_gmt) : null,
       canonicalUrl: null,
       ...seo,
     };
@@ -177,9 +194,21 @@ export async function importPartners(
   return ids;
 }
 
-export async function importSettings(db: Database, report: ImportReport): Promise<void> {
+export async function importSettings(
+  db: Database,
+  report: ImportReport,
+  media: MediaLibrary,
+): Promise<void> {
   for (const [key, value] of Object.entries(SETTINGS)) {
-    const data = { value: value as Prisma.InputJsonValue };
+    const curatedMedia = SETTING_MEDIA[key];
+    const record = curatedMedia
+      ? await media.ensure({
+          legacyUrl: media.uploadUrl(curatedMedia.file),
+          baseName: curatedMedia.baseName,
+          altText: curatedMedia.altText,
+        })
+      : null;
+    const data = { value: value as Prisma.InputJsonValue, mediaId: record?.id ?? null };
     await syncRecord(report, 'setting', data, {
       find: () => db.setting.findUnique({ where: { key } }),
       create: (values) => db.setting.create({ data: { key, ...values } }),

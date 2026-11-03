@@ -8,6 +8,11 @@ import { ResolveService } from './resolve.service.js';
 export class ResolveController {
   constructor(private readonly resolver: ResolveService) {}
 
+  @Get()
+  list() {
+    return this.resolver.listRootSlugs();
+  }
+
   @Get(':slug')
   resolve(@Param() params: SlugParams) {
     return this.resolver.resolve(params.slug);

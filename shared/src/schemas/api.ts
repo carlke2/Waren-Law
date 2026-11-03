@@ -1,13 +1,21 @@
 import { z } from 'zod';
 import {
   DEFAULT_PAGE_SIZE,
+  LEGAL_REVIEW_STATUSES,
+  PAGE_TEMPLATES,
   MAX_PAGE_SIZE,
   MEMBER_TYPES,
   OFFICE_TYPES,
+  SETTING_KEYS,
   SLUG_TYPES,
   WEBINAR_STATES,
 } from '../constants/content.js';
-import { SEARCH_QUERY_MAX_LENGTH, SEARCH_RESULT_TYPES } from '../constants/api.js';
+import {
+  CONTACT_FIELD_MAX_LENGTH,
+  CONTACT_MESSAGE_MAX_LENGTH,
+  SEARCH_QUERY_MAX_LENGTH,
+  SEARCH_RESULT_TYPES,
+} from '../constants/api.js';
 import {
   headingBlockSchema,
   imageBlockSchema,
@@ -56,6 +64,37 @@ const namedLinkSchema = z.object({ slug: z.string(), name: z.string() });
 
 export const settingsResponseSchema = z.record(z.string(), z.unknown());
 
+const withMedia = z.object({ media: mediaRefSchema });
+
+export const siteSettingsSchema = z.object({
+  [SETTING_KEYS.firm]: z.object({ name: z.string(), tagline: z.string() }),
+  [SETTING_KEYS.contact]: z.object({ phones: z.array(z.string()), email: z.string() }),
+  [SETTING_KEYS.whatsApp]: z.object({ number: z.string(), message: z.string().nullable() }),
+  [SETTING_KEYS.socials]: z.object({
+    linkedIn: z.url(),
+    facebook: z.url(),
+    instagram: z.url(),
+    youtube: z.url(),
+  }),
+  [SETTING_KEYS.booking]: z.object({ url: z.url() }),
+  [SETTING_KEYS.tracking]: z.object({
+    googleTagManagerId: z.string().nullable(),
+    googleTagId: z.string().nullable(),
+    metaPixelId: z.string().nullable(),
+  }),
+  [SETTING_KEYS.siteVerification]: z.object({ google: z.string(), bing: z.string() }),
+  [SETTING_KEYS.cta]: z.object({
+    heading: z.string(),
+    text: z.string(),
+    bookingLabel: z.string(),
+  }),
+  [SETTING_KEYS.homeHero]: withMedia.extend({ videoUrl: z.url().nullable() }),
+  [SETTING_KEYS.aboutVideo]: withMedia.extend({
+    url: z.url().nullable(),
+    captionsUrl: z.url().nullable(),
+  }),
+});
+
 export const officeResponseSchema = z.object({
   slug: z.string(),
   name: z.string(),
@@ -75,7 +114,8 @@ export const officeResponseSchema = z.object({
 export const pageResponseSchema = z.object({
   slug: z.string(),
   title: z.string(),
-  template: z.string(),
+  template: z.enum(PAGE_TEMPLATES),
+  legalReviewStatus: z.enum(LEGAL_REVIEW_STATUSES),
   body: resolvedDocumentSchema,
   publishedAt: z.string().nullable(),
   seo: seoResponseSchema,
@@ -232,6 +272,8 @@ export const testimonialResponseSchema = z.object({
 
 export const resolveResponseSchema = z.object({ type: z.enum(SLUG_TYPES), slug: z.string() });
 
+export const rootSlugsResponseSchema = z.array(resolveResponseSchema);
+
 export const searchQuerySchema = z.object({
   q: z.string().trim().min(1).max(SEARCH_QUERY_MAX_LENGTH),
 });
@@ -255,4 +297,13 @@ export const redirectResponseSchema = z.object({
   fromPath: z.string(),
   toPath: z.string(),
   statusCode: z.number(),
+});
+
+export const contactFormSchema = z.object({
+  firstName: z.string().trim().min(1).max(CONTACT_FIELD_MAX_LENGTH),
+  lastName: z.string().trim().min(1).max(CONTACT_FIELD_MAX_LENGTH),
+  phone: z.string().trim().max(CONTACT_FIELD_MAX_LENGTH).optional(),
+  email: z.email().max(CONTACT_FIELD_MAX_LENGTH),
+  message: z.string().trim().min(1).max(CONTACT_MESSAGE_MAX_LENGTH),
+  website: z.literal('').optional(),
 });

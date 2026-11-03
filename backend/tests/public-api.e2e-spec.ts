@@ -17,6 +17,7 @@ import {
   PUBLIC_CACHE_CONTROL,
   redirectResponseSchema,
   resolveResponseSchema,
+  rootSlugsResponseSchema,
   searchResponseSchema,
   settingsResponseSchema,
   teamDetailSchema,
@@ -54,6 +55,39 @@ describe('public read API', () => {
       contact: { email: 'hello@example.test' },
     });
     expect(response.headers['cache-control']).toBe(PUBLIC_CACHE_CONTROL);
+  });
+
+  it('GET settings attaches linked media', async () => {
+    const prisma = app.get(PrismaService);
+    const media = await prisma.media.findUniqueOrThrow({ where: { fileName: 'fixture.webp' } });
+    await prisma.setting.create({
+      data: { key: 'homeHero', value: { kept: true }, mediaId: media.id },
+    });
+    const settings = settingsResponseSchema.parse((await get(API_ROUTES.settings)).body);
+    expect(settings.homeHero).toMatchObject({ kept: true, media: { alt: 'Fixture image' } });
+    await prisma.setting.delete({ where: { key: 'homeHero' } });
+  });
+
+  it('shows unreviewed pages only when preview is switched on', async () => {
+    process.env.PREVIEW_UNREVIEWED_PAGES = 'true';
+    const preview = await createTestApp();
+    try {
+      const response = await request(preview.getHttpServer())
+        .get(`${api}/${API_ROUTES.pages}/unapproved-page`)
+        .expect(200);
+      expect(pageResponseSchema.parse(response.body).legalReviewStatus).toBe(
+        'needs_advocate_review',
+      );
+      await request(preview.getHttpServer())
+        .get(`${api}/${API_ROUTES.resolve}/unapproved-page`)
+        .expect(200);
+      await request(preview.getHttpServer())
+        .get(`${api}/${API_ROUTES.insights}/pending-insight`)
+        .expect(404);
+    } finally {
+      await preview.close();
+      delete process.env.PREVIEW_UNREVIEWED_PAGES;
+    }
   });
 
   it('GET offices leaves out drafts', async () => {
@@ -243,6 +277,14 @@ describe('public read API', () => {
       await get(`${API_ROUTES.resolve}/pending-insight`, 404);
       await get(`${API_ROUTES.resolve}/unapproved-page`, 404);
     });
+  });
+
+  it('GET resolve lists visible root slugs only', async () => {
+    const slugs = rootSlugsResponseSchema.parse((await get(API_ROUTES.resolve)).body);
+    expect(slugs).toContainEqual({ type: 'page', slug: 'fixture-page' });
+    expect(slugs).toContainEqual({ type: 'webinar', slug: 'recording-webinar' });
+    expect(slugs.map(({ slug }) => slug)).not.toContain('unapproved-page');
+    expect(slugs.map(({ slug }) => slug)).not.toContain('pending-insight');
   });
 
   describe('search', () => {

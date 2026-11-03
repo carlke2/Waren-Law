@@ -4,6 +4,7 @@ import type {
   WebinarState,
 } from '../../../backend/prisma/generated/client.js';
 import { SETTING_KEYS } from '@waren/shared';
+import { blockText, type ParsedBlock } from './html-to-blocks.js';
 
 export const READING_WORDS_PER_MINUTE = 200;
 export const SHORT_SUMMARY_MAX_LENGTH = 220;
@@ -37,6 +38,36 @@ export const TEXT_FIXES = [
   },
 ] as const;
 
+const OUTCOME_CLAIM_NOTE = 'Hid a quantified result or outcome claim in a profile (decision 0010)';
+
+export const OUTCOME_CLAIM_EDITS = [
+  {
+    from: 'including the successful application and acquisition of gold trading licenses.',
+    to: 'including the application for and acquisition of gold trading licenses.',
+    note: OUTCOME_CLAIM_NOTE,
+  },
+  {
+    from: 'Represented mining companies in high-stakes negotiations with local communities, successfully securing agreements on royalty distributions and land use that ensured long-term project stability.',
+    to: 'Represented mining companies in negotiations with local communities on royalty distributions and land use.',
+    note: OUTCOME_CLAIM_NOTE,
+  },
+  {
+    from: 'Successful negotiations with communities',
+    to: 'Negotiations with communities',
+    note: OUTCOME_CLAIM_NOTE,
+  },
+  {
+    from: 'Advised real estate developers on the successful transfer of over 100 properties, involving the drafting of sale agreements and the seamless issuance of sectional titles to individual purchasers.',
+    to: 'Advised real estate developers on the transfer of properties, involving the drafting of sale agreements and the issuance of sectional titles to individual purchasers.',
+    note: OUTCOME_CLAIM_NOTE,
+  },
+  {
+    from: 'Represented a prominent SACCO in the preparation and registration of hundreds of charges, ensuring all instruments maintained strict legal compliance and secured the institution’s financial interests.',
+    to: 'Represented a SACCO in the preparation and registration of charges.',
+    note: OUTCOME_CLAIM_NOTE,
+  },
+] as const;
+
 export const BANNED_CLAIMS = [
   /\[Client Name\]/i,
   /\[Financial Institution\]/i,
@@ -44,6 +75,8 @@ export const BANNED_CLAIMS = [
   /500\+ Clients/i,
   /20\+ Jurisdictions/i,
   /15\+? Years/i,
+  /over 100 properties/i,
+  /hundreds of charges/i,
 ];
 
 export const MERGED_CATEGORIES: Record<string, string> = {
@@ -326,6 +359,8 @@ export const OFFICES: readonly OfficeEntry[] = [
     building: 'Wilmur House',
     city: 'Nakuru',
     country: 'Kenya',
+    mapEmbedUrl:
+      'https://maps.google.com/maps?q=Wilmur%20House%2C%20Kenyatta%20Avenue%2C%20Nakuru&t=m&z=15&output=embed&iwloc=near',
   },
   {
     slug: 'beijing',
@@ -336,6 +371,8 @@ export const OFFICES: readonly OfficeEntry[] = [
     city: 'Beijing',
     country: 'China',
     partnerSlug: 'beijing-jingping-law-firm',
+    mapEmbedUrl:
+      'https://maps.google.com/maps?q=No.%2018%20Zhongguancun%20Street%2C%20Haidian%20District%2C%20Beijing&t=m&z=15&output=embed&iwloc=near',
   },
 ];
 
@@ -367,13 +404,115 @@ export const PARTNERS_PAGE_SLUG = 'our-partners';
 
 export interface PageEntry {
   slug: string;
-  wordpressSlug: string;
+  wordpressSlug?: string;
   title: string;
   template: string;
   path: string;
   dropBlocks?: RegExp;
   keepOnly?: RegExp;
+  reshape?: (blocks: readonly ParsedBlock[]) => ParsedBlock[];
+  authored?: { blocks: readonly ParsedBlock[]; metaDescription: string };
 }
+
+const heading = (level: 2 | 3, text: string): ParsedBlock => ({
+  type: 'heading',
+  level,
+  content: [{ text }],
+});
+const paragraph = (text: string): ParsedBlock => ({ type: 'paragraph', content: [{ text }] });
+const bullets = (items: readonly string[]): ParsedBlock => ({
+  type: 'list',
+  ordered: false,
+  items: items.map((text) => [{ text }]),
+});
+
+const blockStarting = (blocks: readonly ParsedBlock[], start: string): number => {
+  const index = blocks.findIndex((block) => blockText(block).startsWith(start));
+  if (index === -1) throw new Error(`Expected a block starting with "${start}"`);
+  return index;
+};
+
+const section = (blocks: readonly ParsedBlock[], from: string, until?: string): ParsedBlock[] =>
+  blocks.slice(blockStarting(blocks, from), until ? blockStarting(blocks, until) : undefined);
+
+const asCardHeading = (block: ParsedBlock): ParsedBlock =>
+  block.type === 'heading' ? heading(3, blockText(block).replace(/:$/, '')) : block;
+
+const WHO_WE_SERVE =
+  'We serve individuals and corporates, local and international, with clarity, precision, and unwavering integrity.';
+
+function reshapeHome(blocks: readonly ParsedBlock[]): ParsedBlock[] {
+  const [headline] = blocks;
+  if (!headline) throw new Error('Home has no headline');
+  return [
+    headline,
+    paragraph(WHO_WE_SERVE),
+    heading(2, 'Why choose us'),
+    ...section(blocks, 'A New Standard').map(asCardHeading),
+  ];
+}
+
+function reshapeAbout(blocks: readonly ParsedBlock[]): ParsedBlock[] {
+  const lead = blocks[blockStarting(blocks, 'Discover the principles')];
+  if (!lead) throw new Error('About has no mission lead');
+  return [
+    ...section(blocks, 'Our History', 'Trust'),
+    heading(2, 'Our Mission & Vision'),
+    paragraph(blockText(lead)),
+    ...section(blocks, 'Mission', 'Our History').map(asCardHeading),
+    heading(2, 'Our Values'),
+    ...section(blocks, 'Trust', 'Why Choose us').map(asCardHeading),
+    heading(2, 'Why choose us'),
+    ...section(blocks, 'At Waren, we combine'),
+  ];
+}
+
+function reshapePartners(blocks: readonly ParsedBlock[]): ParsedBlock[] {
+  return [
+    ...blocks.slice(0, blockStarting(blocks, 'Jointide law firm')),
+    heading(2, 'Jointide Law Firm and Beijing Matrix Law Firm agreement'),
+    ...section(blocks, 'On the morning', 'Beijing Jingping Law Firm agreement'),
+  ];
+}
+
+const TERMS_BLOCKS: readonly ParsedBlock[] = [
+  heading(2, 'About this website'),
+  paragraph(
+    'This website is operated by WAREN Law Advocates LLP, a firm of advocates with offices in Nairobi and Nakuru and a joint office in Beijing.',
+  ),
+  heading(2, 'General information only'),
+  paragraph(
+    'The content on this website is general information. It is not legal advice and should not be relied on as legal advice for any particular situation. Laws change and each matter turns on its own facts.',
+  ),
+  heading(2, 'No advocate-client relationship'),
+  paragraph(
+    'Reading this website or contacting the firm through it does not create an advocate-client relationship. That relationship begins only when the firm confirms its engagement. Please do not send confidential information until then.',
+  ),
+  heading(2, 'Links to other websites'),
+  paragraph(
+    'This website links to other websites and services, such as booking and social media pages. The firm does not control those websites and is not responsible for their content.',
+  ),
+  heading(2, 'Contact'),
+  paragraph('Questions about this website can be sent to info@warenlaw.com.'),
+];
+
+const COOKIE_BLOCKS: readonly ParsedBlock[] = [
+  heading(2, 'How consent works'),
+  paragraph(
+    'When you first visit, the website asks whether you accept optional cookies. Analytics and advertising tags load only after you accept them. You can change your choice at any time using the "Cookie preferences" link at the bottom of every page.',
+  ),
+  heading(2, 'Necessary cookie'),
+  bullets([
+    'waren_consent: a first-party cookie that remembers your choice for up to 12 months. It is set only after you make a choice.',
+  ]),
+  heading(2, 'Optional cookies'),
+  bullets([
+    'Analytics: Google Tag Manager and the Google tag help the firm understand how the website is used. These are provided by Google.',
+    'Advertising: the Meta Pixel helps the firm measure its advertising. It is provided by Meta.',
+  ]),
+  heading(2, 'Contact'),
+  paragraph('Questions about cookies can be sent to info@warenlaw.com.'),
+];
 
 export const PAGES: readonly PageEntry[] = [
   {
@@ -384,6 +523,7 @@ export const PAGES: readonly PageEntry[] = [
     path: '/',
     dropBlocks:
       /^(Some of the Brands|Services$|What We Handle|Debt Solutions, Recovery|Corporate & Commercial Practice|Wealth Management & Investments|Recent insights|View More|\d\d\.$)/,
+    reshape: reshapeHome,
   },
   {
     slug: 'about-us',
@@ -392,6 +532,7 @@ export const PAGES: readonly PageEntry[] = [
     template: 'about',
     path: '/about-us/',
     dropBlocks: /^(About Us$|Get to know Us|Recognized to be the best|Awards won)/,
+    reshape: reshapeAbout,
   },
   {
     slug: 'our-partners',
@@ -401,6 +542,7 @@ export const PAGES: readonly PageEntry[] = [
     path: '/our-partners/',
     dropBlocks:
       /^(Our Partners$|Meet Our abled partners|Partners$|jingping law$|matrix law$|Jointide$|Beijing Jingping Law Firm hosts|Matrix brings|Jointide Law Firm boasts)/,
+    reshape: reshapePartners,
   },
   {
     slug: 'contact-us',
@@ -416,6 +558,27 @@ export const PAGES: readonly PageEntry[] = [
     title: 'Privacy Policy',
     template: 'legal',
     path: '/privacy-policy/',
+  },
+  {
+    slug: 'terms',
+    title: 'Terms and Legal Disclaimer',
+    template: 'legal',
+    path: '/terms/',
+    authored: {
+      blocks: TERMS_BLOCKS,
+      metaDescription: 'Terms of use and legal disclaimer for the WAREN Law Advocates LLP website.',
+    },
+  },
+  {
+    slug: 'cookie-policy',
+    title: 'Cookie Policy',
+    template: 'legal',
+    path: '/cookie-policy/',
+    authored: {
+      blocks: COOKIE_BLOCKS,
+      metaDescription:
+        'Which cookies the WAREN Law Advocates LLP website uses and how consent works.',
+    },
   },
 ];
 
@@ -513,9 +676,29 @@ export const SETTINGS = {
     googleTagId: 'GT-5MRWVKJK',
     metaPixelId: '1808355966500012',
   },
+  [SETTING_KEYS.cta]: {
+    heading: 'Need legal assistance? We’re here to guide you.',
+    text: 'Book a consultation and speak to one of our advocates.',
+    bookingLabel: 'Book a consultation',
+  },
+  [SETTING_KEYS.homeHero]: { videoUrl: null },
+  [SETTING_KEYS.aboutVideo]: { url: null, captionsUrl: null },
   [SETTING_KEYS.siteVerification]: {
     google: 'psyeUDg2m1msvc8mmzPm6ynF4QMH8CcnRx30ZVh3EnA',
     bing: '2B505C576AFA10A6956AF7677134FC44',
+  },
+};
+
+export const SETTING_MEDIA: Record<string, { file: string; baseName: string; altText: string }> = {
+  [SETTING_KEYS.homeHero]: {
+    file: '2025/11/MOK_5299-scaled-1.webp',
+    baseName: 'home-hero-team',
+    altText: 'The WAREN Law team together in the firm’s office',
+  },
+  [SETTING_KEYS.aboutVideo]: {
+    file: '2025/11/MOK_5490-scaled-1.webp',
+    baseName: 'about-video-poster',
+    altText: 'WAREN Law advocates seated together',
   },
 };
 
@@ -533,11 +716,12 @@ export const EXPECTED_COUNTS = {
   'practice area': 8,
   'team member': 20,
   webinar: 3,
-  page: 5,
+  page: 7,
   office: 3,
   partner: 3,
   award: 1,
   'client logo': 14,
+  setting: 10,
 };
 
 export const IMPORT_NOTES = [

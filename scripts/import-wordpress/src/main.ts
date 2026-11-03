@@ -95,7 +95,7 @@ async function main(): Promise<void> {
     );
     await importWebinars(db, report, media, wordpress.pages, teamIds, normaliseHref);
     await importPages(db, report, media, wordpress.pages, normaliseHref);
-    await importSettings(db, report);
+    await importSettings(db, report, media);
     await importAward(db, report, media);
     await importClientLogos(db, report, media);
     await importRedirects(db, report);
