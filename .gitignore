@@ -20,6 +20,9 @@ backend/prisma/generated/
 # Environment files
 .env*
 !.env.example
+infra/env/*.env
+!infra/env/*.env.example
+infra/nginx/htpasswd
 
 # WordPress import cache (raw responses)
 scripts/import-wordpress/.cache/

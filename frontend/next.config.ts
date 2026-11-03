@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
   turbopack: { root },
   outputFileTracingRoot: root,
+  ...(process.env.NEXT_OUTPUT === 'standalone' ? { output: 'standalone' as const } : {}),
   async rewrites() {
     const apiUrl = process.env.API_URL;
     if (!apiUrl) throw new Error('API_URL is not set');
