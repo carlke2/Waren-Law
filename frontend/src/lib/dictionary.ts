@@ -140,6 +140,15 @@ export const dictionary = {
     readingTime: (minutes: number) => `${minutes} min read`,
   },
   webinars: {
+    title: 'Webinars',
+    lead: 'Recordings and past sessions from WAREN Law Advocates LLP.',
+    empty: 'There are no webinars to show yet.',
+    panel: 'Your expert panel',
+    faq: 'Your questions answered',
+    register: 'Register now',
+    requestRecording: 'Request the recording',
+    recordingAvailableSoon:
+      'Recording requests will be available soon. Please contact us in the meantime.',
     states: { upcoming: 'Upcoming', recording: 'Recording', past: 'Past webinar' },
   },
   admin: {
