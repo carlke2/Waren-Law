@@ -69,6 +69,28 @@ export const dictionary = {
     retry: 'Try again',
     contact: 'Contact us',
   },
+  home: {
+    expertiseEyebrow: 'What we do',
+    expertiseHeading: 'Areas of expertise',
+    teamEyebrow: 'Our people',
+    teamHeading: 'Meet our advocates',
+    teamLink: 'Meet the full team',
+    trustHeading: 'Recognition',
+    insightsHeading: 'Latest insights',
+    insightsLink: 'All insights',
+    webinarEyebrow: 'Webinars',
+    webinarLink: 'View this webinar',
+    webinarsLink: 'All webinars',
+  },
+  team: {
+    practiceAreas: 'Practice areas',
+  },
+  insights: {
+    readingTime: (minutes: number) => `${minutes} min read`,
+  },
+  webinars: {
+    states: { upcoming: 'Upcoming', recording: 'Recording', past: 'Past webinar' },
+  },
   admin: {
     title: 'Admin',
     comingSoon: 'The admin panel arrives in Version 2.',
