@@ -20,3 +20,12 @@ export const HEADING_LEVELS = [2, 3, 4] as const;
 export const INLINE_MARKS = ['bold', 'italic', 'underline'] as const;
 export const DEFAULT_PAGE_SIZE = 12;
 export const MAX_PAGE_SIZE = 50;
+export const SETTING_KEYS = {
+  firm: 'firm',
+  contact: 'contact',
+  whatsApp: 'whatsApp',
+  socials: 'socials',
+  booking: 'booking',
+  tracking: 'tracking',
+  siteVerification: 'siteVerification',
+} as const;

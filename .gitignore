@@ -21,6 +21,9 @@ backend/prisma/generated/
 .env*
 !.env.example
 
+# WordPress import cache (raw responses)
+scripts/import-wordpress/.cache/
+
 # Local media uploads
 backend/uploads/*
 !backend/uploads/.gitkeep

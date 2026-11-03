@@ -120,6 +120,7 @@ export const insightSchema = z.object({
   slug: slugSchema,
   title: z.string().min(1),
   excerpt: z.string(),
+  faq: faqSchema,
   body: blockDocumentSchema,
   searchText: z.string(),
   readingMinutes: z.number().int().positive(),

@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "typecheck": "pnpm -r run --if-present typecheck",
     "test": "pnpm -r run --if-present test",
+    "import:wp": "pnpm --filter @waren/import-wordpress start",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
