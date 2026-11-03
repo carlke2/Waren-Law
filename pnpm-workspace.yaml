@@ -2,3 +2,12 @@ packages:
   - frontend
   - backend
   - shared
+
+allowBuilds:
+  '@prisma/engines': true
+  prisma: true
+  sharp: true
+  esbuild: true
+  '@parcel/watcher': true
+  unrs-resolver: true
+  '@swc/core': false
