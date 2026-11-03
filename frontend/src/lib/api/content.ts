@@ -12,6 +12,8 @@ import {
   partnerResponseSchema,
   practiceAreaDetailSchema,
   practiceAreaSummarySchema,
+  redirectListResponseSchema,
+  REDIRECTS_ALL_PATH,
   resolveResponseSchema,
   rootSlugsResponseSchema,
   searchResponseSchema,
@@ -76,3 +78,5 @@ export const resolveRootSlug = (slug: string) =>
   apiFetchOrNull(slugPath(API_ROUTES.resolve, slug), resolveResponseSchema);
 export const searchContent = (query: string) =>
   apiFetch(`${API_ROUTES.search}?q=${encodeURIComponent(query)}`, searchResponseSchema);
+export const getRedirects = () =>
+  apiFetch(`${API_ROUTES.redirects}/${REDIRECTS_ALL_PATH}`, redirectListResponseSchema);

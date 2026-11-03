@@ -15,6 +15,8 @@ import {
   practiceAreaDetailSchema,
   practiceAreaSummarySchema,
   PUBLIC_CACHE_CONTROL,
+  REDIRECTS_ALL_PATH,
+  redirectListResponseSchema,
   redirectResponseSchema,
   resolveResponseSchema,
   rootSlugsResponseSchema,
@@ -281,8 +283,12 @@ describe('public read API', () => {
 
   it('GET resolve lists visible root slugs only', async () => {
     const slugs = rootSlugsResponseSchema.parse((await get(API_ROUTES.resolve)).body);
-    expect(slugs).toContainEqual({ type: 'page', slug: 'fixture-page' });
-    expect(slugs).toContainEqual({ type: 'webinar', slug: 'recording-webinar' });
+    expect(slugs).toContainEqual(
+      expect.objectContaining({ type: 'page', slug: 'fixture-page', noindex: false }),
+    );
+    expect(slugs).toContainEqual(
+      expect.objectContaining({ type: 'webinar', slug: 'recording-webinar' }),
+    );
     expect(slugs.map(({ slug }) => slug)).not.toContain('unapproved-page');
     expect(slugs.map(({ slug }) => slug)).not.toContain('pending-insight');
   });
@@ -321,6 +327,17 @@ describe('public read API', () => {
         (await get(`${API_ROUTES.redirects}?path=/old-path/`)).body,
       );
       expect(redirect).toEqual({
+        fromPath: '/old-path/',
+        toPath: '/fixture-page/',
+        statusCode: 301,
+      });
+    });
+
+    it('lists every redirect for the frontend cache', async () => {
+      const list = redirectListResponseSchema.parse(
+        (await get(`${API_ROUTES.redirects}/${REDIRECTS_ALL_PATH}`)).body,
+      );
+      expect(list).toContainEqual({
         fromPath: '/old-path/',
         toPath: '/fixture-page/',
         statusCode: 301,

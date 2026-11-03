@@ -89,6 +89,7 @@ export const siteSettingsSchema = z.object({
     text: z.string(),
     bookingLabel: z.string(),
   }),
+  [SETTING_KEYS.seo]: withMedia.extend({ titleTemplate: z.string(), description: z.string() }),
   [SETTING_KEYS.homeHero]: withMedia.extend({ videoUrl: z.url().nullable() }),
   [SETTING_KEYS.aboutVideo]: withMedia.extend({
     url: z.url().nullable(),
@@ -273,7 +274,9 @@ export const testimonialResponseSchema = z.object({
 
 export const resolveResponseSchema = z.object({ type: z.enum(SLUG_TYPES), slug: z.string() });
 
-export const rootSlugsResponseSchema = z.array(resolveResponseSchema);
+export const rootSlugsResponseSchema = z.array(
+  resolveResponseSchema.extend({ noindex: z.boolean(), updatedAt: z.string() }),
+);
 
 export const searchQuerySchema = z.object({
   q: z.string().trim().min(1).max(SEARCH_QUERY_MAX_LENGTH),
@@ -299,6 +302,8 @@ export const redirectResponseSchema = z.object({
   toPath: z.string(),
   statusCode: z.number(),
 });
+
+export const redirectListResponseSchema = z.array(redirectResponseSchema);
 
 export const contactFormSchema = z.object({
   firstName: z.string().trim().min(1).max(CONTACT_FIELD_MAX_LENGTH),

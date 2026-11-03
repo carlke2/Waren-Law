@@ -3,6 +3,7 @@ import { ROUTES } from '@waren/shared';
 import { ContentSections } from '@/components/site/content-sections';
 import { CtaBand } from '@/components/site/cta-band';
 import { FaqAccordion } from '@/components/site/faq-accordion';
+import { JsonLd } from '@/components/site/json-ld';
 import { PageHero } from '@/components/site/page-hero';
 import { TeamCard } from '@/components/site/team-card';
 import { WebinarAction } from '@/components/site/webinar-action';
@@ -13,6 +14,8 @@ import { getSettings } from '@/lib/api/content';
 import { groupSections } from '@/lib/content/sections';
 import { webinarStateLabel } from '@/lib/content/webinars';
 import { dictionary } from '@/lib/dictionary';
+import { serverEnv } from '@/lib/env';
+import { eventSchema, faqSchema } from '@/lib/seo/schema';
 import { formatDate } from '@/lib/utils/dates';
 
 const text = dictionary.webinars;
@@ -21,6 +24,10 @@ export async function WebinarTemplate({ webinar }: { webinar: WebinarDetail }) {
   const settings = await getSettings();
   return (
     <>
+      {webinar.faq.length ? <JsonLd data={faqSchema(webinar.faq)} /> : null}
+      {webinar.state === 'upcoming' ? (
+        <JsonLd data={eventSchema(webinar, serverEnv().siteUrl)} />
+      ) : null}
       <PageHero
         title={webinar.title}
         lead={webinar.summary}

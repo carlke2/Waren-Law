@@ -29,3 +29,5 @@ export const CONTACT_MESSAGE_MAX_LENGTH = 5000;
 export const CONTACT_SOURCE_MAX_LENGTH = 500;
 export const FEATURED_TEAM_LIMIT = 4;
 export const LATEST_INSIGHTS_LIMIT = 3;
+export const REDIRECTS_ALL_PATH = 'all';
+export const FEED_ITEM_LIMIT = 30;

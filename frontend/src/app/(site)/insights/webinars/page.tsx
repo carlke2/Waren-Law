@@ -8,10 +8,13 @@ import { Lead } from '@/components/ui/typography';
 import { getSettings, getWebinars } from '@/lib/api/content';
 import { dictionary } from '@/lib/dictionary';
 import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/prerender';
+import { pageMetadata } from '@/lib/seo/metadata';
 
 const text = dictionary.webinars;
 
-export const metadata: Metadata = { title: text.title, description: text.lead };
+export function generateMetadata(): Promise<Metadata> {
+  return pageMetadata({ title: text.title, description: text.lead, path: ROUTES.webinars });
+}
 
 export default async function WebinarsPage() {
   await deferToRequestWhenPrerenderIsSkipped();

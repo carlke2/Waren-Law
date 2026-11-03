@@ -5,12 +5,15 @@ import Link from 'next/link';
 import { BlockRenderer } from '@/components/site/block-renderer';
 import { CtaBand } from '@/components/site/cta-band';
 import { InsightCard } from '@/components/site/insight-card';
+import { JsonLd } from '@/components/site/json-ld';
 import { PageHero } from '@/components/site/page-hero';
 import { Badge } from '@/components/ui/card';
 import { Section } from '@/components/ui/layout';
 import { Heading } from '@/components/ui/typography';
 import { getSettings } from '@/lib/api/content';
 import { dictionary } from '@/lib/dictionary';
+import { serverEnv } from '@/lib/env';
+import { articleSchema, faqSchema } from '@/lib/seo/schema';
 import { formatDate } from '@/lib/utils/dates';
 
 const text = dictionary.insights;
@@ -18,8 +21,11 @@ const FEATURED_IMAGE_SIZES = '(min-width: 48rem) 44rem, 100vw';
 
 export async function InsightTemplate({ insight }: { insight: InsightDetail }) {
   const settings = await getSettings();
+  const { siteUrl } = serverEnv();
   return (
     <>
+      <JsonLd data={articleSchema(insight, settings, siteUrl)} />
+      {insight.faq.length ? <JsonLd data={faqSchema(insight.faq)} /> : null}
       <PageHero
         title={insight.title}
         crumbs={[{ label: text.title, href: ROUTES.insights }, { label: insight.title }]}

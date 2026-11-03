@@ -32,4 +32,5 @@ export const SETTING_KEYS = {
   cta: 'cta',
   homeHero: 'homeHero',
   aboutVideo: 'aboutVideo',
+  seo: 'seo',
 } as const;

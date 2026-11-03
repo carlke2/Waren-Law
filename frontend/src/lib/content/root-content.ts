@@ -4,7 +4,6 @@ import {
   type InsightDetail,
   type PageResponse,
   type PracticeAreaDetail,
-  type SeoResponse,
   type WebinarDetail,
 } from '@waren/shared';
 import {
@@ -45,8 +44,4 @@ export async function loadRootContent(slug: string): Promise<RootContent | null>
       return content && { type: 'webinar', content };
     }
   }
-}
-
-export function rootContentSeo(root: RootContent): SeoResponse {
-  return root.content.seo;
 }
