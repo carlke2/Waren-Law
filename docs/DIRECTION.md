@@ -1,6 +1,6 @@
 # Project direction
 
-Agreed 3 November 2026 (architecture updated the same day, see decision 0003). This is the brief everything else follows. Change it only through a decision record in `docs/decisions/`.
+Agreed 3 November 2026 (architecture: decision 0003; scope and defaults after the audit: decision 0004). This is the brief everything else follows. Change it only through a decision record in `docs/decisions/`.
 
 ## 1. What we are building
 
@@ -41,9 +41,13 @@ Browser ──▶ FRONTEND (warenlaw.com) ──HTTPS/JSON──▶ BACKEND (api
 | Media | Uploaded images stored on the server (persistent volume), served by the web server; resized/compressed on upload |
 | Auth | Single administrator account: password (argon2 hash) + TOTP two-factor, httpOnly secure session cookie on `.warenlaw.com`, lockout after failed attempts |
 | Connection | Frontend calls the backend at `API_URL` (env variable). Backend allows only the frontend's origin (CORS). Public pages are pre-rendered and refreshed on demand when the admin saves (backend calls a secured revalidate endpoint) |
-| Forms | Contact form posts to the backend, which emails info@warenlaw.com; submissions stored with minimal data |
+| Forms | Contact and newsletter forms post to the backend; email sent via SMTP (firm's Google Workspace); minimal data stored, privacy notice on every form, honeypot + rate limiting |
+| Email | SMTP settings in environment variables; newsletter sending can be switched off in Settings |
+| Search | PostgreSQL full-text search over insights, practice areas and team |
+| Consent | Cookie consent banner; analytics/ads tags (GTM, Google tag, Meta Pixel) load only after consent |
+| URLs | All current paths kept; root-level slug resolver; redirects managed in the database and applied by the frontend middleware / Nginx |
 | Hosting | Our company server, using **Docker** (frontend, backend, PostgreSQL, Nginx reverse proxy with HTTPS) |
-| Domain | Firm's existing domain (likely Namecheap); DNS pointed to our server at launch |
+| Domain | warenlaw.com, registrar and DNS at **Hostinger**. Mail (Google Workspace MX, SPF, DMARC) must stay unchanged at launch; only web records move to our server |
 | Environments | Local (Docker Compose) · Staging · Production |
 | Quality | ESLint, Prettier, type checks, unit + API tests; automated checks on every pull request |
 
@@ -76,8 +80,12 @@ Browser ──▶ FRONTEND (warenlaw.com) ──HTTPS/JSON──▶ BACKEND (api
 - About · Our Team · Our Partners
 - Areas of Expertise (index) + 8 practice-area pages
 - Insights (index) + articles; webinars/events
-- Contact (Nairobi and Nakuru offices, map, form, WhatsApp)
-- Privacy Policy · Terms / Legal Disclaimer
+- Contact (Nairobi head office, Nakuru branch, Beijing joint office; maps, form, WhatsApp, booking)
+- Webinars index + webinar pages (upcoming / recording / past)
+- Search results
+- Privacy Policy · Terms / Legal Disclaimer · Cookie Policy
+
+No diaspora hub: diaspora content stays in Insights (decision 0004).
 
 ## 4. Language
 
@@ -87,11 +95,13 @@ Browser ──▶ FRONTEND (warenlaw.com) ──HTTPS/JSON──▶ BACKEND (api
 - **Rule:** content informs, it never gives legal advice. All legal content is marked `NEEDS ADVOCATE REVIEW` until a lawyer at the firm approves it.
 - **Code language:** TypeScript everywhere; code, comments and commit messages in English.
 
-## 5. Still to decide
+## 5. Open client inputs (do not block development — defaults in decision 0004)
 
-- **The firm's existing database:** what it is (the current WordPress site runs on MySQL/MariaDB), and whether we connect to it, migrate from it, or move to a database they provide. Prisma supports PostgreSQL and MySQL, so the choice stays open.
-- Company server details (OS, Docker available, who manages it) and DNS access at Namecheap
-- Final About Us video file (firm to provide)
-- Brand assets: original logo files, exact colours and fonts
-- Who at the firm approves legal content
-- Analytics and Search Console access
+- Domain renewal and Hostinger account access (urgent: expires 29 Nov 2026)
+- Firm's existing database: what it is and whether we align with it (Prisma keeps PostgreSQL/MySQL open)
+- Company server details (OS, Docker, who manages it)
+- Brand files (original logo, colours, fonts), office photos, final About video
+- Team: bios, titles, preferred names, admissions, who gets profiles
+- Legal content approver; testimonials, result claims and client-logo permissions
+- Official phone/WhatsApp numbers, offices (Ruiru?), booking system
+- Newsletter subscriber export, ODPC registration and data protection contact
