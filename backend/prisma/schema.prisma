@@ -8,3 +8,453 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum ContentStatus {
+  draft
+  published
+  archived
+}
+
+enum LegalReviewStatus {
+  needs_advocate_review
+  approved
+}
+
+enum MemberType {
+  partner
+  advocate
+  consultant
+  staff
+}
+
+enum OfficeType {
+  head
+  branch
+  joint
+}
+
+enum WebinarState {
+  upcoming
+  recording
+  past
+}
+
+enum SlugType {
+  page
+  practice_area
+  insight
+  webinar
+}
+
+enum SubscriberSource {
+  newsletter
+  webinar
+}
+
+enum ChangeAction {
+  create
+  update
+  delete
+  publish
+  unpublish
+  restore
+}
+
+model Setting {
+  key       String   @id
+  value     Json
+  mediaId   String?
+  media     Media?   @relation("SettingMedia", fields: [mediaId], references: [id], onDelete: SetNull)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Slug {
+  slug      String   @id
+  type      SlugType
+  entityId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([type, entityId])
+}
+
+model Office {
+  id          String        @id @default(uuid())
+  slug        String        @unique
+  name        String
+  type        OfficeType
+  addressLine String
+  building    String?
+  city        String
+  country     String
+  poBox       String?
+  phone       String?
+  email       String?
+  latitude    Decimal?      @db.Decimal(9, 6)
+  longitude   Decimal?      @db.Decimal(9, 6)
+  mapEmbedUrl String?
+  sortOrder   Int           @default(0)
+  status      ContentStatus @default(draft)
+  publishedAt DateTime?
+  partnerId   String?
+  partner     Partner?      @relation(fields: [partnerId], references: [id], onDelete: SetNull)
+  team        TeamMember[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Page {
+  id                String            @id @default(uuid())
+  slug              String            @unique
+  title             String
+  body              Json
+  template          String
+  legalReviewStatus LegalReviewStatus @default(needs_advocate_review)
+  legacyWordpressId Int?              @unique
+  status            ContentStatus     @default(draft)
+  publishedAt       DateTime?
+  metaTitle         String?
+  metaDescription   String?
+  canonicalUrl      String?
+  noindex           Boolean           @default(false)
+  ogImageId         String?
+  ogImage           Media?            @relation("PageOgImage", fields: [ogImageId], references: [id], onDelete: SetNull)
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+}
+
+model PracticeArea {
+  id                String            @id @default(uuid())
+  slug              String            @unique
+  name              String
+  shortSummary      String
+  body              Json
+  faq               Json              @default("[]")
+  searchText        String            @default("")
+  sortOrder         Int               @default(0)
+  legalReviewStatus LegalReviewStatus @default(needs_advocate_review)
+  legacyWordpressId Int?              @unique
+  status            ContentStatus     @default(draft)
+  publishedAt       DateTime?
+  metaTitle         String?
+  metaDescription   String?
+  canonicalUrl      String?
+  noindex           Boolean           @default(false)
+  ogImageId         String?
+  ogImage           Media?            @relation("PracticeAreaOgImage", fields: [ogImageId], references: [id], onDelete: SetNull)
+  heroImageId       String?
+  heroImage         Media?            @relation("PracticeAreaHeroImage", fields: [heroImageId], references: [id], onDelete: SetNull)
+  categoryId        String?
+  category          Category?         @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  team              TeamMember[]
+  insights          Insight[]
+  testimonials      Testimonial[]
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+}
+
+model TeamMember {
+  id              String         @id @default(uuid())
+  slug            String         @unique
+  fullName        String
+  displayName     String?
+  roleTitle       String
+  memberType      MemberType
+  isAdvocate      Boolean        @default(false)
+  shortBio        String
+  longBio         Json?
+  experience      Json?
+  education       Json?
+  admissions      Json?
+  memberships     Json?
+  languages       String[]
+  email           String?
+  phone           String?
+  whatsApp        String?
+  linkedInUrl     String?
+  bookingUrl      String?
+  hasProfile      Boolean        @default(false)
+  searchText      String         @default("")
+  sortOrder       Int            @default(0)
+  status          ContentStatus  @default(draft)
+  publishedAt     DateTime?
+  metaTitle       String?
+  metaDescription String?
+  canonicalUrl    String?
+  noindex         Boolean        @default(false)
+  ogImageId       String?
+  ogImage         Media?         @relation("TeamMemberOgImage", fields: [ogImageId], references: [id], onDelete: SetNull)
+  portraitId      String?
+  portrait        Media?         @relation("TeamMemberPortrait", fields: [portraitId], references: [id], onDelete: SetNull)
+  officeId        String?
+  office          Office?        @relation(fields: [officeId], references: [id], onDelete: SetNull)
+  practiceAreas   PracticeArea[]
+  insights        Insight[]
+  webinars        Webinar[]
+  awards          Award[]
+  testimonials    Testimonial[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  @@index([memberType, sortOrder])
+}
+
+model Insight {
+  id                String            @id @default(uuid())
+  slug              String            @unique
+  title             String
+  excerpt           String
+  body              Json
+  searchText        String            @default("")
+  readingMinutes    Int
+  legacyWordpressId Int?              @unique
+  legalReviewStatus LegalReviewStatus @default(needs_advocate_review)
+  status            ContentStatus     @default(draft)
+  publishedAt       DateTime?
+  metaTitle         String?
+  metaDescription   String?
+  canonicalUrl      String?
+  noindex           Boolean           @default(false)
+  ogImageId         String?
+  ogImage           Media?            @relation("InsightOgImage", fields: [ogImageId], references: [id], onDelete: SetNull)
+  featuredImageId   String?
+  featuredImage     Media?            @relation("InsightFeaturedImage", fields: [featuredImageId], references: [id], onDelete: SetNull)
+  categories        Category[]
+  practiceAreas     PracticeArea[]
+  authors           TeamMember[]
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  @@index([status, publishedAt(sort: Desc)])
+}
+
+model Category {
+  id              String         @id @default(uuid())
+  slug            String         @unique
+  name            String
+  description     String?
+  sortOrder       Int            @default(0)
+  status          ContentStatus  @default(draft)
+  publishedAt     DateTime?
+  metaTitle       String?
+  metaDescription String?
+  canonicalUrl    String?
+  noindex         Boolean        @default(false)
+  ogImageId       String?
+  ogImage         Media?         @relation("CategoryOgImage", fields: [ogImageId], references: [id], onDelete: SetNull)
+  insights        Insight[]
+  practiceAreas   PracticeArea[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+model Webinar {
+  id                String            @id @default(uuid())
+  slug              String            @unique
+  title             String
+  summary           String
+  body              Json
+  startsAt          DateTime?
+  timezone          String?
+  state             WebinarState
+  registrationUrl   String?
+  recordingUrl      String?
+  recordingGated    Boolean           @default(false)
+  faq               Json              @default("[]")
+  audience          String?
+  legalReviewStatus LegalReviewStatus @default(needs_advocate_review)
+  legacyWordpressId Int?              @unique
+  status            ContentStatus     @default(draft)
+  publishedAt       DateTime?
+  metaTitle         String?
+  metaDescription   String?
+  canonicalUrl      String?
+  noindex           Boolean           @default(false)
+  ogImageId         String?
+  ogImage           Media?            @relation("WebinarOgImage", fields: [ogImageId], references: [id], onDelete: SetNull)
+  heroImageId       String?
+  heroImage         Media?            @relation("WebinarHeroImage", fields: [heroImageId], references: [id], onDelete: SetNull)
+  panel             TeamMember[]
+  subscribers       Subscriber[]
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  @@index([state])
+}
+
+model ClientLogo {
+  id                  String        @id @default(uuid())
+  slug                String        @unique
+  name                String
+  altText             String
+  permissionConfirmed Boolean       @default(false)
+  permissionNote      String?
+  sortOrder           Int           @default(0)
+  visible             Boolean       @default(false)
+  status              ContentStatus @default(draft)
+  publishedAt         DateTime?
+  logoId              String
+  logo                Media         @relation("ClientLogoImage", fields: [logoId], references: [id], onDelete: Restrict)
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+}
+
+model Partner {
+  id          String        @id @default(uuid())
+  slug        String        @unique
+  name        String
+  description String
+  websiteUrl  String?
+  sortOrder   Int           @default(0)
+  status      ContentStatus @default(draft)
+  publishedAt DateTime?
+  logoId      String?
+  logo        Media?        @relation("PartnerLogo", fields: [logoId], references: [id], onDelete: SetNull)
+  gallery     Media[]       @relation("PartnerGallery")
+  offices     Office[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Award {
+  id           String        @id @default(uuid())
+  slug         String        @unique
+  name         String
+  awarder      String
+  year         Int
+  category     String
+  visible      Boolean       @default(true)
+  approvalNote String?
+  status       ContentStatus @default(draft)
+  publishedAt  DateTime?
+  imageId      String?
+  image        Media?        @relation("AwardImage", fields: [imageId], references: [id], onDelete: SetNull)
+  teamMemberId String?
+  teamMember   TeamMember?   @relation(fields: [teamMemberId], references: [id], onDelete: SetNull)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Testimonial {
+  id               String        @id @default(uuid())
+  quote            String
+  attribution      String
+  location         String?
+  consentConfirmed Boolean       @default(false)
+  approvedByFirm   Boolean       @default(false)
+  visible          Boolean       @default(false)
+  status           ContentStatus @default(draft)
+  publishedAt      DateTime?
+  teamMemberId     String?
+  teamMember       TeamMember?   @relation(fields: [teamMemberId], references: [id], onDelete: SetNull)
+  practiceAreaId   String?
+  practiceArea     PracticeArea? @relation(fields: [practiceAreaId], references: [id], onDelete: SetNull)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+}
+
+model Media {
+  id                 String         @id @default(uuid())
+  fileName           String         @unique
+  originalName       String
+  mimeType           String
+  sizeBytes          Int
+  width              Int?
+  height             Int?
+  altText            String
+  altTextNeedsReview Boolean        @default(false)
+  caption            String?
+  variants           Json           @default("{}")
+  legacyUrl          String?        @unique
+  settings           Setting[]      @relation("SettingMedia")
+  pageOgImages       Page[]         @relation("PageOgImage")
+  practiceOgImages   PracticeArea[] @relation("PracticeAreaOgImage")
+  practiceHeroImages PracticeArea[] @relation("PracticeAreaHeroImage")
+  teamOgImages       TeamMember[]   @relation("TeamMemberOgImage")
+  portraits          TeamMember[]   @relation("TeamMemberPortrait")
+  insightOgImages    Insight[]      @relation("InsightOgImage")
+  insightFeatured    Insight[]      @relation("InsightFeaturedImage")
+  categoryOgImages   Category[]     @relation("CategoryOgImage")
+  webinarOgImages    Webinar[]      @relation("WebinarOgImage")
+  webinarHeroImages  Webinar[]      @relation("WebinarHeroImage")
+  clientLogos        ClientLogo[]   @relation("ClientLogoImage")
+  partnerLogos       Partner[]      @relation("PartnerLogo")
+  partnerGalleries   Partner[]      @relation("PartnerGallery")
+  awardImages        Award[]        @relation("AwardImage")
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+}
+
+model ContactSubmission {
+  id        String    @id @default(uuid())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  source    String
+  consentAt DateTime?
+  emailedAt DateTime?
+  createdAt DateTime  @default(now())
+}
+
+model Subscriber {
+  id             String           @id @default(uuid())
+  email          String           @unique
+  firstName      String?
+  source         SubscriberSource
+  consentAt      DateTime
+  unsubscribedAt DateTime?
+  webinarId      String?
+  webinar        Webinar?         @relation(fields: [webinarId], references: [id], onDelete: SetNull)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+}
+
+model Redirect {
+  id         String   @id @default(uuid())
+  fromPath   String   @unique
+  toPath     String
+  statusCode Int      @default(301)
+  note       String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model AdminUser {
+  id             String          @id @default(uuid())
+  email          String          @unique
+  passwordHash   String
+  totpSecret     String?
+  failedAttempts Int             @default(0)
+  lockedUntil    DateTime?
+  sessions       Session[]
+  changes        ChangeHistory[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+model Session {
+  id          String    @id @default(uuid())
+  tokenHash   String    @unique
+  expiresAt   DateTime
+  adminUserId String
+  adminUser   AdminUser @relation(fields: [adminUserId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+
+  @@index([expiresAt])
+}
+
+model ChangeHistory {
+  id          String       @id @default(uuid())
+  entityType  String
+  entityId    String
+  action      ChangeAction
+  before      Json?
+  after       Json?
+  adminUserId String
+  adminUser   AdminUser    @relation(fields: [adminUserId], references: [id], onDelete: Restrict)
+  createdAt   DateTime     @default(now())
+
+  @@index([entityType, entityId, createdAt(sort: Desc)])
+}
