@@ -1,8 +1,20 @@
 'use client';
 
-import { contactFormSchema, type ContactForm as ContactFormValues } from '@waren/shared';
+import {
+  API_PREFIX,
+  API_ROUTES,
+  contactFormSchema,
+  type ContactForm as ContactFormValues,
+} from '@waren/shared';
 import Link from 'next/link';
-import { useState, type ChangeEvent, type FocusEvent, type FormEvent } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type FocusEvent,
+  type FormEvent,
+} from 'react';
 import { ROUTES } from '@waren/shared/constants';
 import { Button } from '@/components/ui/button';
 import { Input, Textarea } from '@/components/ui/form';
@@ -35,9 +47,29 @@ function validate(values: Record<FieldName, string>): Errors {
   return errors;
 }
 
+const CONTACT_ENDPOINT = `/${API_PREFIX}/${API_ROUTES.contact}/`;
+const HONEYPOT_FIELD = 'website';
+const TOO_MANY_REQUESTS = 429;
+
+type Status = 'idle' | 'sending' | 'sent' | 'error' | 'limited';
+
 export function ContactFormFields() {
   const [values, setValues] = useState(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
+  const [status, setStatus] = useState<Status>('idle');
+  const statusRef = useRef<HTMLParagraphElement>(null);
+
+  const [failedAttempts, setFailedAttempts] = useState(0);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (status === 'sent') statusRef.current?.focus();
+  }, [status]);
+
+  useEffect(() => {
+    if (failedAttempts)
+      formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus();
+  }, [failedAttempts]);
 
   const update = ({ target }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const name = target.name as FieldName;
@@ -51,9 +83,34 @@ export function ContactFormFields() {
     setErrors({ ...errors, [name]: validate(values)[name] });
   };
 
-  const submit = (event: FormEvent) => {
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setErrors(validate(values));
+    const found = validate(values);
+    setErrors(found);
+    if (Object.keys(found).length > 0) {
+      setStatus('idle');
+      setFailedAttempts((count) => count + 1);
+      return;
+    }
+    setStatus('sending');
+    const website = new FormData(event.currentTarget).get(HONEYPOT_FIELD);
+    try {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...values,
+          phone: values.phone || undefined,
+          website: typeof website === 'string' ? website : undefined,
+          source: window.location.pathname,
+        }),
+      });
+      setStatus(
+        !response.ok ? (response.status === TOO_MANY_REQUESTS ? 'limited' : 'error') : 'sent',
+      );
+    } catch {
+      setStatus('error');
+    }
   };
 
   const field = (name: FieldName) => ({
@@ -64,8 +121,21 @@ export function ContactFormFields() {
     onBlur: check,
   });
 
+  if (status === 'sent') {
+    return (
+      <p
+        ref={statusRef}
+        role="status"
+        tabIndex={-1}
+        className="rounded-md border border-gold-700 bg-surface p-4 text-ink"
+      >
+        {text.success}
+      </p>
+    );
+  }
+
   return (
-    <form onSubmit={submit} noValidate className="grid gap-4">
+    <form ref={formRef} onSubmit={submit} noValidate className="grid gap-4">
       <div className="grid gap-4 sm:grid-cols-2">
         <Input
           label={text.firstName}
@@ -101,7 +171,7 @@ export function ContactFormFields() {
       <div className="fixed left-full top-full" aria-hidden="true">
         <label>
           {text.honeypot}
-          <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+          <input type="text" name={HONEYPOT_FIELD} tabIndex={-1} autoComplete="off" />
         </label>
       </div>
       <p className="text-small text-ink-muted">
@@ -111,12 +181,14 @@ export function ContactFormFields() {
         </Link>
       </p>
       <div>
-        <Button type="submit" size="lg" disabled aria-describedby="contact-form-status">
-          {text.submit}
+        <Button type="submit" size="lg" disabled={status === 'sending'}>
+          {status === 'sending' ? text.sending : text.submit}
         </Button>
-        <p id="contact-form-status" className="mt-2 text-small text-ink-muted">
-          {text.notYetAvailable}
-        </p>
+        {status === 'error' || status === 'limited' ? (
+          <p role="alert" className="mt-2 text-small text-danger">
+            {status === 'limited' ? text.tooMany : text.failed}
+          </p>
+        ) : null}
       </div>
     </form>
   );

@@ -18,6 +18,7 @@ export const API_ROUTES = {
   resolve: 'resolve',
   search: 'search',
   redirects: 'redirects',
+  contact: 'contact',
 } as const;
 export const RELATED_INSIGHTS_LIMIT = 3;
 export const SEARCH_RESULT_LIMIT = 20;
@@ -25,5 +26,6 @@ export const SEARCH_QUERY_MAX_LENGTH = 100;
 export const SEARCH_RESULT_TYPES = ['insight', 'practice_area', 'team_member'] as const;
 export const CONTACT_FIELD_MAX_LENGTH = 200;
 export const CONTACT_MESSAGE_MAX_LENGTH = 5000;
+export const CONTACT_SOURCE_MAX_LENGTH = 500;
 export const FEATURED_TEAM_LIMIT = 4;
 export const LATEST_INSIGHTS_LIMIT = 3;
