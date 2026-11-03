@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { AboutTemplate } from '@/components/site/templates/about-template';
 import { InsightTemplate } from '@/components/site/templates/insight-template';
 import { PracticeAreaTemplate } from '@/components/site/templates/practice-area-template';
+import { WebinarTemplate } from '@/components/site/templates/webinar-template';
 import { getRootSlugs } from '@/lib/api/content';
 import { loadRootContent, rootContentSeo, type RootContent } from '@/lib/content/root-content';
 import { staticParams } from '@/lib/prerender';
@@ -37,6 +38,7 @@ function renderRoot(root: RootContent) {
   }
   if (root.type === 'practice_area') return <PracticeAreaTemplate area={root.content} />;
   if (root.type === 'insight') return <InsightTemplate insight={root.content} />;
+  if (root.type === 'webinar') return <WebinarTemplate webinar={root.content} />;
   notFound();
 }
 

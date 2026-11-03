@@ -621,7 +621,7 @@ export const WEBINARS: readonly WebinarEntry[] = [
 ];
 
 export const WEBINAR_DROP_BLOCKS =
-  /^(WEBINAR (FOR|RECORDING)|IT.S HERE|We emailed you|Your Expert Panel|Hear from professionals|Our Clients|Don.t just take|Trusted by Kenyans|Your questions answered|Have a question not answered|Secure Your Legacy|Book an initial consultation|Book your free|July 28|THE PROBLEM WE)/i;
+  /^(WEBINAR (FOR|RECORDING)|WHAT YOU.LL WALK AWAY|IT.S HERE|We emailed you|Your Expert Panel|Hear from professionals|Our Clients|Don.t just take|Trusted by Kenyans|Your questions answered|Have a question not answered|Secure Your Legacy|Book an initial consultation|Book your free|July 28|THE PROBLEM WE)/i;
 export const WEBINAR_SUMMARY_HEADING = /^What this webinar is really about/i;
 export const WEBINAR_AUDIENCE_HEADING = /^Who should attend/i;
 
