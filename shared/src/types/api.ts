@@ -1,0 +1,27 @@
+import type { z } from 'zod';
+import type * as api from '../schemas/api.js';
+
+export type MediaRef = z.infer<typeof api.mediaRefSchema>;
+export type ResolvedDocument = z.infer<typeof api.resolvedDocumentSchema>;
+export type SeoResponse = z.infer<typeof api.seoResponseSchema>;
+export type SettingsResponse = z.infer<typeof api.settingsResponseSchema>;
+export type OfficeResponse = z.infer<typeof api.officeResponseSchema>;
+export type PageResponse = z.infer<typeof api.pageResponseSchema>;
+export type TeamSummary = z.infer<typeof api.teamSummarySchema>;
+export type TeamListResponse = z.infer<typeof api.teamListResponseSchema>;
+export type TeamDetail = z.infer<typeof api.teamDetailSchema>;
+export type InsightSummary = z.infer<typeof api.insightSummarySchema>;
+export type InsightListResponse = z.infer<typeof api.insightListResponseSchema>;
+export type InsightDetail = z.infer<typeof api.insightDetailSchema>;
+export type PracticeAreaSummary = z.infer<typeof api.practiceAreaSummarySchema>;
+export type PracticeAreaDetail = z.infer<typeof api.practiceAreaDetailSchema>;
+export type CategoryResponse = z.infer<typeof api.categoryResponseSchema>;
+export type WebinarSummary = z.infer<typeof api.webinarSummarySchema>;
+export type WebinarDetail = z.infer<typeof api.webinarDetailSchema>;
+export type PartnerResponse = z.infer<typeof api.partnerResponseSchema>;
+export type AwardResponse = z.infer<typeof api.awardResponseSchema>;
+export type ClientLogoResponse = z.infer<typeof api.clientLogoResponseSchema>;
+export type TestimonialResponse = z.infer<typeof api.testimonialResponseSchema>;
+export type ResolveResponse = z.infer<typeof api.resolveResponseSchema>;
+export type SearchResponse = z.infer<typeof api.searchResponseSchema>;
+export type RedirectResponse = z.infer<typeof api.redirectResponseSchema>;
