@@ -1,0 +1,35 @@
+# Node
+node_modules/
+*.log
+
+# Next.js
+.next/
+out/
+next-env.d.ts
+
+# NestJS and TypeScript builds
+dist/
+*.tsbuildinfo
+
+# Tests
+coverage/
+
+# Prisma generated client (migrations in backend/prisma/migrations/ stay committed)
+backend/prisma/generated/
+
+# Environment files
+.env*
+!.env.example
+
+# Local media uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors (shared settings may be added later)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
