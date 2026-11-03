@@ -46,6 +46,8 @@ This runs the shared package (watch), the backend at http://localhost:4000 and t
 
 A production frontend build needs the backend running, because it pre-renders every page from the API. To build without it, as CI does, set `SKIP_PRERENDER=true`; pages then render on request.
 
+To run in production mode, use `pnpm prod`. Server deployment, logs and rollback are in [`docs/runbook.md`](docs/runbook.md).
+
 ### Tests and offline work
 
 Tests never use Supabase. They need a local PostgreSQL with a database named `waren_test`, set as `TEST_DATABASE_URL` in `backend/.env`. To run one with Docker:
