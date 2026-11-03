@@ -13,6 +13,7 @@ import {
 import {
   CONTACT_FIELD_MAX_LENGTH,
   CONTACT_MESSAGE_MAX_LENGTH,
+  CONTACT_SOURCE_MAX_LENGTH,
   SEARCH_QUERY_MAX_LENGTH,
   SEARCH_RESULT_TYPES,
 } from '../constants/api.js';
@@ -305,5 +306,11 @@ export const contactFormSchema = z.object({
   phone: z.string().trim().max(CONTACT_FIELD_MAX_LENGTH).optional(),
   email: z.email().max(CONTACT_FIELD_MAX_LENGTH),
   message: z.string().trim().min(1).max(CONTACT_MESSAGE_MAX_LENGTH),
-  website: z.literal('').optional(),
+  website: z.string().max(CONTACT_FIELD_MAX_LENGTH).optional(),
 });
+
+export const contactRequestSchema = contactFormSchema.extend({
+  source: z.string().startsWith('/').max(CONTACT_SOURCE_MAX_LENGTH),
+});
+
+export const contactResponseSchema = z.object({ received: z.literal(true) });

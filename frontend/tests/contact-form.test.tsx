@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { ContactFormFields } from '@/components/site/contact-form';
 import { MapEmbed } from '@/components/site/map-embed';
 import { dictionary } from '@/lib/dictionary';
@@ -6,13 +6,6 @@ import { dictionary } from '@/lib/dictionary';
 const text = dictionary.contactForm;
 
 describe('ContactFormFields', () => {
-  it('keeps submit disabled and explains why', () => {
-    render(<ContactFormFields />);
-    const submit = screen.getByRole('button', { name: text.submit });
-    expect(submit).toBeDisabled();
-    expect(submit).toHaveAccessibleDescription(text.notYetAvailable);
-  });
-
   it('shows a field error on blur and clears it once fixed', () => {
     render(<ContactFormFields />);
     const email = screen.getByLabelText(new RegExp(text.email));
@@ -39,6 +32,65 @@ describe('ContactFormFields', () => {
       'href',
       '/privacy-policy/',
     );
+  });
+});
+
+describe('ContactFormFields submission', () => {
+  const fill = () => {
+    fireEvent.change(screen.getByLabelText(new RegExp(text.firstName)), { target: { value: 'A' } });
+    fireEvent.change(screen.getByLabelText(new RegExp(text.lastName)), { target: { value: 'B' } });
+    fireEvent.change(screen.getByLabelText(new RegExp(text.email)), {
+      target: { value: 'a@example.test' },
+    });
+    fireEvent.change(screen.getByLabelText(new RegExp(text.message)), { target: { value: 'Hi' } });
+  };
+  const submit = () => fireEvent.click(screen.getByRole('button', { name: text.submit }));
+
+  afterEach(() => vi.unstubAllGlobals());
+
+  it('blocks an invalid form, sends nothing, and focuses the first error', () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+    render(<ContactFormFields />);
+    submit();
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(screen.getByText(text.errors.firstName)).toBeInTheDocument();
+    expect(document.activeElement).toBe(screen.getByLabelText(new RegExp(text.firstName)));
+  });
+
+  it('posts the form without a page reload and shows success', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 200 });
+    vi.stubGlobal('fetch', fetchMock);
+    render(<ContactFormFields />);
+    fill();
+    submit();
+    expect(await screen.findByRole('status')).toHaveTextContent(text.success);
+    const [url, init] = fetchMock.mock.calls[0] ?? [];
+    expect(url).toBe('/api/v1/contact/');
+    expect(JSON.parse(init.body)).toMatchObject({
+      firstName: 'A',
+      email: 'a@example.test',
+      source: window.location.pathname,
+      website: '',
+    });
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole('status')));
+  });
+
+  it('keeps what was typed and shows an error when sending fails', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('offline')));
+    render(<ContactFormFields />);
+    fill();
+    submit();
+    expect(await screen.findByRole('alert')).toHaveTextContent(text.failed);
+    expect(screen.getByLabelText(new RegExp(text.message))).toHaveValue('Hi');
+  });
+
+  it('explains the rate limit', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 429 }));
+    render(<ContactFormFields />);
+    fill();
+    submit();
+    expect(await screen.findByRole('alert')).toHaveTextContent(text.tooMany);
   });
 });
 

@@ -28,3 +28,5 @@ export type RedirectResponse = z.infer<typeof api.redirectResponseSchema>;
 export type SiteSettings = z.infer<typeof api.siteSettingsSchema>;
 export type RootSlug = z.infer<typeof api.resolveResponseSchema>;
 export type ContactForm = z.infer<typeof api.contactFormSchema>;
+export type ContactRequest = z.infer<typeof api.contactRequestSchema>;
+export type ContactResponse = z.infer<typeof api.contactResponseSchema>;

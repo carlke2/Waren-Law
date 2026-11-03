@@ -48,4 +48,6 @@ All routes are `GET`, under `/api/v1`, and return only published content (and le
 | `/search?q=` | Full-text search over insights, practice areas and team |
 | `/redirects?path=` | The redirect for an old path, or 404 |
 
+`POST /api/v1/contact` accepts the contact form: `{ firstName, lastName, email, phone?, message, source, website? }`. It returns `{ received: true }`, stores the submission and emails the firm when `SMTP_*` is set. `website` is a honeypot. Requests are limited per IP by `CONTACT_RATE_LIMIT_PER_HOUR`. Submissions older than `CONTACT_RETENTION_MONTHS` are deleted every `CONTACT_RETENTION_INTERVAL_HOURS`.
+
 Uploaded media is served from the path in `PUBLIC_MEDIA_BASE_URL`.

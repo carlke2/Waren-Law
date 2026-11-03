@@ -18,6 +18,13 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   turbopack: { root },
   outputFileTracingRoot: root,
+  async rewrites() {
+    const apiUrl = process.env.API_URL;
+    if (!apiUrl) throw new Error('API_URL is not set');
+    return [
+      { source: '/api/v1/:path*/', destination: `${apiUrl.replace(/\/$/, '')}/api/v1/:path*` },
+    ];
+  },
   images: {
     remotePatterns: [mediaPattern()],
     dangerouslyAllowLocalIP: LOCAL_HOSTS.has(mediaPattern().hostname),

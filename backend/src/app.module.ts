@@ -7,6 +7,9 @@ import { RequestLoggerMiddleware } from './common/request-logger.middleware.js';
 import { ZodValidationPipe } from './common/zod-validation.pipe.js';
 import { ConfigModule, ENV, type Env } from './config/config.module.js';
 import { DatabaseModule } from './database/database.module.js';
+import { CONTACT_THROTTLER, HOUR_IN_MS } from './modules/contact/contact.constants.js';
+import { ContactController } from './modules/contact/contact.controller.js';
+import { ContactModule } from './modules/contact/contact.module.js';
 import { ContentModule } from './modules/content/content.module.js';
 import { HealthModule } from './modules/health/health.module.js';
 import { SettingsModule } from './modules/settings/settings.module.js';
@@ -31,9 +34,18 @@ import { RedirectsModule } from './modules/redirects/redirects.module.js';
     DatabaseModule,
     ThrottlerModule.forRootAsync({
       inject: [ENV],
-      useFactory: (env: Env) => [{ ttl: RATE_LIMIT_WINDOW_MS, limit: env.RATE_LIMIT_PER_MINUTE }],
+      useFactory: (env: Env) => [
+        { ttl: RATE_LIMIT_WINDOW_MS, limit: env.RATE_LIMIT_PER_MINUTE },
+        {
+          name: CONTACT_THROTTLER,
+          ttl: HOUR_IN_MS,
+          limit: env.CONTACT_RATE_LIMIT_PER_HOUR,
+          skipIf: (context) => context.getClass() !== ContactController,
+        },
+      ],
     }),
     ContentModule,
+    ContactModule,
     HealthModule,
     SettingsModule,
     OfficesModule,

@@ -166,9 +166,13 @@ export const dictionary = {
     message: 'Your message',
     honeypot: 'Leave this field empty',
     submit: 'Send message',
-    notYetAvailable: 'Online messages will open soon. Please call, email or use WhatsApp for now.',
+    sending: 'Sending…',
+    success: 'Thank you. Your message has been received and we will reply as soon as we can.',
+    failed: 'Your message could not be sent. Please try again, or call, email or WhatsApp us.',
+    tooMany:
+      'Too many messages have been sent from this connection. Please call, email or WhatsApp us.',
     privacyNotice:
-      'We use your details only to respond to your enquiry. Please do not include confidential information.',
+      'By sending this message you agree that we may use your details to respond to your enquiry. Please do not include confidential information.',
     privacyLink: 'Read our privacy policy',
     errors: {
       firstName: 'Please enter your first name.',
