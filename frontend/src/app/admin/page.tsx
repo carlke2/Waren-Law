@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function AdminPage() {
   return (
-    <main className="mx-auto max-w-2xl p-8">
-      <h1 className="text-navy text-3xl font-semibold">{dictionary.admin.title}</h1>
+    <main className="mx-auto max-w-lead p-8">
+      <h1 className="text-h1">{dictionary.admin.title}</h1>
       <p className="mt-4">{dictionary.admin.comingSoon}</p>
     </main>
   );

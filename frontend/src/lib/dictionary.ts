@@ -1,15 +1,20 @@
 export const dictionary = {
-  site: {
-    name: 'WAREN Law Advocates LLP',
-    description: 'WAREN Law Advocates LLP, Nairobi and Nakuru.',
+  common: {
+    skipToContent: 'Skip to main content',
+    breadcrumb: 'Breadcrumb',
+    home: 'Home',
+    required: '(required)',
+    readMore: 'Read more',
+    viewAll: 'View all',
   },
   admin: {
     title: 'Admin',
     comingSoon: 'The admin panel arrives in Version 2.',
   },
-  backendStatus: {
-    backend: 'Backend',
-    database: 'Database',
-    unreachable: 'unreachable',
+  pagination: {
+    navigation: 'Pagination',
+    previous: 'Previous',
+    next: 'Next',
+    page: (page: number) => `Page ${page}`,
   },
 };
