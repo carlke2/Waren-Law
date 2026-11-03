@@ -1,0 +1,258 @@
+import { z } from 'zod';
+import {
+  DEFAULT_PAGE_SIZE,
+  MAX_PAGE_SIZE,
+  MEMBER_TYPES,
+  OFFICE_TYPES,
+  SLUG_TYPES,
+  WEBINAR_STATES,
+} from '../constants/content.js';
+import { SEARCH_QUERY_MAX_LENGTH, SEARCH_RESULT_TYPES } from '../constants/api.js';
+import {
+  headingBlockSchema,
+  imageBlockSchema,
+  listBlockSchema,
+  paragraphBlockSchema,
+  quoteBlockSchema,
+  tableBlockSchema,
+} from './blocks.js';
+import { faqSchema, slugSchema } from './common.js';
+import { BLOCK_DOCUMENT_VERSION } from '../constants/content.js';
+
+export const slugParamsSchema = z.object({ slug: slugSchema });
+
+export const mediaRefSchema = z.object({
+  url: z.url(),
+  alt: z.string(),
+  width: z.number().nullable(),
+  height: z.number().nullable(),
+});
+
+export const resolvedImageBlockSchema = imageBlockSchema.extend({ media: mediaRefSchema });
+
+export const resolvedDocumentSchema = z.object({
+  version: z.literal(BLOCK_DOCUMENT_VERSION),
+  blocks: z.array(
+    z.discriminatedUnion('type', [
+      paragraphBlockSchema,
+      headingBlockSchema,
+      listBlockSchema,
+      quoteBlockSchema,
+      resolvedImageBlockSchema,
+      tableBlockSchema,
+    ]),
+  ),
+});
+
+export const seoResponseSchema = z.object({
+  metaTitle: z.string().nullable(),
+  metaDescription: z.string().nullable(),
+  canonicalUrl: z.string().nullable(),
+  noindex: z.boolean(),
+  ogImage: mediaRefSchema.nullable(),
+});
+
+const namedLinkSchema = z.object({ slug: z.string(), name: z.string() });
+
+export const settingsResponseSchema = z.record(z.string(), z.unknown());
+
+export const officeResponseSchema = z.object({
+  slug: z.string(),
+  name: z.string(),
+  type: z.enum(OFFICE_TYPES),
+  addressLine: z.string(),
+  building: z.string().nullable(),
+  city: z.string(),
+  country: z.string(),
+  poBox: z.string().nullable(),
+  phone: z.string().nullable(),
+  email: z.string().nullable(),
+  latitude: z.number().nullable(),
+  longitude: z.number().nullable(),
+  mapEmbedUrl: z.string().nullable(),
+});
+
+export const pageResponseSchema = z.object({
+  slug: z.string(),
+  title: z.string(),
+  template: z.string(),
+  body: resolvedDocumentSchema,
+  publishedAt: z.string().nullable(),
+  seo: seoResponseSchema,
+});
+
+export const teamSummarySchema = z.object({
+  slug: z.string(),
+  fullName: z.string(),
+  displayName: z.string().nullable(),
+  roleTitle: z.string(),
+  memberType: z.enum(MEMBER_TYPES),
+  isAdvocate: z.boolean(),
+  hasProfile: z.boolean(),
+  shortBio: z.string(),
+  portrait: mediaRefSchema.nullable(),
+  practiceAreas: z.array(namedLinkSchema),
+});
+
+export const insightSummarySchema = z.object({
+  slug: z.string(),
+  title: z.string(),
+  excerpt: z.string(),
+  readingMinutes: z.number(),
+  publishedAt: z.string().nullable(),
+  featuredImage: mediaRefSchema.nullable(),
+  categories: z.array(namedLinkSchema),
+  authors: z.array(z.object({ slug: z.string(), fullName: z.string(), hasProfile: z.boolean() })),
+});
+
+export const practiceAreaSummarySchema = z.object({
+  slug: z.string(),
+  name: z.string(),
+  shortSummary: z.string(),
+  heroImage: mediaRefSchema.nullable(),
+});
+
+export const practiceAreaDetailSchema = practiceAreaSummarySchema.extend({
+  body: resolvedDocumentSchema,
+  faq: faqSchema,
+  team: z.array(teamSummarySchema),
+  insights: z.array(insightSummarySchema),
+  seo: seoResponseSchema,
+});
+
+export const teamListQuerySchema = z.object({ practiceArea: slugSchema.optional() });
+
+export const teamListResponseSchema = z.object({
+  total: z.number(),
+  groups: z.array(
+    z.object({ memberType: z.enum(MEMBER_TYPES), members: z.array(teamSummarySchema) }),
+  ),
+});
+
+export const teamDetailSchema = teamSummarySchema.extend({
+  longBio: resolvedDocumentSchema.nullable(),
+  experience: z.array(z.string()).nullable(),
+  education: z.array(z.string()).nullable(),
+  admissions: z.array(z.string()).nullable(),
+  memberships: z.array(z.string()).nullable(),
+  languages: z.array(z.string()),
+  email: z.string().nullable(),
+  phone: z.string().nullable(),
+  whatsApp: z.string().nullable(),
+  linkedInUrl: z.string().nullable(),
+  bookingUrl: z.string().nullable(),
+  office: officeResponseSchema.nullable(),
+  insights: z.array(insightSummarySchema),
+  seo: seoResponseSchema,
+});
+
+export const insightListQuerySchema = z.object({
+  page: z.coerce.number().int().min(1).default(1),
+  pageSize: z.coerce.number().int().min(1).max(MAX_PAGE_SIZE).default(DEFAULT_PAGE_SIZE),
+  category: slugSchema.optional(),
+});
+
+export const insightListResponseSchema = z.object({
+  items: z.array(insightSummarySchema),
+  page: z.number(),
+  pageSize: z.number(),
+  total: z.number(),
+  totalPages: z.number(),
+});
+
+export const insightDetailSchema = insightSummarySchema.extend({
+  body: resolvedDocumentSchema,
+  faq: faqSchema,
+  practiceAreas: z.array(namedLinkSchema),
+  related: z.array(insightSummarySchema),
+  seo: seoResponseSchema,
+});
+
+export const categoryResponseSchema = z.object({
+  slug: z.string(),
+  name: z.string(),
+  description: z.string().nullable(),
+  insightCount: z.number(),
+});
+
+export const webinarListQuerySchema = z.object({ state: z.enum(WEBINAR_STATES).optional() });
+
+export const webinarSummarySchema = z.object({
+  slug: z.string(),
+  title: z.string(),
+  summary: z.string(),
+  state: z.enum(WEBINAR_STATES),
+  startsAt: z.string().nullable(),
+  timezone: z.string().nullable(),
+  audience: z.string().nullable(),
+  heroImage: mediaRefSchema.nullable(),
+});
+
+export const webinarDetailSchema = webinarSummarySchema.extend({
+  body: resolvedDocumentSchema,
+  faq: faqSchema,
+  registrationUrl: z.string().nullable(),
+  recordingUrl: z.string().nullable(),
+  recordingGated: z.boolean(),
+  panel: z.array(teamSummarySchema),
+  seo: seoResponseSchema,
+});
+
+export const partnerResponseSchema = z.object({
+  slug: z.string(),
+  name: z.string(),
+  description: z.string(),
+  websiteUrl: z.string().nullable(),
+  logo: mediaRefSchema.nullable(),
+  gallery: z.array(mediaRefSchema),
+});
+
+export const awardResponseSchema = z.object({
+  slug: z.string(),
+  name: z.string(),
+  awarder: z.string(),
+  year: z.number(),
+  category: z.string(),
+  image: mediaRefSchema.nullable(),
+});
+
+export const clientLogoResponseSchema = z.object({
+  slug: z.string(),
+  name: z.string(),
+  altText: z.string(),
+  logo: mediaRefSchema,
+});
+
+export const testimonialResponseSchema = z.object({
+  id: z.string(),
+  quote: z.string(),
+  attribution: z.string(),
+  location: z.string().nullable(),
+});
+
+export const resolveResponseSchema = z.object({ type: z.enum(SLUG_TYPES), slug: z.string() });
+
+export const searchQuerySchema = z.object({
+  q: z.string().trim().min(1).max(SEARCH_QUERY_MAX_LENGTH),
+});
+
+export const searchResponseSchema = z.object({
+  query: z.string(),
+  results: z.array(
+    z.object({
+      type: z.enum(SEARCH_RESULT_TYPES),
+      slug: z.string(),
+      title: z.string(),
+      excerpt: z.string(),
+      hasProfile: z.boolean(),
+    }),
+  ),
+});
+
+export const redirectQuerySchema = z.object({ path: z.string().startsWith('/') });
+
+export const redirectResponseSchema = z.object({
+  fromPath: z.string(),
+  toPath: z.string(),
+  statusCode: z.number(),
+});
