@@ -5,7 +5,7 @@ Working repository for rebuilding **[warenlaw.com](https://warenlaw.com)** (WARE
 - **Repository:** https://github.com/carlke2/Waren-Law
 - **Start date:** 3 November 2026
 - **Duration:** flexible — plan agreed after structure review ([`docs/PLAN.md`](docs/PLAN.md))
-- **Status:** Version 1 — Day 1: foundation + data (brief 03)
+- **Status:** Version 1 — Day 1 complete: foundation + data (brief 03); see `docs/reports/V1-day1-report.md`
 - **Agent brief:** [`docs/prompts/03-AGENT-V1-DAY1-FOUNDATION-DATA.md`](docs/prompts/03-AGENT-V1-DAY1-FOUNDATION-DATA.md)
 
 ## Getting started

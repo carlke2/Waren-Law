@@ -14,4 +14,4 @@ Versioned under `/api/v1`. Endpoints: settings; offices; pages by slug; practice
 - `docs/prompts/03-AGENT-V1-DAY1-FOUNDATION-DATA.md`
 
 ## Result
-Public read API under `/api/v1` with 19 routes, plus media serving, response shapes in `shared/` and caching headers, listed in `backend/README.md`. Hidden content is tested for every gate (draft, awaiting legal review, no logo permission, no testimonial consent). 45 fixture tests of the API run in CI against a local database. `pnpm test:imported` checks real content read-only and passed 16 of 16 on Supabase. A smoke test of all routes on the built server returned 200.
+Public read API under `/api/v1` with 19 routes, plus media serving, response shapes in `shared/` and caching headers, listed in `backend/README.md`. Hidden content is tested for every gate (draft, awaiting legal review, no logo permission, no testimonial consent). 36 fixture tests of the API and its database rules run in CI against a local database. `pnpm test:imported` checks real content read-only and passed 16 of 16 on Supabase. A smoke test of all routes on the built server returned 200.
