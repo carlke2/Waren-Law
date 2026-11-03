@@ -2,7 +2,6 @@ import { ArgumentsHost, Catch, ExceptionFilter, HttpException, Logger } from '@n
 import type { Request, Response } from 'express';
 import { STATUS_CODES } from 'node:http';
 
-/** Every error leaves the API in the same JSON shape; internal details are only logged. */
 @Catch()
 export class JsonExceptionFilter implements ExceptionFilter {
   private readonly logger = new Logger('Exception');
