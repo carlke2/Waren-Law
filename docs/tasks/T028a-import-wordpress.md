@@ -1,6 +1,6 @@
 # T028a: Import existing content from the WordPress REST API
 
-**Status:** Ready
+**Status:** Done
 **Week:** 1 (Version 1, Day 1)
 **Priority:** High
 
@@ -22,10 +22,10 @@ Script in `scripts/import-wordpress/` (TypeScript, run with `pnpm import:wp`), *
 Source URLs, rate limit and paths come from env/config, not literals.
 
 ## Done when
-- [ ] `pnpm import:wp` fills the Supabase database with the counts above; re-running changes nothing.
+- [x] `pnpm import:wp` fills the Supabase database with the counts above; re-running changes nothing.
 
 ## Files / inputs
 - `docs/prompts/03-AGENT-V1-DAY1-FOUNDATION-DATA.md`
 
 ## Result
-_(Filled in by the agent: what was done, files changed, questions or blockers.)_
+`pnpm import:wp` imported into Supabase: 32 insights, 9 categories, 8 practice areas, 20 team members (10 profiles), 3 webinars, 5 pages, 3 offices, 3 partners, 1 award, 14 hidden client logos, 81 media files and 29 redirects. A second run changed 0 records and made 0 network requests. Assumptions are in decision 0009. Media files are in `backend/uploads/` on this machine, not in Supabase.
