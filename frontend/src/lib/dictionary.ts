@@ -82,6 +82,16 @@ export const dictionary = {
     webinarLink: 'View this webinar',
     webinarsLink: 'All webinars',
   },
+  about: {
+    videoTitle: 'About WAREN Law',
+    playVideo: 'Play the video about WAREN Law',
+    captions: 'English captions',
+    videoComingSoon: 'A short film about the firm will appear here soon.',
+    awardsHeading: 'Recognition',
+    partnersHeading: 'Our international partners',
+    partnersLead: 'We work with trusted law firms abroad to serve clients across borders.',
+    partnersLink: 'Meet our partners',
+  },
   team: {
     practiceAreas: 'Practice areas',
   },
