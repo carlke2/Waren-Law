@@ -1,13 +1,9 @@
+import { HEALTH_PATH, healthResponseSchema, type HealthResponse } from '@waren/shared';
 import { apiFetch } from './client';
 
-export interface BackendHealth {
-  status: 'ok' | 'error';
-  database: 'up' | 'down';
-}
-
-export async function getBackendHealth(): Promise<BackendHealth | null> {
+export async function getBackendHealth(): Promise<HealthResponse | null> {
   try {
-    return await apiFetch<BackendHealth>('/health', { cache: 'no-store' });
+    return await apiFetch(`/${HEALTH_PATH}`, healthResponseSchema, { cache: 'no-store' });
   } catch {
     return null;
   }

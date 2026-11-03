@@ -1,3 +1,5 @@
+import type { z } from 'zod';
+
 export class ApiError extends Error {
   constructor(
     message: string,
@@ -14,7 +16,11 @@ function baseUrl(): string {
   return url.replace(/\/$/, '');
 }
 
-export async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
+export async function apiFetch<T extends z.ZodType>(
+  path: string,
+  schema: T,
+  init?: RequestInit,
+): Promise<z.output<T>> {
   const response = await fetch(`${baseUrl()}${path}`, {
     ...init,
     headers: { Accept: 'application/json', ...init?.headers },
@@ -22,5 +28,5 @@ export async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> 
   if (!response.ok) {
     throw new ApiError(`${path} returned ${response.status}`, response.status);
   }
-  return (await response.json()) as T;
+  return schema.parse(await response.json());
 }

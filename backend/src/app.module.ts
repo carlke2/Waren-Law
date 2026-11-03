@@ -1,6 +1,7 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { APP_FILTER, APP_GUARD, APP_PIPE } from '@nestjs/core';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+import { RATE_LIMIT_WINDOW_MS } from '@waren/shared';
 import { JsonExceptionFilter } from './common/http-exception.filter.js';
 import { RequestLoggerMiddleware } from './common/request-logger.middleware.js';
 import { ZodValidationPipe } from './common/zod-validation.pipe.js';
@@ -14,7 +15,7 @@ import { HealthModule } from './modules/health/health.module.js';
     DatabaseModule,
     ThrottlerModule.forRootAsync({
       inject: [ENV],
-      useFactory: (env: Env) => [{ ttl: 60_000, limit: env.RATE_LIMIT_PER_MINUTE }],
+      useFactory: (env: Env) => [{ ttl: RATE_LIMIT_WINDOW_MS, limit: env.RATE_LIMIT_PER_MINUTE }],
     }),
     HealthModule,
   ],

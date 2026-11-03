@@ -1,9 +1,9 @@
-import type { BackendHealth } from '@/lib/api/health';
+import type { HealthResponse } from '@waren/shared';
 import { dictionary } from '@/lib/dictionary';
 
 const { backend, database, unreachable } = dictionary.backendStatus;
 
-export function BackendStatus({ health }: { health: BackendHealth | null }) {
+export function BackendStatus({ health }: { health: HealthResponse | null }) {
   if (!health) {
     return (
       <p role="status">
