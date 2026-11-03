@@ -1,0 +1,89 @@
+name: waren-law
+
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+      target: runtime
+    env_file: env/backend.env
+    environment:
+      UPLOADS_DIR: uploads
+    volumes:
+      - uploads:/app/uploads
+    restart: unless-stopped
+    expose:
+      - '4000'
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: frontend/Dockerfile
+      target: runtime
+      args:
+        API_URL: http://backend:4000
+        PUBLIC_MEDIA_BASE_URL: ${SITE_URL:?set in infra/env/deploy.env}/uploads
+        SITE_URL: ${SITE_URL:?set in infra/env/deploy.env}
+        SITE_INDEXABLE: ${SITE_INDEXABLE:-false}
+        REVALIDATE_SECONDS: ${REVALIDATE_SECONDS:-300}
+        REDIRECT_CACHE_SECONDS: ${REDIRECT_CACHE_SECONDS:-300}
+    env_file: env/frontend.env
+    environment:
+      API_URL: http://backend:4000
+      PUBLIC_MEDIA_BASE_URL: ${SITE_URL:?set in infra/env/deploy.env}/uploads
+      SITE_URL: ${SITE_URL:?set in infra/env/deploy.env}
+      SITE_INDEXABLE: ${SITE_INDEXABLE:-false}
+      REVALIDATE_SECONDS: ${REVALIDATE_SECONDS:-300}
+      REDIRECT_CACHE_SECONDS: ${REDIRECT_CACHE_SECONDS:-300}
+      # Only the image build skips pre-rendering. At runtime, pages generate on first request.
+      SKIP_PRERENDER: 'false'
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    expose:
+      - '3000'
+
+  nginx:
+    image: nginx:1.28.3-alpine
+    environment:
+      SERVER_NAME: ${SERVER_NAME:?set in infra/env/deploy.env}
+      BASIC_AUTH: ${BASIC_AUTH:-off}
+      NGINX_ENVSUBST_FILTER: ^(SERVER_NAME|BASIC_AUTH)$
+    volumes:
+      - ./nginx/templates:/etc/nginx/templates:ro
+      - ./nginx/snippets:/etc/nginx/snippets:ro
+      - ${TLS_DIR:-/etc/letsencrypt}:/etc/nginx/tls:ro
+      - ${BASIC_AUTH_FILE:-./nginx/htpasswd.example}:/etc/nginx/auth/htpasswd:ro
+      - nginx-cache:/var/cache/nginx
+      - ${ACME_DIR:-/var/www/acme}:/var/www/acme:ro
+    ports:
+      - '80:80'
+      - '443:443'
+    depends_on:
+      frontend:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '-O', '/dev/null', 'http://127.0.0.1/nginx-health']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  tools:
+    profiles: [tools]
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+      target: tools
+    env_file: env/backend.env
+    environment:
+      UPLOADS_DIR: uploads
+    volumes:
+      - uploads:/repo/backend/uploads
+
+volumes:
+  uploads:
+  nginx-cache:

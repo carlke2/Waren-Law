@@ -1,0 +1,16 @@
+**/node_modules
+**/dist
+**/.next
+**/.env
+**/.env.*
+!**/.env.example
+**/coverage
+**/*.tsbuildinfo
+.git
+.github
+docs/*
+!docs/seo
+backend/uploads
+backend/prisma/generated
+scripts/import-wordpress/.cache
+infra/env/*.env
