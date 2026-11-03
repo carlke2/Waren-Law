@@ -5,10 +5,6 @@ import { dictionary } from '@/lib/dictionary';
 const text = dictionary.about;
 const poster = { url: 'https://cdn.test/p.webp', alt: 'Poster', width: 100, height: 100 };
 
-vi.mock('next/image', () => ({
-  default: ({ alt, src }: { alt: string; src: string }) => <img alt={alt} src={src} />,
-}));
-
 describe('AboutVideo', () => {
   it('shows only the poster and a message until a video is set', () => {
     render(<AboutVideo url={null} captionsUrl={null} poster={poster} />);
