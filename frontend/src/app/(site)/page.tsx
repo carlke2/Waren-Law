@@ -2,6 +2,7 @@ import { FEATURED_TEAM_LIMIT, HOME_PAGE_SLUG, LATEST_INSIGHTS_LIMIT, ROUTES } fr
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { AwardList } from '@/components/site/award-list';
 import { ContentSections } from '@/components/site/content-sections';
 import { CtaBand } from '@/components/site/cta-band';
 import { HeroVideo } from '@/components/site/hero-video';
@@ -9,7 +10,7 @@ import { InsightCard } from '@/components/site/insight-card';
 import { PracticeAreaCard } from '@/components/site/practice-area-card';
 import { TeamCard } from '@/components/site/team-card';
 import { ButtonLink } from '@/components/ui/button';
-import { Badge, Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/card';
 import { Container, Section } from '@/components/ui/layout';
 import { Eyebrow, Heading, Lead } from '@/components/ui/typography';
 import {
@@ -131,20 +132,7 @@ export default async function HomePage() {
       {awards.length || logos.length ? (
         <Section tone="white">
           <Heading level={2}>{text.trustHeading}</Heading>
-          {awards.length ? (
-            <ul className="mt-6 grid gap-5 md:grid-cols-2">
-              {awards.map((award) => (
-                <li key={award.slug}>
-                  <Card className="h-full border-t-2 border-t-gold-500">
-                    <p className="text-caption text-ink-muted">
-                      {award.awarder} · {award.year}
-                    </p>
-                    <h3 className="mt-1 text-h4">{award.name}</h3>
-                  </Card>
-                </li>
-              ))}
-            </ul>
-          ) : null}
+          {awards.length ? <AwardList awards={awards} /> : null}
           {logos.length ? (
             <ul className="mt-8 flex flex-wrap items-center gap-8">
               {logos.map((logo) => (
