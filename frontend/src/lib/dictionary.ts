@@ -76,6 +76,8 @@ export const dictionary = {
   },
   notFound: {
     title: 'We couldn’t find that page',
+    crumb: 'Page not found',
+    lead: 'It may have moved. Try a search, or use one of these links.',
   },
   home: {
     aboutEyebrow: 'About us',
@@ -238,18 +240,20 @@ export const dictionary = {
   legal: {
     needsReview:
       'NEEDS ADVOCATE REVIEW: this text is a draft and has not yet been approved by the firm.',
+    lastUpdated: (date: string) => `Last updated ${date}`,
   },
   search: {
     title: 'Search',
     label: 'Search the site',
     submit: 'Search',
     noResults: 'Nothing matched your search. Try different words, or contact us directly.',
+    unavailable: 'Search is not available just now. Please try again, or contact us directly.',
     count: (count: number, query: string) =>
       `${count} ${count === 1 ? 'result' : 'results'} for “${query}”`,
-    types: {
-      insight: 'Insight',
-      practice_area: 'Area of expertise',
-      team_member: 'Team',
+    groups: {
+      practice_area: 'Practice areas',
+      team_member: 'People',
+      insight: 'Insights',
     },
   },
   admin: {

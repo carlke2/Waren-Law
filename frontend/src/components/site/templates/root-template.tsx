@@ -2,10 +2,10 @@ import { ROUTES, type PageResponse } from '@waren/shared';
 import { notFound } from 'next/navigation';
 import type { RootContent } from '@/lib/content/root-content';
 import { seoMetadataInput } from '@/lib/seo/metadata';
-import { HoldingPage } from '../holding-page';
 import { AboutTemplate } from './about-template';
 import { ContactTemplate } from './contact-template';
 import { InsightTemplate } from './insight-template';
+import { LegalTemplate } from './legal-template';
 import { PartnersTemplate } from './partners-template';
 import { PracticeAreaTemplate } from './practice-area-template';
 import { WebinarTemplate } from './webinar-template';
@@ -55,10 +55,10 @@ function PageTemplate({ page }: { page: PageResponse }) {
       return <PartnersTemplate page={page} />;
     case 'contact':
       return <ContactTemplate page={page} />;
+    case 'legal':
+      return <LegalTemplate page={page} />;
     case 'home':
       return notFound();
-    default:
-      return <HoldingPage title={page.title} />;
   }
 }
 

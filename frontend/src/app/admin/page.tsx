@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function AdminPage() {
   return (
     <main className="site-container py-16">
-      <h1 className="font-heading text-h1-holding font-medium text-brand">
+      <h1 className="font-heading text-h2 font-medium text-brand">
         {dictionary.admin.title}
       </h1>
       <p className="mt-4">{dictionary.admin.comingSoon}</p>
