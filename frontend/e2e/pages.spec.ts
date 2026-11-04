@@ -9,6 +9,9 @@ const CAPTURE = process.env.CAPTURE_SCREENS === 'true';
 const PAGES = [
   { name: 'about-us', path: '/about-us/' },
   { name: 'our-partners', path: '/our-partners/' },
+  { name: 'area-of-expertise', path: '/area-of-expertise/' },
+  { name: 'practice-area', path: '/corporate-commercial-practice/' },
+  { name: 'practice-area-no-team', path: '/banking-finance-law/' },
 ];
 
 for (const { name, path: route } of PAGES) {
