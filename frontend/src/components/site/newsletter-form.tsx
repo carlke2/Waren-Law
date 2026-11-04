@@ -103,7 +103,8 @@ export function NewsletterForm() {
         className={cx(
           'text-meta empty:hidden',
           status === 'sent' && 'text-success-on-brand',
-          (status === 'invalid' || status === 'failed' || status === 'limited') && 'text-error-on-brand',
+          (status === 'invalid' || status === 'failed' || status === 'limited') &&
+            'text-error-on-brand',
         )}
       >
         {message}

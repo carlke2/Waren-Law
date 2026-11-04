@@ -28,9 +28,7 @@ function Column({
 }) {
   return (
     <div className={cx('flex flex-col gap-3.5', className)}>
-      <h2 className="font-heading text-footer-heading font-normal text-on-brand">
-        {heading}
-      </h2>
+      <h2 className="font-heading text-footer-heading font-normal text-on-brand">{heading}</h2>
       {children}
     </div>
   );

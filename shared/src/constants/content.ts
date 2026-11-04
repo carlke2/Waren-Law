@@ -44,5 +44,6 @@ export const SETTING_KEYS = {
   cta: 'cta',
   newsletter: 'newsletter',
   aboutVideo: 'aboutVideo',
+  pageCopy: 'pageCopy',
   seo: 'seo',
 } as const;

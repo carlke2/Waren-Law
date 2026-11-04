@@ -747,6 +747,56 @@ export const SETTINGS = {
       'WAREN Law Advocates LLP is a firm of advocates in Nairobi and Nakuru, with a joint office in Beijing.',
   },
   [SETTING_KEYS.aboutVideo]: { url: null, captionsUrl: null },
+  [SETTING_KEYS.pageCopy]: {
+    about: {
+      heroTitle: 'About WAREN Law',
+      heroIntro:
+        'A Nairobi law firm advising businesses, institutions and Kenyans at home and abroad.',
+      storyTitle: 'Established to provide exceptional legal solutions',
+      storyClosing:
+        'Today the firm works from Manga House in Upper Hill, Nairobi, from Wilmur House in Nakuru, and from a joint office in Beijing, with partner firms in China and South Korea.',
+      filmTitle: 'Meet WAREN Law',
+      whyTitle: 'How we work',
+      whyPoints: [
+        {
+          title: 'A new standard of legal practice',
+          text: 'Blending experience with innovation for today’s legal landscape.',
+        },
+        {
+          title: 'Client-centred approach',
+          text: 'You are guided, supported and informed every step of the way.',
+        },
+        {
+          title: 'Trusted by corporates and individuals',
+          text: 'A strong record of professionalism and reliability.',
+        },
+        {
+          title: 'Global outlook',
+          text: 'A strong presence in East Africa and trusted partners across the globe.',
+        },
+      ],
+      leadershipTitle: 'Our Partners',
+      partnersTitle: 'Working with firms in China and South Korea',
+    },
+    partners: {
+      heroTitle: 'Our International Partners',
+      heroIntro: 'Reputable firms we work with to serve clients across borders.',
+      introTitle: 'Partner firms in China and South Korea',
+      intro:
+        'Our partnerships give clients investing between Kenya and Asia access to trusted counsel on both sides, from a joint office in Beijing to firms with branches across mainland China and South Korea.',
+      firmNotes: {
+        'beijing-jingping-law-firm': 'Reciprocal joint offices in Beijing and Nairobi.',
+        'beijing-matrix-law-firm': 'Over a decade of experience in overseas law and investments.',
+        'jointide-law-firm': 'More than 20 branches across mainland China and South Korea.',
+      },
+      signingLabel: 'Signing ceremony · 27 November 2025',
+      signingTitle: 'Tripartite cooperation signed in Beijing',
+      signingText:
+        'WAREN Law signed a cooperation agreement with its partner firms in Beijing, strengthening legal ties between China and Africa.',
+      signingInsightSlug:
+        'waren-law-advocates-llp-strengthens-china-africa-legal-ties-through-strategic-partnership-signing-in-beijing',
+    },
+  },
   [SETTING_KEYS.siteVerification]: {
     google: 'psyeUDg2m1msvc8mmzPm6ynF4QMH8CcnRx30ZVh3EnA',
     bing: '2B505C576AFA10A6956AF7677134FC44',
@@ -845,7 +895,7 @@ export const EXPECTED_COUNTS = {
   award: 1,
   'client logo': 14,
   'home content': 1,
-  setting: 11,
+  setting: 12,
 };
 
 export const IMPORT_NOTES = [

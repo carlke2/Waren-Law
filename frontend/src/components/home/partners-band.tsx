@@ -1,40 +1,10 @@
 import { ROUTES, type HomeResponse, type TeamSummary } from '@waren/shared';
-import Image from 'next/image';
-import { SiteLink } from '@/components/ui/site-link';
+import { PortraitGrid } from '@/components/site/portrait-card';
 import { ButtonLink } from '@/components/ui/button-link';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { dictionary } from '@/lib/dictionary';
 
 const text = dictionary.home;
-const PORTRAIT_SIZES = '(min-width: 64rem) 19rem, 50vw';
-
-function PartnerCard({ member }: { member: TeamSummary }) {
-  return (
-    <SiteLink
-      href={ROUTES.profile(member.slug)}
-      className="flex flex-col bg-brand-soft text-on-brand"
-    >
-      <div className="relative aspect-portrait bg-placeholder">
-        {member.portrait ? (
-          <Image
-            src={member.portrait.url}
-            alt={member.portrait.alt}
-            fill
-            sizes={PORTRAIT_SIZES}
-            className="object-cover object-top"
-          />
-        ) : null}
-      </div>
-      <div className="flex flex-col gap-1 px-2.5 pt-3 pb-4 text-center sm:px-5.5 sm:pt-5.5 sm:pb-6.5">
-        <span className="font-heading text-name-phone font-medium sm:text-name">
-          {member.displayName ?? member.fullName}
-        </span>
-        <span className="text-role-phone text-accent sm:text-role">{member.roleTitle}</span>
-      </div>
-    </SiteLink>
-  );
-}
-
 interface PartnersBandProps {
   home: HomeResponse;
   partners: readonly TeamSummary[];
@@ -57,11 +27,7 @@ export function PartnersBand({ home, partners }: PartnersBandProps) {
             {text.allPeople}
           </ButtonLink>
         </div>
-        <div className="grid grid-cols-2 gap-3 sm:grid-auto-team sm:gap-6 lg:grid-cols-4">
-          {partners.map((member) => (
-            <PartnerCard key={member.slug} member={member} />
-          ))}
-        </div>
+        <PortraitGrid members={partners} />
       </div>
     </section>
   );
