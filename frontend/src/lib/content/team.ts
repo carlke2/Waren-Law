@@ -1,5 +1,5 @@
 import type { PracticeAreaSummary } from '@waren/shared';
-import { ROUTES, SLUG_PATTERN, TEAM_FILTER_PARAM } from '@waren/shared';
+import { ROUTES, SLUG_PATTERN, TEAM_FILTER_PARAM } from '@waren/shared/constants';
 import type { FilterChip } from './filter-chip';
 import { dictionary } from '@/lib/dictionary';
 

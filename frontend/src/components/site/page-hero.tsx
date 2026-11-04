@@ -1,5 +1,6 @@
 import { ROUTES } from '@waren/shared';
 import Image from 'next/image';
+import type { ReactNode } from 'react';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { SiteLink } from '@/components/ui/site-link';
 import { getHome } from '@/lib/api/content';
@@ -20,9 +21,11 @@ interface PageHeroProps {
   crumbs: readonly Crumb[];
   eyebrow?: string | undefined;
   intro?: string | null | undefined;
+  aside?: ReactNode;
+  children?: ReactNode;
 }
 
-export async function PageHero({ title, crumbs, eyebrow, intro }: PageHeroProps) {
+export async function PageHero({ title, crumbs, eyebrow, intro, aside, children }: PageHeroProps) {
   const home = await getHome();
   const trail: readonly Crumb[] = [{ label: dictionary.common.home, href: ROUTES.home }, ...crumbs];
   return (
@@ -43,35 +46,39 @@ export async function PageHero({ title, crumbs, eyebrow, intro }: PageHeroProps)
           <div className="hero-overlay-top absolute inset-x-0 top-0" />
         </div>
       ) : null}
-      <div className="relative z-10 site-container flex flex-col gap-4 pt-12 pb-16 sm:pt-18 sm:pb-24">
-        <nav aria-label={dictionary.common.breadcrumb} className="text-link text-on-brand-muted">
-          <ol className="flex flex-wrap items-center gap-x-1.5">
-            {trail.map(({ label, href }) => (
-              <li key={label} className="flex items-center gap-x-1.5">
-                {href ? (
-                  <>
-                    <SiteLink href={href} className="hover:text-on-brand">
+      <div className="relative z-10 site-container flex flex-wrap items-center justify-between gap-10 pt-12 pb-16 sm:pt-18 sm:pb-24">
+        <div className="flex min-w-0 flex-recognition flex-col gap-4">
+          <nav aria-label={dictionary.common.breadcrumb} className="text-link text-on-brand-muted">
+            <ol className="flex flex-wrap items-center gap-x-1.5">
+              {trail.map(({ label, href }) => (
+                <li key={label} className="flex items-center gap-x-1.5">
+                  {href ? (
+                    <>
+                      <SiteLink href={href} className="hover:text-on-brand">
+                        {label}
+                      </SiteLink>
+                      <span aria-hidden="true">/</span>
+                    </>
+                  ) : (
+                    <span aria-current="page" className="text-on-brand">
                       {label}
-                    </SiteLink>
-                    <span aria-hidden="true">/</span>
-                  </>
-                ) : (
-                  <span aria-current="page" className="text-on-brand">
-                    {label}
-                  </span>
-                )}
-              </li>
-            ))}
-          </ol>
-        </nav>
-        {eyebrow ? (
-          <div className="flex items-center gap-3.5">
-            <span className="h-rule w-rule-short bg-accent" />
-            <Eyebrow onBrand>{eyebrow}</Eyebrow>
-          </div>
-        ) : null}
-        <h1 className="max-w-h1 font-heading text-h1-page font-medium text-on-brand">{title}</h1>
-        {intro ? <p className="max-w-intro text-lead text-on-brand-lead">{intro}</p> : null}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </nav>
+          {eyebrow ? (
+            <div className="flex items-center gap-3.5">
+              <span className="h-rule w-rule-short bg-accent" />
+              <Eyebrow onBrand>{eyebrow}</Eyebrow>
+            </div>
+          ) : null}
+          <h1 className="max-w-h1 font-heading text-h1-page font-medium text-on-brand">{title}</h1>
+          {intro ? <p className="max-w-intro text-lead text-on-brand-lead">{intro}</p> : null}
+          {children}
+        </div>
+        {aside}
       </div>
     </section>
   );
