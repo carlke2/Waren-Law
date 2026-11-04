@@ -1,7 +1,7 @@
 # 0018: Home content model, review gate and hero image
 
 **Date:** 4 November 2026
-**Status:** Accepted by the agent, for the planner to confirm
+**Status:** Accepted; points 2 and the launch-gate consequence replaced by decision 0020
 
 ## Decision
 1. Home content is a new `HomeContent` table, one row linked to the `home` Page. That Page still provides the title, publishing status and SEO fields.

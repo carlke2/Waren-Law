@@ -5,6 +5,8 @@ import { decideConsent, DESKTOP } from './helpers';
 
 const text = dictionary.newsletter;
 const ENDPOINT = `**/${API_PREFIX}/${API_ROUTES.newsletter}/`;
+const SUCCESS_ON_BRAND = 'rgb(127, 211, 166)';
+const ERROR_ON_BRAND = 'rgb(255, 156, 143)';
 
 test.use({ viewport: DESKTOP });
 
@@ -20,6 +22,28 @@ function formIn(page: Page) {
     status: footer.getByRole('status'),
   };
 }
+
+test('says how the address is used and links the Privacy Policy', async ({ page, request }) => {
+  await page.goto(ROUTES.home);
+  const footer = page.locator('footer');
+  await expect(footer.getByText(text.privacyNote)).toBeVisible();
+  const link = footer.getByRole('link', { name: text.privacyLink }).first();
+  await expect(link).toHaveAttribute('href', ROUTES.privacy);
+  expect((await request.get(ROUTES.privacy)).status()).toBe(200);
+});
+
+test('colours messages with the on-navy tokens', async ({ page }) => {
+  await page.route(ENDPOINT, (route) => route.fulfill({ json: { received: true } }));
+  await page.goto(ROUTES.home);
+  const { email, submit, status } = formIn(page);
+  await email.fill('nope');
+  await submit.click();
+  await expect(status).toHaveCSS('color', ERROR_ON_BRAND);
+  await email.fill('asha@example.test');
+  await submit.click();
+  await expect(status).toHaveText(text.success);
+  await expect(status).toHaveCSS('color', SUCCESS_ON_BRAND);
+});
 
 test('shows an error for a bad address and sends nothing', async ({ page }) => {
   let posted = false;

@@ -99,6 +99,7 @@ async function ensurePortrait(media: MediaLibrary, entry: TeamEntry, card: TeamC
     legacyUrl,
     baseName: `team-${slug}`,
     altText: `Portrait of ${entry.name}, ${card.roleTitle}, WAREN Law Advocates LLP`,
+    curatedAltText: entry.portraitAlt,
   });
 }
 

@@ -14,6 +14,10 @@
   --palette-line-strong: #c9cedd;
   --palette-mist: #f3f4f8;
   --palette-white: #ffffff;
+  --palette-green-700: #1f6b45;
+  --palette-green-300: #7fd3a6;
+  --palette-red-700: #b42318;
+  --palette-red-300: #ff9c8f;
 
   --overlay-hero-from: color-mix(in srgb, var(--palette-navy-950) 86%, transparent);
   --overlay-hero-via: color-mix(in srgb, var(--palette-navy-950) 55%, transparent);
@@ -57,8 +61,10 @@
   --color-outline-on-brand: color-mix(in srgb, var(--palette-white) 70%, transparent);
   --color-menu-outline: color-mix(in srgb, var(--palette-white) 50%, transparent);
   --color-placeholder: var(--palette-navy-700);
-  --color-success: var(--palette-white);
-  --color-error: var(--palette-gold-500);
+  --color-success: var(--palette-green-700);
+  --color-error: var(--palette-red-700);
+  --color-success-on-brand: var(--palette-green-300);
+  --color-error-on-brand: var(--palette-red-300);
 
   --font-*: initial;
   --font-heading: var(--font-heading-face), Georgia, serif;

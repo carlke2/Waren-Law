@@ -1,7 +1,8 @@
 'use client';
 
-import { API_PREFIX, API_ROUTES } from '@waren/shared/constants';
+import { API_PREFIX, API_ROUTES, ROUTES } from '@waren/shared/constants';
 import { useId, useState, type FormEvent } from 'react';
+import { SiteLink } from '@/components/ui/site-link';
 import { dictionary } from '@/lib/dictionary';
 import { cx } from '@/lib/utils/cx';
 
@@ -84,6 +85,12 @@ export function NewsletterForm() {
           {text.submitIcon}
         </button>
       </div>
+      <p className="text-meta text-on-brand-muted">
+        {text.privacyNote}{' '}
+        <SiteLink href={ROUTES.privacy} className="underline hover:text-on-brand">
+          {text.privacyLink}
+        </SiteLink>
+      </p>
       <div className="sr-only" aria-hidden="true">
         <label>
           {text.honeypot}
@@ -95,8 +102,8 @@ export function NewsletterForm() {
         role="status"
         className={cx(
           'text-meta empty:hidden',
-          status === 'sent' && 'text-success',
-          (status === 'invalid' || status === 'failed' || status === 'limited') && 'text-error',
+          status === 'sent' && 'text-success-on-brand',
+          (status === 'invalid' || status === 'failed' || status === 'limited') && 'text-error-on-brand',
         )}
       >
         {message}

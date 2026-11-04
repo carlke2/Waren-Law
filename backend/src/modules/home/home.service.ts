@@ -1,7 +1,6 @@
-import { Inject, Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { heroCardsSchema, HOME_PAGE_SLUG, type HomeResponse } from '@waren/shared';
-import { ContentStatus, LegalReviewStatus } from '../../../prisma/generated/client.js';
-import { ENV, type Env } from '../../config/config.module.js';
+import { ContentStatus } from '../../../prisma/generated/client.js';
 import { PrismaService } from '../../database/prisma.service.js';
 import { ContentPresenter } from '../content/content-presenter.service.js';
 
@@ -10,17 +9,11 @@ export class HomeService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly present: ContentPresenter,
-    @Inject(ENV) private readonly env: Env,
   ) {}
 
   async get(): Promise<HomeResponse> {
     const home = await this.prisma.homeContent.findFirst({
-      where: {
-        page: { slug: HOME_PAGE_SLUG, status: ContentStatus.published },
-        ...(this.env.PREVIEW_UNREVIEWED_PAGES
-          ? {}
-          : { legalReviewStatus: LegalReviewStatus.approved }),
-      },
+      where: { page: { slug: HOME_PAGE_SLUG, status: ContentStatus.published } },
       include: { heroImage: true, page: { include: { ogImage: true } } },
     });
     if (!home) throw new NotFoundException('No home content is available');

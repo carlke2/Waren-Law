@@ -93,35 +93,15 @@ describe('public read API', () => {
     }
   });
 
-  describe('home', () => {
-    const setReview = (legalReviewStatus: 'approved' | 'needs_advocate_review') =>
-      app.get(PrismaService).homeContent.updateMany({ data: { legalReviewStatus } });
-
-    it('hides home content awaiting review', async () => {
-      await setReview('needs_advocate_review');
-      await get(API_ROUTES.home, 404);
-    });
-
-    it('serves approved home content, with its image and SEO from the home page', async () => {
-      await setReview('approved');
-      const home = homeResponseSchema.parse((await get(API_ROUTES.home)).body);
-      expect(home.heroImage.url).toBe('http://localhost:4000/uploads/fixture.webp');
-      expect(home.heroCards.map(({ icon }) => icon)).toEqual(['briefcase', 'home', 'globe']);
-      expect(home.welcomeBody.blocks).toHaveLength(1);
-      expect(home.seo.metaTitle).toBe('Home meta title');
-      await setReview('needs_advocate_review');
-    });
-
-    it('serves content awaiting review when preview is on', async () => {
-      process.env.PREVIEW_UNREVIEWED_PAGES = 'true';
-      const preview = await createTestApp();
-      try {
-        await request(preview.getHttpServer()).get(`${api}/${API_ROUTES.home}`).expect(200);
-      } finally {
-        await preview.close();
-        delete process.env.PREVIEW_UNREVIEWED_PAGES;
-      }
-    });
+  it('serves Home whatever its review status, with its image and SEO from the home page', async () => {
+    await app
+      .get(PrismaService)
+      .homeContent.updateMany({ data: { legalReviewStatus: 'needs_advocate_review' } });
+    const home = homeResponseSchema.parse((await get(API_ROUTES.home)).body);
+    expect(home.heroImage.url).toBe('http://localhost:4000/uploads/fixture.webp');
+    expect(home.heroCards.map(({ icon }) => icon)).toEqual(['briefcase', 'home', 'globe']);
+    expect(home.welcomeBody.blocks).toHaveLength(1);
+    expect(home.seo.metaTitle).toBe('Home meta title');
   });
 
   it('GET practice areas includes the card fields', async () => {

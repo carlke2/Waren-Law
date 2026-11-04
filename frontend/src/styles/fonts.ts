@@ -1,10 +1,14 @@
-import { Manrope, Newsreader } from 'next/font/google';
+import { Manrope } from 'next/font/google';
+import localFont from 'next/font/local';
 
-export const headingFont = Newsreader({
-  subsets: ['latin'],
-  axes: ['opsz'],
+// Cut to the weights and optical sizes the headings use (decision 0020).
+export const headingFont = localFont({
+  src: './fonts/newsreader-latin-opsz16-72-wght400-600.woff2',
+  weight: '400 600',
+  style: 'normal',
   variable: '--font-heading-face',
   display: 'swap',
+  adjustFontFallback: 'Times New Roman',
 });
 
 export const bodyFont = Manrope({

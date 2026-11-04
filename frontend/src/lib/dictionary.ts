@@ -45,6 +45,8 @@ export const dictionary = {
     honeypot: 'Leave this field empty',
     submit: 'Subscribe',
     submitIcon: '→',
+    privacyNote: 'We’ll only use your email to send our insights.',
+    privacyLink: 'Privacy Policy',
     sending: 'Sending…',
     success: 'Thank you. You are on the list.',
     invalid: 'Please enter a valid email address.',

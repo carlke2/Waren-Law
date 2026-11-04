@@ -4,6 +4,7 @@ import {
   API_ROUTES,
   HOME_PAGE_SLUG,
   categoryResponseSchema,
+  homeResponseSchema,
   insightDetailSchema,
   insightListResponseSchema,
   pageResponseSchema,
@@ -19,6 +20,7 @@ import {
 } from '@waren/shared';
 import request from 'supertest';
 import { z } from 'zod';
+import { PrismaService } from '../../src/database/prisma.service.js';
 import { createTestApp } from '../create-test-app.js';
 
 const api = `/${API_PREFIX}`;
@@ -49,6 +51,22 @@ describe('API against the imported content', () => {
       pageResponseSchema.parse(await get(`${API_ROUTES.pages}/${slug}`));
     },
   );
+
+  it('stores Home as approved, with hero cards linking to practice pages', async () => {
+    const stored = await app.get(PrismaService).homeContent.findFirstOrThrow();
+    expect(stored.legalReviewStatus).toBe('approved');
+    const home = homeResponseSchema.parse(await get(API_ROUTES.home));
+    expect(home.heroCards.map(({ href }) => href)).toEqual([
+      '/corporate-commercial-practice/',
+      '/real-estate-conveyancing-land-law/',
+      '/wealth-management-investments/',
+    ]);
+  });
+
+  it('describes the Phylis Njane portrait by name and role only', async () => {
+    const phylis = teamDetailSchema.parse(await get(`${API_ROUTES.team}/phylis-njane`));
+    expect(phylis.portrait?.alt).toBe('Phylis Njane, Partner');
+  });
 
   it('corrects the About typo', async () => {
     const about = JSON.stringify(await get(`${API_ROUTES.pages}/about-us`));

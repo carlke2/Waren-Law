@@ -36,7 +36,8 @@ All colours, fonts, sizes, spacing, radius, shadows and motion live in **one the
 | `--color-surface-alt` | mist | Alternate bands |
 | `--color-border` | line | Card borders |
 | `--color-border-strong` | line-strong | Inputs, icon buttons |
-| `--color-success` / `--color-error` | §1 | Form states |
+| `--color-success` / `--color-error` | #1F6B45 / #B42318 | Form states on light (decision 0020) |
+| `--color-success-on-brand` / `--color-error-on-brand` | #7FD3A6 / #FF9C8F | Form states on navy (decision 0020) |
 
   Also in the same file: `--font-heading`, `--font-body`, the type scale (`--text-h1` …), spacing scale, `--radius`, `--shadow-card`, `--shadow-header`, motion durations, `--container`.
 - `frontend/tailwind.config` (or Tailwind v4 `@theme`) maps utilities **only** to the semantic tokens (e.g. `bg-brand`, `text-accent`), not to palette names and not to Tailwind's default colours.

@@ -226,6 +226,7 @@ export interface TeamEntry {
   officeSlug: string | null;
   practiceAreas: readonly string[];
   portrait?: string;
+  portraitAlt?: string;
   email?: string;
   phone?: string;
   whatsApp?: string;
@@ -292,6 +293,7 @@ export const TEAM: readonly TeamEntry[] = [
     memberType: 'partner',
     isAdvocate: true,
     roleTitle: 'Partner',
+    portraitAlt: 'Phylis Njane, Partner',
     officeSlug: null,
     practiceAreas: [P.litigation, P.employment],
   },
@@ -782,19 +784,19 @@ const HERO_CARDS: readonly HeroCard[] = [
     icon: 'briefcase',
     title: 'For Businesses',
     text: 'Corporate, banking, employment and dispute advice for companies, lenders and investors in Kenya.',
-    href: ROUTES.expertise,
+    href: ROUTES.root(P.corporate),
   },
   {
     icon: 'home',
     title: 'For Property & Families',
     text: 'Conveyancing, succession and wealth planning to protect land, homes and family assets.',
-    href: ROUTES.expertise,
+    href: ROUTES.root(P.property),
   },
   {
     icon: 'globe',
     title: 'For Kenyans Abroad',
     text: 'Support to buy property, plan succession and invest in Kenya from the UK, US, Europe and beyond.',
-    href: ROUTES.expertise,
+    href: ROUTES.root(P.wealth),
   },
 ];
 

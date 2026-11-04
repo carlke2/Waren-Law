@@ -1,4 +1,7 @@
 ## Report: Frontend reset + Home (T035–T039)
+
+> The review answers are applied in decision 0020, which replaces the launch gate and open questions below. See `docs/reports/0020-report.md`. The 3.0 s LCP below was not reproduced in later runs.
+
 Status: Done. Stopped here for owner and planner review.
 
 State before starting: Brief 05 had run. T011a, T021, T030a, T031a and T032a were on `main`, tagged `v1.0.0`. All its backend work is kept. The old frontend was still in place, and no servers were running on ports 3000 or 4000.

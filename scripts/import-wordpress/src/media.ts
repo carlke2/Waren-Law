@@ -24,6 +24,7 @@ export interface MediaRequest {
   legacyUrl: string;
   baseName: string;
   altText: string;
+  curatedAltText?: string;
   caption?: string;
 }
 
@@ -101,8 +102,8 @@ export class MediaLibrary {
       sizeBytes: output.size,
       width: output.width,
       height: output.height,
-      altText: wordpressAlt || existing?.altText || request.altText,
-      altTextNeedsReview: !wordpressAlt,
+      altText: request.curatedAltText ?? (wordpressAlt || existing?.altText || request.altText),
+      altTextNeedsReview: !request.curatedAltText && !wordpressAlt,
       caption: existing?.caption ?? request.caption ?? null,
       legacyUrl,
     };

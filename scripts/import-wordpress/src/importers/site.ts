@@ -242,9 +242,10 @@ export async function importHome(
 ): Promise<void> {
   const page = await db.page.findUniqueOrThrow({ where: { slug: HOME_PAGE_SLUG } });
   const heroImage = await media.ensureLocal(await heroImageSource());
-  // legalReviewStatus is left out on purpose: a re-import must not change the firm's review.
   const data = {
     pageId: page.id,
+    // Home is not legal content (decision 0020).
+    legalReviewStatus: 'approved' as const,
     heroImageId: heroImage.id,
     ...HOME_CONTENT,
     heroCards: HOME_CONTENT.heroCards as unknown as Prisma.InputJsonValue,

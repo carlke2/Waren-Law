@@ -3,7 +3,12 @@ import { API_PREFIX, ROUTES } from '@waren/shared';
 import { dictionary } from '../src/lib/dictionary';
 import { decideConsent, DESKTOP, loadAllImages, PHONE } from './helpers';
 
-const HERO_CARD_TITLES = ['For Businesses', 'For Property & Families', 'For Kenyans Abroad'];
+const HERO_CARDS = [
+  { title: 'For Businesses', href: '/corporate-commercial-practice/' },
+  { title: 'For Property & Families', href: '/real-estate-conveyancing-land-law/' },
+  { title: 'For Kenyans Abroad', href: '/wealth-management-investments/' },
+];
+const HERO_CARD_TITLES = HERO_CARDS.map(({ title }) => title);
 const RSC_PARAM = '_rsc=';
 const TEST_WIDTHS = [360, 390, 430, 768, 1024, 1280, 1440, 1920];
 
@@ -70,6 +75,18 @@ test.describe('content', () => {
     await expect(hero.getByRole('link')).toHaveCount(HERO_CARD_TITLES.length);
     for (const title of HERO_CARD_TITLES) {
       await expect(hero.getByRole('link', { name: title })).toBeVisible();
+    }
+  });
+
+  test('links each hero card to its practice page, and each page opens', async ({
+    page,
+    request,
+  }) => {
+    await page.goto(ROUTES.home);
+    const hero = page.locator('main > section').first();
+    for (const { title, href } of HERO_CARDS) {
+      await expect(hero.getByRole('link', { name: title })).toHaveAttribute('href', href);
+      expect((await request.get(href)).status(), href).toBe(200);
     }
   });
 
