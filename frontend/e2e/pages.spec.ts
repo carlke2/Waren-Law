@@ -17,6 +17,14 @@ const PAGES = [
   { name: 'profile', path: '/our-team/janice-wachuka/' },
   { name: 'contact-us', path: '/contact-us/' },
   { name: 'book-a-consultation', path: '/book-a-consultation/' },
+  { name: 'insights', path: '/insights/' },
+  { name: 'insights-page-2', path: '/insights/page/2/' },
+  { name: 'category', path: '/category/wealth-management/' },
+  { name: 'article', path: '/cross-border-succession-planning-kenya-uk-us/' },
+  { name: 'article-long', path: '/investing-in-kenya-from-the-us-uk-canada-or-europe/' },
+  { name: 'webinars', path: '/insights/webinars/' },
+  { name: 'webinar-recording', path: '/wealth-protection-plan-for-kenyans-abroad-webinar/' },
+  { name: 'webinar-past', path: '/trusts-taxes-protecting-wealth-across-borders/' },
 ];
 
 for (const { name, path: route } of PAGES) {

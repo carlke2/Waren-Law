@@ -82,3 +82,17 @@ test('every Book a consultation link opens the consultation page', async ({ page
     ROUTES.consultation,
   );
 });
+
+test('a recording webinar takes a request through the native form', async ({ page }) => {
+  let body: Record<string, string> = {};
+  await page.route(`**/${API_PREFIX}/${API_ROUTES.recordingRequests}/`, (route) => {
+    body = route.request().postDataJSON();
+    return route.fulfill({ status: 200, json: { received: true } });
+  });
+  await page.goto('/wealth-protection-plan-for-kenyans-abroad-webinar/');
+  await page.locator('main').getByLabel(text.labels.name).fill('Asha Otieno');
+  await page.locator('main').getByLabel(text.labels.email).fill('asha@example.test');
+  await page.getByRole('button', { name: dictionary.webinars.requestRecording }).click();
+  await expect(page.getByText(text.success)).toBeVisible();
+  expect(body.page).toBe('/wealth-protection-plan-for-kenyans-abroad-webinar/');
+});
