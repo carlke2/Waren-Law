@@ -135,7 +135,7 @@ test.describe('content', () => {
     const cta = page.locator('main > section').last();
     await expect(cta.getByRole('link', { name: dictionary.cta.consultation })).toHaveAttribute(
       'href',
-      ROUTES.contact,
+      ROUTES.consultation,
     );
     await expect(cta.getByRole('link', { name: dictionary.cta.whatsApp })).toHaveAttribute(
       'href',

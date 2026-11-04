@@ -796,6 +796,27 @@ export const SETTINGS = {
       signingInsightSlug:
         'waren-law-advocates-llp-strengthens-china-africa-legal-ties-through-strategic-partnership-signing-in-beijing',
     },
+    contact: {
+      heroIntro: 'Speak to an advocate in Nairobi, Nakuru or online.',
+    },
+    consultation: {
+      heroIntro:
+        'Tell us about your matter and we will arrange a consultation in Nairobi, Nakuru or online.',
+      steps: [
+        {
+          title: 'You send your request',
+          text: 'Tell us briefly about your matter and which dates suit you.',
+        },
+        {
+          title: 'We review it',
+          text: 'Our team reads your request and directs it to the right advocate.',
+        },
+        {
+          title: 'We arrange the consultation',
+          text: 'We contact you to confirm a time in Nairobi, Nakuru or by video call.',
+        },
+      ],
+    },
   },
   [SETTING_KEYS.siteVerification]: {
     google: 'psyeUDg2m1msvc8mmzPm6ynF4QMH8CcnRx30ZVh3EnA',

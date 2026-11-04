@@ -69,3 +69,11 @@ New wording from the approved design references. Stored in the `pageCopy` settin
 - [ ] Our Partners hero, intro and one-line notes on each partner firm
 - [ ] Signing ceremony label, title and sentence
 - [ ] Partner firm logos and a Beijing joint office photo: not supplied, so they are not shown
+
+## Contact and consultation copy
+New wording, stored in the `pageCopy` setting.
+
+- [ ] Contact hero sentence
+- [ ] Consultation hero sentence and the three "What happens next" steps
+- [ ] Consultation FAQs: none supplied, so the section is hidden
+- [ ] Privacy line on forms: "We use your details only to respond to you. Please do not include confidential information."
