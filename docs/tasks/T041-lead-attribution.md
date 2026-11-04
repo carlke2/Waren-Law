@@ -1,6 +1,6 @@
 # T041: Lead source tracking (backend)
 
-**Status:** Draft — starts after the Home build (brief 06) is signed off
+**Status:** Done, except newsletter link tagging (see `docs/reports/T041-report.md`)
 **Priority:** High
 **Decision:** 0017
 

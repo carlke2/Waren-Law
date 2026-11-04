@@ -149,7 +149,7 @@ describe('newsletter rate limit', () => {
     process.env.NEWSLETTER_RATE_LIMIT_PER_HOUR = '2';
     const app = await createTestApp();
     try {
-      const post = (email: string) => request(app.getHttpServer()).post(url).send({ email });
+      const post = (email: string) => request(app.getHttpServer()).post(url).send({ email, page: '/' });
       await post('a@example.test').expect(200);
       await post('b@example.test').expect(200);
       await post('c@example.test').expect(429);
