@@ -419,22 +419,40 @@ model Media {
 }
 
 model ContactSubmission {
-  id        String    @id @default(uuid())
-  name      String
-  email     String
-  phone     String?
-  message   String
-  source    String
-  consentAt DateTime?
-  emailedAt DateTime?
-  createdAt DateTime  @default(now())
+  id               String    @id @default(uuid())
+  name             String
+  email            String
+  phone            String?
+  message          String    @default("")
+  form             String    @default("contact")
+  page             String
+  source           String    @default("direct")
+  campaign         String?
+  channel          String    @default("Direct")
+  heardAbout       String?
+  country          String?
+  practiceArea     String?
+  clientType       String?
+  preferredMeeting String?
+  preferredDates   String?
+  consentAt        DateTime?
+  emailedAt        DateTime?
+  createdAt        DateTime  @default(now())
+
+  @@index([createdAt])
 }
 
 model Subscriber {
   id                    String           @id @default(uuid())
   email                 String           @unique
   firstName             String?
-  source                SubscriberSource
+  signupType            SubscriberSource
+  form                  String           @default("newsletter")
+  page                  String           @default("/")
+  source                String           @default("direct")
+  campaign              String?
+  channel               String           @default("Direct")
+  heardAbout            String?
   consentAt             DateTime
   unsubscribedAt        DateTime?
   confirmedAt           DateTime?
@@ -443,6 +461,8 @@ model Subscriber {
   webinar               Webinar?         @relation(fields: [webinarId], references: [id], onDelete: SetNull)
   createdAt             DateTime         @default(now())
   updatedAt             DateTime         @updatedAt
+
+  @@index([createdAt])
 }
 
 model Redirect {

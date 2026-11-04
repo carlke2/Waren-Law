@@ -1,8 +1,9 @@
 'use client';
 
-import { API_PREFIX, API_ROUTES, ROUTES } from '@waren/shared/constants';
+import { API_PREFIX, API_ROUTES, HEARD_ABOUT_OPTIONS, ROUTES } from '@waren/shared/constants';
 import { useId, useState, type FormEvent } from 'react';
 import { SiteLink } from '@/components/ui/site-link';
+import { visitAttribution } from '@/lib/attribution/visit';
 import { dictionary } from '@/lib/dictionary';
 import { cx } from '@/lib/utils/cx';
 
@@ -21,12 +22,12 @@ const MESSAGES: Partial<Record<Status, string>> = {
   limited: text.tooMany,
 };
 
-async function submit(email: string, website: string): Promise<Status> {
+async function submit(email: string, website: string, heardAbout: string): Promise<Status> {
   try {
     const response = await fetch(ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, website }),
+      body: JSON.stringify({ email, website, ...visitAttribution(heardAbout) }),
     });
     if (response.ok) return 'sent';
     return response.status === TOO_MANY_REQUESTS ? 'limited' : 'failed';
@@ -39,6 +40,7 @@ export function NewsletterForm() {
   const [status, setStatus] = useState<Status>('idle');
   const emailId = useId();
   const statusId = useId();
+  const heardAboutId = useId();
   const message = MESSAGES[status];
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -54,7 +56,7 @@ export function NewsletterForm() {
       return;
     }
     setStatus('sending');
-    const next = await submit(email, website);
+    const next = await submit(email, website, String(data.get('heardAbout') ?? ''));
     setStatus(next);
     if (next === 'sent') form.reset();
   };
@@ -85,6 +87,22 @@ export function NewsletterForm() {
           {text.submitIcon}
         </button>
       </div>
+      <label htmlFor={heardAboutId} className="text-meta text-on-brand">
+        {dictionary.forms.heardAbout}
+      </label>
+      <select
+        id={heardAboutId}
+        name="heardAbout"
+        defaultValue=""
+        className="h-12 border border-border-on-brand bg-brand-soft px-3.5 text-on-brand"
+      >
+        <option value="">{dictionary.forms.choose}</option>
+        {HEARD_ABOUT_OPTIONS.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
       <p className="text-meta text-on-brand-muted">
         {text.privacyNote}{' '}
         <SiteLink href={ROUTES.privacy} className="underline hover:text-on-brand">

@@ -30,6 +30,7 @@ import { ClientLogosModule } from './modules/client-logos/client-logos.module.js
 import { TestimonialsModule } from './modules/testimonials/testimonials.module.js';
 import { ResolveModule } from './modules/resolve/resolve.module.js';
 import { SearchModule } from './modules/search/search.module.js';
+import { LeadsModule } from './modules/leads/leads.module.js';
 import { RedirectsModule } from './modules/redirects/redirects.module.js';
 
 @Module({
@@ -74,6 +75,7 @@ import { RedirectsModule } from './modules/redirects/redirects.module.js';
     ResolveModule,
     SearchModule,
     RedirectsModule,
+    LeadsModule,
   ],
   providers: [
     { provide: APP_GUARD, useClass: ThrottlerGuard },

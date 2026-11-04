@@ -1,3 +1,4 @@
+import type { LEAD_CHANNELS } from '../constants/leads.js';
 import type { z } from 'zod';
 import type * as api from '../schemas/api.js';
 
@@ -34,4 +35,13 @@ export type IconName = HeroCard['icon'];
 export type HeroCard = z.infer<typeof api.heroCardSchema>;
 export type HomeResponse = z.infer<typeof api.homeResponseSchema>;
 export type NewsletterForm = z.infer<typeof api.newsletterFormSchema>;
+export type NewsletterRequest = z.infer<typeof api.newsletterRequestSchema>;
+export type ConsultationRequest = z.infer<typeof api.consultationRequestSchema>;
+export type RecordingRequest = z.infer<typeof api.recordingRequestSchema>;
+export type Attribution = z.infer<typeof api.attributionSchema>;
+export type LeadChannel = (typeof LEAD_CHANNELS)[number];
+export type LeadListQuery = z.infer<typeof api.leadListQuerySchema>;
+export type LeadRow = z.infer<typeof api.leadRowSchema>;
+export type LeadListResponse = z.infer<typeof api.leadListResponseSchema>;
+export type LeadSummaryResponse = z.infer<typeof api.leadSummaryResponseSchema>;
 export type NewsletterResponse = z.infer<typeof api.newsletterResponseSchema>;
