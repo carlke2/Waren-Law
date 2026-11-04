@@ -1,0 +1,233 @@
+:root {
+  --palette-navy-950: #070f2a;
+  --palette-navy-900: #0b1a4a;
+  --palette-navy-800: #12245e;
+  --palette-navy-700: #1b2f6e;
+  --palette-gold-500: #d4af37;
+  --palette-gold-700: #8a6a12;
+  --palette-ink-900: #141a2e;
+  --palette-ink-600: #3d4560;
+  --palette-ink-500: #4a5270;
+  --palette-ink-400: #5d6582;
+  --palette-on-navy: #c7cce0;
+  --palette-line: #e1e4ee;
+  --palette-line-strong: #c9cedd;
+  --palette-mist: #f3f4f8;
+  --palette-white: #ffffff;
+
+  --overlay-hero-from: color-mix(in srgb, var(--palette-navy-950) 86%, transparent);
+  --overlay-hero-via: color-mix(in srgb, var(--palette-navy-950) 55%, transparent);
+  --overlay-hero-to: color-mix(in srgb, var(--palette-navy-950) 10%, transparent);
+  --overlay-hero-top: color-mix(in srgb, var(--palette-navy-950) 70%, transparent);
+  --overlay-hero-top-height: 8.75rem;
+
+  --radius: 0;
+  --motion-fast: 150ms;
+  --motion-slow: 250ms;
+  --gutter: 1.25rem;
+  --grid-min-practice: 16.25rem;
+  --grid-min-team: 15rem;
+  --grid-min-insight: 18.75rem;
+  --grid-min-footer: 13.75rem;
+  --grid-min-hero: 15rem;
+}
+
+@theme static {
+  --color-*: initial;
+  --color-brand: var(--palette-navy-900);
+  --color-brand-strong: var(--palette-navy-950);
+  --color-brand-soft: var(--palette-navy-800);
+  --color-accent: var(--palette-gold-500);
+  --color-accent-text: var(--palette-gold-700);
+  --color-on-accent: var(--palette-navy-900);
+  --color-text: var(--palette-ink-900);
+  --color-text-body: var(--palette-ink-600);
+  --color-text-muted: var(--palette-ink-500);
+  --color-text-subtle: var(--palette-ink-400);
+  --color-on-brand: var(--palette-white);
+  --color-on-brand-muted: var(--palette-on-navy);
+  --color-surface: var(--palette-white);
+  --color-surface-alt: var(--palette-mist);
+  --color-surface-hero: color-mix(in srgb, var(--palette-white) 96%, transparent);
+  --color-border: var(--palette-line);
+  --color-border-strong: var(--palette-line-strong);
+  --color-border-on-brand: color-mix(in srgb, var(--palette-white) 25%, transparent);
+  --color-divider-on-brand: color-mix(in srgb, var(--palette-white) 12%, transparent);
+  --color-outline-on-brand: color-mix(in srgb, var(--palette-white) 70%, transparent);
+  --color-menu-outline: color-mix(in srgb, var(--palette-white) 50%, transparent);
+  --color-placeholder: var(--palette-navy-700);
+  --color-success: var(--palette-white);
+  --color-error: var(--palette-gold-500);
+
+  --font-*: initial;
+  --font-heading: var(--font-heading-face), Georgia, serif;
+  --font-body: var(--font-body-face), system-ui, sans-serif;
+  --default-font-family: var(--font-body);
+
+  --text-*: initial;
+  --text-base: 1rem;
+  --text-base--line-height: 1.6;
+  --text-h2: clamp(2.125rem, 3.6vw, 3.25rem);
+  --text-h2--line-height: 1.1;
+  --text-h2-cta: clamp(2rem, 3.4vw, 3rem);
+  --text-h2-cta--line-height: 1.1;
+  --text-h1-holding: clamp(2.125rem, 3.6vw, 3.25rem);
+  --text-h1-holding--line-height: 1.1;
+  --text-h3-card: 1.4375rem;
+  --text-h3-card--line-height: 1.2;
+  --text-h3-insight: 1.5rem;
+  --text-h3-insight--line-height: 1.25;
+  --text-hero-card: 1.375rem;
+  --text-hero-card--line-height: 1.25;
+  --text-hero-card-phone: 1.1875rem;
+  --text-hero-card-phone--line-height: 1.25;
+  --text-name: 1.4375rem;
+  --text-name--line-height: 1.25;
+  --text-name-phone: 1.0625rem;
+  --text-name-phone--line-height: 1.25;
+  --text-footer-heading: 1.3125rem;
+  --text-footer-heading--line-height: 1.3;
+  --text-recognition: 1.5rem;
+  --text-recognition--line-height: 1.3;
+  --text-menu: 1.75rem;
+  --text-menu--line-height: 1.2;
+  --text-wordmark: 1.625rem;
+  --text-wordmark--line-height: 1;
+  --text-wordmark-footer: 1.75rem;
+  --text-wordmark-footer--line-height: 1;
+  --text-logo-sub: 0.5625rem;
+  --text-logo-sub--line-height: 1;
+  --text-logo-sub-footer: 0.625rem;
+  --text-logo-sub-footer--line-height: 1;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.75;
+  --text-intro: 1.0625rem;
+  --text-intro--line-height: 1.6;
+  --text-card-body: 0.9375rem;
+  --text-card-body--line-height: 1.6;
+  --text-footer: 0.9375rem;
+  --text-footer--line-height: 1.6;
+  --text-footer-copy: 0.9375rem;
+  --text-footer-copy--line-height: 1.7;
+  --text-nav: 0.9375rem;
+  --text-nav--line-height: 1.6;
+  --text-button: 0.9375rem;
+  --text-button--line-height: 1.6;
+  --text-link: 0.875rem;
+  --text-link--line-height: 1.6;
+  --text-hero-card-copy: 0.875rem;
+  --text-hero-card-copy--line-height: 1.55;
+  --text-role: 0.875rem;
+  --text-role--line-height: 1.6;
+  --text-role-phone: 0.8125rem;
+  --text-role-phone--line-height: 1.6;
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1.6;
+  --text-meta: 0.8125rem;
+  --text-meta--line-height: 1.6;
+  --text-date: 0.875rem;
+  --text-date--line-height: 1.6;
+  --text-category: 0.75rem;
+  --text-category--line-height: 1.6;
+  --text-hero-button: 0.75rem;
+  --text-hero-button--line-height: 1.6;
+  --text-arrow: 1.125rem;
+  --text-arrow--line-height: 1;
+
+  --tracking-*: initial;
+  --tracking-eyebrow: 0.2em;
+  --tracking-category: 0.16em;
+  --tracking-hero-button: 0.1em;
+  --tracking-wordmark: 0.08em;
+  --tracking-wordmark-footer: 0.06em;
+  --tracking-logo-sub: 0.3em;
+  --tracking-logo-sub-footer: 0.28em;
+
+  --radius-*: initial;
+  --radius-full: 9999px;
+
+  --shadow-*: initial;
+  --shadow-card: 0 1.125rem 2.5rem color-mix(in srgb, var(--palette-navy-950) 18%, transparent);
+  --shadow-header: 0 0.5rem 1.5rem color-mix(in srgb, var(--palette-navy-950) 25%, transparent);
+
+  --spacing: 0.25rem;
+  --spacing-header: 4.5rem;
+  --spacing-hero-space: 8.75rem;
+  --spacing-rule: 0.125rem;
+  --spacing-rule-short: 2.5rem;
+  --spacing-rule-long: 4rem;
+  --spacing-card-rule: 0.1875rem;
+
+  --container-*: initial;
+  --container-site: 80rem;
+  --container-hero: 67.5rem;
+  --container-section-header: 40rem;
+  --container-intro: 38.75rem;
+  --container-consent: 21.25rem;
+
+  --breakpoint-*: initial;
+  --breakpoint-sm: 40rem;
+  --breakpoint-lg: 64rem;
+
+  --default-transition-duration: var(--motion-fast);
+  --aspect-portrait: 4 / 5;
+  --aspect-insight: 16 / 10;
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --gutter: 2rem;
+    --spacing-header: 6rem;
+    --spacing-hero-space: clamp(9.375rem, 15vw, 15rem);
+  }
+}
+
+@utility site-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--container-site);
+  padding-inline: calc(var(--gutter) + env(safe-area-inset-left, 0rem))
+    calc(var(--gutter) + env(safe-area-inset-right, 0rem));
+}
+
+@utility bottom-floating {
+  bottom: calc(var(--spacing) * 4 + env(safe-area-inset-bottom, 0rem));
+}
+
+@utility pb-safe {
+  padding-bottom: calc(var(--spacing) * 5 + env(safe-area-inset-bottom, 0rem));
+}
+
+@utility hero-overlay {
+  background: linear-gradient(
+    90deg,
+    var(--overlay-hero-from) 0%,
+    var(--overlay-hero-via) 50%,
+    var(--overlay-hero-to) 100%
+  );
+}
+
+@utility hero-overlay-top {
+  height: var(--overlay-hero-top-height);
+  background: linear-gradient(180deg, var(--overlay-hero-top), transparent);
+}
+
+@utility grid-auto-hero {
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-hero), 100%), 1fr));
+}
+
+@utility grid-auto-practice {
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-practice), 100%), 1fr));
+}
+
+@utility grid-auto-team {
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-team), 100%), 1fr));
+}
+
+@utility grid-auto-insight {
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-insight), 100%), 1fr));
+}
+
+@utility grid-auto-footer {
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-footer), 100%), 1fr));
+}

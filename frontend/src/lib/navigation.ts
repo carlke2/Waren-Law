@@ -1,7 +1,7 @@
 import { ROUTES } from '@waren/shared';
 import { dictionary } from './dictionary';
 
-const { nav } = dictionary;
+const { nav, footer } = dictionary;
 
 export interface NavLink {
   label: string;
@@ -9,16 +9,27 @@ export interface NavLink {
 }
 
 export const PRIMARY_NAV: readonly NavLink[] = [
+  { label: nav.home, href: ROUTES.home },
   { label: nav.about, href: ROUTES.about },
-  { label: nav.team, href: ROUTES.team },
+  { label: nav.practiceAreas, href: ROUTES.expertise },
+  { label: nav.people, href: ROUTES.team },
   { label: nav.insights, href: ROUTES.insights },
-  { label: nav.webinars, href: ROUTES.webinars },
-  { label: nav.partners, href: ROUTES.partners },
-  { label: nav.contact, href: ROUTES.contact },
 ];
 
+export const CONTACT_LINK: NavLink = { label: nav.contactUs, href: ROUTES.contact };
+
+export const QUICK_LINKS: readonly NavLink[] = [
+  { label: footer.aboutUs, href: ROUTES.about },
+  { label: footer.ourPeople, href: ROUTES.team },
+  { label: footer.ourPartners, href: ROUTES.partners },
+  { label: footer.insights, href: ROUTES.insights },
+  { label: footer.webinars, href: ROUTES.webinars },
+  { label: footer.contact, href: ROUTES.contact },
+];
+
+export const FOOTER_PRACTICE_LIMIT = 5;
+
 export const LEGAL_LINKS = [
-  { label: nav.privacy, href: ROUTES.privacy, slug: 'privacy-policy' },
-  { label: nav.terms, href: ROUTES.terms, slug: 'terms' },
-  { label: nav.cookies, href: ROUTES.cookies, slug: 'cookie-policy' },
+  { label: footer.terms, href: ROUTES.terms, slug: 'terms' },
+  { label: footer.privacy, href: ROUTES.privacy, slug: 'privacy-policy' },
 ] as const;

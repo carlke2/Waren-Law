@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+@import './theme.css';
+
+@layer base {
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+  }
+
+  :focus-visible {
+    outline: var(--spacing-rule) solid var(--color-brand);
+    outline-offset: var(--spacing-rule);
+  }
+
+  [data-tone='dark'] :focus-visible {
+    outline-color: var(--color-accent);
+  }
+
+  @media (max-width: 63.99rem) {
+    html:has(dialog[open]) {
+      overflow: hidden;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+    }
+  }
+}

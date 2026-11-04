@@ -4,6 +4,7 @@ import {
   categoryResponseSchema,
   clientLogoResponseSchema,
   DEFAULT_PAGE_SIZE,
+  homeResponseSchema,
   insightDetailSchema,
   insightListResponseSchema,
   MAX_PAGE_SIZE,
@@ -80,3 +81,4 @@ export const searchContent = (query: string) =>
   apiFetch(`${API_ROUTES.search}?q=${encodeURIComponent(query)}`, searchResponseSchema);
 export const getRedirects = () =>
   apiFetch(`${API_ROUTES.redirects}/${REDIRECTS_ALL_PATH}`, redirectListResponseSchema);
+export const getHome = () => apiFetchOrNull(API_ROUTES.home, homeResponseSchema);
