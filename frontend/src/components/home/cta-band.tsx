@@ -20,7 +20,7 @@ export function CtaBand({ home, whatsApp }: CtaBandProps) {
           <p className="text-intro text-on-brand-muted">{home.ctaBody}</p>
         </div>
         <div className="flex flex-wrap gap-3.5">
-          <ButtonLink href={ROUTES.contact} variant="gold">
+          <ButtonLink href={ROUTES.consultation} variant="gold">
             {text.consultation}
           </ButtonLink>
           <ButtonLink

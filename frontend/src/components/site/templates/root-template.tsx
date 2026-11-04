@@ -4,6 +4,7 @@ import type { RootContent } from '@/lib/content/root-content';
 import { seoMetadataInput } from '@/lib/seo/metadata';
 import { HoldingPage } from '../holding-page';
 import { AboutTemplate } from './about-template';
+import { ContactTemplate } from './contact-template';
 import { PartnersTemplate } from './partners-template';
 import { PracticeAreaTemplate } from './practice-area-template';
 
@@ -50,6 +51,8 @@ function PageTemplate({ page }: { page: PageResponse }) {
       return <AboutTemplate page={page} />;
     case 'partners':
       return <PartnersTemplate page={page} />;
+    case 'contact':
+      return <ContactTemplate page={page} />;
     case 'home':
       return notFound();
     default:

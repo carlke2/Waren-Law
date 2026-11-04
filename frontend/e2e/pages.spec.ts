@@ -15,6 +15,8 @@ const PAGES = [
   { name: 'practice-area-no-team', path: '/banking-finance-law/' },
   { name: 'our-team', path: '/our-team/' },
   { name: 'profile', path: '/our-team/janice-wachuka/' },
+  { name: 'contact-us', path: '/contact-us/' },
+  { name: 'book-a-consultation', path: '/book-a-consultation/' },
 ];
 
 for (const { name, path: route } of PAGES) {

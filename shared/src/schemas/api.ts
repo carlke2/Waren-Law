@@ -103,6 +103,8 @@ export const pageCopySchema = z.object({
     signingText: z.string(),
     signingInsightSlug: z.string(),
   }),
+  contact: z.object({ heroIntro: z.string() }),
+  consultation: z.object({ heroIntro: z.string(), steps: z.array(titledTextSchema) }),
 });
 
 export const siteSettingsSchema = z.object({
