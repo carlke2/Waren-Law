@@ -15,6 +15,9 @@ Read first, every task: this file → `docs/DIRECTION.md` → `docs/STRUCTURE.md
 7. Set the task to `Done` or `Blocked`, fill in **Result**, save the report to `docs/reports/T00X-report.md`.
 8. Record any decision you made in `docs/decisions/` (next number: Decision / Why / Consequences).
 
+## Ground rules (decision 0014 — override everything else)
+Read `docs/GROUND-RULES.md` before every task. In short: the site runs on its own via `pnpm start` (production mode); no loading states, no client-side page fetching, dev indicator off; all forms native, no embeds or iframes; leave no servers running; never change `.env` silently.
+
 ## Code standards (decision 0006 — apply to every line)
 - **Minimal comments.** Self-explaining code: clear names, small functions, strong types. Comment only a non-obvious *why*. No commented-out code, banners, restating comments or generated boilerplate comments.
 - **Nothing hard-coded:**
