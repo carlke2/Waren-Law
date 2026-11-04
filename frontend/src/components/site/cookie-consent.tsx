@@ -95,7 +95,7 @@ export function CookieConsent({ tracking }: { tracking: SiteSettings['tracking']
     <section
       aria-label={text.title}
       data-tone="dark"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-border-on-brand bg-brand-strong p-5 pb-safe text-on-brand sm:inset-x-auto sm:bottom-6 sm:left-6 sm:w-full sm:max-w-consent sm:border sm:p-5"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-border-on-brand bg-brand-strong p-5 pb-safe text-on-brand sm:inset-x-auto sm:bottom-4 sm:left-4 sm:w-full sm:max-w-consent sm:border sm:p-4"
     >
       <h2 className="font-heading text-footer-heading">{text.title}</h2>
       <p className="mt-1 text-meta text-on-brand-muted">{text.description}</p>
@@ -117,12 +117,12 @@ export function CookieConsent({ tracking }: { tracking: SiteSettings['tracking']
         <ChoiceButton onClick={() => decide(EVERYTHING_ACCEPTED)}>{text.accept}</ChoiceButton>
         <ChoiceButton onClick={() => decide(NOTHING_ACCEPTED)}>{text.reject}</ChoiceButton>
       </div>
-      <div className="mt-1 flex items-center justify-between gap-3 text-meta">
+      <div className="mt-1 flex items-center justify-between gap-3 text-meta sm:mt-2">
         {showDetails ? (
           <button
             type="button"
             onClick={() => decide(draft)}
-            className="min-h-11 underline underline-offset-4"
+            className="underline underline-offset-4 max-sm:min-h-11"
           >
             {text.save}
           </button>
@@ -130,14 +130,14 @@ export function CookieConsent({ tracking }: { tracking: SiteSettings['tracking']
           <button
             type="button"
             onClick={() => setShowDetails(true)}
-            className="min-h-11 underline underline-offset-4"
+            className="underline underline-offset-4 max-sm:min-h-11"
           >
             {text.preferences}
           </button>
         )}
         <Link
           href={ROUTES.cookies}
-          className="flex min-h-11 items-center text-on-brand-muted underline underline-offset-4"
+          className="text-on-brand-muted underline underline-offset-4 max-sm:flex max-sm:min-h-11 max-sm:items-center"
         >
           {text.policyLink}
         </Link>

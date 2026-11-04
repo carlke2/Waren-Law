@@ -22,6 +22,7 @@
   --overlay-hero-top-height: 8.75rem;
 
   --radius: 0;
+  --border-card-rule: 0.1875rem;
   --motion-fast: 150ms;
   --motion-slow: 250ms;
   --gutter: 1.25rem;
@@ -78,17 +79,17 @@
   --text-h3-insight: 1.5rem;
   --text-h3-insight--line-height: 1.25;
   --text-hero-card: 1.375rem;
-  --text-hero-card--line-height: 1.25;
+  --text-hero-card--line-height: 1.6;
   --text-hero-card-phone: 1.1875rem;
-  --text-hero-card-phone--line-height: 1.25;
+  --text-hero-card-phone--line-height: 1.6;
   --text-name: 1.4375rem;
-  --text-name--line-height: 1.25;
+  --text-name--line-height: 1.6;
   --text-name-phone: 1.0625rem;
-  --text-name-phone--line-height: 1.25;
+  --text-name-phone--line-height: 1.6;
   --text-footer-heading: 1.3125rem;
-  --text-footer-heading--line-height: 1.3;
+  --text-footer-heading--line-height: 1.6;
   --text-recognition: 1.5rem;
-  --text-recognition--line-height: 1.3;
+  --text-recognition--line-height: 1.6;
   --text-menu: 1.75rem;
   --text-menu--line-height: 1.2;
   --text-wordmark: 1.625rem;
@@ -156,14 +157,13 @@
   --spacing-rule: 0.125rem;
   --spacing-rule-short: 2.5rem;
   --spacing-rule-long: 4rem;
-  --spacing-card-rule: 0.1875rem;
 
   --container-*: initial;
   --container-site: 80rem;
-  --container-hero: 67.5rem;
+  --container-hero: calc(67.5rem + 2 * 2rem);
   --container-section-header: 40rem;
   --container-intro: 38.75rem;
-  --container-consent: 21.25rem;
+  --container-consent: 30rem;
 
   --breakpoint-*: initial;
   --breakpoint-sm: 40rem;
@@ -172,6 +172,10 @@
   --default-transition-duration: var(--motion-fast);
   --aspect-portrait: 4 / 5;
   --aspect-insight: 16 / 10;
+}
+
+@utility border-b-card-rule {
+  border-bottom-width: var(--border-card-rule);
 }
 
 @media (min-width: 40rem) {
@@ -185,7 +189,7 @@
 @utility site-container {
   margin-inline: auto;
   width: 100%;
-  max-width: var(--container-site);
+  max-width: calc(var(--container-site) + 2 * var(--gutter));
   padding-inline: calc(var(--gutter) + env(safe-area-inset-left, 0rem))
     calc(var(--gutter) + env(safe-area-inset-right, 0rem));
 }
@@ -230,4 +234,16 @@
 
 @utility grid-auto-footer {
   grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-footer), 100%), 1fr));
+}
+
+@utility flex-welcome-title {
+  flex: 1 1 23.75rem;
+}
+
+@utility flex-welcome-body {
+  flex: 1.4 1 28.75rem;
+}
+
+@utility flex-recognition {
+  flex: 1 1 26.25rem;
 }
