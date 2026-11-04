@@ -1,0 +1,3308 @@
+[
+  {
+    "width": 390,
+    "designPageHeight": 9443,
+    "builtPageHeight": 8149,
+    "designPageWidth": 390,
+    "builtPageWidth": 390,
+    "loadedFonts": {
+      "design": [
+        "Manrope 400",
+        "Manrope 600",
+        "Manrope 700",
+        "Newsreader 500",
+        "Newsreader 600"
+      ],
+      "built": [
+        "headingFont 400 600",
+        "Manrope 200 800"
+      ]
+    },
+    "typography": {
+      "design": [
+        {
+          "section": "hero",
+          "tag": "h1",
+          "text": "About WAREN Law",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "40px",
+          "fontWeight": "500",
+          "lineHeight": "42px",
+          "offsetTop": 147,
+          "height": 84
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "A Nairobi law firm advising businesses, ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "19px",
+          "fontWeight": "400",
+          "lineHeight": "30.4px",
+          "offsetTop": 247,
+          "height": 91
+        },
+        {
+          "section": "story",
+          "tag": "h2",
+          "text": "Established to provide exceptional legal",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 149,
+          "height": 112
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "WAREN Law Advocates LLP was established ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 351,
+          "height": 119
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "[Firm history: founding year, founding p",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 490,
+          "height": 119
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "Today the firm works from Manga House in",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 629,
+          "height": 149
+        },
+        {
+          "section": "film",
+          "tag": "h2",
+          "text": "Meet WAREN Law",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 153,
+          "height": 37
+        },
+        {
+          "section": "film",
+          "tag": "p",
+          "text": "Film coming soon. Captions included.",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 430,
+          "height": 24
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "[Mission statement from the firm's curre",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 105
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "[Vision statement from the firm's curren",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 442,
+          "height": 105
+        },
+        {
+          "section": "why",
+          "tag": "h2",
+          "text": "How we work",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 145,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "A new standard of legal practice",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 395,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "Blending experience with innovation for ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 441,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Client-centred approach",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 574,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "You are guided, supported and informed e",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 621,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Trusted by corporates and individuals",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 754,
+          "height": 74
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong record of professionalism and r",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 837,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Global outlook",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 970,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong presence in East Africa and tru",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1017,
+          "height": 48
+        },
+        {
+          "section": "recognition",
+          "tag": "h2",
+          "text": "Litigation and Dispute Resolution Firm o",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "28px",
+          "fontWeight": "500",
+          "lineHeight": "32.2px",
+          "offsetTop": 355,
+          "height": 97
+        },
+        {
+          "section": "leadership",
+          "tag": "h2",
+          "text": "Our Partners",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 145,
+          "height": 37
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Working with firms in China and South Ko",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "28px",
+          "fontWeight": "500",
+          "lineHeight": "32.2px",
+          "offsetTop": 129,
+          "height": 64
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "32px",
+          "fontWeight": "500",
+          "lineHeight": "35.2px",
+          "offsetTop": 96,
+          "height": 70
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 178,
+          "height": 82
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 1029,
+          "height": 51
+        }
+      ],
+      "built": [
+        {
+          "section": "hero",
+          "tag": "h1",
+          "text": "About WAREN Law",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "40px",
+          "fontWeight": "500",
+          "lineHeight": "42px",
+          "offsetTop": 123,
+          "height": 42
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "A Nairobi law firm advising businesses, ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "19px",
+          "fontWeight": "400",
+          "lineHeight": "30.4px",
+          "offsetTop": 181,
+          "height": 91
+        },
+        {
+          "section": "story",
+          "tag": "h2",
+          "text": "Established to provide exceptional legal",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 101,
+          "height": 112
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "Waren Law Advocates was established with",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 303,
+          "height": 327
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "At Waren Law Advocates, we believe that ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 650,
+          "height": 238
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "With a steadfast commitment to ethical s",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 908,
+          "height": 238
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "Today the firm works from Manga House in",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 1166,
+          "height": 119
+        },
+        {
+          "section": "film",
+          "tag": "h2",
+          "text": "Meet WAREN Law",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 113,
+          "height": 37
+        },
+        {
+          "section": "film",
+          "tag": "p",
+          "text": "Film coming soon. Captions included.",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 403,
+          "height": 24
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "To provide strategic, practical, and pri",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 142,
+          "height": 316
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "To be the legal partner of choice; trust",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 604,
+          "height": 175
+        },
+        {
+          "section": "why",
+          "tag": "h2",
+          "text": "How we work",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 97,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "A new standard of legal practice",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 347,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "Blending experience with innovation for ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 393,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Client-centred approach",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 526,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "You are guided, supported and informed e",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 573,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Trusted by corporates and individuals",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 706,
+          "height": 74
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong record of professionalism and r",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 789,
+          "height": 24
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Global outlook",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 898,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong presence in East Africa and tru",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 945,
+          "height": 48
+        },
+        {
+          "section": "recognition",
+          "tag": "h2",
+          "text": "Litigation and Dispute Resolution Firm o",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "28px",
+          "fontWeight": "500",
+          "lineHeight": "32.2px",
+          "offsetTop": 347,
+          "height": 97
+        },
+        {
+          "section": "leadership",
+          "tag": "h2",
+          "text": "Our Partners",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 97,
+          "height": 37
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Working with firms in China and South Ko",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "28px",
+          "fontWeight": "500",
+          "lineHeight": "32.2px",
+          "offsetTop": 97,
+          "height": 64
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "32px",
+          "fontWeight": "500",
+          "lineHeight": "35.2px",
+          "offsetTop": 64,
+          "height": 70
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 146,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 51
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Quick links",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 337,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Practice areas",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 647,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Newsletter",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 956,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 1004,
+          "height": 51
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "We’ll only use your email to send our in",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "20.8px",
+          "offsetTop": 1238,
+          "height": 42
+        }
+      ]
+    },
+    "brokenImages": [],
+    "whole": {
+      "width": 390,
+      "height": 9443,
+      "rawMatch": 52.31114079890952,
+      "adjustedMatch": 53.553860829536895,
+      "excludedShare": 36.0103400429568
+    },
+    "sections": {
+      "header": {
+        "width": 390,
+        "height": 96,
+        "rawMatch": 67.72435897435898,
+        "adjustedMatch": null,
+        "excludedShare": 100,
+        "designHeight": 96,
+        "builtHeight": 72,
+        "designTextOnly": [],
+        "builtTextOnly": [
+          "skip to main content"
+        ]
+      },
+      "hero": {
+        "width": 390,
+        "height": 434,
+        "rawMatch": 62.810469100791686,
+        "adjustedMatch": null,
+        "excludedShare": 100,
+        "designHeight": 434,
+        "builtHeight": 336,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "story": {
+        "width": 390,
+        "height": 1349,
+        "rawMatch": 61.563361274258234,
+        "adjustedMatch": 71.47405922957026,
+        "excludedShare": 48.782573986428694,
+        "designHeight": 890,
+        "builtHeight": 1349,
+        "designTextOnly": [
+          "waren law advocates llp was established with a vision to provide exceptional legal solutions tailored to both individual and corporate needs.",
+          "[firm history: founding year, founding partners and how the firm has grown — from the firm's current about page, to be confirmed by the firm.]"
+        ],
+        "builtTextOnly": [
+          "waren law advocates was established with a vision to provide exceptional legal solutions tailored to both individual and corporate needs. over the years, we have cultivated a reputation for professionalism, integrity, and excellence in legal practice. our team of dedicated lawyers and legal assistants brings a wealth of experience across various sectors, ensuring that each client receives strategic and effective legal counsel.",
+          "at waren law advocates, we believe that legal practice extends beyond understanding the law it is about applying it effectively to serve the best interests of our clients. our approach focuses on delivering practical, results-driven solutions while maintaining efficiency and cost-effectiveness.",
+          "with a steadfast commitment to ethical standards and personalized client service, waren has built a trusted network of clients who rely on our expertise for their legal matters. we are not just a law firm; we are partners in safeguarding your rights, resolving challenges, and advancing your best interests."
+        ]
+      },
+      "film": {
+        "width": 390,
+        "height": 558,
+        "rawMatch": 72.35548203290139,
+        "adjustedMatch": 77.7702296845056,
+        "excludedShare": 35.73936219097509,
+        "designHeight": 558,
+        "builtHeight": 491,
+        "designTextOnly": [
+          "film poster · the firm's video goes here"
+        ],
+        "builtTextOnly": []
+      },
+      "statements": {
+        "width": 390,
+        "height": 885,
+        "rawMatch": 74.11820947414168,
+        "adjustedMatch": 73.35141612021634,
+        "excludedShare": 29.39475590323048,
+        "designHeight": 700,
+        "builtHeight": 885,
+        "designTextOnly": [
+          "[mission statement from the firm's current about page]",
+          "[vision statement from the firm's current about page]"
+        ],
+        "builtTextOnly": [
+          "to provide strategic, practical, and principled legal solutions that empower individuals, businesses, and institutions to grow, protect value, and navigate complexity with confidence.",
+          "to be the legal partner of choice; trusted to guide, protect, and enable growth across borders and generations."
+        ]
+      },
+      "why": {
+        "width": 390,
+        "height": 1177,
+        "rawMatch": 83.47646123347057,
+        "adjustedMatch": 85.36086110943498,
+        "excludedShare": 6.131189682591552,
+        "designHeight": 1177,
+        "builtHeight": 1057,
+        "designTextOnly": [
+          "blending experience with innovation for today's legal landscape."
+        ],
+        "builtTextOnly": [
+          "blending experience with innovation for today’s legal landscape."
+        ]
+      },
+      "recognition": {
+        "width": 390,
+        "height": 524,
+        "rawMatch": 77.82785280876884,
+        "adjustedMatch": 91.71114637430276,
+        "excludedShare": 18.590722254844394,
+        "designHeight": 524,
+        "builtHeight": 508,
+        "designTextOnly": [
+          "award",
+          "certificate"
+        ],
+        "builtTextOnly": []
+      },
+      "leadership": {
+        "width": 390,
+        "height": 2567,
+        "rawMatch": 24.10206466692637,
+        "adjustedMatch": 36.67330019757079,
+        "excludedShare": 58.23938948987644,
+        "designHeight": 2567,
+        "builtHeight": 960,
+        "designTextOnly": [
+          "portrait",
+          "portrait",
+          "portrait",
+          "portrait"
+        ],
+        "builtTextOnly": []
+      },
+      "partners": {
+        "width": 390,
+        "height": 606,
+        "rawMatch": 85.72945756114073,
+        "adjustedMatch": 85.82858048162231,
+        "excludedShare": 3.853769992383854,
+        "designHeight": 606,
+        "builtHeight": 556,
+        "designTextOnly": [
+          "our international partners →"
+        ],
+        "builtTextOnly": [
+          "our international partners",
+          "→"
+        ]
+      },
+      "cta": {
+        "width": 390,
+        "height": 514,
+        "rawMatch": 66.70408061458646,
+        "adjustedMatch": 66.70408061458646,
+        "excludedShare": 0,
+        "designHeight": 514,
+        "builtHeight": 423,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "footer": {
+        "width": 390,
+        "height": 1511,
+        "rawMatch": 85.69838279964024,
+        "adjustedMatch": 86.44634832847761,
+        "excludedShare": 3.7777664647287414,
+        "designHeight": 1378,
+        "builtHeight": 1511,
+        "designTextOnly": [
+          "© 2026 waren law advocates llp ·"
+        ],
+        "builtTextOnly": [
+          "how did you hear about us? (optional)",
+          "we’ll only use your email to send our insights.",
+          "privacy policy",
+          "leave this field empty",
+          "© 2026 waren law advocates llp"
+        ]
+      }
+    }
+  },
+  {
+    "width": 768,
+    "designPageHeight": 6452,
+    "builtPageHeight": 7013,
+    "designPageWidth": 768,
+    "builtPageWidth": 768,
+    "loadedFonts": {
+      "design": [
+        "Manrope 400",
+        "Manrope 600",
+        "Manrope 700",
+        "Newsreader 500",
+        "Newsreader 600"
+      ],
+      "built": [
+        "headingFont 400 600",
+        "Manrope 200 800"
+      ]
+    },
+    "typography": {
+      "design": [
+        {
+          "section": "hero",
+          "tag": "h1",
+          "text": "About WAREN Law",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "40px",
+          "fontWeight": "500",
+          "lineHeight": "42px",
+          "offsetTop": 147,
+          "height": 42
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "A Nairobi law firm advising businesses, ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "19px",
+          "fontWeight": "400",
+          "lineHeight": "30.4px",
+          "offsetTop": 205,
+          "height": 61
+        },
+        {
+          "section": "story",
+          "tag": "h2",
+          "text": "Established to provide exceptional legal",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 149,
+          "height": 75
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "WAREN Law Advocates LLP was established ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 314,
+          "height": 60
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "[Firm history: founding year, founding p",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 393,
+          "height": 60
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "Today the firm works from Manga House in",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 473,
+          "height": 60
+        },
+        {
+          "section": "film",
+          "tag": "h2",
+          "text": "Meet WAREN Law",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 153,
+          "height": 37
+        },
+        {
+          "section": "film",
+          "tag": "p",
+          "text": "Film coming soon. Captions included.",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 642,
+          "height": 24
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "[Mission statement from the firm's curre",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 105
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "[Vision statement from the firm's curren",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 105
+        },
+        {
+          "section": "why",
+          "tag": "h2",
+          "text": "How we work",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 145,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "A new standard of legal practice",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 346,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "Blending experience with innovation for ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 393,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Client-centred approach",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 346,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "You are guided, supported and informed e",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 393,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Trusted by corporates and individuals",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 525,
+          "height": 74
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong record of professionalism and r",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 609,
+          "height": 24
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Global outlook",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 525,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong presence in East Africa and tru",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 572,
+          "height": 48
+        },
+        {
+          "section": "recognition",
+          "tag": "h2",
+          "text": "Litigation and Dispute Resolution Firm o",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "28px",
+          "fontWeight": "500",
+          "lineHeight": "32.2px",
+          "offsetTop": 162,
+          "height": 64
+        },
+        {
+          "section": "leadership",
+          "tag": "h2",
+          "text": "Our Partners",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 145,
+          "height": 37
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Working with firms in China and South Ko",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "28px",
+          "fontWeight": "500",
+          "lineHeight": "32.2px",
+          "offsetTop": 129,
+          "height": 32
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "32px",
+          "fontWeight": "500",
+          "lineHeight": "35.2px",
+          "offsetTop": 96,
+          "height": 35
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 143,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 437,
+          "height": 51
+        }
+      ],
+      "built": [
+        {
+          "section": "hero",
+          "tag": "h1",
+          "text": "About WAREN Law",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "40px",
+          "fontWeight": "500",
+          "lineHeight": "42px",
+          "offsetTop": 147,
+          "height": 42
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "A Nairobi law firm advising businesses, ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "19px",
+          "fontWeight": "400",
+          "lineHeight": "30.4px",
+          "offsetTop": 205,
+          "height": 61
+        },
+        {
+          "section": "story",
+          "tag": "h2",
+          "text": "Established to provide exceptional legal",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 149,
+          "height": 75
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "Waren Law Advocates was established with",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 314,
+          "height": 149
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "At Waren Law Advocates, we believe that ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 482,
+          "height": 119
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "With a steadfast commitment to ethical s",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 621,
+          "height": 119
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "Today the firm works from Manga House in",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 760,
+          "height": 60
+        },
+        {
+          "section": "film",
+          "tag": "h2",
+          "text": "Meet WAREN Law",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 153,
+          "height": 37
+        },
+        {
+          "section": "film",
+          "tag": "p",
+          "text": "Film coming soon. Captions included.",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 642,
+          "height": 24
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "To provide strategic, practical, and pri",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 316
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "To be the legal partner of choice; trust",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 175
+        },
+        {
+          "section": "why",
+          "tag": "h2",
+          "text": "How we work",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 145,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "A new standard of legal practice",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 346,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "Blending experience with innovation for ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 393,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Client-centred approach",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 346,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "You are guided, supported and informed e",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 393,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Trusted by corporates and individuals",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 525,
+          "height": 74
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong record of professionalism and r",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 609,
+          "height": 24
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Global outlook",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 525,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong presence in East Africa and tru",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 572,
+          "height": 48
+        },
+        {
+          "section": "recognition",
+          "tag": "h2",
+          "text": "Litigation and Dispute Resolution Firm o",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "28px",
+          "fontWeight": "500",
+          "lineHeight": "32.2px",
+          "offsetTop": 162,
+          "height": 64
+        },
+        {
+          "section": "leadership",
+          "tag": "h2",
+          "text": "Our Partners",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 145,
+          "height": 37
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Working with firms in China and South Ko",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "28px",
+          "fontWeight": "500",
+          "lineHeight": "32.2px",
+          "offsetTop": 129,
+          "height": 32
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "32px",
+          "fontWeight": "500",
+          "lineHeight": "35.2px",
+          "offsetTop": 96,
+          "height": 35
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 143,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Quick links",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Practice areas",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 390,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Newsletter",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 390,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 437,
+          "height": 51
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "We’ll only use your email to send our in",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "20.8px",
+          "offsetTop": 672,
+          "height": 42
+        }
+      ]
+    },
+    "brokenImages": [],
+    "whole": {
+      "width": 768,
+      "height": 7013,
+      "rawMatch": 56.66747246185655,
+      "adjustedMatch": 59.59879504520424,
+      "excludedShare": 39.58582127239888
+    },
+    "sections": {
+      "header": {
+        "width": 768,
+        "height": 96,
+        "rawMatch": 99.17127821180556,
+        "adjustedMatch": null,
+        "excludedShare": 100,
+        "designHeight": 96,
+        "builtHeight": 96,
+        "designTextOnly": [],
+        "builtTextOnly": [
+          "skip to main content"
+        ]
+      },
+      "hero": {
+        "width": 768,
+        "height": 362,
+        "rawMatch": 99.55973756906077,
+        "adjustedMatch": null,
+        "excludedShare": 100,
+        "designHeight": 362,
+        "builtHeight": 362,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "story": {
+        "width": 768,
+        "height": 932,
+        "rawMatch": 66.00165414878398,
+        "adjustedMatch": 72.8913567996879,
+        "excludedShare": 34.1059214055794,
+        "designHeight": 644,
+        "builtHeight": 932,
+        "designTextOnly": [
+          "waren law advocates llp was established with a vision to provide exceptional legal solutions tailored to both individual and corporate needs.",
+          "[firm history: founding year, founding partners and how the firm has grown — from the firm's current about page, to be confirmed by the firm.]"
+        ],
+        "builtTextOnly": [
+          "waren law advocates was established with a vision to provide exceptional legal solutions tailored to both individual and corporate needs. over the years, we have cultivated a reputation for professionalism, integrity, and excellence in legal practice. our team of dedicated lawyers and legal assistants brings a wealth of experience across various sectors, ensuring that each client receives strategic and effective legal counsel.",
+          "at waren law advocates, we believe that legal practice extends beyond understanding the law it is about applying it effectively to serve the best interests of our clients. our approach focuses on delivering practical, results-driven solutions while maintaining efficiency and cost-effectiveness.",
+          "with a steadfast commitment to ethical standards and personalized client service, waren has built a trusted network of clients who rely on our expertise for their legal matters. we are not just a law firm; we are partners in safeguarding your rights, resolving challenges, and advancing your best interests."
+        ]
+      },
+      "film": {
+        "width": 768,
+        "height": 770,
+        "rawMatch": 82.96587527056278,
+        "adjustedMatch": 100,
+        "excludedShare": 47.26190476190476,
+        "designHeight": 770,
+        "builtHeight": 770,
+        "designTextOnly": [
+          "film poster · the firm's video goes here"
+        ],
+        "builtTextOnly": []
+      },
+      "statements": {
+        "width": 768,
+        "height": 659,
+        "rawMatch": 65.67597685887709,
+        "adjustedMatch": 63.724740321057595,
+        "excludedShare": 16.30311077389985,
+        "designHeight": 448,
+        "builtHeight": 659,
+        "designTextOnly": [
+          "[mission statement from the firm's current about page]",
+          "[vision statement from the firm's current about page]"
+        ],
+        "builtTextOnly": [
+          "to provide strategic, practical, and principled legal solutions that empower individuals, businesses, and institutions to grow, protect value, and navigate complexity with confidence.",
+          "to be the legal partner of choice; trusted to guide, protect, and enable growth across borders and generations."
+        ]
+      },
+      "why": {
+        "width": 768,
+        "height": 745,
+        "rawMatch": 98.39065995525728,
+        "adjustedMatch": 98.59608082933974,
+        "excludedShare": 1.676454138702461,
+        "designHeight": 745,
+        "builtHeight": 745,
+        "designTextOnly": [
+          "blending experience with innovation for today's legal landscape."
+        ],
+        "builtTextOnly": [
+          "blending experience with innovation for today’s legal landscape."
+        ]
+      },
+      "recognition": {
+        "width": 768,
+        "height": 358,
+        "rawMatch": 88.02919867318437,
+        "adjustedMatch": 99.44579234246211,
+        "excludedShare": 12.45344506517691,
+        "designHeight": 358,
+        "builtHeight": 358,
+        "designTextOnly": [
+          "award",
+          "certificate"
+        ],
+        "builtTextOnly": []
+      },
+      "leadership": {
+        "width": 768,
+        "height": 1439,
+        "rawMatch": 53.109888956451236,
+        "adjustedMatch": 99.92734769642749,
+        "excludedShare": 52.42355802640723,
+        "designHeight": 1439,
+        "builtHeight": 1439,
+        "designTextOnly": [
+          "portrait",
+          "portrait",
+          "portrait",
+          "portrait"
+        ],
+        "builtTextOnly": []
+      },
+      "partners": {
+        "width": 768,
+        "height": 415,
+        "rawMatch": 99.96736947791165,
+        "adjustedMatch": 99.96689416318631,
+        "excludedShare": 1.4357429718875503,
+        "designHeight": 415,
+        "builtHeight": 415,
+        "designTextOnly": [
+          "our international partners →"
+        ],
+        "builtTextOnly": [
+          "our international partners",
+          "→"
+        ]
+      },
+      "cta": {
+        "width": 768,
+        "height": 382,
+        "rawMatch": 99.23238438045375,
+        "adjustedMatch": 99.23238438045375,
+        "excludedShare": 0,
+        "designHeight": 382,
+        "builtHeight": 382,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "footer": {
+        "width": 768,
+        "height": 856,
+        "rawMatch": 89.70411068925233,
+        "adjustedMatch": 90.32742078199342,
+        "excludedShare": 3.3863293419003115,
+        "designHeight": 794,
+        "builtHeight": 856,
+        "designTextOnly": [
+          "© 2026 waren law advocates llp ·"
+        ],
+        "builtTextOnly": [
+          "how did you hear about us? (optional)",
+          "we’ll only use your email to send our insights.",
+          "privacy policy",
+          "leave this field empty",
+          "© 2026 waren law advocates llp"
+        ]
+      }
+    }
+  },
+  {
+    "width": 1280,
+    "designPageHeight": 5221,
+    "builtPageHeight": 5697,
+    "designPageWidth": 1280,
+    "builtPageWidth": 1280,
+    "loadedFonts": {
+      "design": [
+        "Manrope 400",
+        "Manrope 500",
+        "Manrope 600",
+        "Manrope 700",
+        "Newsreader 500",
+        "Newsreader 600"
+      ],
+      "built": [
+        "headingFont 400 600",
+        "Manrope 200 800"
+      ]
+    },
+    "typography": {
+      "design": [
+        {
+          "section": "hero",
+          "tag": "h1",
+          "text": "About WAREN Law",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "58.88px",
+          "fontWeight": "500",
+          "lineHeight": "61.824px",
+          "offsetTop": 147,
+          "height": 62
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "A Nairobi law firm advising businesses, ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "19px",
+          "fontWeight": "400",
+          "lineHeight": "30.4px",
+          "offsetTop": 225,
+          "height": 61
+        },
+        {
+          "section": "story",
+          "tag": "h2",
+          "text": "Established to provide exceptional legal",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 149,
+          "height": 152
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "WAREN Law Advocates LLP was established ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 112,
+          "height": 60
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "[Firm history: founding year, founding p",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 192,
+          "height": 60
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "Today the firm works from Manga House in",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 271,
+          "height": 89
+        },
+        {
+          "section": "film",
+          "tag": "h2",
+          "text": "Meet WAREN Law",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 153,
+          "height": 51
+        },
+        {
+          "section": "film",
+          "tag": "p",
+          "text": "Film coming soon. Captions included.",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 799,
+          "height": 24
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "[Mission statement from the firm's curre",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 70
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "[Vision statement from the firm's curren",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 70
+        },
+        {
+          "section": "why",
+          "tag": "h2",
+          "text": "How we work",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 145,
+          "height": 51
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "A new standard of legal practice",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 296,
+          "height": 74
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "Blending experience with innovation for ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 380,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Client-centred approach",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 296,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "You are guided, supported and informed e",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 343,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Trusted by corporates and individuals",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 296,
+          "height": 74
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong record of professionalism and r",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 380,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Global outlook",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 296,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong presence in East Africa and tru",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 343,
+          "height": 48
+        },
+        {
+          "section": "recognition",
+          "tag": "h2",
+          "text": "Litigation and Dispute Resolution Firm o",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "35.84px",
+          "fontWeight": "500",
+          "lineHeight": "41.216px",
+          "offsetTop": 173,
+          "height": 41
+        },
+        {
+          "section": "leadership",
+          "tag": "h2",
+          "text": "Our Partners",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 145,
+          "height": 51
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Working with firms in China and South Ko",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "35.84px",
+          "fontWeight": "500",
+          "lineHeight": "41.216px",
+          "offsetTop": 129,
+          "height": 82
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "43.52px",
+          "fontWeight": "500",
+          "lineHeight": "47.872px",
+          "offsetTop": 96,
+          "height": 96
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 204,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 128,
+          "height": 77
+        }
+      ],
+      "built": [
+        {
+          "section": "hero",
+          "tag": "h1",
+          "text": "About WAREN Law",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "58.88px",
+          "fontWeight": "500",
+          "lineHeight": "61.824px",
+          "offsetTop": 147,
+          "height": 62
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "A Nairobi law firm advising businesses, ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "19px",
+          "fontWeight": "400",
+          "lineHeight": "30.4px",
+          "offsetTop": 225,
+          "height": 61
+        },
+        {
+          "section": "story",
+          "tag": "h2",
+          "text": "Established to provide exceptional legal",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 149,
+          "height": 152
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "Waren Law Advocates was established with",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 112,
+          "height": 179
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "At Waren Law Advocates, we believe that ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 311,
+          "height": 119
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "With a steadfast commitment to ethical s",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 450,
+          "height": 119
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "Today the firm works from Manga House in",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 589,
+          "height": 89
+        },
+        {
+          "section": "film",
+          "tag": "h2",
+          "text": "Meet WAREN Law",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 153,
+          "height": 51
+        },
+        {
+          "section": "film",
+          "tag": "p",
+          "text": "Film coming soon. Captions included.",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 799,
+          "height": 24
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "To provide strategic, practical, and pri",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 140
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "To be the legal partner of choice; trust",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 105
+        },
+        {
+          "section": "why",
+          "tag": "h2",
+          "text": "How we work",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 145,
+          "height": 51
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "A new standard of legal practice",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 296,
+          "height": 74
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "Blending experience with innovation for ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 380,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Client-centred approach",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 296,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "You are guided, supported and informed e",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 343,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Trusted by corporates and individuals",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 296,
+          "height": 74
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong record of professionalism and r",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 380,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Global outlook",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 296,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong presence in East Africa and tru",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 343,
+          "height": 48
+        },
+        {
+          "section": "recognition",
+          "tag": "h2",
+          "text": "Litigation and Dispute Resolution Firm o",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "35.84px",
+          "fontWeight": "500",
+          "lineHeight": "41.216px",
+          "offsetTop": 173,
+          "height": 41
+        },
+        {
+          "section": "leadership",
+          "tag": "h2",
+          "text": "Our Partners",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 145,
+          "height": 51
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Working with firms in China and South Ko",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "35.84px",
+          "fontWeight": "500",
+          "lineHeight": "41.216px",
+          "offsetTop": 129,
+          "height": 82
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "43.52px",
+          "fontWeight": "500",
+          "lineHeight": "47.872px",
+          "offsetTop": 96,
+          "height": 96
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 204,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Quick links",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Practice areas",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Newsletter",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 128,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "We’ll only use your email to send our in",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "20.8px",
+          "offsetTop": 388,
+          "height": 42
+        }
+      ]
+    },
+    "brokenImages": [],
+    "whole": {
+      "width": 1280,
+      "height": 5697,
+      "rawMatch": 55.319781793048975,
+      "adjustedMatch": 52.258961837162055,
+      "excludedShare": 36.46401066350711
+    },
+    "sections": {
+      "header": {
+        "width": 1280,
+        "height": 96,
+        "rawMatch": 98.5986328125,
+        "adjustedMatch": 98.431931575196,
+        "excludedShare": 95.43294270833333,
+        "designHeight": 96,
+        "builtHeight": 96,
+        "designTextOnly": [],
+        "builtTextOnly": [
+          "skip to main content"
+        ]
+      },
+      "hero": {
+        "width": 1280,
+        "height": 382,
+        "rawMatch": 99.70856511780106,
+        "adjustedMatch": null,
+        "excludedShare": 100,
+        "designHeight": 382,
+        "builtHeight": 382,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "story": {
+        "width": 1280,
+        "height": 790,
+        "rawMatch": 57.627373417721515,
+        "adjustedMatch": 61.84551150499842,
+        "excludedShare": 27.38004351265823,
+        "designHeight": 472,
+        "builtHeight": 790,
+        "designTextOnly": [
+          "waren law advocates llp was established with a vision to provide exceptional legal solutions tailored to both individual and corporate needs.",
+          "[firm history: founding year, founding partners and how the firm has grown — from the firm's current about page, to be confirmed by the firm.]"
+        ],
+        "builtTextOnly": [
+          "waren law advocates was established with a vision to provide exceptional legal solutions tailored to both individual and corporate needs. over the years, we have cultivated a reputation for professionalism, integrity, and excellence in legal practice. our team of dedicated lawyers and legal assistants brings a wealth of experience across various sectors, ensuring that each client receives strategic and effective legal counsel.",
+          "at waren law advocates, we believe that legal practice extends beyond understanding the law it is about applying it effectively to serve the best interests of our clients. our approach focuses on delivering practical, results-driven solutions while maintaining efficiency and cost-effectiveness.",
+          "with a steadfast commitment to ethical standards and personalized client service, waren has built a trusted network of clients who rely on our expertise for their legal matters. we are not just a law firm; we are partners in safeguarding your rights, resolving challenges, and advancing your best interests."
+        ]
+      },
+      "film": {
+        "width": 1280,
+        "height": 927,
+        "rawMatch": 84.60735234627832,
+        "adjustedMatch": 99.78072541966428,
+        "excludedShare": 43.77022653721683,
+        "designHeight": 927,
+        "builtHeight": 927,
+        "designTextOnly": [
+          "film poster · the firm's video goes here"
+        ],
+        "builtTextOnly": []
+      },
+      "statements": {
+        "width": 1280,
+        "height": 483,
+        "rawMatch": 82.99673266045548,
+        "adjustedMatch": 83.11828198281084,
+        "excludedShare": 13.503493788819876,
+        "designHeight": 413,
+        "builtHeight": 483,
+        "designTextOnly": [
+          "[mission statement from the firm's current about page]",
+          "[vision statement from the firm's current about page]"
+        ],
+        "builtTextOnly": [
+          "to provide strategic, practical, and principled legal solutions that empower individuals, businesses, and institutions to grow, protect value, and navigate complexity with confidence.",
+          "to be the legal partner of choice; trusted to guide, protect, and enable growth across borders and generations."
+        ]
+      },
+      "why": {
+        "width": 1280,
+        "height": 540,
+        "rawMatch": 99.1433738425926,
+        "adjustedMatch": 99.13131888123378,
+        "excludedShare": 1.3877314814814814,
+        "designHeight": 540,
+        "builtHeight": 540,
+        "designTextOnly": [
+          "blending experience with innovation for today's legal landscape."
+        ],
+        "builtTextOnly": [
+          "blending experience with innovation for today’s legal landscape."
+        ]
+      },
+      "recognition": {
+        "width": 1280,
+        "height": 358,
+        "rawMatch": 92.74790502793296,
+        "adjustedMatch": 99.61014150943396,
+        "excludedShare": 7.472067039106145,
+        "designHeight": 358,
+        "builtHeight": 358,
+        "designTextOnly": [
+          "award",
+          "certificate"
+        ],
+        "builtTextOnly": []
+      },
+      "leadership": {
+        "width": 1280,
+        "height": 824,
+        "rawMatch": 64.91523816747574,
+        "adjustedMatch": 99.49315527118519,
+        "excludedShare": 38.83040048543689,
+        "designHeight": 824,
+        "builtHeight": 824,
+        "designTextOnly": [
+          "portrait",
+          "portrait",
+          "portrait",
+          "portrait"
+        ],
+        "builtTextOnly": []
+      },
+      "partners": {
+        "width": 1280,
+        "height": 403,
+        "rawMatch": 99.32769851116625,
+        "adjustedMatch": 99.3216811666771,
+        "excludedShare": 0.8870967741935484,
+        "designHeight": 403,
+        "builtHeight": 403,
+        "designTextOnly": [
+          "our international partners →"
+        ],
+        "builtTextOnly": [
+          "our international partners",
+          "→"
+        ]
+      },
+      "cta": {
+        "width": 1280,
+        "height": 354,
+        "rawMatch": 99.6345338983051,
+        "adjustedMatch": 99.6345338983051,
+        "excludedShare": 0,
+        "designHeight": 354,
+        "builtHeight": 354,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "footer": {
+        "width": 1280,
+        "height": 539,
+        "rawMatch": 81.50539192949907,
+        "adjustedMatch": 81.84127155075703,
+        "excludedShare": 3.0991999072356213,
+        "designHeight": 451,
+        "builtHeight": 539,
+        "designTextOnly": [
+          "© 2026 waren law advocates llp ·"
+        ],
+        "builtTextOnly": [
+          "how did you hear about us? (optional)",
+          "we’ll only use your email to send our insights.",
+          "privacy policy",
+          "leave this field empty",
+          "© 2026 waren law advocates llp"
+        ]
+      }
+    }
+  },
+  {
+    "width": 1440,
+    "designPageHeight": 5232,
+    "builtPageHeight": 5667,
+    "designPageWidth": 1440,
+    "builtPageWidth": 1440,
+    "loadedFonts": {
+      "design": [
+        "Manrope 400",
+        "Manrope 500",
+        "Manrope 600",
+        "Manrope 700",
+        "Newsreader 500",
+        "Newsreader 600"
+      ],
+      "built": [
+        "headingFont 400 600",
+        "Manrope 200 800"
+      ]
+    },
+    "typography": {
+      "design": [
+        {
+          "section": "hero",
+          "tag": "h1",
+          "text": "About WAREN Law",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "64px",
+          "fontWeight": "500",
+          "lineHeight": "67.2px",
+          "offsetTop": 147,
+          "height": 67
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "A Nairobi law firm advising businesses, ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "19px",
+          "fontWeight": "400",
+          "lineHeight": "30.4px",
+          "offsetTop": 230,
+          "height": 61
+        },
+        {
+          "section": "story",
+          "tag": "h2",
+          "text": "Established to provide exceptional legal",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 149,
+          "height": 171
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "WAREN Law Advocates LLP was established ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 112,
+          "height": 60
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "[Firm history: founding year, founding p",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 192,
+          "height": 60
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "Today the firm works from Manga House in",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 271,
+          "height": 60
+        },
+        {
+          "section": "film",
+          "tag": "h2",
+          "text": "Meet WAREN Law",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 153,
+          "height": 57
+        },
+        {
+          "section": "film",
+          "tag": "p",
+          "text": "Film coming soon. Captions included.",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 806,
+          "height": 24
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "[Mission statement from the firm's curre",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 70
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "[Vision statement from the firm's curren",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 70
+        },
+        {
+          "section": "why",
+          "tag": "h2",
+          "text": "How we work",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 145,
+          "height": 57
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "A new standard of legal practice",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 303,
+          "height": 74
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "Blending experience with innovation for ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 386,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Client-centred approach",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 303,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "You are guided, supported and informed e",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 349,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Trusted by corporates and individuals",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 303,
+          "height": 74
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong record of professionalism and r",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 386,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Global outlook",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 303,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong presence in East Africa and tru",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 349,
+          "height": 48
+        },
+        {
+          "section": "recognition",
+          "tag": "h2",
+          "text": "Litigation and Dispute Resolution Firm o",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "38px",
+          "fontWeight": "500",
+          "lineHeight": "43.7px",
+          "offsetTop": 172,
+          "height": 44
+        },
+        {
+          "section": "leadership",
+          "tag": "h2",
+          "text": "Our Partners",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 145,
+          "height": 57
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Working with firms in China and South Ko",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "38px",
+          "fontWeight": "500",
+          "lineHeight": "43.7px",
+          "offsetTop": 129,
+          "height": 87
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "48px",
+          "fontWeight": "500",
+          "lineHeight": "52.8px",
+          "offsetTop": 96,
+          "height": 106
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 214,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 128,
+          "height": 51
+        }
+      ],
+      "built": [
+        {
+          "section": "hero",
+          "tag": "h1",
+          "text": "About WAREN Law",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "64px",
+          "fontWeight": "500",
+          "lineHeight": "67.2px",
+          "offsetTop": 147,
+          "height": 67
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "A Nairobi law firm advising businesses, ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "19px",
+          "fontWeight": "400",
+          "lineHeight": "30.4px",
+          "offsetTop": 230,
+          "height": 61
+        },
+        {
+          "section": "story",
+          "tag": "h2",
+          "text": "Established to provide exceptional legal",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 149,
+          "height": 171
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "Waren Law Advocates was established with",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 112,
+          "height": 179
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "At Waren Law Advocates, we believe that ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 311,
+          "height": 119
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "With a steadfast commitment to ethical s",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 450,
+          "height": 119
+        },
+        {
+          "section": "story",
+          "tag": "p",
+          "text": "Today the firm works from Manga House in",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 589,
+          "height": 60
+        },
+        {
+          "section": "film",
+          "tag": "h2",
+          "text": "Meet WAREN Law",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 153,
+          "height": 57
+        },
+        {
+          "section": "film",
+          "tag": "p",
+          "text": "Film coming soon. Captions included.",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 806,
+          "height": 24
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "To provide strategic, practical, and pri",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 140
+        },
+        {
+          "section": "statements",
+          "tag": "p",
+          "text": "To be the legal partner of choice; trust",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "26px",
+          "fontWeight": "400",
+          "lineHeight": "35.1px",
+          "offsetTop": 190,
+          "height": 105
+        },
+        {
+          "section": "why",
+          "tag": "h2",
+          "text": "How we work",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 145,
+          "height": 57
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "A new standard of legal practice",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 303,
+          "height": 74
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "Blending experience with innovation for ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 386,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Client-centred approach",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 303,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "You are guided, supported and informed e",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 349,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Trusted by corporates and individuals",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 303,
+          "height": 74
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong record of professionalism and r",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 386,
+          "height": 48
+        },
+        {
+          "section": "why",
+          "tag": "h3",
+          "text": "Global outlook",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "36.8px",
+          "offsetTop": 303,
+          "height": 37
+        },
+        {
+          "section": "why",
+          "tag": "p",
+          "text": "A strong presence in East Africa and tru",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 349,
+          "height": 48
+        },
+        {
+          "section": "recognition",
+          "tag": "h2",
+          "text": "Litigation and Dispute Resolution Firm o",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "38px",
+          "fontWeight": "500",
+          "lineHeight": "43.7px",
+          "offsetTop": 172,
+          "height": 44
+        },
+        {
+          "section": "leadership",
+          "tag": "h2",
+          "text": "Our Partners",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 145,
+          "height": 57
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Working with firms in China and South Ko",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "38px",
+          "fontWeight": "500",
+          "lineHeight": "43.7px",
+          "offsetTop": 129,
+          "height": 87
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "48px",
+          "fontWeight": "500",
+          "lineHeight": "52.8px",
+          "offsetTop": 96,
+          "height": 106
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 214,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Quick links",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Practice areas",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Newsletter",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 128,
+          "height": 51
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "We’ll only use your email to send our in",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "20.8px",
+          "offsetTop": 362,
+          "height": 42
+        }
+      ]
+    },
+    "brokenImages": [],
+    "whole": {
+      "width": 1440,
+      "height": 5667,
+      "rawMatch": 56.71084298962806,
+      "adjustedMatch": 54.102547634379626,
+      "excludedShare": 34.55626384722467
+    },
+    "sections": {
+      "header": {
+        "width": 1440,
+        "height": 96,
+        "rawMatch": 98.76953125,
+        "adjustedMatch": 98.431931575196,
+        "excludedShare": 95.94039351851852,
+        "designHeight": 96,
+        "builtHeight": 96,
+        "designTextOnly": [],
+        "builtTextOnly": [
+          "skip to main content"
+        ]
+      },
+      "hero": {
+        "width": 1440,
+        "height": 387,
+        "rawMatch": 96.1062661498708,
+        "adjustedMatch": null,
+        "excludedShare": 100,
+        "designHeight": 387,
+        "builtHeight": 387,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "story": {
+        "width": 1440,
+        "height": 760,
+        "rawMatch": 58.97076023391813,
+        "adjustedMatch": 61.74957978377965,
+        "excludedShare": 23.45906432748538,
+        "designHeight": 458,
+        "builtHeight": 760,
+        "designTextOnly": [
+          "waren law advocates llp was established with a vision to provide exceptional legal solutions tailored to both individual and corporate needs.",
+          "[firm history: founding year, founding partners and how the firm has grown — from the firm's current about page, to be confirmed by the firm.]"
+        ],
+        "builtTextOnly": [
+          "waren law advocates was established with a vision to provide exceptional legal solutions tailored to both individual and corporate needs. over the years, we have cultivated a reputation for professionalism, integrity, and excellence in legal practice. our team of dedicated lawyers and legal assistants brings a wealth of experience across various sectors, ensuring that each client receives strategic and effective legal counsel.",
+          "at waren law advocates, we believe that legal practice extends beyond understanding the law it is about applying it effectively to serve the best interests of our clients. our approach focuses on delivering practical, results-driven solutions while maintaining efficiency and cost-effectiveness.",
+          "with a steadfast commitment to ethical standards and personalized client service, waren has built a trusted network of clients who rely on our expertise for their legal matters. we are not just a law firm; we are partners in safeguarding your rights, resolving challenges, and advancing your best interests."
+        ]
+      },
+      "film": {
+        "width": 1440,
+        "height": 934,
+        "rawMatch": 86.52391149179157,
+        "adjustedMatch": 99.99031007751938,
+        "excludedShare": 38.615274803711635,
+        "designHeight": 934,
+        "builtHeight": 934,
+        "designTextOnly": [
+          "film poster · the firm's video goes here"
+        ],
+        "builtTextOnly": []
+      },
+      "statements": {
+        "width": 1440,
+        "height": 483,
+        "rawMatch": 83.35389348976305,
+        "adjustedMatch": 83.42083394437113,
+        "excludedShare": 11.762422360248447,
+        "designHeight": 413,
+        "builtHeight": 483,
+        "designTextOnly": [
+          "[mission statement from the firm's current about page]",
+          "[vision statement from the firm's current about page]"
+        ],
+        "builtTextOnly": [
+          "to provide strategic, practical, and principled legal solutions that empower individuals, businesses, and institutions to grow, protect value, and navigate complexity with confidence.",
+          "to be the legal partner of choice; trusted to guide, protect, and enable growth across borders and generations."
+        ]
+      },
+      "why": {
+        "width": 1440,
+        "height": 546,
+        "rawMatch": 99.22758954008954,
+        "adjustedMatch": 99.21804987587684,
+        "excludedShare": 1.21998371998372,
+        "designHeight": 546,
+        "builtHeight": 546,
+        "designTextOnly": [
+          "blending experience with innovation for today's legal landscape."
+        ],
+        "builtTextOnly": [
+          "blending experience with innovation for today’s legal landscape."
+        ]
+      },
+      "recognition": {
+        "width": 1440,
+        "height": 358,
+        "rawMatch": 93.40471756672875,
+        "adjustedMatch": 99.53083444148936,
+        "excludedShare": 6.641837368094351,
+        "designHeight": 358,
+        "builtHeight": 358,
+        "designTextOnly": [
+          "award",
+          "certificate"
+        ],
+        "builtTextOnly": []
+      },
+      "leadership": {
+        "width": 1440,
+        "height": 851,
+        "rawMatch": 66.24583822953389,
+        "adjustedMatch": 99.38588446186074,
+        "excludedShare": 37.36062149105627,
+        "designHeight": 851,
+        "builtHeight": 851,
+        "designTextOnly": [
+          "portrait",
+          "portrait",
+          "portrait",
+          "portrait"
+        ],
+        "builtTextOnly": []
+      },
+      "partners": {
+        "width": 1440,
+        "height": 374,
+        "rawMatch": 99.92628490790256,
+        "adjustedMatch": 99.92565320309222,
+        "excludedShare": 0.8496732026143791,
+        "designHeight": 374,
+        "builtHeight": 374,
+        "designTextOnly": [
+          "our international partners →"
+        ],
+        "builtTextOnly": [
+          "our international partners",
+          "→"
+        ]
+      },
+      "cta": {
+        "width": 1440,
+        "height": 364,
+        "rawMatch": 100,
+        "adjustedMatch": 100,
+        "excludedShare": 0,
+        "designHeight": 364,
+        "builtHeight": 364,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "footer": {
+        "width": 1440,
+        "height": 514,
+        "rawMatch": 86.23878620838738,
+        "adjustedMatch": 86.61681347262137,
+        "excludedShare": 3.015429096411587,
+        "designHeight": 451,
+        "builtHeight": 514,
+        "designTextOnly": [
+          "© 2026 waren law advocates llp ·"
+        ],
+        "builtTextOnly": [
+          "how did you hear about us? (optional)",
+          "we’ll only use your email to send our insights.",
+          "privacy policy",
+          "leave this field empty",
+          "© 2026 waren law advocates llp"
+        ]
+      }
+    }
+  }
+]

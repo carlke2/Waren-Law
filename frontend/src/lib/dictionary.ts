@@ -4,8 +4,6 @@ export const dictionary = {
     breadcrumb: 'Breadcrumb',
     home: 'Home',
     required: '(required)',
-    readMore: 'Read more',
-    viewAll: 'View all',
     expandIcon: '+',
   },
   nav: {

@@ -2,12 +2,10 @@ import {
   API_ROUTES,
   awardResponseSchema,
   categoryResponseSchema,
-  clientLogoResponseSchema,
   DEFAULT_PAGE_SIZE,
   homeResponseSchema,
   insightDetailSchema,
   insightListResponseSchema,
-  MAX_PAGE_SIZE,
   officeResponseSchema,
   pageResponseSchema,
   partnerResponseSchema,
@@ -59,7 +57,6 @@ export const getInsights = ({ page = 1, pageSize = DEFAULT_PAGE_SIZE, category }
   if (category) query.set('category', category);
   return apiFetch(`${API_ROUTES.insights}?${query}`, insightListResponseSchema);
 };
-export const getAllInsightSummaries = () => getInsights({ pageSize: MAX_PAGE_SIZE });
 export const getInsight = (slug: string) =>
   apiFetchOrNull(slugPath(API_ROUTES.insights, slug), insightDetailSchema);
 export const getCategories = () => apiFetch(API_ROUTES.categories, z.array(categoryResponseSchema));
@@ -72,8 +69,6 @@ export const getWebinar = (slug: string) =>
   apiFetchOrNull(slugPath(API_ROUTES.webinars, slug), webinarDetailSchema);
 export const getPartners = () => apiFetch(API_ROUTES.partners, z.array(partnerResponseSchema));
 export const getAwards = () => apiFetch(API_ROUTES.awards, z.array(awardResponseSchema));
-export const getClientLogos = () =>
-  apiFetch(API_ROUTES.clientLogos, z.array(clientLogoResponseSchema));
 export const getRootSlugs = () => apiFetch(API_ROUTES.resolve, rootSlugsResponseSchema);
 export const resolveRootSlug = (slug: string) =>
   apiFetchOrNull(slugPath(API_ROUTES.resolve, slug), resolveResponseSchema);
