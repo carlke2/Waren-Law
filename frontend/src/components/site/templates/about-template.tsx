@@ -57,7 +57,11 @@ export async function AboutTemplate({ page }: { page: PageResponse }) {
 
       <section data-tone="dark" className="bg-brand text-on-brand">
         <div className="site-container flex flex-col items-center gap-7 py-16 text-center sm:py-26">
-          <SectionHeading eyebrow={text.filmEyebrow} title={copy.filmTitle} onBrand />
+          <div className="flex items-center gap-3.5">
+            <span className="h-rule w-rule-short bg-accent" />
+            <Eyebrow onBrand>{text.filmEyebrow}</Eyebrow>
+          </div>
+          <h2 className="font-heading text-h2 font-medium">{copy.filmTitle}</h2>
           <AboutFilm
             url={settings.aboutVideo.url}
             captionsUrl={settings.aboutVideo.captionsUrl}
@@ -110,7 +114,7 @@ export async function AboutTemplate({ page }: { page: PageResponse }) {
                 <span className="text-eyebrow font-bold text-accent-text">
                   {String(index + 1).padStart(NUMBER_WIDTH, '0')}
                 </span>
-                <h3 className="font-heading text-h3-card font-semibold text-brand">{title}</h3>
+                <h3 className="font-heading text-name font-semibold text-brand">{title}</h3>
                 <p className="text-card-body text-text-muted">{pointText}</p>
               </div>
             ))}
@@ -141,7 +145,7 @@ export async function AboutTemplate({ page }: { page: PageResponse }) {
       {partners.length ? (
         <section className="bg-surface">
           <div className="site-container flex flex-wrap items-center justify-between gap-8 py-16 sm:py-24">
-            <div className="max-w-section-header">
+            <div className="max-w-teaser">
               <SectionHeading eyebrow={text.partnersEyebrow} title={copy.partnersTitle} compact />
             </div>
             <div className="flex flex-wrap gap-4">

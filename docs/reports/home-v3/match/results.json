@@ -1,0 +1,4149 @@
+[
+  {
+    "width": 390,
+    "designPageHeight": 8554,
+    "builtPageHeight": 8725,
+    "designPageWidth": 390,
+    "builtPageWidth": 390,
+    "loadedFonts": {
+      "design": [
+        "Manrope 400",
+        "Manrope 500",
+        "Manrope 600",
+        "Manrope 700",
+        "Newsreader 500",
+        "Newsreader 600"
+      ],
+      "built": [
+        "headingFont 400 600",
+        "Manrope 200 800"
+      ]
+    },
+    "typography": {
+      "design": [
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Businesses",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "19px",
+          "fontWeight": "600",
+          "lineHeight": "30.4px",
+          "offsetTop": 164,
+          "height": 30
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Property & Families",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "19px",
+          "fontWeight": "600",
+          "lineHeight": "30.4px",
+          "offsetTop": 252,
+          "height": 30
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Kenyans Abroad",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "19px",
+          "fontWeight": "600",
+          "lineHeight": "30.4px",
+          "offsetTop": 340,
+          "height": 30
+        },
+        {
+          "section": "welcome",
+          "tag": "h2",
+          "text": "Welcome to WAREN Law",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 101,
+          "height": 75
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "WAREN Law Advocates LLP was established ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 266,
+          "height": 208
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "We combine experience with innovation, a",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 494,
+          "height": 89
+        },
+        {
+          "section": "expertise",
+          "tag": "h2",
+          "text": "Areas of Expertise",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 97,
+          "height": 37
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Eight practice areas covering the needs ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 146,
+          "height": 82
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Debt Recovery & Asset Tracing",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 355,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Recovery, tracing and enforcement for le",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 424,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Corporate & Commercial",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 642,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Company formation, structuring, contract",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 684,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Real Estate, Conveyancing & Land",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 902,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Transfers, title, due diligence and land",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 972,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Wealth Management & Investments",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 1190,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Trusts, holding structures, estate plans",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1259,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Litigation, Dispute Resolution & Arbitra",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 1477,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Litigation, international arbitration an",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1547,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Banking & Finance",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 1765,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Lending, project finance, securities and",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1807,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Mining & Energy",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 2025,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Licensing, joint ventures, ESG and energ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 2067,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Employment & Labour",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 2285,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Contracts, HR compliance, workplace disp",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 2327,
+          "height": 48
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Meet Our Partners",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 97,
+          "height": 37
+        },
+        {
+          "section": "partners",
+          "tag": "p",
+          "text": "Advocates who lead our corporate, proper",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 146,
+          "height": 54
+        },
+        {
+          "section": "insights",
+          "tag": "h2",
+          "text": "Latest from our advocates",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 97,
+          "height": 75
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Cross-Border Succession Planning: Naviga",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 548,
+          "height": 120
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Conveyancing Lawyer in Kenya: 5 Essentia",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 1010,
+          "height": 90
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "When Speed Becomes a Commodity: The Hidd",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 1442,
+          "height": 120
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "32px",
+          "fontWeight": "500",
+          "lineHeight": "35.2px",
+          "offsetTop": 64,
+          "height": 70
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 146,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 51
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 1004,
+          "height": 51
+        }
+      ],
+      "built": [
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Businesses",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "19px",
+          "fontWeight": "600",
+          "lineHeight": "30.4px",
+          "offsetTop": 164,
+          "height": 30
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Property & Families",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "19px",
+          "fontWeight": "600",
+          "lineHeight": "30.4px",
+          "offsetTop": 252,
+          "height": 30
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Kenyans Abroad",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "19px",
+          "fontWeight": "600",
+          "lineHeight": "30.4px",
+          "offsetTop": 340,
+          "height": 30
+        },
+        {
+          "section": "welcome",
+          "tag": "h2",
+          "text": "Welcome to WAREN Law",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 101,
+          "height": 75
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "WAREN Law Advocates LLP was established ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 266,
+          "height": 208
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "We combine experience with innovation, a",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 494,
+          "height": 89
+        },
+        {
+          "section": "expertise",
+          "tag": "h2",
+          "text": "Areas of Expertise",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 97,
+          "height": 37
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Eight practice areas covering the needs ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 146,
+          "height": 82
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Debt Recovery & Asset Tracing",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 355,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Recovery, tracing and enforcement for le",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 424,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Corporate & Commercial",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 642,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Company formation, structuring, contract",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 684,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Real Estate, Conveyancing & Land",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 902,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Transfers, title, due diligence and land",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 972,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Wealth Management & Investments",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 1190,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Trusts, holding structures, estate plans",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1259,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Litigation, Dispute Resolution & Arbitra",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 1477,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Litigation, international arbitration an",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1547,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Banking & Finance",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 1765,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Lending, project finance, securities and",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1807,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Mining & Energy",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 2025,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Licensing, joint ventures, ESG and energ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 2067,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Employment & Labour",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 2285,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Contracts, HR compliance, workplace disp",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 2327,
+          "height": 48
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Meet Our Partners",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 97,
+          "height": 37
+        },
+        {
+          "section": "partners",
+          "tag": "p",
+          "text": "Advocates who lead our corporate, proper",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 146,
+          "height": 54
+        },
+        {
+          "section": "insights",
+          "tag": "h2",
+          "text": "Latest from our advocates",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 97,
+          "height": 75
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Cross-Border Succession Planning: Naviga",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 562,
+          "height": 120
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Conveyancing Lawyer in Kenya: 5 Essentia",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 1024,
+          "height": 90
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "When Speed Becomes a Commodity: The Hidd",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 1456,
+          "height": 120
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "32px",
+          "fontWeight": "500",
+          "lineHeight": "35.2px",
+          "offsetTop": 64,
+          "height": 70
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 146,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 51
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Quick links",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 337,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Practice areas",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 647,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Newsletter",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 956,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 1004,
+          "height": 51
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "We’ll only use your email to send our in",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "20.8px",
+          "offsetTop": 1238,
+          "height": 42
+        }
+      ]
+    },
+    "brokenImages": [],
+    "whole": {
+      "width": 390,
+      "height": 8725,
+      "rawMatch": 84.58949379178605,
+      "adjustedMatch": 92.94437228892026,
+      "excludedShare": 17.162383366394828
+    },
+    "sections": {
+      "header": {
+        "width": 390,
+        "height": 72,
+        "rawMatch": 97.87037037037038,
+        "adjustedMatch": null,
+        "excludedShare": 100,
+        "designHeight": 72,
+        "builtHeight": 72,
+        "designTextOnly": [],
+        "builtTextOnly": [
+          "skip to main content"
+        ]
+      },
+      "hero": {
+        "width": 390,
+        "height": 422,
+        "rawMatch": 99.7138169886985,
+        "adjustedMatch": 99.61290946920211,
+        "excludedShare": 49.77032446226759,
+        "designHeight": 422,
+        "builtHeight": 422,
+        "designTextOnly": [],
+        "builtTextOnly": [
+          "waren law advocates llp — advocates in nairobi, nakuru and beijing",
+          "→",
+          "→",
+          "→"
+        ]
+      },
+      "welcome": {
+        "width": 390,
+        "height": 729,
+        "rawMatch": 98.60961626393726,
+        "adjustedMatch": 98.60961626393726,
+        "excludedShare": 0,
+        "designHeight": 729,
+        "builtHeight": 727,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "expertise": {
+        "width": 390,
+        "height": 2510,
+        "rawMatch": 99.31116559403412,
+        "adjustedMatch": 99.30053318395883,
+        "excludedShare": 1.520073551946062,
+        "designHeight": 2510,
+        "builtHeight": 2510,
+        "designTextOnly": [
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →"
+        ],
+        "builtTextOnly": [
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→"
+        ]
+      },
+      "partners": {
+        "width": 390,
+        "height": 1027,
+        "rawMatch": 67.71977130302349,
+        "adjustedMatch": 99.17074232751985,
+        "excludedShare": 35.780590717299575,
+        "designHeight": 1027,
+        "builtHeight": 1027,
+        "designTextOnly": [
+          "portrait",
+          "portrait",
+          "portrait",
+          "portrait"
+        ],
+        "builtTextOnly": []
+      },
+      "insights": {
+        "width": 390,
+        "height": 1681,
+        "rawMatch": 67.9369728031239,
+        "adjustedMatch": 94.03619485441928,
+        "excludedShare": 44.987110846718224,
+        "designHeight": 1667,
+        "builtHeight": 1681,
+        "designTextOnly": [
+          "all insights →",
+          "article image",
+          "cross-border succession planning: navigating succession rules in kenya, the uk and the us",
+          "article image",
+          "conveyancing",
+          "article image",
+          "land registry"
+        ],
+        "builtTextOnly": [
+          "all insights",
+          "→",
+          "cross-border succession planning: navigating succession rules in kenya, the uk, and the us",
+          "conveyancing and commercial services",
+          "conveyancing and commercial services"
+        ]
+      },
+      "recognition": {
+        "width": 390,
+        "height": 352,
+        "rawMatch": 95.21343240093239,
+        "adjustedMatch": 95.21343240093239,
+        "excludedShare": 0,
+        "designHeight": 352,
+        "builtHeight": 352,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "cta": {
+        "width": 390,
+        "height": 423,
+        "rawMatch": 97.2261623325453,
+        "adjustedMatch": 97.2261623325453,
+        "excludedShare": 0,
+        "designHeight": 423,
+        "builtHeight": 423,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "footer": {
+        "width": 390,
+        "height": 1511,
+        "rawMatch": 87.79717965687523,
+        "adjustedMatch": 88.47658316696882,
+        "excludedShare": 3.7777664647287414,
+        "designHeight": 1353,
+        "builtHeight": 1511,
+        "designTextOnly": [
+          "© 2026 waren law advocates llp ·"
+        ],
+        "builtTextOnly": [
+          "how did you hear about us? (optional)",
+          "we’ll only use your email to send our insights.",
+          "privacy policy",
+          "leave this field empty",
+          "© 2026 waren law advocates llp"
+        ]
+      }
+    }
+  },
+  {
+    "width": 768,
+    "designPageHeight": 7272,
+    "builtPageHeight": 7332,
+    "designPageWidth": 768,
+    "builtPageWidth": 768,
+    "loadedFonts": {
+      "design": [
+        "Manrope 400",
+        "Manrope 500",
+        "Manrope 600",
+        "Manrope 700",
+        "Newsreader 500",
+        "Newsreader 600"
+      ],
+      "built": [
+        "headingFont 400 600",
+        "Manrope 200 800"
+      ]
+    },
+    "typography": {
+      "design": [
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Businesses",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 236,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Corporate, banking, employment and dispu",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 281,
+          "height": 65
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Property & Families",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 236,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Conveyancing, succession and wealth plan",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 281,
+          "height": 65
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Kenyans Abroad",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 537,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Support to buy property, plan succession",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 583,
+          "height": 65
+        },
+        {
+          "section": "welcome",
+          "tag": "h2",
+          "text": "Welcome to WAREN Law",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 149,
+          "height": 37
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "WAREN Law Advocates LLP was established ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 276,
+          "height": 119
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "We combine experience with innovation, a",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 415,
+          "height": 60
+        },
+        {
+          "section": "expertise",
+          "tag": "h2",
+          "text": "Areas of Expertise",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 145,
+          "height": 37
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Eight practice areas covering the needs ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 194,
+          "height": 54
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Debt Recovery & Asset Tracing",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 376,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Recovery, tracing and enforcement for le",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 445,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Corporate & Commercial",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 376,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Company formation, structuring, contract",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 417,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Real Estate, Conveyancing & Land",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 663,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Transfers, title, due diligence and land",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 732,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Wealth Management & Investments",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 663,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Trusts, holding structures, estate plans",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 732,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Litigation, Dispute Resolution & Arbitra",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 951,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Litigation, international arbitration an",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1020,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Banking & Finance",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 951,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Lending, project finance, securities and",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 992,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Mining & Energy",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 1238,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Licensing, joint ventures, ESG and energ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1280,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Employment & Labour",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 1238,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Contracts, HR compliance, workplace disp",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1280,
+          "height": 48
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Meet Our Partners",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 145,
+          "height": 37
+        },
+        {
+          "section": "partners",
+          "tag": "p",
+          "text": "Advocates who lead our corporate, proper",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 194,
+          "height": 54
+        },
+        {
+          "section": "insights",
+          "tag": "h2",
+          "text": "Latest from our advocates",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 145,
+          "height": 37
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Cross-Border Succession Planning: Naviga",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 497,
+          "height": 120
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Conveyancing Lawyer in Kenya: 5 Essentia",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 497,
+          "height": 90
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "When Speed Becomes a Commodity: The Hidd",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 951,
+          "height": 120
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "32px",
+          "fontWeight": "500",
+          "lineHeight": "35.2px",
+          "offsetTop": 96,
+          "height": 35
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 143,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 437,
+          "height": 51
+        }
+      ],
+      "built": [
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Businesses",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 236,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Corporate, banking, employment and dispu",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 281,
+          "height": 65
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Property & Families",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 236,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Conveyancing, succession and wealth plan",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 281,
+          "height": 65
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Kenyans Abroad",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 537,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Support to buy property, plan succession",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 583,
+          "height": 65
+        },
+        {
+          "section": "welcome",
+          "tag": "h2",
+          "text": "Welcome to WAREN Law",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 149,
+          "height": 37
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "WAREN Law Advocates LLP was established ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 276,
+          "height": 119
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "We combine experience with innovation, a",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 415,
+          "height": 60
+        },
+        {
+          "section": "expertise",
+          "tag": "h2",
+          "text": "Areas of Expertise",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 145,
+          "height": 37
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Eight practice areas covering the needs ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 194,
+          "height": 54
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Debt Recovery & Asset Tracing",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 376,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Recovery, tracing and enforcement for le",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 445,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Corporate & Commercial",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 376,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Company formation, structuring, contract",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 417,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Real Estate, Conveyancing & Land",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 663,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Transfers, title, due diligence and land",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 732,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Wealth Management & Investments",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 663,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Trusts, holding structures, estate plans",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 732,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Litigation, Dispute Resolution & Arbitra",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 951,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Litigation, international arbitration an",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1020,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Banking & Finance",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 951,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Lending, project finance, securities and",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 992,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Mining & Energy",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 1238,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Licensing, joint ventures, ESG and energ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1280,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Employment & Labour",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 1238,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Contracts, HR compliance, workplace disp",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 1280,
+          "height": 48
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Meet Our Partners",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 145,
+          "height": 37
+        },
+        {
+          "section": "partners",
+          "tag": "p",
+          "text": "Advocates who lead our corporate, proper",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 194,
+          "height": 54
+        },
+        {
+          "section": "insights",
+          "tag": "h2",
+          "text": "Latest from our advocates",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "34px",
+          "fontWeight": "500",
+          "lineHeight": "37.4px",
+          "offsetTop": 145,
+          "height": 37
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Cross-Border Succession Planning: Naviga",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 497,
+          "height": 120
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Conveyancing Lawyer in Kenya: 5 Essentia",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 497,
+          "height": 90
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "When Speed Becomes a Commodity: The Hidd",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 951,
+          "height": 120
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "32px",
+          "fontWeight": "500",
+          "lineHeight": "35.2px",
+          "offsetTop": 96,
+          "height": 35
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 143,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Quick links",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Practice areas",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 390,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Newsletter",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 390,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 437,
+          "height": 51
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "We’ll only use your email to send our in",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "20.8px",
+          "offsetTop": 672,
+          "height": 42
+        }
+      ]
+    },
+    "brokenImages": [],
+    "whole": {
+      "width": 768,
+      "height": 7332,
+      "rawMatch": 84.60487134024368,
+      "adjustedMatch": 96.31733162354271,
+      "excludedShare": 22.723698342880525
+    },
+    "sections": {
+      "header": {
+        "width": 768,
+        "height": 96,
+        "rawMatch": 99.17805989583334,
+        "adjustedMatch": null,
+        "excludedShare": 100,
+        "designHeight": 96,
+        "builtHeight": 96,
+        "designTextOnly": [],
+        "builtTextOnly": [
+          "skip to main content"
+        ]
+      },
+      "hero": {
+        "width": 768,
+        "height": 789,
+        "rawMatch": 99.16230988593155,
+        "adjustedMatch": 99.97192588433464,
+        "excludedShare": 54.148843472750315,
+        "designHeight": 789,
+        "builtHeight": 789,
+        "designTextOnly": [
+          "nairobi skyline (illustration) · photo, then video"
+        ],
+        "builtTextOnly": [
+          "waren law advocates llp — advocates in nairobi, nakuru and beijing"
+        ]
+      },
+      "welcome": {
+        "width": 768,
+        "height": 669,
+        "rawMatch": 99.48870359990035,
+        "adjustedMatch": 99.48870359990035,
+        "excludedShare": 0,
+        "designHeight": 669,
+        "builtHeight": 667,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "expertise": {
+        "width": 768,
+        "height": 1511,
+        "rawMatch": 99.02468701742775,
+        "adjustedMatch": 99.13876784267717,
+        "excludedShare": 1.2822634017207148,
+        "designHeight": 1511,
+        "builtHeight": 1511,
+        "designTextOnly": [
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →"
+        ],
+        "builtTextOnly": [
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→"
+        ]
+      },
+      "partners": {
+        "width": 768,
+        "height": 1583,
+        "rawMatch": 57.17297391556117,
+        "adjustedMatch": 99.56174259566552,
+        "excludedShare": 47.654769425142135,
+        "designHeight": 1583,
+        "builtHeight": 1583,
+        "designTextOnly": [
+          "portrait",
+          "portrait",
+          "portrait",
+          "portrait"
+        ],
+        "builtTextOnly": []
+      },
+      "insights": {
+        "width": 768,
+        "height": 1224,
+        "rawMatch": 81.55573427287581,
+        "adjustedMatch": 99.54683900560704,
+        "excludedShare": 26.898977907135077,
+        "designHeight": 1224,
+        "builtHeight": 1224,
+        "designTextOnly": [
+          "all insights →",
+          "article image",
+          "cross-border succession planning: navigating succession rules in kenya, the uk and the us",
+          "article image",
+          "conveyancing",
+          "article image",
+          "land registry"
+        ],
+        "builtTextOnly": [
+          "all insights",
+          "→",
+          "cross-border succession planning: navigating succession rules in kenya, the uk, and the us",
+          "conveyancing and commercial services",
+          "conveyancing and commercial services"
+        ]
+      },
+      "recognition": {
+        "width": 768,
+        "height": 225,
+        "rawMatch": 97.77141203703704,
+        "adjustedMatch": 97.77141203703704,
+        "excludedShare": 0,
+        "designHeight": 225,
+        "builtHeight": 225,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "cta": {
+        "width": 768,
+        "height": 382,
+        "rawMatch": 99.93728184991274,
+        "adjustedMatch": 99.93728184991274,
+        "excludedShare": 0,
+        "designHeight": 382,
+        "builtHeight": 382,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "footer": {
+        "width": 768,
+        "height": 856,
+        "rawMatch": 90.3734058605919,
+        "adjustedMatch": 91.02899175937502,
+        "excludedShare": 3.3863293419003115,
+        "designHeight": 794,
+        "builtHeight": 856,
+        "designTextOnly": [
+          "© 2026 waren law advocates llp ·"
+        ],
+        "builtTextOnly": [
+          "how did you hear about us? (optional)",
+          "we’ll only use your email to send our insights.",
+          "privacy policy",
+          "leave this field empty",
+          "© 2026 waren law advocates llp"
+        ]
+      }
+    }
+  },
+  {
+    "width": 1280,
+    "designPageHeight": 4846,
+    "builtPageHeight": 4932,
+    "designPageWidth": 1280,
+    "builtPageWidth": 1280,
+    "loadedFonts": {
+      "design": [
+        "Manrope 400",
+        "Manrope 500",
+        "Manrope 600",
+        "Manrope 700",
+        "Newsreader 500",
+        "Newsreader 600"
+      ],
+      "built": [
+        "headingFont 400 600",
+        "Manrope 200 800"
+      ]
+    },
+    "typography": {
+      "design": [
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Businesses",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 278,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Corporate, banking, employment and dispu",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 323,
+          "height": 65
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Property & Families",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 278,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Conveyancing, succession and wealth plan",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 323,
+          "height": 65
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Kenyans Abroad",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 278,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Support to buy property, plan succession",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 323,
+          "height": 65
+        },
+        {
+          "section": "welcome",
+          "tag": "h2",
+          "text": "Welcome to WAREN Law",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 149,
+          "height": 101
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "WAREN Law Advocates LLP was established ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 112,
+          "height": 119
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "We combine experience with innovation, a",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 251,
+          "height": 60
+        },
+        {
+          "section": "expertise",
+          "tag": "h2",
+          "text": "Areas of Expertise",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 145,
+          "height": 51
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Eight practice areas covering the needs ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 207,
+          "height": 54
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Debt Recovery & Asset Tracing",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 389,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Recovery, tracing and enforcement for le",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 458,
+          "height": 72
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Corporate & Commercial",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 389,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Company formation, structuring, contract",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 458,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Real Estate, Conveyancing & Land",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 389,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Transfers, title, due diligence and land",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 458,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Wealth Management & Investments",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 389,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Trusts, holding structures, estate plans",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 458,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Litigation, Dispute Resolution & Arbitra",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 700,
+          "height": 83
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Litigation, international arbitration an",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 797,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Banking & Finance",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 700,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Lending, project finance, securities and",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 742,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Mining & Energy",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 700,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Licensing, joint ventures, ESG and energ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 742,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Employment & Labour",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 700,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Contracts, HR compliance, workplace disp",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 742,
+          "height": 48
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Meet Our Partners",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 145,
+          "height": 51
+        },
+        {
+          "section": "partners",
+          "tag": "p",
+          "text": "Advocates who lead our corporate, proper",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 207,
+          "height": 54
+        },
+        {
+          "section": "insights",
+          "tag": "h2",
+          "text": "Latest from our advocates",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 145,
+          "height": 51
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Cross-Border Succession Planning: Naviga",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 540,
+          "height": 90
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Conveyancing Lawyer in Kenya: 5 Essentia",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 540,
+          "height": 90
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "When Speed Becomes a Commodity: The Hidd",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 540,
+          "height": 90
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "43.52px",
+          "fontWeight": "500",
+          "lineHeight": "47.872px",
+          "offsetTop": 96,
+          "height": 96
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 204,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 128,
+          "height": 77
+        }
+      ],
+      "built": [
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Businesses",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 278,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Corporate, banking, employment and dispu",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 323,
+          "height": 65
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Property & Families",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 278,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Conveyancing, succession and wealth plan",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 323,
+          "height": 65
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Kenyans Abroad",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 278,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Support to buy property, plan succession",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 323,
+          "height": 65
+        },
+        {
+          "section": "welcome",
+          "tag": "h2",
+          "text": "Welcome to WAREN Law",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 149,
+          "height": 101
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "WAREN Law Advocates LLP was established ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 112,
+          "height": 119
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "We combine experience with innovation, a",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 251,
+          "height": 60
+        },
+        {
+          "section": "expertise",
+          "tag": "h2",
+          "text": "Areas of Expertise",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 145,
+          "height": 51
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Eight practice areas covering the needs ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 207,
+          "height": 54
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Debt Recovery & Asset Tracing",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 389,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Recovery, tracing and enforcement for le",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 458,
+          "height": 72
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Corporate & Commercial",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 389,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Company formation, structuring, contract",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 458,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Real Estate, Conveyancing & Land",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 389,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Transfers, title, due diligence and land",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 458,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Wealth Management & Investments",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 389,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Trusts, holding structures, estate plans",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 458,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Litigation, Dispute Resolution & Arbitra",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 700,
+          "height": 83
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Litigation, international arbitration an",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 797,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Banking & Finance",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 700,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Lending, project finance, securities and",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 742,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Mining & Energy",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 700,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Licensing, joint ventures, ESG and energ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 742,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Employment & Labour",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 700,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Contracts, HR compliance, workplace disp",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 742,
+          "height": 48
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Meet Our Partners",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 145,
+          "height": 51
+        },
+        {
+          "section": "partners",
+          "tag": "p",
+          "text": "Advocates who lead our corporate, proper",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 207,
+          "height": 54
+        },
+        {
+          "section": "insights",
+          "tag": "h2",
+          "text": "Latest from our advocates",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "46.08px",
+          "fontWeight": "500",
+          "lineHeight": "50.688px",
+          "offsetTop": 145,
+          "height": 51
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Cross-Border Succession Planning: Naviga",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 540,
+          "height": 90
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Conveyancing Lawyer in Kenya: 5 Essentia",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 540,
+          "height": 90
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "When Speed Becomes a Commodity: The Hidd",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 540,
+          "height": 90
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "43.52px",
+          "fontWeight": "500",
+          "lineHeight": "47.872px",
+          "offsetTop": 96,
+          "height": 96
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 204,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Quick links",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Practice areas",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Newsletter",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 128,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "We’ll only use your email to send our in",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "20.8px",
+          "offsetTop": 388,
+          "height": 42
+        }
+      ]
+    },
+    "brokenImages": [],
+    "whole": {
+      "width": 1280,
+      "height": 4932,
+      "rawMatch": 86.83330798864559,
+      "adjustedMatch": 95.48716133855515,
+      "excludedShare": 20.416983475263585
+    },
+    "sections": {
+      "header": {
+        "width": 1280,
+        "height": 96,
+        "rawMatch": 98.43017578125,
+        "adjustedMatch": 98.431931575196,
+        "excludedShare": 95.43294270833333,
+        "designHeight": 96,
+        "builtHeight": 96,
+        "designTextOnly": [],
+        "builtTextOnly": [
+          "skip to main content"
+        ]
+      },
+      "hero": {
+        "width": 1280,
+        "height": 529,
+        "rawMatch": 99.56255907372402,
+        "adjustedMatch": 99.99964428508417,
+        "excludedShare": 58.482396030245745,
+        "designHeight": 529,
+        "builtHeight": 529,
+        "designTextOnly": [
+          "nairobi skyline (illustration) · photo, then video"
+        ],
+        "builtTextOnly": [
+          "waren law advocates llp — advocates in nairobi, nakuru and beijing"
+        ]
+      },
+      "welcome": {
+        "width": 1280,
+        "height": 505,
+        "rawMatch": 99.1144801980198,
+        "adjustedMatch": 99.1144801980198,
+        "excludedShare": 0,
+        "designHeight": 505,
+        "builtHeight": 503,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "expertise": {
+        "width": 1280,
+        "height": 1029,
+        "rawMatch": 99.23590864917395,
+        "adjustedMatch": 99.22717778596879,
+        "excludedShare": 1.129737609329446,
+        "designHeight": 1029,
+        "builtHeight": 1029,
+        "designTextOnly": [
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →"
+        ],
+        "builtTextOnly": [
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→"
+        ]
+      },
+      "partners": {
+        "width": 1280,
+        "height": 891,
+        "rawMatch": 67.63345258136924,
+        "adjustedMatch": 99.78801946877432,
+        "excludedShare": 36.010802469135804,
+        "designHeight": 891,
+        "builtHeight": 891,
+        "designTextOnly": [
+          "portrait",
+          "portrait",
+          "portrait",
+          "portrait"
+        ],
+        "builtTextOnly": []
+      },
+      "insights": {
+        "width": 1280,
+        "height": 783,
+        "rawMatch": 77.46328224776501,
+        "adjustedMatch": 99.09585280219635,
+        "excludedShare": 31.966594827586206,
+        "designHeight": 783,
+        "builtHeight": 783,
+        "designTextOnly": [
+          "all insights →",
+          "article image",
+          "cross-border succession planning: navigating succession rules in kenya, the uk and the us",
+          "article image",
+          "conveyancing",
+          "article image",
+          "land registry"
+        ],
+        "builtTextOnly": [
+          "all insights",
+          "→",
+          "cross-border succession planning: navigating succession rules in kenya, the uk, and the us",
+          "conveyancing and commercial services",
+          "conveyancing and commercial services"
+        ]
+      },
+      "recognition": {
+        "width": 1280,
+        "height": 209,
+        "rawMatch": 98.32685406698565,
+        "adjustedMatch": 98.32685406698565,
+        "excludedShare": 0,
+        "designHeight": 209,
+        "builtHeight": 209,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "cta": {
+        "width": 1280,
+        "height": 354,
+        "rawMatch": 99.6345338983051,
+        "adjustedMatch": 99.6345338983051,
+        "excludedShare": 0,
+        "designHeight": 354,
+        "builtHeight": 354,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "footer": {
+        "width": 1280,
+        "height": 539,
+        "rawMatch": 81.61496985157699,
+        "adjustedMatch": 81.90454394514597,
+        "excludedShare": 3.0991999072356213,
+        "designHeight": 451,
+        "builtHeight": 539,
+        "designTextOnly": [
+          "© 2026 waren law advocates llp ·"
+        ],
+        "builtTextOnly": [
+          "how did you hear about us? (optional)",
+          "we’ll only use your email to send our insights.",
+          "privacy policy",
+          "leave this field empty",
+          "© 2026 waren law advocates llp"
+        ]
+      }
+    }
+  },
+  {
+    "width": 1440,
+    "designPageHeight": 4881,
+    "builtPageHeight": 4941,
+    "designPageWidth": 1440,
+    "builtPageWidth": 1440,
+    "loadedFonts": {
+      "design": [
+        "Manrope 400",
+        "Manrope 500",
+        "Manrope 600",
+        "Manrope 700",
+        "Newsreader 500",
+        "Newsreader 600"
+      ],
+      "built": [
+        "headingFont 400 600",
+        "Manrope 200 800"
+      ]
+    },
+    "typography": {
+      "design": [
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Businesses",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 302,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Corporate, banking, employment and dispu",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 347,
+          "height": 65
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Property & Families",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 302,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Conveyancing, succession and wealth plan",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 347,
+          "height": 65
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Kenyans Abroad",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 302,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Support to buy property, plan succession",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 347,
+          "height": 65
+        },
+        {
+          "section": "welcome",
+          "tag": "h2",
+          "text": "Welcome to WAREN Law",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 149,
+          "height": 114
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "WAREN Law Advocates LLP was established ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 112,
+          "height": 119
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "We combine experience with innovation, a",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 251,
+          "height": 60
+        },
+        {
+          "section": "expertise",
+          "tag": "h2",
+          "text": "Areas of Expertise",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 145,
+          "height": 57
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Eight practice areas covering the needs ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 214,
+          "height": 54
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Debt Recovery & Asset Tracing",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 395,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Recovery, tracing and enforcement for le",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 464,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Corporate & Commercial",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 395,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Company formation, structuring, contract",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 464,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Real Estate, Conveyancing & Land",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 395,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Transfers, title, due diligence and land",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 464,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Wealth Management & Investments",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 395,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Trusts, holding structures, estate plans",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 464,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Litigation, Dispute Resolution & Arbitra",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 683,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Litigation, international arbitration an",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 752,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Banking & Finance",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 683,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Lending, project finance, securities and",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 724,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Mining & Energy",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 683,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Licensing, joint ventures, ESG and energ",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 724,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Employment & Labour",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 683,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Contracts, HR compliance, workplace disp",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 724,
+          "height": 48
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Meet Our Partners",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 145,
+          "height": 57
+        },
+        {
+          "section": "partners",
+          "tag": "p",
+          "text": "Advocates who lead our corporate, proper",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 214,
+          "height": 54
+        },
+        {
+          "section": "insights",
+          "tag": "h2",
+          "text": "Latest from our advocates",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 145,
+          "height": 57
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Cross-Border Succession Planning: Naviga",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 560,
+          "height": 90
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Conveyancing Lawyer in Kenya: 5 Essentia",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 560,
+          "height": 90
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "When Speed Becomes a Commodity: The Hidd",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 560,
+          "height": 90
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "Newsreader, Georgia, serif",
+          "fontSize": "48px",
+          "fontWeight": "500",
+          "lineHeight": "52.8px",
+          "offsetTop": 96,
+          "height": 106
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 214,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 128,
+          "height": 51
+        }
+      ],
+      "built": [
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Businesses",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 302,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Corporate, banking, employment and dispu",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 347,
+          "height": 65
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Property & Families",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 302,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Conveyancing, succession and wealth plan",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 347,
+          "height": 65
+        },
+        {
+          "section": "hero",
+          "tag": "h2",
+          "text": "For Kenyans Abroad",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "lineHeight": "35.2px",
+          "offsetTop": 302,
+          "height": 35
+        },
+        {
+          "section": "hero",
+          "tag": "p",
+          "text": "Support to buy property, plan succession",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21.7px",
+          "offsetTop": 347,
+          "height": 65
+        },
+        {
+          "section": "welcome",
+          "tag": "h2",
+          "text": "Welcome to WAREN Law",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 149,
+          "height": 114
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "WAREN Law Advocates LLP was established ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 112,
+          "height": 119
+        },
+        {
+          "section": "welcome",
+          "tag": "p",
+          "text": "We combine experience with innovation, a",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "29.75px",
+          "offsetTop": 251,
+          "height": 60
+        },
+        {
+          "section": "expertise",
+          "tag": "h2",
+          "text": "Areas of Expertise",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 145,
+          "height": 57
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Eight practice areas covering the needs ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 214,
+          "height": 54
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Debt Recovery & Asset Tracing",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 395,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Recovery, tracing and enforcement for le",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 464,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Corporate & Commercial",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 395,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Company formation, structuring, contract",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 464,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Real Estate, Conveyancing & Land",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 395,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Transfers, title, due diligence and land",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 464,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Wealth Management & Investments",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 395,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Trusts, holding structures, estate plans",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 464,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Litigation, Dispute Resolution & Arbitra",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 683,
+          "height": 55
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Litigation, international arbitration an",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 752,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Banking & Finance",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 683,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Lending, project finance, securities and",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 724,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Mining & Energy",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 683,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Licensing, joint ventures, ESG and energ",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 724,
+          "height": 48
+        },
+        {
+          "section": "expertise",
+          "tag": "h3",
+          "text": "Employment & Labour",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "23px",
+          "fontWeight": "600",
+          "lineHeight": "27.6px",
+          "offsetTop": 683,
+          "height": 28
+        },
+        {
+          "section": "expertise",
+          "tag": "p",
+          "text": "Contracts, HR compliance, workplace disp",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "offsetTop": 724,
+          "height": 48
+        },
+        {
+          "section": "partners",
+          "tag": "h2",
+          "text": "Meet Our Partners",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 145,
+          "height": 57
+        },
+        {
+          "section": "partners",
+          "tag": "p",
+          "text": "Advocates who lead our corporate, proper",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 214,
+          "height": 54
+        },
+        {
+          "section": "insights",
+          "tag": "h2",
+          "text": "Latest from our advocates",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "51.84px",
+          "fontWeight": "500",
+          "lineHeight": "57.024px",
+          "offsetTop": 145,
+          "height": 57
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Cross-Border Succession Planning: Naviga",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 560,
+          "height": 90
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "Conveyancing Lawyer in Kenya: 5 Essentia",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 560,
+          "height": 90
+        },
+        {
+          "section": "insights",
+          "tag": "h3",
+          "text": "When Speed Becomes a Commodity: The Hidd",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "30px",
+          "offsetTop": 560,
+          "height": 90
+        },
+        {
+          "section": "cta",
+          "tag": "h2",
+          "text": "Need legal assistance? Speak to an advoc",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "48px",
+          "fontWeight": "500",
+          "lineHeight": "52.8px",
+          "offsetTop": 96,
+          "height": 106
+        },
+        {
+          "section": "cta",
+          "tag": "p",
+          "text": "Tell us about your matter and we will ar",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "lineHeight": "27.2px",
+          "offsetTop": 214,
+          "height": 54
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Legal solutions tailored to individual a",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 140,
+          "height": 77
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Quick links",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Practice areas",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "h2",
+          "text": "Newsletter",
+          "fontFamily": "headingFont, \"headingFont Fallback\", Georgia, serif",
+          "fontSize": "21px",
+          "fontWeight": "400",
+          "lineHeight": "33.6px",
+          "offsetTop": 80,
+          "height": 34
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "Insights on Kenyan law, property and cro",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "25.5px",
+          "offsetTop": 128,
+          "height": 51
+        },
+        {
+          "section": "footer",
+          "tag": "p",
+          "text": "We’ll only use your email to send our in",
+          "fontFamily": "Manrope, \"Manrope Fallback\", system-ui, sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "20.8px",
+          "offsetTop": 362,
+          "height": 42
+        }
+      ]
+    },
+    "brokenImages": [],
+    "whole": {
+      "width": 1440,
+      "height": 4941,
+      "rawMatch": 87.66531179023589,
+      "adjustedMatch": 96.31094018498592,
+      "excludedShare": 21.14617767433493
+    },
+    "sections": {
+      "header": {
+        "width": 1440,
+        "height": 96,
+        "rawMatch": 98.6082175925926,
+        "adjustedMatch": 98.431931575196,
+        "excludedShare": 95.94039351851852,
+        "designHeight": 96,
+        "builtHeight": 96,
+        "designTextOnly": [],
+        "builtTextOnly": [
+          "skip to main content"
+        ]
+      },
+      "hero": {
+        "width": 1440,
+        "height": 553,
+        "rawMatch": 99.62138336347198,
+        "adjustedMatch": 99.99928857016832,
+        "excludedShare": 64.69710669077757,
+        "designHeight": 553,
+        "builtHeight": 553,
+        "designTextOnly": [
+          "nairobi skyline (illustration) · photo, then video"
+        ],
+        "builtTextOnly": [
+          "waren law advocates llp — advocates in nairobi, nakuru and beijing"
+        ]
+      },
+      "welcome": {
+        "width": 1440,
+        "height": 505,
+        "rawMatch": 99.16034103410341,
+        "adjustedMatch": 99.16034103410341,
+        "excludedShare": 0,
+        "designHeight": 505,
+        "builtHeight": 503,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "expertise": {
+        "width": 1440,
+        "height": 983,
+        "rawMatch": 99.1038628913756,
+        "adjustedMatch": 99.16345384966873,
+        "excludedShare": 1.0512037978975923,
+        "designHeight": 983,
+        "builtHeight": 983,
+        "designTextOnly": [
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →",
+          "learn more →"
+        ],
+        "builtTextOnly": [
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→",
+          "learn more",
+          "→"
+        ]
+      },
+      "partners": {
+        "width": 1440,
+        "height": 917,
+        "rawMatch": 68.46396764812795,
+        "adjustedMatch": 99.1257802226297,
+        "excludedShare": 34.58015267175573,
+        "designHeight": 917,
+        "builtHeight": 917,
+        "designTextOnly": [
+          "portrait",
+          "portrait",
+          "portrait",
+          "portrait"
+        ],
+        "builtTextOnly": []
+      },
+      "insights": {
+        "width": 1440,
+        "height": 802,
+        "rawMatch": 78.93478110279855,
+        "adjustedMatch": 99.93051567561386,
+        "excludedShare": 30.339256026600165,
+        "designHeight": 802,
+        "builtHeight": 802,
+        "designTextOnly": [
+          "all insights →",
+          "article image",
+          "cross-border succession planning: navigating succession rules in kenya, the uk and the us",
+          "article image",
+          "conveyancing",
+          "article image",
+          "land registry"
+        ],
+        "builtTextOnly": [
+          "all insights",
+          "→",
+          "cross-border succession planning: navigating succession rules in kenya, the uk, and the us",
+          "conveyancing and commercial services",
+          "conveyancing and commercial services"
+        ]
+      },
+      "recognition": {
+        "width": 1440,
+        "height": 209,
+        "rawMatch": 97.88908825093036,
+        "adjustedMatch": 97.88908825093036,
+        "excludedShare": 0,
+        "designHeight": 209,
+        "builtHeight": 209,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "cta": {
+        "width": 1440,
+        "height": 364,
+        "rawMatch": 99.90346459096459,
+        "adjustedMatch": 99.90346459096459,
+        "excludedShare": 0,
+        "designHeight": 364,
+        "builtHeight": 364,
+        "designTextOnly": [],
+        "builtTextOnly": []
+      },
+      "footer": {
+        "width": 1440,
+        "height": 514,
+        "rawMatch": 85.37613488975356,
+        "adjustedMatch": 85.80521313215601,
+        "excludedShare": 3.015429096411587,
+        "designHeight": 451,
+        "builtHeight": 514,
+        "designTextOnly": [
+          "© 2026 waren law advocates llp ·"
+        ],
+        "builtTextOnly": [
+          "how did you hear about us? (optional)",
+          "we’ll only use your email to send our insights.",
+          "privacy policy",
+          "leave this field empty",
+          "© 2026 waren law advocates llp"
+        ]
+      }
+    }
+  }
+]
