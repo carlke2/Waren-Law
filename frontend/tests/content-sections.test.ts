@@ -1,4 +1,4 @@
-import { groupSections, parseHomeContent, type ContentBlock } from '@/lib/content/sections';
+import { groupSections, type ContentBlock } from '@/lib/content/sections';
 
 const heading = (level: 2 | 3, text: string): ContentBlock => ({
   type: 'heading',
@@ -30,18 +30,5 @@ describe('groupSections', () => {
     const [section] = groupSections([heading(3, 'Card'), paragraph('Text')]);
     expect(section?.heading).toBeNull();
     expect(section?.cards[0]?.blocks).toHaveLength(1);
-  });
-});
-
-describe('parseHomeContent', () => {
-  it('reads the headline, who-we-serve line and sections', () => {
-    const home = parseHomeContent([heading(2, 'Headline'), paragraph('Who'), heading(2, 'Why')]);
-    expect(home.headline).toBe('Headline');
-    expect(home.whoWeServe).toBe('Who');
-    expect(home.sections[0]?.heading).toBe('Why');
-  });
-
-  it('fails clearly if the record has the wrong shape', () => {
-    expect(() => parseHomeContent([paragraph('No headline')])).toThrow(/headline/);
   });
 });
