@@ -51,7 +51,7 @@ Hard-coded values that could not be avoided:
 
 Questions / blockers (none blocks review):
 1. **Launch gate:** the Home record is `needs_advocate_review`, so `/` answers 404 in production until the firm approves it (decision 0018; added to the runbook's launch list). Local and staging show it through `PREVIEW_UNREVIEWED_PAGES=true`. Is this gate what you want for Home?
-2. **Firm to review:** the new Home copy, the 8 one-line practice summaries, and the role titles for Ephraim Ndegwa, Martin Wachira and Phylis Njane. The titles also appear on profiles. The first three partners' portrait alt text still has the old titles, and Phylis Njane's still says "Partner Ruiru Branch", although the Ruiru branch is unconfirmed.
+2. **Firm to review:** the new Home copy, the 8 one-line practice summaries, and the role titles for Ephraim Ndegwa, Martin Wachira and Phylis Njane. The titles also appear on profiles. The portrait alt text for these three still has the old titles, and Phylis Njane's says "Partner Ruiru Branch", although the Ruiru branch is unconfirmed.
 3. **Form states:** the spec lists `--color-success` and `--color-error` with no values. They currently point at white and gold, so no new colour is introduced. What values should they have?
 4. **Newsletter privacy notice:** `docs/DIRECTION.md` asks for a notice on every form, but the locked design shows none, so none is shown. Should one be added?
 5. **Newsletter confirmation:** with SMTP on, the emailed link confirms the address and lands on Home with no message, because no page exists for it yet. Is that acceptable for now?
