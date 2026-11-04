@@ -1,13 +1,13 @@
 # Implementation plan
 
-**Agreed:** 3 November 2026 · **Version 1:** Thursday 5 November 2026 · **V2:** Friday 20 November · **Production launch:** target week of 7 December 2026 (buffer to 21 December)
-**Inputs:** `docs/DIRECTION.md`, `docs/STRUCTURE.md`, decisions 0001–0005, audit `docs/audit/01–06`.
+**Agreed:** 3 November 2026 · **Version 1:** Friday 6 November 2026 (buffer Monday 9 Nov, decision 0013) · **V2:** Friday 20 November · **Production launch:** target week of 7 December 2026 (buffer to 21 December)
+**Inputs:** `docs/DIRECTION.md`, `docs/STRUCTURE.md`, `docs/GROUND-RULES.md`, decisions 0001–0017, `docs/design/DESIGN-SPEC.md`, audit `docs/audit/01–06`.
 
 How it runs: the planner writes a brief per batch of tasks → the agent builds on one branch per task → the owner pastes the report back → the planner reviews and releases the next batch. Client inputs arrive in parallel; **nothing waits on the firm** (defaults in decision 0004).
 
 ---
 
-## Version 1 — due Thursday 5 November (decision 0005)
+## Version 1 — original 3-day plan (superseded by the page-by-page plan below)
 
 **V1 = the complete public website on the real production codebase**, with the firm's existing content imported into PostgreSQL and served through the backend API, deployed to a staging URL on the company server. Admin screens come in V2.
 
@@ -26,6 +26,31 @@ How it runs: the planner writes a brief per batch of tasks → the agent builds 
 **After V1:** V2 = admin panel + media + newsletter + history (≈2 weeks), then content review, QA and production launch. The phase tables below are the full task list; tasks already done in V1 are skipped.
 
 ---
+
+## Frontend: page by page, following the header (decisions 0014–0017) — CURRENT
+
+Backend, data and API (V1 Day 1) and the backend parts of brief 05 stand. The frontend is rebuilt **one header item at a time**. Each item goes through the same cycle, and the next item starts only when the current one is signed off.
+
+**Cycle per header item**
+1. **Design** — planner designs every page in the item on the design canvas, in the locked Home style.
+2. **Lock** — owner reviews and locks.
+3. **Spec + brief** — planner writes the spec section and the agent brief.
+4. **Build** — agent builds all pages of the item, with tests and screenshots.
+5. **Polish** — owner and planner review; fixes until signed off.
+
+| # | Header item | Pages in it | Status |
+|---|---|---|---|
+| 0 | **Home** (+ header, footer, consent, WhatsApp) | Home | Design locked · brief 06 building |
+| — | **Lead attribution (backend)** | — (applies to every form) | T041 after brief 06 (decision 0017) |
+| 1 | **About** | About Us (story, film, values, recognition) · Our Partners (partner firms, Beijing joint office) | Next |
+| 2 | **Practice Areas** | Practice areas index · practice area page template (8 pages, incl. merged debt page) | |
+| 3 | **Our People** | Our People (grouped + filter by practice area) · advocate profile template · filtered view | |
+| 4 | **Insights** | Insights listing + pagination · category pages · article template · webinars index · webinar page | |
+| 5 | **Contact** | Contact Us (offices, maps, contact form) · **consultation request form** (replaces Microsoft Bookings) | |
+| 6 | **Remaining** | Search results · 404 · Privacy · Terms · Cookie policy | |
+| 7 | **Release** | SEO layer check · URL check (101 old URLs) · production build · QA · tag v1.0.0 | |
+
+Then V2 (admin panel, including the **Leads** screen), V3 (real content, production server) and launch, as below.
 
 ## Roadmap after V1
 
