@@ -58,6 +58,7 @@ export class PracticeAreasService {
   async bySlug(slug: string): Promise<PracticeAreaDetail> {
     const area = await this.prisma.practiceArea.findFirst({
       where: { slug, ...PUBLISHED_AND_APPROVED },
+      omit: { searchText: true },
       include: {
         heroImage: true,
         ogImage: true,

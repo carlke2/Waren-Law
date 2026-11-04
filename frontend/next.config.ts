@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   turbopack: { root },
+  experimental: { staticGenerationRetryCount: 3, staticGenerationMaxConcurrency: 4 },
   outputFileTracingRoot: root,
   ...(process.env.NEXT_OUTPUT === 'standalone' ? { output: 'standalone' as const } : {}),
   async rewrites() {

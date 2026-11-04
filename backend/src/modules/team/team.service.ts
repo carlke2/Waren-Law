@@ -52,6 +52,7 @@ export class TeamService {
   async bySlug(slug: string): Promise<TeamDetail> {
     const member = await this.prisma.teamMember.findFirst({
       where: { slug, hasProfile: true, ...PUBLISHED },
+      omit: { searchText: true },
       include: {
         ...TEAM_SUMMARY_INCLUDE,
         ogImage: true,

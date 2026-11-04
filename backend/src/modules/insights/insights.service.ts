@@ -57,6 +57,7 @@ export class InsightsService {
   async bySlug(slug: string): Promise<InsightDetail> {
     const insight = await this.prisma.insight.findFirst({
       where: { slug, ...PUBLISHED_AND_APPROVED },
+      omit: { searchText: true },
       include: {
         ...INSIGHT_SUMMARY_INCLUDE,
         ogImage: true,

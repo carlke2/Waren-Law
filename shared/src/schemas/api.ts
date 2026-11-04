@@ -70,6 +70,33 @@ export const settingsResponseSchema = z.record(z.string(), z.unknown());
 
 const withMedia = z.object({ media: mediaRefSchema });
 
+const titledTextSchema = z.object({ title: z.string(), text: z.string() });
+
+export const pageCopySchema = z.object({
+  about: z.object({
+    heroTitle: z.string(),
+    heroIntro: z.string(),
+    storyTitle: z.string(),
+    storyClosing: z.string(),
+    filmTitle: z.string(),
+    whyTitle: z.string(),
+    whyPoints: z.array(titledTextSchema),
+    leadershipTitle: z.string(),
+    partnersTitle: z.string(),
+  }),
+  partners: z.object({
+    heroTitle: z.string(),
+    heroIntro: z.string(),
+    introTitle: z.string(),
+    intro: z.string(),
+    firmNotes: z.record(z.string(), z.string()),
+    signingLabel: z.string(),
+    signingTitle: z.string(),
+    signingText: z.string(),
+    signingInsightSlug: z.string(),
+  }),
+});
+
 export const siteSettingsSchema = z.object({
   [SETTING_KEYS.firm]: z.object({
     name: z.string(),
@@ -106,6 +133,7 @@ export const siteSettingsSchema = z.object({
     url: z.url().nullable(),
     captionsUrl: z.url().nullable(),
   }),
+  [SETTING_KEYS.pageCopy]: pageCopySchema,
 });
 
 export const officeResponseSchema = z.object({

@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useRef, useSyncExternalStore } from 'react';
 import { LineSvg } from '@/components/ui/icon';
 import { dictionary } from '@/lib/dictionary';
-import { CONTACT_LINK, PRIMARY_NAV } from '@/lib/navigation';
+import { activeNavHref, CONTACT_LINK, PRIMARY_NAV, type RootSlugType } from '@/lib/navigation';
 import { cx } from '@/lib/utils/cx';
 import { HeaderLogo } from './logo';
 
@@ -20,11 +20,12 @@ function subscribeToScroll(onChange: () => void): () => void {
 const isScrolled = () => window.scrollY > 0;
 const notScrolledOnServer = () => false;
 
-export function SiteHeader() {
+export function SiteHeader({ rootSlugs }: { rootSlugs: readonly RootSlugType[] }) {
   const pathname = usePathname();
   const scrolled = useSyncExternalStore(subscribeToScroll, isScrolled, notScrolledOnServer);
   const menu = useRef<HTMLDialogElement>(null);
-  const solid = scrolled || pathname !== ROUTES.home;
+  const solid = scrolled;
+  const activeHref = activeNavHref(pathname, rootSlugs);
 
   return (
     <header
@@ -44,8 +45,11 @@ export function SiteHeader() {
             <SiteLink
               key={href}
               href={href}
-              aria-current={pathname === href ? 'page' : undefined}
-              className="font-medium text-on-brand hover:text-accent"
+              aria-current={activeHref === href ? 'page' : undefined}
+              className={cx(
+                'font-medium hover:text-accent',
+                activeHref === href ? 'text-accent' : 'text-on-brand',
+              )}
             >
               {label}
             </SiteLink>
@@ -95,8 +99,11 @@ export function SiteHeader() {
               key={href}
               href={href}
               onClick={() => menu.current?.close()}
-              aria-current={pathname === href ? 'page' : undefined}
-              className="flex min-h-11 items-center py-2 font-heading text-menu font-medium"
+              aria-current={activeHref === href ? 'page' : undefined}
+              className={cx(
+                'flex min-h-11 items-center py-2 font-heading text-menu font-medium',
+                activeHref === href && 'text-accent',
+              )}
             >
               {label}
             </SiteLink>

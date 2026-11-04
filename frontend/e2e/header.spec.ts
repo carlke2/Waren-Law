@@ -31,12 +31,14 @@ test.describe('desktop header', () => {
     await expect(header).toHaveAttribute('data-solid', 'false');
   });
 
-  test('stays solid on a holding page, which shows only its title', async ({ page }) => {
-    await page.goto(ROUTES.team);
-    await expect(page.locator('header')).toHaveAttribute('data-solid', 'true');
-    await expect(page.getByRole('heading', { level: 1, name: nav.people })).toBeVisible();
-    await expect(page.locator('main').locator('> *')).toHaveCount(1);
-    await expect(page.locator('footer')).toBeVisible();
+  test('sits over the page hero on an inner page, with its section in gold', async ({ page }) => {
+    await page.goto(ROUTES.partners);
+    await expect(page.locator('header')).toHaveAttribute('data-solid', 'false');
+    await expect(page.locator('header').getByRole('link', { name: nav.about })).toHaveAttribute(
+      'aria-current',
+      'page',
+    );
+    await expect(page.locator('h1')).toHaveCount(1);
   });
 
   test('can be used by keyboard, starting with the skip link', async ({ page }) => {

@@ -7,6 +7,7 @@ export const ROUTES = {
   insights: '/insights/',
   webinars: '/insights/webinars/',
   contact: '/contact-us/',
+  consultation: '/book-a-consultation/',
   privacy: '/privacy-policy/',
   terms: '/terms/',
   cookies: '/cookie-policy/',

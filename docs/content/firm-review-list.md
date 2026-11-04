@@ -60,3 +60,12 @@ These stay hidden in production until approved, so nothing appears by accident.
 - [ ] Terms and Legal Disclaimer page (decision 0011)
 - [ ] Cookie Policy page (decision 0011)
 - [ ] Client logos: each needs the client's permission, and three names are still to be confirmed
+
+## About and Our Partners copy
+New wording from the approved design references. Stored in the `pageCopy` setting.
+
+- [ ] About hero, story title and the "Today the firm works from…" sentence
+- [ ] "How we work" and its four points
+- [ ] Our Partners hero, intro and one-line notes on each partner firm
+- [ ] Signing ceremony label, title and sentence
+- [ ] Partner firm logos and a Beijing joint office photo: not supplied, so they are not shown

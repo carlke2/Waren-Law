@@ -1,5 +1,6 @@
 import { ROUTES, type HomeResponse, type SiteSettings } from '@waren/shared';
 import { ButtonLink } from '@/components/ui/button-link';
+import { getHome, getSettings } from '@/lib/api/content';
 import { dictionary } from '@/lib/dictionary';
 import { whatsAppLink } from '@/lib/utils/links';
 
@@ -26,7 +27,6 @@ export function CtaBand({ home, whatsApp }: CtaBandProps) {
             href={whatsAppLink(whatsApp.number, whatsApp.message)}
             variant="outline-large"
             external
-           
           >
             {text.whatsApp}
           </ButtonLink>
@@ -34,4 +34,9 @@ export function CtaBand({ home, whatsApp }: CtaBandProps) {
       </div>
     </section>
   );
+}
+
+export async function SiteCta() {
+  const [home, settings] = await Promise.all([getHome(), getSettings()]);
+  return home ? <CtaBand home={home} whatsApp={settings.whatsApp} /> : null;
 }
