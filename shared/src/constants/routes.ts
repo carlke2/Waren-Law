@@ -15,6 +15,7 @@ export const ROUTES = {
   feed: '/feed/',
   root: (slug: string) => `/${slug}/`,
   profile: (slug: string) => `/our-team/${slug}/`,
+  teamArea: (slug: string) => `/our-team/area/${slug}/`,
   category: (slug: string) => `/category/${slug}/`,
   insightsPage: (page: number) => (page <= 1 ? '/insights/' : `/insights/page/${page}/`),
   categoryPage: (slug: string, page: number) =>

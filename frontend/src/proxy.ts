@@ -1,4 +1,6 @@
+import { ROUTES, TEAM_FILTER_PARAM } from '@waren/shared/constants';
 import { NextResponse, type NextRequest } from 'next/server';
+import { parseTeamFilter } from '@/lib/content/team';
 import { patternRedirect, withTrailingSlash } from '@/lib/redirects/patterns';
 import { insightsPageRedirect, tableRedirect } from '@/lib/redirects/table';
 
@@ -18,6 +20,11 @@ export async function proxy(request: NextRequest): Promise<NextResponse> {
     (await insightsPageRedirect(path));
   if (target) return redirectTo(request, target);
   if (path !== pathname) return redirectTo(request, path, search);
+  // Each filter is pre-rendered at its own path, and the shareable link stays the query form.
+  const practiceArea = parseTeamFilter(searchParams.get(TEAM_FILTER_PARAM) ?? undefined);
+  if (path === ROUTES.team && practiceArea) {
+    return NextResponse.rewrite(new URL(ROUTES.teamArea(practiceArea), request.nextUrl.origin));
+  }
   return NextResponse.next();
 }
 
