@@ -1,5 +1,12 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { faqSchema, type PracticeAreaDetail, type PracticeAreaSummary } from '@waren/shared';
+import {
+  faqSchema,
+  ICON_NAMES,
+  type PracticeAreaDetail,
+  type PracticeAreaSummary,
+} from '@waren/shared';
+import { z } from 'zod';
+import type { PracticeArea, Media } from '../../../prisma/generated/client.js';
 import { PrismaService } from '../../database/prisma.service.js';
 import { ContentPresenter } from '../content/content-presenter.service.js';
 import {
@@ -8,6 +15,10 @@ import {
   TEAM_SUMMARY_INCLUDE,
 } from '../content/content-queries.js';
 import { PUBLISHED, PUBLISHED_AND_APPROVED } from '../content/visibility.js';
+
+const iconSchema = z.enum(ICON_NAMES);
+
+type PracticeAreaRow = PracticeArea & { heroImage: Media | null };
 
 @Injectable()
 export class PracticeAreasService {
@@ -22,12 +33,20 @@ export class PracticeAreasService {
       include: { heroImage: true },
       orderBy: { sortOrder: 'asc' },
     });
-    return areas.map((area) => ({
+    return areas.map((area) => this.summary(area));
+  }
+
+  private summary(area: PracticeAreaRow): PracticeAreaSummary {
+    return {
       slug: area.slug,
       name: area.name,
       shortSummary: area.shortSummary,
       heroImage: this.present.optionalMedia(area.heroImage),
-    }));
+      icon: iconSchema.parse(area.icon),
+      cardTitle: area.cardTitle,
+      shortName: area.shortName,
+      cardSummary: area.cardSummary,
+    };
   }
 
   async bySlug(slug: string): Promise<PracticeAreaDetail> {
@@ -50,10 +69,7 @@ export class PracticeAreasService {
     });
     if (!area) throw new NotFoundException(`No practice area found for "${slug}"`);
     return {
-      slug: area.slug,
-      name: area.name,
-      shortSummary: area.shortSummary,
-      heroImage: this.present.optionalMedia(area.heroImage),
+      ...this.summary(area),
       body: await this.present.document(area.body),
       faq: faqSchema.parse(area.faq),
       team: area.team.map((member) => this.present.teamSummary(member)),

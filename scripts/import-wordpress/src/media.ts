@@ -12,6 +12,14 @@ const WEBP_MIME_TYPE = 'image/webp';
 const UPLOADS_PATH_MARKER = '/wp-content/uploads/';
 const GENERATED_SIZE_SUFFIX = /-\d+x\d+(\.[a-z0-9]+)$/i;
 
+const MAX_LOCAL_IMAGE_WIDTH = 2400;
+
+export interface LocalMediaRequest {
+  sourcePath: string;
+  baseName: string;
+  altText: string;
+}
+
 export interface MediaRequest {
   legacyUrl: string;
   baseName: string;
@@ -97,6 +105,36 @@ export class MediaLibrary {
       altTextNeedsReview: !wordpressAlt,
       caption: existing?.caption ?? request.caption ?? null,
       legacyUrl,
+    };
+    return syncRecord(this.report, 'media', data, {
+      find: async () => existing,
+      create: (values) => this.db.media.create({ data: values }),
+      update: (row, values) => this.db.media.update({ where: { id: row.id }, data: values }),
+    });
+  }
+
+  async ensureLocal({ sourcePath, baseName, altText }: LocalMediaRequest) {
+    await mkdir(config.uploadsDir, { recursive: true });
+    const fileName = `${toKebabCase(baseName)}.webp`;
+    const target = path.join(config.uploadsDir, fileName);
+    const existing = await this.db.media.findUnique({ where: { fileName } });
+    const onDisk = await stat(target).catch(() => null);
+    const output =
+      onDisk && existing
+        ? { size: existing.sizeBytes, width: existing.width, height: existing.height }
+        : await sharp(sourcePath)
+            .resize({ width: MAX_LOCAL_IMAGE_WIDTH })
+            .webp({ quality: WEBP_QUALITY })
+            .toFile(target);
+    const data = {
+      fileName,
+      originalName: path.basename(sourcePath),
+      mimeType: WEBP_MIME_TYPE,
+      sizeBytes: output.size,
+      width: output.width,
+      height: output.height,
+      altText,
+      altTextNeedsReview: false,
     };
     return syncRecord(this.report, 'media', data, {
       find: async () => existing,

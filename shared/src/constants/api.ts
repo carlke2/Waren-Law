@@ -19,6 +19,8 @@ export const API_ROUTES = {
   search: 'search',
   redirects: 'redirects',
   contact: 'contact',
+  home: 'home',
+  newsletter: 'newsletter',
 } as const;
 export const RELATED_INSIGHTS_LIMIT = 3;
 export const SEARCH_RESULT_LIMIT = 20;
@@ -27,6 +29,9 @@ export const SEARCH_RESULT_TYPES = ['insight', 'practice_area', 'team_member'] a
 export const CONTACT_FIELD_MAX_LENGTH = 200;
 export const CONTACT_MESSAGE_MAX_LENGTH = 5000;
 export const CONTACT_SOURCE_MAX_LENGTH = 500;
+export const NEWSLETTER_CONFIRM_PATH = 'confirm';
+export const NEWSLETTER_TOKEN_PARAM = 'token';
+export const NEWSLETTER_TOKEN_PATTERN = /^[a-f0-9]{64}$/;
 export const FEATURED_TEAM_LIMIT = 4;
 export const LATEST_INSIGHTS_LIMIT = 3;
 export const REDIRECTS_ALL_PATH = 'all';

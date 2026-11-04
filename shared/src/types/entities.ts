@@ -18,6 +18,7 @@ export type Setting = z.infer<typeof entities.settingSchema>;
 export type SlugRegistryEntry = z.infer<typeof entities.slugRegistrySchema>;
 export type Office = z.infer<typeof entities.officeSchema>;
 export type Page = z.infer<typeof entities.pageSchema>;
+export type HomeContent = z.infer<typeof entities.homeContentSchema>;
 export type PracticeArea = z.infer<typeof entities.practiceAreaSchema>;
 export type TeamMember = z.infer<typeof entities.teamMemberSchema>;
 export type Insight = z.infer<typeof entities.insightSchema>;

@@ -9,13 +9,13 @@ export interface MailTransport {
   sendMail(message: {
     from: string;
     to: string;
-    replyTo: string;
+    replyTo?: string;
     subject: string;
     text: string;
   }): Promise<unknown>;
 }
 
-const firmContactSchema = siteSettingsSchema.shape[SETTING_KEYS.contact];
+const firmContactSchema = siteSettingsSchema.shape[SETTING_KEYS.contact].pick({ email: true });
 
 export function contactEmailBody(submission: ContactSubmission): string {
   return [

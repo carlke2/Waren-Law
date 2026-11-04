@@ -1,8 +1,26 @@
 import { parseTeamFilter, teamFilterChips } from '@/lib/content/team';
 
 const areas = [
-  { slug: 'mining-energy-law', name: 'Mining', shortSummary: '', heroImage: null },
-  { slug: 'banking-finance-law', name: 'Banking', shortSummary: '', heroImage: null },
+  {
+    slug: 'mining-energy-law',
+    name: 'Mining',
+    shortSummary: '',
+    heroImage: null,
+    icon: 'briefcase' as const,
+    cardTitle: '',
+    shortName: '',
+    cardSummary: '',
+  },
+  {
+    slug: 'banking-finance-law',
+    name: 'Banking',
+    shortSummary: '',
+    heroImage: null,
+    icon: 'briefcase' as const,
+    cardTitle: '',
+    shortName: '',
+    cardSummary: '',
+  },
 ];
 
 describe('parseTeamFilter', () => {

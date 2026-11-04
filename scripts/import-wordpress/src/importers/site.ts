@@ -1,6 +1,8 @@
 import { load } from 'cheerio';
-import { readFile } from 'node:fs/promises';
+import { access, readFile } from 'node:fs/promises';
+import path from 'node:path';
 import { parse } from 'csv-parse/sync';
+import { HOME_PAGE_SLUG } from '@waren/shared';
 import { claimSlug } from '../../../../backend/src/database/slug-registry.js';
 import type { Prisma } from '../../../../backend/prisma/generated/client.js';
 import { resolveImages, toDocument } from '../blocks.js';
@@ -9,6 +11,8 @@ import {
   AWARD,
   CLIENT_LOGOS,
   COMMON_SKIPPED_WIDGETS,
+  HOME_CONTENT,
+  HOME_HERO_IMAGES,
   PAGES,
   PARTNERS,
   PARTNERS_PAGE_SLUG,
@@ -217,6 +221,41 @@ export async function importSettings(
         db.setting.update({ where: { key: existing.key }, data: values }),
     });
   }
+}
+
+async function heroImageSource() {
+  for (const image of HOME_HERO_IMAGES) {
+    const sourcePath = path.join(config.designAssetsDir, image.file);
+    const exists = await access(sourcePath).then(
+      () => true,
+      () => false,
+    );
+    if (exists) return { sourcePath, baseName: image.baseName, altText: image.altText };
+  }
+  throw new Error(`No hero image found in ${config.designAssetsDir}`);
+}
+
+export async function importHome(
+  db: Database,
+  report: ImportReport,
+  media: MediaLibrary,
+): Promise<void> {
+  const page = await db.page.findUniqueOrThrow({ where: { slug: HOME_PAGE_SLUG } });
+  const heroImage = await media.ensureLocal(await heroImageSource());
+  // legalReviewStatus is left out on purpose: a re-import must not change the firm's review.
+  const data = {
+    pageId: page.id,
+    heroImageId: heroImage.id,
+    ...HOME_CONTENT,
+    heroCards: HOME_CONTENT.heroCards as unknown as Prisma.InputJsonValue,
+    welcomeBody: toDocument(await resolveImages(HOME_CONTENT.welcomeBody, media, 'home', 'Home')),
+  };
+  await syncRecord(report, 'home content', data, {
+    find: () => db.homeContent.findUnique({ where: { pageId: page.id } }),
+    create: (values) => db.homeContent.create({ data: values }),
+    update: (existing, values) =>
+      db.homeContent.update({ where: { id: existing.id }, data: values }),
+  });
 }
 
 export async function importAward(

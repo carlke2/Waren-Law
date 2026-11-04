@@ -14,6 +14,7 @@ const envSchema = z.object({
   WP_CACHE_DIR: z.string().min(1),
   WP_USER_AGENT: z.string().min(1),
   URL_INVENTORY_PATH: z.string().min(1),
+  DESIGN_ASSETS_DIR: z.string().min(1).default('../../docs/design/assets'),
   DATABASE_URL: z.url({ protocol: /^postgres(ql)?$/ }),
   DATABASE_SSL: z.enum(['disable', 'require', 'verify']).default('require'),
   DATABASE_SSL_CA_PATH: z.string().optional(),
@@ -28,6 +29,7 @@ export const config = {
   userAgent: env.WP_USER_AGENT,
   cacheDir: path.resolve(scriptRoot, env.WP_CACHE_DIR),
   urlInventoryPath: path.resolve(scriptRoot, env.URL_INVENTORY_PATH),
+  designAssetsDir: path.resolve(scriptRoot, env.DESIGN_ASSETS_DIR),
   uploadsDir: path.resolve(backendRoot, env.UPLOADS_DIR),
   databaseUrl: env.DATABASE_URL,
   databaseSsl: {

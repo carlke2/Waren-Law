@@ -19,6 +19,18 @@ export const PAGE_TEMPLATES = ['home', 'about', 'partners', 'contact', 'legal'] 
 export const BLOCK_DOCUMENT_VERSION = 1;
 export const HEADING_LEVELS = [2, 3, 4] as const;
 export const INLINE_MARKS = ['bold', 'italic', 'underline'] as const;
+export const ICON_NAMES = [
+  'briefcase',
+  'home',
+  'globe',
+  'coins',
+  'shield-check',
+  'scales',
+  'bank',
+  'bolt',
+  'users',
+] as const;
+export const HERO_CARD_COUNT = 3;
 export const DEFAULT_PAGE_SIZE = 12;
 export const MAX_PAGE_SIZE = 50;
 export const SETTING_KEYS = {
@@ -30,7 +42,7 @@ export const SETTING_KEYS = {
   tracking: 'tracking',
   siteVerification: 'siteVerification',
   cta: 'cta',
-  homeHero: 'homeHero',
+  newsletter: 'newsletter',
   aboutVideo: 'aboutVideo',
   seo: 'seo',
 } as const;

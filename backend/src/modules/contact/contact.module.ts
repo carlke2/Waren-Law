@@ -27,5 +27,6 @@ function createMailTransport(env: Env): MailTransport | null {
     ContactMailer,
     { provide: MAIL_TRANSPORT, inject: [ENV], useFactory: createMailTransport },
   ],
+  exports: [MAIL_TRANSPORT],
 })
 export class ContactModule {}

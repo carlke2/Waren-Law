@@ -21,6 +21,7 @@ export const envSchema = z.object({
   SESSION_SECRET: z.string().min(32, 'SESSION_SECRET must be at least 32 characters'),
   RATE_LIMIT_PER_MINUTE: z.coerce.number().int().positive().default(300),
   CONTACT_RATE_LIMIT_PER_HOUR: z.coerce.number().int().positive().default(5),
+  NEWSLETTER_RATE_LIMIT_PER_HOUR: z.coerce.number().int().positive().default(5),
   CONTACT_RETENTION_MONTHS: z.coerce.number().int().positive().default(12),
   CONTACT_RETENTION_INTERVAL_HOURS: z.coerce.number().positive().default(24),
   UPLOADS_DIR: z.string().min(1),

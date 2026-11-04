@@ -3,7 +3,7 @@ import type {
   OfficeType,
   WebinarState,
 } from '../../../backend/prisma/generated/client.js';
-import { SETTING_KEYS } from '@waren/shared';
+import { ROUTES, SETTING_KEYS, type HeroCard, type IconName } from '@waren/shared';
 import { blockText, type ParsedBlock } from './html-to-blocks.js';
 
 export const READING_WORDS_PER_MINUTE = 200;
@@ -126,6 +126,10 @@ export interface PracticeAreaEntry {
   slug: string;
   name: string;
   categorySlug: string | null;
+  icon: IconName;
+  cardTitle: string;
+  shortName: string;
+  cardSummary: string;
 }
 
 export const PRACTICE_AREAS: readonly PracticeAreaEntry[] = [
@@ -133,29 +137,73 @@ export const PRACTICE_AREAS: readonly PracticeAreaEntry[] = [
     slug: 'corporate-debt-recovery',
     name: 'Debt Solutions, Recovery & Asset Tracing',
     categorySlug: 'debt-recovery',
+    icon: 'coins',
+    cardTitle: 'Debt Recovery & Asset Tracing',
+    shortName: 'Debt Recovery & Asset Tracing',
+    cardSummary: 'Recovery, tracing and enforcement for lenders and creditors.',
+  },
+  {
+    slug: 'corporate-commercial-practice',
+    name: 'Corporate & Commercial Practice',
+    categorySlug: 'investment-and-business-law',
+    icon: 'briefcase',
+    cardTitle: 'Corporate & Commercial',
+    shortName: 'Corporate & Commercial',
+    cardSummary: 'Company formation, structuring, contracts, mergers and PPPs.',
+  },
+  {
+    slug: 'real-estate-conveyancing-land-law',
+    name: 'Real Estate, Conveyancing & Land Law',
+    categorySlug: 'conveyancing-and-commercial-services',
+    icon: 'home',
+    cardTitle: 'Real Estate, Conveyancing & Land',
+    shortName: 'Real Estate & Conveyancing',
+    cardSummary: 'Transfers, title, due diligence and land disputes.',
   },
   {
     slug: 'wealth-management-investments',
     name: 'Wealth Management & Investments',
     categorySlug: 'wealth-management',
-  },
-  { slug: 'employment-labour-law', name: 'Employment & Labour Law', categorySlug: null },
-  {
-    slug: 'corporate-commercial-practice',
-    name: 'Corporate & Commercial Practice',
-    categorySlug: 'investment-and-business-law',
+    icon: 'shield-check',
+    cardTitle: 'Wealth Management & Investments',
+    shortName: 'Wealth Management',
+    cardSummary: 'Trusts, holding structures, estate plans and investment.',
   },
   {
     slug: 'litigation-dispute-resolution-international-arbitration',
     name: 'Litigation, Dispute Resolution & International Arbitration',
     categorySlug: 'dispute-resolution',
+    icon: 'scales',
+    cardTitle: 'Litigation, Dispute Resolution & Arbitration',
+    shortName: 'Litigation & Arbitration',
+    cardSummary: 'Litigation, international arbitration and mediation.',
   },
-  { slug: 'banking-finance-law', name: 'Banking & Finance Law', categorySlug: null },
-  { slug: 'mining-energy-law', name: 'Mining & Energy Law', categorySlug: 'mining-and-energy-law' },
   {
-    slug: 'real-estate-conveyancing-land-law',
-    name: 'Real Estate, Conveyancing & Land Law',
-    categorySlug: 'conveyancing-and-commercial-services',
+    slug: 'banking-finance-law',
+    name: 'Banking & Finance Law',
+    categorySlug: null,
+    icon: 'bank',
+    cardTitle: 'Banking & Finance',
+    shortName: 'Banking & Finance',
+    cardSummary: 'Lending, project finance, securities and enforcement.',
+  },
+  {
+    slug: 'mining-energy-law',
+    name: 'Mining & Energy Law',
+    categorySlug: 'mining-and-energy-law',
+    icon: 'bolt',
+    cardTitle: 'Mining & Energy',
+    shortName: 'Mining & Energy',
+    cardSummary: 'Licensing, joint ventures, ESG and energy projects.',
+  },
+  {
+    slug: 'employment-labour-law',
+    name: 'Employment & Labour Law',
+    categorySlug: null,
+    icon: 'users',
+    cardTitle: 'Employment & Labour',
+    shortName: 'Employment & Labour',
+    cardSummary: 'Contracts, HR compliance, workplace disputes and unions.',
   },
 ];
 
@@ -221,6 +269,7 @@ export const TEAM: readonly TeamEntry[] = [
     name: 'Ephraim Ndegwa',
     memberType: 'partner',
     isAdvocate: true,
+    roleTitle: 'Partner, Strategy & Development',
     officeSlug: NAIROBI,
     practiceAreas: [P.corporate, P.mining],
     email: 'endegwa@warenlaw.com',
@@ -231,18 +280,20 @@ export const TEAM: readonly TeamEntry[] = [
     profilePageSlug: 'ephraim-ndegwa',
   },
   {
-    name: 'Phylis Njane',
-    memberType: 'partner',
-    isAdvocate: true,
-    officeSlug: null,
-    practiceAreas: [P.litigation, P.employment],
-  },
-  {
     name: 'Martin Wachira',
     memberType: 'partner',
     isAdvocate: true,
+    roleTitle: 'Partner, Cross-Border Practice',
     officeSlug: NAIROBI,
     practiceAreas: [P.corporate, P.wealth],
+  },
+  {
+    name: 'Phylis Njane',
+    memberType: 'partner',
+    isAdvocate: true,
+    roleTitle: 'Partner',
+    officeSlug: null,
+    practiceAreas: [P.litigation, P.employment],
   },
   {
     name: 'Barbra Katasi',
@@ -656,10 +707,17 @@ export const SETTINGS = {
   [SETTING_KEYS.firm]: {
     name: 'WAREN Law Advocates LLP',
     tagline: 'Mastery, Nobility, Trust & Solutions',
+    description:
+      'Legal solutions tailored to individual and corporate needs, from Nairobi, Nakuru and Beijing.',
   },
   [SETTING_KEYS.contact]: {
     phones: ['+254714350932', '+254719278594'],
     email: 'info@warenlaw.com',
+    addressLine:
+      'Manga House, Suite No. 8 B2, Kiambere Road, Upper Hill, Nairobi · Wilmur House, Room 308, Kenyatta Avenue, Nakuru',
+  },
+  [SETTING_KEYS.newsletter]: {
+    intro: 'Insights on Kenyan law, property and cross-border wealth, sent occasionally.',
   },
   [SETTING_KEYS.whatsApp]: { number: '254719278594', message: null },
   [SETTING_KEYS.socials]: {
@@ -686,7 +744,6 @@ export const SETTINGS = {
     description:
       'WAREN Law Advocates LLP is a firm of advocates in Nairobi and Nakuru, with a joint office in Beijing.',
   },
-  [SETTING_KEYS.homeHero]: { videoUrl: null },
   [SETTING_KEYS.aboutVideo]: { url: null, captionsUrl: null },
   [SETTING_KEYS.siteVerification]: {
     google: 'psyeUDg2m1msvc8mmzPm6ynF4QMH8CcnRx30ZVh3EnA',
@@ -695,11 +752,6 @@ export const SETTINGS = {
 };
 
 export const SETTING_MEDIA: Record<string, { file: string; baseName: string; altText: string }> = {
-  [SETTING_KEYS.homeHero]: {
-    file: '2025/11/MOK_5299-scaled-1.webp',
-    baseName: 'home-hero-team',
-    altText: 'The WAREN Law team together in the firm’s office',
-  },
   [SETTING_KEYS.seo]: {
     file: '2025/11/MOK_5299-scaled-1.webp',
     baseName: 'home-hero-team',
@@ -710,6 +762,65 @@ export const SETTING_MEDIA: Record<string, { file: string; baseName: string; alt
     baseName: 'about-video-poster',
     altText: 'WAREN Law advocates seated together',
   },
+};
+
+export const HOME_HERO_IMAGES = [
+  {
+    file: 'hero-nairobi.jpg',
+    baseName: 'home-hero-nairobi',
+    altText: 'The Nairobi skyline',
+  },
+  {
+    file: 'hero-skyline-illustration.svg',
+    baseName: 'home-hero-skyline-illustration',
+    altText: 'Illustration of the Nairobi skyline at dusk',
+  },
+] as const;
+
+const HERO_CARDS: readonly HeroCard[] = [
+  {
+    icon: 'briefcase',
+    title: 'For Businesses',
+    text: 'Corporate, banking, employment and dispute advice for companies, lenders and investors in Kenya.',
+    href: ROUTES.expertise,
+  },
+  {
+    icon: 'home',
+    title: 'For Property & Families',
+    text: 'Conveyancing, succession and wealth planning to protect land, homes and family assets.',
+    href: ROUTES.expertise,
+  },
+  {
+    icon: 'globe',
+    title: 'For Kenyans Abroad',
+    text: 'Support to buy property, plan succession and invest in Kenya from the UK, US, Europe and beyond.',
+    href: ROUTES.expertise,
+  },
+];
+
+export const HOME_CONTENT = {
+  heroCards: HERO_CARDS,
+  pageH1: 'WAREN Law Advocates LLP — Advocates in Nairobi, Nakuru and Beijing',
+  welcomeTitle: 'Welcome to WAREN Law',
+  welcomeBody: [
+    paragraph(
+      'WAREN Law Advocates LLP was established to provide exceptional legal solutions tailored to both individual and corporate needs. From our offices in Upper Hill, Nairobi and in Nakuru, and our joint office in Beijing, we advise businesses, institutions and Kenyans at home and abroad.',
+    ),
+    paragraph(
+      'We combine experience with innovation, and our clients are guided, supported and informed at every step of their matter.',
+    ),
+  ],
+  welcomeCtaLabel: 'Learn more about us',
+  expertiseTitle: 'Areas of Expertise',
+  expertiseIntro:
+    'Eight practice areas covering the needs of companies, lenders, investors, families and individuals.',
+  teamTitle: 'Meet Our Partners',
+  teamIntro:
+    'Advocates who lead our corporate, property, wealth, litigation and cross-border work.',
+  insightsTitle: 'Latest from our advocates',
+  ctaTitle: 'Need legal assistance? Speak to an advocate.',
+  ctaBody:
+    'Tell us about your matter and we will arrange a consultation in Nairobi, Nakuru or online.',
 };
 
 export const STATIC_FIXES = [
@@ -731,6 +842,7 @@ export const EXPECTED_COUNTS = {
   partner: 3,
   award: 1,
   'client logo': 14,
+  'home content': 1,
   setting: 11,
 };
 

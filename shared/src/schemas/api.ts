@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import {
   DEFAULT_PAGE_SIZE,
+  HERO_CARD_COUNT,
+  ICON_NAMES,
   LEGAL_REVIEW_STATUSES,
   PAGE_TEMPLATES,
   MAX_PAGE_SIZE,
@@ -14,6 +16,7 @@ import {
   CONTACT_FIELD_MAX_LENGTH,
   CONTACT_MESSAGE_MAX_LENGTH,
   CONTACT_SOURCE_MAX_LENGTH,
+  NEWSLETTER_TOKEN_PATTERN,
   SEARCH_QUERY_MAX_LENGTH,
   SEARCH_RESULT_TYPES,
 } from '../constants/api.js';
@@ -68,8 +71,17 @@ export const settingsResponseSchema = z.record(z.string(), z.unknown());
 const withMedia = z.object({ media: mediaRefSchema });
 
 export const siteSettingsSchema = z.object({
-  [SETTING_KEYS.firm]: z.object({ name: z.string(), tagline: z.string() }),
-  [SETTING_KEYS.contact]: z.object({ phones: z.array(z.string()), email: z.string() }),
+  [SETTING_KEYS.firm]: z.object({
+    name: z.string(),
+    tagline: z.string(),
+    description: z.string(),
+  }),
+  [SETTING_KEYS.contact]: z.object({
+    phones: z.array(z.string()),
+    email: z.string(),
+    addressLine: z.string(),
+  }),
+  [SETTING_KEYS.newsletter]: z.object({ intro: z.string() }),
   [SETTING_KEYS.whatsApp]: z.object({ number: z.string(), message: z.string().nullable() }),
   [SETTING_KEYS.socials]: z.object({
     linkedIn: z.url(),
@@ -90,7 +102,6 @@ export const siteSettingsSchema = z.object({
     bookingLabel: z.string(),
   }),
   [SETTING_KEYS.seo]: withMedia.extend({ titleTemplate: z.string(), description: z.string() }),
-  [SETTING_KEYS.homeHero]: withMedia.extend({ videoUrl: z.url().nullable() }),
   [SETTING_KEYS.aboutVideo]: withMedia.extend({
     url: z.url().nullable(),
     captionsUrl: z.url().nullable(),
@@ -123,6 +134,34 @@ export const pageResponseSchema = z.object({
   seo: seoResponseSchema,
 });
 
+export const heroCardSchema = z.object({
+  icon: z.enum(ICON_NAMES),
+  title: z.string().min(1),
+  text: z.string().min(1),
+  href: z.string().startsWith('/'),
+});
+
+export const heroCardsSchema = z.array(heroCardSchema).length(HERO_CARD_COUNT);
+
+export const homeResponseSchema = z.object({
+  heroImage: mediaRefSchema,
+  heroVideoUrl: z.url().nullable(),
+  heroCards: heroCardsSchema,
+  pageH1: z.string(),
+  welcomeTitle: z.string(),
+  welcomeBody: resolvedDocumentSchema,
+  welcomeCtaLabel: z.string(),
+  expertiseTitle: z.string(),
+  expertiseIntro: z.string(),
+  teamTitle: z.string(),
+  teamIntro: z.string(),
+  insightsTitle: z.string(),
+  ctaTitle: z.string(),
+  ctaBody: z.string(),
+  title: z.string(),
+  seo: seoResponseSchema,
+});
+
 export const teamSummarySchema = z.object({
   slug: z.string(),
   fullName: z.string(),
@@ -152,6 +191,10 @@ export const practiceAreaSummarySchema = z.object({
   name: z.string(),
   shortSummary: z.string(),
   heroImage: mediaRefSchema.nullable(),
+  icon: z.enum(ICON_NAMES),
+  cardTitle: z.string(),
+  shortName: z.string(),
+  cardSummary: z.string(),
 });
 
 export const practiceAreaDetailSchema = practiceAreaSummarySchema.extend({
@@ -319,3 +362,14 @@ export const contactRequestSchema = contactFormSchema.extend({
 });
 
 export const contactResponseSchema = z.object({ received: z.literal(true) });
+
+export const newsletterFormSchema = z.object({
+  email: z.string().trim().toLowerCase().pipe(z.email().max(CONTACT_FIELD_MAX_LENGTH)),
+  website: z.string().max(CONTACT_FIELD_MAX_LENGTH).optional(),
+});
+
+export const newsletterResponseSchema = z.object({ received: z.literal(true) });
+
+export const newsletterConfirmQuerySchema = z.object({
+  token: z.string().regex(NEWSLETTER_TOKEN_PATTERN),
+});

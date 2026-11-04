@@ -120,6 +120,31 @@ model Page {
   noindex           Boolean           @default(false)
   ogImageId         String?
   ogImage           Media?            @relation("PageOgImage", fields: [ogImageId], references: [id], onDelete: SetNull)
+  homeContent       HomeContent?
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+}
+
+model HomeContent {
+  id                String            @id @default(uuid())
+  pageId            String            @unique
+  page              Page              @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  heroImageId       String
+  heroImage         Media             @relation("HomeHeroImage", fields: [heroImageId], references: [id], onDelete: Restrict)
+  heroVideoUrl      String?
+  heroCards         Json
+  pageH1            String
+  welcomeTitle      String
+  welcomeBody       Json
+  welcomeCtaLabel   String
+  expertiseTitle    String
+  expertiseIntro    String
+  teamTitle         String
+  teamIntro         String
+  insightsTitle     String
+  ctaTitle          String
+  ctaBody           String
+  legalReviewStatus LegalReviewStatus @default(needs_advocate_review)
   createdAt         DateTime          @default(now())
   updatedAt         DateTime          @updatedAt
 }
@@ -129,6 +154,10 @@ model PracticeArea {
   slug              String            @unique
   name              String
   shortSummary      String
+  icon              String            @default("briefcase")
+  cardTitle         String            @default("")
+  shortName         String            @default("")
+  cardSummary       String            @default("")
   body              Json
   faq               Json              @default("[]")
   searchText        String            @default("")
@@ -383,6 +412,7 @@ model Media {
   partnerLogos       Partner[]      @relation("PartnerLogo")
   partnerGalleries   Partner[]      @relation("PartnerGallery")
   awardImages        Award[]        @relation("AwardImage")
+  homeHeroImages     HomeContent[]  @relation("HomeHeroImage")
   createdAt          DateTime       @default(now())
   updatedAt          DateTime       @updatedAt
 }
@@ -400,16 +430,18 @@ model ContactSubmission {
 }
 
 model Subscriber {
-  id             String           @id @default(uuid())
-  email          String           @unique
-  firstName      String?
-  source         SubscriberSource
-  consentAt      DateTime
-  unsubscribedAt DateTime?
-  webinarId      String?
-  webinar        Webinar?         @relation(fields: [webinarId], references: [id], onDelete: SetNull)
-  createdAt      DateTime         @default(now())
-  updatedAt      DateTime         @updatedAt
+  id                    String           @id @default(uuid())
+  email                 String           @unique
+  firstName             String?
+  source                SubscriberSource
+  consentAt             DateTime
+  unsubscribedAt        DateTime?
+  confirmedAt           DateTime?
+  confirmationTokenHash String?          @unique
+  webinarId             String?
+  webinar               Webinar?         @relation(fields: [webinarId], references: [id], onDelete: SetNull)
+  createdAt             DateTime         @default(now())
+  updatedAt             DateTime         @updatedAt
 }
 
 model Redirect {

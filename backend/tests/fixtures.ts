@@ -1,4 +1,4 @@
-import { BLOCK_DOCUMENT_VERSION } from '@waren/shared';
+import { BLOCK_DOCUMENT_VERSION, HOME_PAGE_SLUG } from '@waren/shared';
 import type { PrismaService } from '../src/database/prisma.service.js';
 import { claimSlug } from '../src/database/slug-registry.js';
 
@@ -108,6 +108,40 @@ export async function seedFixtures(prisma: PrismaService): Promise<void> {
   });
   await claimSlug(prisma, { slug: unapprovedPage.slug, type: 'page', entityId: unapprovedPage.id });
 
+  const homePage = await prisma.page.create({
+    data: {
+      slug: HOME_PAGE_SLUG,
+      title: 'Home',
+      body: paragraph('Old body'),
+      template: 'home',
+      metaTitle: 'Home meta title',
+      ...approved,
+    },
+  });
+  await prisma.homeContent.create({
+    data: {
+      pageId: homePage.id,
+      heroImageId: image.id,
+      heroCards: ['briefcase', 'home', 'globe'].map((icon) => ({
+        icon,
+        title: `Card ${icon}`,
+        text: 'Card text',
+        href: '/area-of-expertise/',
+      })),
+      pageH1: 'Hidden heading',
+      welcomeTitle: 'Welcome',
+      welcomeBody: paragraph('Welcome body'),
+      welcomeCtaLabel: 'Learn more',
+      expertiseTitle: 'Expertise',
+      expertiseIntro: 'Expertise intro',
+      teamTitle: 'Team',
+      teamIntro: 'Team intro',
+      insightsTitle: 'Insights',
+      ctaTitle: 'Call us',
+      ctaBody: 'Call body',
+    },
+  });
+
   const category = await prisma.category.create({
     data: { slug: 'fixture-category', name: 'Fixture Category', status: 'published' },
   });
@@ -120,6 +154,10 @@ export async function seedFixtures(prisma: PrismaService): Promise<void> {
       slug: 'fixture-practice',
       name: 'Fixture Practice',
       shortSummary: 'Practice summary',
+      icon: 'scales',
+      cardTitle: 'Practice card',
+      shortName: 'Practice',
+      cardSummary: 'One line',
       body: paragraph('Practice body'),
       faq: [{ question: 'Q?', answer: 'A.' }],
       searchText: 'arbitration specialists',

@@ -18,5 +18,6 @@ process.env.FRONTEND_URL = 'http://localhost:3000';
 process.env.SESSION_SECRET = 'test-secret-test-secret-test-secret-00';
 process.env.RATE_LIMIT_PER_MINUTE = '100000';
 process.env.CONTACT_RATE_LIMIT_PER_HOUR = '100000';
+process.env.NEWSLETTER_RATE_LIMIT_PER_HOUR = '100000';
 process.env.UPLOADS_DIR = 'uploads';
 process.env.PUBLIC_MEDIA_BASE_URL = 'http://localhost:4000/uploads';

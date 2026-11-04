@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import {
   CHANGE_ACTIONS,
+  ICON_NAMES,
   MEMBER_TYPES,
   OFFICE_TYPES,
   SLUG_TYPES,
@@ -82,6 +83,37 @@ export const practiceAreaSchema = z.object({
   legacyWordpressId: z.number().int().nullable(),
   heroImageId: optionalMediaId,
   categoryId: z.uuid().nullable(),
+  icon: z.enum(ICON_NAMES),
+  cardTitle: z.string(),
+  shortName: z.string(),
+  cardSummary: z.string(),
+});
+
+export const homeContentSchema = z.object({
+  ...recordFieldsSchema.shape,
+  pageId: z.uuid(),
+  heroImageId: z.uuid(),
+  heroVideoUrl: z.url().nullable(),
+  heroCards: z.array(
+    z.object({
+      icon: z.enum(ICON_NAMES),
+      title: z.string().min(1),
+      text: z.string().min(1),
+      href: z.string().startsWith('/'),
+    }),
+  ),
+  pageH1: z.string().min(1),
+  welcomeTitle: z.string().min(1),
+  welcomeBody: blockDocumentSchema,
+  welcomeCtaLabel: z.string().min(1),
+  expertiseTitle: z.string().min(1),
+  expertiseIntro: z.string().min(1),
+  teamTitle: z.string().min(1),
+  teamIntro: z.string().min(1),
+  insightsTitle: z.string().min(1),
+  ctaTitle: z.string().min(1),
+  ctaBody: z.string().min(1),
+  legalReviewStatus: legalReviewStatusSchema,
 });
 
 export const teamMemberSchema = z.object({
@@ -245,6 +277,8 @@ export const subscriberSchema = z.object({
   source: z.enum(SUBSCRIBER_SOURCES),
   consentAt: z.coerce.date(),
   unsubscribedAt: z.coerce.date().nullable(),
+  confirmedAt: z.coerce.date().nullable(),
+  confirmationTokenHash: z.string().nullable(),
   webinarId: z.uuid().nullable(),
 });
 

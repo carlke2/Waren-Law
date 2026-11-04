@@ -23,7 +23,8 @@ const SITE = 'https://example.test';
 const media = { url: 'https://example.test/uploads/a.webp', alt: 'A', width: 10, height: 10 };
 const settings = {
   firm: { name: 'Firm LLP', tagline: 'Tag' },
-  contact: { phones: ['+254700000000'], email: 'info@example.test' },
+  contact: { phones: ['+254700000000'], email: 'info@example.test', addressLine: '1 Test Road' },
+  newsletter: { intro: 'Newsletter intro' },
   socials: {
     linkedIn: 'https://l.test',
     facebook: 'https://f.test',

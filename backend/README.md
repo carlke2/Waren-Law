@@ -50,4 +50,8 @@ All routes are `GET`, under `/api/v1`, and return only published content (and le
 
 `POST /api/v1/contact` accepts the contact form: `{ firstName, lastName, email, phone?, message, source, website? }`. It returns `{ received: true }`, stores the submission and emails the firm when `SMTP_*` is set. `website` is a honeypot. Requests are limited per IP by `CONTACT_RATE_LIMIT_PER_HOUR`. Submissions older than `CONTACT_RETENTION_MONTHS` are deleted every `CONTACT_RETENTION_INTERVAL_HOURS`.
 
+`GET /api/v1/home` returns the Home page record. Until the firm approves it, it answers 404 unless `PREVIEW_UNREVIEWED_PAGES=true` (decision 0018).
+
+`POST /api/v1/newsletter` accepts `{ email, website? }` and returns `{ received: true }`, whether or not the address is new. `website` is a honeypot. It stores a Subscriber with its consent time, and is limited per IP by `NEWSLETTER_RATE_LIMIT_PER_HOUR`. When `SMTP_*` is set it also emails a confirmation link to `GET /api/v1/newsletter/confirm?token=`, which redirects to the Home page.
+
 Uploaded media is served from the path in `PUBLIC_MEDIA_BASE_URL`.
