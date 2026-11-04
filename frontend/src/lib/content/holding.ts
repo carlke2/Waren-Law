@@ -10,7 +10,6 @@ const toPath = (segments: readonly string[]) => `/${segments.join('/')}/`;
 
 const FIXED_TITLES: Readonly<Record<string, string>> = {
   [ROUTES.team]: nav.people,
-  [ROUTES.expertise]: nav.practiceAreas,
   [ROUTES.insights]: nav.insights,
   [ROUTES.webinars]: nav.webinars,
   [ROUTES.search]: nav.search,

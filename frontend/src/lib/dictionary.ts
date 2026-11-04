@@ -6,6 +6,7 @@ export const dictionary = {
     required: '(required)',
     readMore: 'Read more',
     viewAll: 'View all',
+    expandIcon: '+',
   },
   nav: {
     primary: 'Main',
@@ -129,6 +130,12 @@ export const dictionary = {
   },
   practice: {
     eyebrow: 'Area of expertise',
+    indexEyebrow: 'Our services',
+    overviewEyebrow: 'How we help',
+    overview: 'Overview',
+    teamEyebrow: 'Our team',
+    helpTitle: 'Not sure where your matter fits?',
+    helpText: 'Tell us about it and we will direct you to the right advocate.',
     index: 'Areas of Expertise',
     indexLead: 'The legal services WAREN Law Advocates LLP offers to individuals and businesses.',
     faq: 'Frequently asked questions',

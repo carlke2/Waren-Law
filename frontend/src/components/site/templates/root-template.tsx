@@ -5,6 +5,7 @@ import { seoMetadataInput } from '@/lib/seo/metadata';
 import { HoldingPage } from '../holding-page';
 import { AboutTemplate } from './about-template';
 import { PartnersTemplate } from './partners-template';
+import { PracticeAreaTemplate } from './practice-area-template';
 
 export function rootMetadata(root: RootContent) {
   switch (root.type) {
@@ -61,7 +62,7 @@ export function RootTemplate({ root }: { root: RootContent }) {
     case 'page':
       return <PageTemplate page={root.content} />;
     case 'practice_area':
-      return <HoldingPage title={root.content.name} />;
+      return <PracticeAreaTemplate area={root.content} />;
     case 'insight':
     case 'webinar':
       return <HoldingPage title={root.content.title} />;
