@@ -7,22 +7,36 @@ import { PNG } from 'pngjs';
 import { decideConsent, loadAllImages } from './helpers';
 
 const REPO_ROOT = path.resolve(import.meta.dirname, '../..');
-const DESIGN_FILE = path.join(REPO_ROOT, 'docs/design/reference/home-design.html');
-const OUTPUT_DIR = path.join(REPO_ROOT, 'docs/reports/home-v3/match');
-const SCREENSHOT_DIR = process.env.MATCH_SCREENSHOT_DIR ?? OUTPUT_DIR;
+const SCREENSHOT_DIR = process.env.MATCH_SCREENSHOT_DIR;
 const WIDTHS = [390, 768, 1280, 1440];
 const VIEWPORT_HEIGHT = 900;
 const PIXEL_THRESHOLD = 0.1;
-const BODY_SECTIONS = [
-  'hero',
-  'welcome',
-  'expertise',
-  'partners',
-  'insights',
-  'recognition',
-  'cta',
+const MATCH_PAGES = [
+  {
+    name: 'home',
+    route: '/',
+    design: 'home-design.html',
+    outputDir: 'docs/reports/home-v3/match',
+    sections: ['hero', 'welcome', 'expertise', 'partners', 'insights', 'recognition', 'cta'],
+  },
+  {
+    name: 'about',
+    route: '/about-us/',
+    design: 'about-us.html',
+    outputDir: 'docs/reports/complete-build/match-about',
+    sections: [
+      'hero',
+      'story',
+      'film',
+      'statements',
+      'why',
+      'recognition',
+      'leadership',
+      'partners',
+      'cta',
+    ],
+  },
 ];
-const SECTIONS = ['header', ...BODY_SECTIONS, 'footer'];
 const DESIGN_ONLY_FILL = [255, 0, 255];
 const BUILD_ONLY_FILL = [0, 255, 255];
 const STILL_PAGE_CSS =
@@ -63,10 +77,11 @@ interface LayoutSelectors {
 }
 
 const DESIGN_SELECTORS: LayoutSelectors = {
-  header: '.hx header',
+  header: 'header',
   body: 'section',
   footer: 'footer',
-  placeholders: '.hx svg[preserveAspectRatio], [style*="repeating-linear-gradient"]',
+  placeholders:
+    'section:first-of-type svg[preserveAspectRatio], [style*="repeating-linear-gradient"]',
 };
 
 const BUILD_SELECTORS: LayoutSelectors = {
@@ -76,7 +91,11 @@ const BUILD_SELECTORS: LayoutSelectors = {
   placeholders: '#main img, #main video',
 };
 
-function readLayout(page: Page, selectors: LayoutSelectors): Promise<PageLayout> {
+function readLayout(
+  page: Page,
+  selectors: LayoutSelectors,
+  bodySections: readonly string[],
+): Promise<PageLayout> {
   return page.evaluate(
     async ({ selectors, bodySections }) => {
       await document.fonts.ready;
@@ -180,19 +199,23 @@ function readLayout(page: Page, selectors: LayoutSelectors): Promise<PageLayout>
           .map(({ family, weight }) => `${family} ${weight}`),
       };
     },
-    { selectors, bodySections: BODY_SECTIONS },
+    { selectors, bodySections },
   );
 }
 
-async function capture(page: Page, name: string, selectors: LayoutSelectors) {
+async function capture(
+  page: Page,
+  file: string,
+  selectors: LayoutSelectors,
+  bodySections: readonly string[],
+) {
   await page.addStyleTag({ content: STILL_PAGE_CSS });
   await page.evaluate(() => {
     for (const image of document.images) image.loading = 'eager';
   });
   await loadAllImages(page);
   await page.waitForFunction(() => [...document.images].every((image) => image.complete));
-  const layout = await readLayout(page, selectors);
-  const file = path.join(SCREENSHOT_DIR, `${name}.png`);
+  const layout = await readLayout(page, selectors, bodySections);
   await page.screenshot({ path: file, fullPage: true, animations: 'disabled' });
   return { layout, image: PNG.sync.read(readFileSync(file)) };
 }
@@ -291,76 +314,92 @@ function compare(designCrop: PNG, builtCrop: PNG, mask: Uint8Array, diffFile: st
   };
 }
 
-test('measure Home against the locked design', async ({ browser, baseURL }) => {
-  mkdirSync(OUTPUT_DIR, { recursive: true });
-  mkdirSync(SCREENSHOT_DIR, { recursive: true });
-  const results = [];
+for (const { name, route, design: designName, outputDir, sections: bodySections } of MATCH_PAGES) {
+  test(`measure ${name} against its design`, async ({ browser, baseURL }) => {
+    const OUTPUT_DIR = path.join(REPO_ROOT, outputDir);
+    const shots = SCREENSHOT_DIR ?? OUTPUT_DIR;
+    const DESIGN_FILE = path.join(REPO_ROOT, 'docs/design/reference', designName);
+    const SECTIONS = ['header', ...bodySections, 'footer'];
+    mkdirSync(OUTPUT_DIR, { recursive: true });
+    mkdirSync(shots, { recursive: true });
+    const results = [];
 
-  for (const width of WIDTHS) {
-    const viewport = { width, height: VIEWPORT_HEIGHT };
-    const context = await browser.newContext({ viewport, reducedMotion: 'reduce' });
-    await decideConsent(context, baseURL);
-    const designPage = await context.newPage();
-    await designPage.goto(pathToFileURL(DESIGN_FILE).href, { waitUntil: 'networkidle' });
-    const design = await capture(designPage, `design-${width}`, DESIGN_SELECTORS);
-    const builtPage = await context.newPage();
-    await builtPage.goto(`${baseURL}/`, { waitUntil: 'networkidle' });
-    const built = await capture(builtPage, `built-${width}`, BUILD_SELECTORS);
-    await context.close();
-
-    const pageWidth = Math.max(design.image.width, built.image.width);
-    const pageHeight = Math.max(design.image.height, built.image.height);
-    const origin = { x: 0, y: 0, width: pageWidth, height: pageHeight };
-    const whole = compare(
-      cropOnto(design.image, origin, pageWidth, pageHeight, DESIGN_ONLY_FILL),
-      cropOnto(built.image, origin, pageWidth, pageHeight, BUILD_ONLY_FILL),
-      expectedMask(pageWidth, pageHeight, design.layout, built.layout, origin, origin),
-      path.join(OUTPUT_DIR, `diff-${width}-page.png`),
-    );
-
-    const sections: Record<string, ReturnType<typeof compare> & Record<string, unknown>> = {};
-    for (const section of SECTIONS) {
-      const designArea = design.layout.sections[section];
-      const builtArea = built.layout.sections[section];
-      const cropWidth = Math.round(Math.max(designArea.width, builtArea.width));
-      const cropHeight = Math.round(Math.max(designArea.height, builtArea.height));
-      const result = compare(
-        cropOnto(design.image, designArea, cropWidth, cropHeight, DESIGN_ONLY_FILL),
-        cropOnto(built.image, builtArea, cropWidth, cropHeight, BUILD_ONLY_FILL),
-        expectedMask(
-          cropWidth,
-          cropHeight,
-          design.layout,
-          built.layout,
-          designArea,
-          builtArea,
-          section,
-        ),
-        path.join(OUTPUT_DIR, `diff-${width}-${section}.png`),
+    for (const width of WIDTHS) {
+      const viewport = { width, height: VIEWPORT_HEIGHT };
+      const context = await browser.newContext({ viewport, reducedMotion: 'reduce' });
+      await decideConsent(context, baseURL);
+      const designPage = await context.newPage();
+      await designPage.goto(pathToFileURL(DESIGN_FILE).href, { waitUntil: 'networkidle' });
+      const design = await capture(
+        designPage,
+        path.join(shots, `${name}-design-${width}.png`),
+        DESIGN_SELECTORS,
+        bodySections,
       );
-      const { designOnly, builtOnly } = differingTexts(design.layout, built.layout, section);
-      sections[section] = {
-        ...result,
-        designHeight: Math.round(designArea.height),
-        builtHeight: Math.round(builtArea.height),
-        designTextOnly: designOnly.map(({ text }) => text),
-        builtTextOnly: builtOnly.map(({ text }) => text),
-      };
+      const builtPage = await context.newPage();
+      await builtPage.goto(`${baseURL}${route}`, { waitUntil: 'networkidle' });
+      const built = await capture(
+        builtPage,
+        path.join(shots, `${name}-built-${width}.png`),
+        BUILD_SELECTORS,
+        bodySections,
+      );
+      await context.close();
+
+      const pageWidth = Math.max(design.image.width, built.image.width);
+      const pageHeight = Math.max(design.image.height, built.image.height);
+      const origin = { x: 0, y: 0, width: pageWidth, height: pageHeight };
+      const whole = compare(
+        cropOnto(design.image, origin, pageWidth, pageHeight, DESIGN_ONLY_FILL),
+        cropOnto(built.image, origin, pageWidth, pageHeight, BUILD_ONLY_FILL),
+        expectedMask(pageWidth, pageHeight, design.layout, built.layout, origin, origin),
+        path.join(OUTPUT_DIR, `diff-${width}-page.png`),
+      );
+
+      const sections: Record<string, ReturnType<typeof compare> & Record<string, unknown>> = {};
+      for (const section of SECTIONS) {
+        const designArea = design.layout.sections[section];
+        const builtArea = built.layout.sections[section];
+        const cropWidth = Math.round(Math.max(designArea.width, builtArea.width));
+        const cropHeight = Math.round(Math.max(designArea.height, builtArea.height));
+        const result = compare(
+          cropOnto(design.image, designArea, cropWidth, cropHeight, DESIGN_ONLY_FILL),
+          cropOnto(built.image, builtArea, cropWidth, cropHeight, BUILD_ONLY_FILL),
+          expectedMask(
+            cropWidth,
+            cropHeight,
+            design.layout,
+            built.layout,
+            designArea,
+            builtArea,
+            section,
+          ),
+          path.join(OUTPUT_DIR, `diff-${width}-${section}.png`),
+        );
+        const { designOnly, builtOnly } = differingTexts(design.layout, built.layout, section);
+        sections[section] = {
+          ...result,
+          designHeight: Math.round(designArea.height),
+          builtHeight: Math.round(builtArea.height),
+          designTextOnly: designOnly.map(({ text }) => text),
+          builtTextOnly: builtOnly.map(({ text }) => text),
+        };
+      }
+
+      results.push({
+        width,
+        designPageHeight: design.image.height,
+        builtPageHeight: built.image.height,
+        designPageWidth: design.image.width,
+        builtPageWidth: built.image.width,
+        loadedFonts: { design: design.layout.loadedFonts, built: built.layout.loadedFonts },
+        typography: { design: design.layout.typography, built: built.layout.typography },
+        brokenImages: built.layout.brokenImages,
+        whole,
+        sections,
+      });
     }
 
-    results.push({
-      width,
-      designPageHeight: design.image.height,
-      builtPageHeight: built.image.height,
-      designPageWidth: design.image.width,
-      builtPageWidth: built.image.width,
-      loadedFonts: { design: design.layout.loadedFonts, built: built.layout.loadedFonts },
-      typography: { design: design.layout.typography, built: built.layout.typography },
-      brokenImages: built.layout.brokenImages,
-      whole,
-      sections,
-    });
-  }
-
-  writeFileSync(path.join(OUTPUT_DIR, 'results.json'), `${JSON.stringify(results, null, 2)}\n`);
-});
+    writeFileSync(path.join(OUTPUT_DIR, 'results.json'), `${JSON.stringify(results, null, 2)}\n`);
+  });
+}
