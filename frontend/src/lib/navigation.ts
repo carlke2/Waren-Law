@@ -1,4 +1,4 @@
-import { ROUTES } from '@waren/shared';
+import { ROUTES } from '@waren/shared/constants';
 import { dictionary } from './dictionary';
 
 const { nav, footer } = dictionary;

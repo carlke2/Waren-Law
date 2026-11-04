@@ -46,7 +46,7 @@ This runs the shared package (watch), the backend at http://localhost:4000 and t
 
 A production frontend build needs the backend running, because it pre-renders every page from the API. To build without it, as CI does, set `SKIP_PRERENDER=true`; pages then render on request.
 
-To run in production mode, use `pnpm prod`. Server deployment, logs and rollback are in [`docs/runbook.md`](docs/runbook.md).
+To run in production mode, use `pnpm build`, then `pnpm start` (decision 0014). Press Ctrl+C to stop. Server deployment, logs and rollback are in [`docs/runbook.md`](docs/runbook.md).
 
 ### Tests and offline work
 

@@ -1,7 +1,6 @@
 'use client';
 
 import { API_PREFIX, API_ROUTES } from '@waren/shared/constants';
-import { newsletterFormSchema } from '@waren/shared';
 import { useId, useState, type FormEvent } from 'react';
 import { dictionary } from '@/lib/dictionary';
 import { cx } from '@/lib/utils/cx';
@@ -47,6 +46,8 @@ export function NewsletterForm() {
     const data = new FormData(form);
     const email = String(data.get('email'));
     const website = String(data.get(HONEYPOT_FIELD));
+    // Loaded on submit, so the schema library isn't part of the first page load.
+    const { newsletterFormSchema } = await import('@waren/shared');
     if (!newsletterFormSchema.safeParse({ email, website }).success) {
       setStatus('invalid');
       return;

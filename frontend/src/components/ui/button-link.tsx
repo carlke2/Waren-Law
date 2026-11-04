@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { SiteLink } from '@/components/ui/site-link';
 import type { ReactNode } from 'react';
 import { cx } from '@/lib/utils/cx';
 
@@ -24,8 +24,8 @@ export function ButtonLink({ href, variant, external, className, children }: But
       {children}
     </a>
   ) : (
-    <Link href={href} className={classes}>
+    <SiteLink href={href} className={classes}>
       {children}
-    </Link>
+    </SiteLink>
   );
 }

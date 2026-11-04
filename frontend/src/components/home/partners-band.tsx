@@ -1,6 +1,6 @@
 import { ROUTES, type HomeResponse, type TeamSummary } from '@waren/shared';
 import Image from 'next/image';
-import Link from 'next/link';
+import { SiteLink } from '@/components/ui/site-link';
 import { ButtonLink } from '@/components/ui/button-link';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { dictionary } from '@/lib/dictionary';
@@ -10,7 +10,10 @@ const PORTRAIT_SIZES = '(min-width: 64rem) 19rem, 50vw';
 
 function PartnerCard({ member }: { member: TeamSummary }) {
   return (
-    <Link href={ROUTES.profile(member.slug)} className="flex flex-col bg-brand-soft text-on-brand">
+    <SiteLink
+      href={ROUTES.profile(member.slug)}
+      className="flex flex-col bg-brand-soft text-on-brand"
+    >
       <div className="relative aspect-portrait bg-placeholder">
         {member.portrait ? (
           <Image
@@ -28,7 +31,7 @@ function PartnerCard({ member }: { member: TeamSummary }) {
         </span>
         <span className="text-role-phone text-accent sm:text-role">{member.roleTitle}</span>
       </div>
-    </Link>
+    </SiteLink>
   );
 }
 

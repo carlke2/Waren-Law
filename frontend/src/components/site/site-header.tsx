@@ -1,7 +1,7 @@
 'use client';
 
 import { ROUTES } from '@waren/shared/constants';
-import Link from 'next/link';
+import { SiteLink } from '@/components/ui/site-link';
 import { usePathname } from 'next/navigation';
 import { useRef, useSyncExternalStore } from 'react';
 import { LineSvg } from '@/components/ui/icon';
@@ -36,26 +36,26 @@ export function SiteHeader() {
       )}
     >
       <div className="site-container flex h-full items-center justify-between gap-6">
-        <Link href={ROUTES.home} aria-label={dictionary.brand.wordmark}>
+        <SiteLink href={ROUTES.home} aria-label={dictionary.brand.wordmark}>
           <HeaderLogo />
-        </Link>
+        </SiteLink>
         <nav aria-label={nav.primary} className="hidden items-center gap-7.5 text-nav lg:flex">
           {PRIMARY_NAV.map(({ label, href }) => (
-            <Link
+            <SiteLink
               key={href}
               href={href}
               aria-current={pathname === href ? 'page' : undefined}
               className="font-medium text-on-brand hover:text-accent"
             >
               {label}
-            </Link>
+            </SiteLink>
           ))}
-          <Link
+          <SiteLink
             href={CONTACT_LINK.href}
             className="bg-accent px-5 py-2.75 font-bold text-on-accent"
           >
             {CONTACT_LINK.label}
-          </Link>
+          </SiteLink>
         </nav>
         <button
           type="button"
@@ -91,7 +91,7 @@ export function SiteHeader() {
         </div>
         <nav aria-label={nav.primary} className="site-container flex flex-col gap-2 py-8">
           {PRIMARY_NAV.map(({ label, href }) => (
-            <Link
+            <SiteLink
               key={href}
               href={href}
               onClick={() => menu.current?.close()}
@@ -99,15 +99,15 @@ export function SiteHeader() {
               className="flex min-h-11 items-center py-2 font-heading text-menu font-medium"
             >
               {label}
-            </Link>
+            </SiteLink>
           ))}
-          <Link
+          <SiteLink
             href={CONTACT_LINK.href}
             onClick={() => menu.current?.close()}
             className="mt-6 bg-accent px-6.5 py-3.5 text-center text-button font-bold text-on-accent"
           >
             {CONTACT_LINK.label}
-          </Link>
+          </SiteLink>
         </nav>
       </dialog>
     </header>

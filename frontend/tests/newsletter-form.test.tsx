@@ -20,9 +20,9 @@ describe('NewsletterForm', () => {
 
   afterEach(() => vi.unstubAllGlobals());
 
-  it('rejects a bad address without calling the API', () => {
+  it('rejects a bad address without calling the API', async () => {
     submitWith('nope');
-    expect(screen.getByRole('status')).toHaveTextContent(text.invalid);
+    await waitFor(() => expect(screen.getByRole('status')).toHaveTextContent(text.invalid));
     expect(screen.getByLabelText(text.email)).toHaveAttribute('aria-invalid', 'true');
     expect(fetchMock).not.toHaveBeenCalled();
   });

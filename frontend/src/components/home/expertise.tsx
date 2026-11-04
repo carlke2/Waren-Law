@@ -1,5 +1,5 @@
 import { ROUTES, type HomeResponse, type PracticeAreaSummary } from '@waren/shared';
-import Link from 'next/link';
+import { SiteLink } from '@/components/ui/site-link';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { Icon } from '@/components/ui/icon';
 import { dictionary } from '@/lib/dictionary';
@@ -9,7 +9,7 @@ const NUMBER_WIDTH = 2;
 
 function PracticeCard({ area, index }: { area: PracticeAreaSummary; index: number }) {
   return (
-    <Link
+    <SiteLink
       href={ROUTES.root(area.slug)}
       className="group flex flex-col gap-3.5 border border-b-card-rule border-border border-b-brand bg-surface px-7 py-8 text-text transition-colors hover:border-brand"
     >
@@ -30,7 +30,7 @@ function PracticeCard({ area, index }: { area: PracticeAreaSummary; index: numbe
           {text.arrow}
         </span>
       </span>
-    </Link>
+    </SiteLink>
   );
 }
 

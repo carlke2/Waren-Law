@@ -13,6 +13,8 @@ dist/
 
 # Tests
 coverage/
+test-results/
+playwright-report/
 
 # Prisma generated client (migrations in backend/prisma/migrations/ stay committed)
 backend/prisma/generated/

@@ -1,6 +1,6 @@
 import { ROUTES, type HomeResponse, type InsightSummary } from '@waren/shared';
 import Image from 'next/image';
-import Link from 'next/link';
+import { SiteLink } from '@/components/ui/site-link';
 import { dictionary } from '@/lib/dictionary';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { formatDate } from '@/lib/utils/dates';
@@ -11,7 +11,7 @@ const INSIGHT_IMAGE_SIZES = '(min-width: 64rem) 25rem, (min-width: 40rem) 50vw, 
 function InsightCard({ insight }: { insight: InsightSummary }) {
   const [category] = insight.categories;
   return (
-    <Link href={ROUTES.root(insight.slug)} className="flex flex-col gap-4.5 text-text">
+    <SiteLink href={ROUTES.root(insight.slug)} className="flex flex-col gap-4.5 text-text">
       <div className="relative aspect-insight bg-surface-alt">
         {insight.featuredImage ? (
           <Image
@@ -32,7 +32,7 @@ function InsightCard({ insight }: { insight: InsightSummary }) {
       {insight.publishedAt ? (
         <span className="text-date text-text-subtle">{formatDate(insight.publishedAt)}</span>
       ) : null}
-    </Link>
+    </SiteLink>
   );
 }
 
@@ -50,12 +50,12 @@ export function LatestInsights({ home, insights }: LatestInsightsProps) {
             <Eyebrow>{text.insightsEyebrow}</Eyebrow>
             <h2 className="font-heading text-h2 font-medium text-brand">{home.insightsTitle}</h2>
           </div>
-          <Link
+          <SiteLink
             href={ROUTES.insights}
             className="inline-flex items-center border-b-2 border-accent pb-1 text-button font-bold text-brand max-sm:min-h-11"
           >
             {text.allInsights} {text.arrow}
-          </Link>
+          </SiteLink>
         </div>
         <div className="grid grid-auto-insight gap-7">
           {insights.map((insight) => (

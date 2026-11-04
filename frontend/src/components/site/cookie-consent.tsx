@@ -2,7 +2,7 @@
 
 import type { SiteSettings } from '@waren/shared';
 import { ROUTES } from '@waren/shared/constants';
-import Link from 'next/link';
+import { SiteLink } from '@/components/ui/site-link';
 import { useEffect, useState, useSyncExternalStore, type ReactNode } from 'react';
 import {
   OPEN_CONSENT_EVENT,
@@ -135,12 +135,12 @@ export function CookieConsent({ tracking }: { tracking: SiteSettings['tracking']
             {text.preferences}
           </button>
         )}
-        <Link
+        <SiteLink
           href={ROUTES.cookies}
           className="text-on-brand-muted underline underline-offset-4 max-sm:flex max-sm:min-h-11 max-sm:items-center"
         >
           {text.policyLink}
-        </Link>
+        </SiteLink>
       </div>
     </section>
   );

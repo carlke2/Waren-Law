@@ -5,10 +5,15 @@
 Prerequisites: Node 26 (`nvm use`), `pnpm install`, and `backend/.env` and `frontend/.env` filled in from their `.env.example` files.
 
 ```bash
-pnpm prod
+pnpm build   # once, and again after any code or content-structure change
+pnpm start   # runs backend and frontend; builds nothing
 ```
 
-Open http://localhost:3000. Press Ctrl+C to stop both apps.
+Open http://localhost:3000. Press Ctrl+C to stop both apps. `pnpm prod` does both steps.
+
+`pnpm build` starts the backend for a moment, because the frontend pre-renders from the API, so nothing else may be using port 4000. If the backend later stops, visitors still get the last built pages.
+
+Tests that need the running site: `pnpm test:e2e` (Playwright, using the installed Chrome). It starts and stops the site itself. Run `pnpm build` first.
 
 ## Deploy to a server
 
@@ -118,7 +123,7 @@ Use the tag you want to return to. Migrations don't roll back automatically. Bef
 docker compose --env-file infra/env/deploy.env -f infra/docker-compose.prod.yml logs -f backend
 ```
 
-Replace `backend` with `frontend` or `nginx`. Locally, logs go to the terminal running `pnpm prod`. A startup warning that email delivery is disabled means `SMTP_*` isn't set.
+Replace `backend` with `frontend` or `nginx`. Locally, logs go to the terminal running `pnpm start`. A startup warning that email delivery is disabled means `SMTP_*` isn't set.
 
 ## Re-run the content import
 

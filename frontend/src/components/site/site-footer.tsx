@@ -1,5 +1,5 @@
 import { ROUTES, type PracticeAreaSummary, type RootSlug, type SiteSettings } from '@waren/shared';
-import Link from 'next/link';
+import { SiteLink } from '@/components/ui/site-link';
 import type { ReactNode } from 'react';
 import { dictionary } from '@/lib/dictionary';
 import { FOOTER_PRACTICE_LIMIT, LEGAL_LINKS, QUICK_LINKS } from '@/lib/navigation';
@@ -63,20 +63,20 @@ export function SiteFooter({ settings, practiceAreas, rootSlugs }: SiteFooterPro
         </div>
         <Column heading={text.quickLinks} className="max-sm:order-1 sm:order-none">
           {QUICK_LINKS.map(({ label, href }) => (
-            <Link key={href} href={href} className={COLUMN_LINK}>
+            <SiteLink key={href} href={href} className={COLUMN_LINK}>
               {label}
-            </Link>
+            </SiteLink>
           ))}
         </Column>
         <Column heading={text.practiceAreas} className="max-sm:order-2 sm:order-none">
           {practiceAreas.slice(0, FOOTER_PRACTICE_LIMIT).map(({ slug, shortName }) => (
-            <Link key={slug} href={ROUTES.root(slug)} className={COLUMN_LINK}>
+            <SiteLink key={slug} href={ROUTES.root(slug)} className={COLUMN_LINK}>
               {shortName}
-            </Link>
+            </SiteLink>
           ))}
-          <Link href={ROUTES.expertise} className={COLUMN_LINK}>
+          <SiteLink href={ROUTES.expertise} className={COLUMN_LINK}>
             {text.allPracticeAreas}
-          </Link>
+          </SiteLink>
         </Column>
         <Column heading={dictionary.newsletter.heading}>
           <p className="text-footer-copy">{newsletter.intro}</p>
@@ -93,9 +93,9 @@ export function SiteFooter({ settings, practiceAreas, rootSlugs }: SiteFooterPro
             {LEGAL_LINKS.filter(({ slug }) => published.has(slug)).map(({ label, href }) => (
               <span key={href} className="flex items-center gap-x-1.5">
                 <span aria-hidden="true">·</span>
-                <Link href={href} className={BOTTOM_LINK}>
+                <SiteLink href={href} className={BOTTOM_LINK}>
                   {label}
-                </Link>
+                </SiteLink>
               </span>
             ))}
             <span aria-hidden="true">·</span>

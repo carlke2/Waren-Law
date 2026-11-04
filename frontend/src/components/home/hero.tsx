@@ -1,6 +1,6 @@
 import type { HeroCard, HomeResponse } from '@waren/shared';
 import Image from 'next/image';
-import Link from 'next/link';
+import { SiteLink } from '@/components/ui/site-link';
 import { Icon } from '@/components/ui/icon';
 import { dictionary } from '@/lib/dictionary';
 import { HeroVideo } from './hero-video';
@@ -10,7 +10,7 @@ const HERO_IMAGE_SIZES = '100vw';
 
 function HeroCardLink({ card }: { card: HeroCard }) {
   return (
-    <Link
+    <SiteLink
       href={card.href}
       className="flex items-center gap-3.5 bg-surface-hero px-4 py-3.5 text-text shadow-card sm:flex-col sm:gap-2.5 sm:px-6 sm:pt-6.5 sm:pb-5.5 sm:text-center"
     >
@@ -27,7 +27,7 @@ function HeroCardLink({ card }: { card: HeroCard }) {
       <span aria-hidden="true" className="ml-auto font-bold text-brand sm:hidden">
         {text.heroCardArrow}
       </span>
-    </Link>
+    </SiteLink>
   );
 }
 
@@ -39,7 +39,8 @@ export function Hero({ home }: { home: HomeResponse }) {
           src={home.heroImage.url}
           alt={home.heroImage.alt}
           fill
-          priority
+          preload
+          fetchPriority="high"
           sizes={HERO_IMAGE_SIZES}
           className="object-cover object-bottom"
         />
