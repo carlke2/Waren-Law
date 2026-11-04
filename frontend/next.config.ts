@@ -15,6 +15,7 @@ const LOCAL_HOSTS = new Set(['localhost', '127.0.0.1']);
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  devIndicators: false,
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   turbopack: { root },

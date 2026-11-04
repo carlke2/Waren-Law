@@ -1,6 +1,6 @@
 import type { PracticeAreaSummary } from '@waren/shared';
 import { ROUTES, SLUG_PATTERN, TEAM_FILTER_PARAM } from '@waren/shared';
-import type { FilterChip } from '@/components/ui/filter-chips';
+import type { FilterChip } from './filter-chip';
 import { dictionary } from '@/lib/dictionary';
 
 export function parseTeamFilter(value: string | string[] | undefined): string | undefined {

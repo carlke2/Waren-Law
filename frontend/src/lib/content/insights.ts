@@ -1,6 +1,6 @@
 import type { CategoryResponse } from '@waren/shared';
 import { DEFAULT_PAGE_SIZE, ROUTES } from '@waren/shared';
-import type { FilterChip } from '@/components/ui/filter-chips';
+import type { FilterChip } from './filter-chip';
 import { dictionary } from '@/lib/dictionary';
 
 export function parsePageNumber(value: string): number | null {

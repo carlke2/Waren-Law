@@ -7,7 +7,11 @@ import type {
   WebinarDetail,
 } from '@waren/shared';
 import { ROUTES, SEARCH_PARAM } from '@waren/shared';
-import type { Crumb } from '@/components/ui/breadcrumbs';
+
+export interface Crumb {
+  label: string;
+  href?: string;
+}
 
 const CONTEXT = 'https://schema.org';
 const LOGO_PATH = '/brand/logo.webp';
