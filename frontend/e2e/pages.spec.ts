@@ -126,3 +126,18 @@ test('marks an unapproved legal page when it is shown for review', async ({ page
     expect(response?.status()).toBe(404);
   }
 });
+
+test('every header and footer link opens a page', async ({ page, request, context, baseURL }) => {
+  await decideConsent(context, baseURL);
+  await page.setViewportSize(DESKTOP);
+  await page.goto('/');
+  const hrefs = await page
+    .locator('header a[href^="/"], footer a[href^="/"]')
+    .evaluateAll((links) => links.map((link) => link.getAttribute('href') ?? ''));
+  const unique = [...new Set(hrefs)];
+  expect(unique.length).toBeGreaterThan(10);
+  for (const href of unique) {
+    const response = await request.get(href);
+    expect(response.status(), href).toBe(200);
+  }
+});
