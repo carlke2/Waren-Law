@@ -25,6 +25,7 @@ const PAGES = [
   { name: 'webinars', path: '/insights/webinars/' },
   { name: 'webinar-recording', path: '/wealth-protection-plan-for-kenyans-abroad-webinar/' },
   { name: 'webinar-past', path: '/trusts-taxes-protecting-wealth-across-borders/' },
+  { name: 'privacy-policy', path: '/privacy-policy/' },
 ];
 
 for (const { name, path: route } of PAGES) {
@@ -86,4 +87,42 @@ test('keeps the old profile URL as one permanent redirect', async ({ request }) 
   const response = await request.get('/ephraim-ndegwa/', { maxRedirects: 0 });
   expect(response.status()).toBe(301);
   expect(response.headers().location).toMatch(/\/our-team\/ephraim-ndegwa\/$/);
+});
+
+test('search shows grouped results from a link that works without JavaScript', async ({
+  browser,
+}) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  await page.goto(`${BASE_URL}/search/?q=land`);
+  await expect(page.locator('h1')).toHaveCount(1);
+  await expect(page.getByRole('status')).toContainText('land');
+  await expect(page.locator('main h2').first()).toBeVisible();
+  if (CAPTURE) {
+    await page.screenshot({
+      path: path.join(REPORT_DIR, 'search.jpeg'),
+      type: 'jpeg',
+      quality: 60,
+    });
+  }
+  await context.close();
+});
+
+test('an unknown page gets one heading, a search box and key links', async ({ page }) => {
+  const response = await page.goto('/this-page-does-not-exist/');
+  expect(response?.status()).toBe(404);
+  await expect(page.locator('h1')).toHaveCount(1);
+  await expect(page.getByRole('searchbox')).toBeVisible();
+  if (CAPTURE) {
+    await page.screenshot({ path: path.join(REPORT_DIR, '404.jpeg'), type: 'jpeg', quality: 60 });
+  }
+});
+
+test('marks an unapproved legal page when it is shown for review', async ({ page }) => {
+  const response = await page.goto('/terms/');
+  if (response?.status() === 200) {
+    await expect(page.getByText(/NEEDS ADVOCATE REVIEW/)).toBeVisible();
+  } else {
+    expect(response?.status()).toBe(404);
+  }
 });

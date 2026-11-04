@@ -8,7 +8,14 @@ interface SitemapInput {
   categories: readonly CategoryResponse[];
 }
 
-const STATIC_PATHS = [ROUTES.home, ROUTES.team, ROUTES.expertise, ROUTES.insights, ROUTES.webinars];
+const STATIC_PATHS = [
+  ROUTES.home,
+  ROUTES.team,
+  ROUTES.expertise,
+  ROUTES.insights,
+  ROUTES.webinars,
+  ROUTES.consultation,
+];
 
 export function sitemapEntries({ siteUrl, rootSlugs, team, categories }: SitemapInput) {
   const root = rootSlugs

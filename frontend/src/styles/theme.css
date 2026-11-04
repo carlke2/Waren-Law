@@ -94,8 +94,6 @@
   --text-h2--line-height: 1.1;
   --text-h2-cta: clamp(2rem, 3.4vw, 3rem);
   --text-h2-cta--line-height: 1.1;
-  --text-h1-holding: clamp(2.125rem, 3.6vw, 3.25rem);
-  --text-h1-holding--line-height: 1.1;
   --text-h3-card: 1.4375rem;
   --text-h3-card--line-height: 1.2;
   --text-h3-insight: 1.5rem;
