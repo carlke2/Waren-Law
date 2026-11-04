@@ -76,7 +76,7 @@ Match (Home, About), % with photos and real text excluded:
 | Home, whole page | 92.9 | 96.3 | 95.5 | 96.3 |
 | About, whole page | 53.6 | 59.6 | 52.3 | 54.1 |
 
-- About's whole-page score is low because the firm's real story is about 300 px longer than the reference, which pushes every later section out of line. By section at 768 and up, film, why, recognition, leadership, partners and CTA are 99–100%.
+- About's whole-page score is low because the firm's real story is about 300 px longer than the reference, which pushes every later section out of line. By section at 768 and up, film, why, recognition, leadership, partners and CTA are 98.6–100%.
 - About's story (62–73%) and mission and vision (64–83%) are low because of that longer real text, and the footer (82–90%) for the two additions above.
 - `about-us.html` has no phone rules, so at 390 the build follows spec §7 and differs by design.
 - Diffs: `docs/reports/home-v3/match/` and `docs/reports/complete-build/match-about/`.
