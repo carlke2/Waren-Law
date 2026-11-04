@@ -14,7 +14,7 @@ export function Welcome({ home }: { home: HomeResponse }) {
   const paragraphs = home.welcomeBody.blocks.flatMap((block) => paragraphText(block) ?? []);
   return (
     <section className="bg-surface">
-      <div className="site-container flex flex-wrap items-start gap-16 py-16 sm:py-22 lg:py-28">
+      <div className="site-container flex flex-wrap items-start gap-16 py-16 sm:py-28">
         <div className="flex min-w-0 flex-welcome-title flex-col gap-4">
           <Eyebrow>{dictionary.home.aboutEyebrow}</Eyebrow>
           <h2 className="font-heading text-h2 font-medium text-brand">{home.welcomeTitle}</h2>

@@ -43,7 +43,7 @@ interface PartnersBandProps {
 export function PartnersBand({ home, partners }: PartnersBandProps) {
   return (
     <section data-tone="dark" className="bg-brand text-on-brand">
-      <div className="site-container flex flex-col gap-12 py-16 sm:py-22 lg:py-28">
+      <div className="site-container flex flex-col gap-12 py-16 sm:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="flex max-w-section-header flex-col gap-3">
             <div className="flex items-center gap-3.5">

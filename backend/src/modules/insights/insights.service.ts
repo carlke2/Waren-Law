@@ -9,7 +9,11 @@ import {
 import type { Prisma } from '../../../prisma/generated/client.js';
 import { PrismaService } from '../../database/prisma.service.js';
 import { ContentPresenter } from '../content/content-presenter.service.js';
-import { INSIGHT_NEWEST_FIRST, INSIGHT_SUMMARY_INCLUDE } from '../content/content-queries.js';
+import {
+  INSIGHT_NEWEST_FIRST,
+  INSIGHT_SUMMARY_INCLUDE,
+  INSIGHT_SUMMARY_OMIT,
+} from '../content/content-queries.js';
 import { PUBLISHED, PUBLISHED_AND_APPROVED } from '../content/visibility.js';
 
 interface ListOptions {
@@ -34,6 +38,7 @@ export class InsightsService {
       this.prisma.insight.count({ where }),
       this.prisma.insight.findMany({
         where,
+        omit: INSIGHT_SUMMARY_OMIT,
         include: INSIGHT_SUMMARY_INCLUDE,
         orderBy: INSIGHT_NEWEST_FIRST,
         skip: (page - 1) * pageSize,
@@ -83,6 +88,7 @@ export class InsightsService {
         id: { not: id },
         categories: { some: { slug: { in: categorySlugs } } },
       },
+      omit: INSIGHT_SUMMARY_OMIT,
       include: INSIGHT_SUMMARY_INCLUDE,
       orderBy: INSIGHT_NEWEST_FIRST,
       take: RELATED_INSIGHTS_LIMIT,

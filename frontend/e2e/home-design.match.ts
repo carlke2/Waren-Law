@@ -108,8 +108,14 @@ function readLayout(page: Page, selectors: LayoutSelectors): Promise<PageLayout>
       const heroCards = [...bodies[0].querySelectorAll('h2')].map(
         (heading) => heading.closest('a, article, li, .hx-card') ?? heading.parentElement,
       );
+      // Text on the photo can't be compared, because the photo itself is an allowed difference.
+      const isOpaque = (element: Element) => {
+        const alpha = getComputedStyle(element).backgroundColor.match(/[\d.]+(?=\)$)/);
+        const { backgroundColor } = getComputedStyle(element);
+        return backgroundColor.startsWith('rgb(') || Number(alpha?.[0] ?? 0) >= 0.9;
+      };
       const foregroundElements = [
-        ...header.querySelectorAll('a, button'),
+        ...[...header.querySelectorAll('a, button')].filter(isOpaque),
         ...heroCards.filter((card) => card !== null),
       ];
 

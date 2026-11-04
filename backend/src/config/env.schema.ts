@@ -15,6 +15,7 @@ export const envSchema = z.object({
   DATABASE_SSL: z.enum(['disable', 'require', 'verify']).default('require'),
   DATABASE_SSL_CA_PATH: optionalString,
   DATABASE_POOL_IDLE_TIMEOUT_MS: z.coerce.number().int().nonnegative().default(120_000),
+  DATABASE_POOL_MIN: z.coerce.number().int().min(0).default(4),
   DATABASE_CONNECT_TIMEOUT_MS: z.coerce.number().int().positive().default(10_000),
   DATABASE_QUERY_TIMEOUT_MS: z.coerce.number().int().positive().default(15_000),
   FRONTEND_URL: z.url(),

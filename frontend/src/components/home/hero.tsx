@@ -14,7 +14,7 @@ function HeroCardLink({ card }: { card: HeroCard }) {
       href={card.href}
       className="flex items-center gap-3.5 bg-surface-hero px-4 py-3.5 text-text shadow-card sm:flex-col sm:gap-2.5 sm:px-6 sm:pt-6.5 sm:pb-5.5 sm:text-center"
     >
-      <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-full border border-border text-brand">
+      <span className="inline-flex size-12.5 shrink-0 items-center justify-center rounded-full border border-border text-brand">
         <Icon name={card.icon} className="size-6" />
       </span>
       <h2 className="font-heading text-hero-card-phone font-semibold text-brand sm:text-hero-card">

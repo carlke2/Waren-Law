@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import {
   faqSchema,
   ICON_NAMES,
+  RELATED_INSIGHTS_LIMIT,
   type PracticeAreaDetail,
   type PracticeAreaSummary,
 } from '@waren/shared';
@@ -12,13 +13,17 @@ import { ContentPresenter } from '../content/content-presenter.service.js';
 import {
   INSIGHT_NEWEST_FIRST,
   INSIGHT_SUMMARY_INCLUDE,
+  INSIGHT_SUMMARY_OMIT,
   TEAM_SUMMARY_INCLUDE,
+  TEAM_SUMMARY_OMIT,
 } from '../content/content-queries.js';
 import { PUBLISHED, PUBLISHED_AND_APPROVED } from '../content/visibility.js';
 
 const iconSchema = z.enum(ICON_NAMES);
 
-type PracticeAreaRow = PracticeArea & { heroImage: Media | null };
+type PracticeAreaRow = Omit<PracticeArea, 'body' | 'faq' | 'searchText'> & {
+  heroImage: Media | null;
+};
 
 @Injectable()
 export class PracticeAreasService {
@@ -30,6 +35,7 @@ export class PracticeAreasService {
   async list(): Promise<PracticeAreaSummary[]> {
     const areas = await this.prisma.practiceArea.findMany({
       where: PUBLISHED_AND_APPROVED,
+      omit: { body: true, faq: true, searchText: true },
       include: { heroImage: true },
       orderBy: { sortOrder: 'asc' },
     });
@@ -57,13 +63,16 @@ export class PracticeAreasService {
         ogImage: true,
         team: {
           where: PUBLISHED,
+          omit: TEAM_SUMMARY_OMIT,
           include: TEAM_SUMMARY_INCLUDE,
           orderBy: { sortOrder: 'asc' },
         },
         insights: {
           where: PUBLISHED_AND_APPROVED,
+          omit: INSIGHT_SUMMARY_OMIT,
           include: INSIGHT_SUMMARY_INCLUDE,
           orderBy: INSIGHT_NEWEST_FIRST,
+          take: RELATED_INSIGHTS_LIMIT,
         },
       },
     });

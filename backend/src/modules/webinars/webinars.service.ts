@@ -3,7 +3,7 @@ import { faqSchema, type WebinarDetail, type WebinarSummary } from '@waren/share
 import type { Media, Webinar, WebinarState } from '../../../prisma/generated/client.js';
 import { PrismaService } from '../../database/prisma.service.js';
 import { ContentPresenter } from '../content/content-presenter.service.js';
-import { TEAM_SUMMARY_INCLUDE } from '../content/content-queries.js';
+import { TEAM_SUMMARY_INCLUDE, TEAM_SUMMARY_OMIT } from '../content/content-queries.js';
 import { PUBLISHED, PUBLISHED_AND_APPROVED } from '../content/visibility.js';
 
 @Injectable()
@@ -13,7 +13,9 @@ export class WebinarsService {
     private readonly present: ContentPresenter,
   ) {}
 
-  private summary(webinar: Webinar & { heroImage: Media | null }): WebinarSummary {
+  private summary(
+    webinar: Omit<Webinar, 'body' | 'faq'> & { heroImage: Media | null },
+  ): WebinarSummary {
     return {
       slug: webinar.slug,
       title: webinar.title,
@@ -29,6 +31,7 @@ export class WebinarsService {
   async list(state?: WebinarState): Promise<WebinarSummary[]> {
     const webinars = await this.prisma.webinar.findMany({
       where: { ...PUBLISHED_AND_APPROVED, ...(state ? { state } : {}) },
+      omit: { body: true, faq: true },
       include: { heroImage: true },
       orderBy: [{ startsAt: { sort: 'desc', nulls: 'last' } }, { slug: 'asc' }],
     });
@@ -41,7 +44,12 @@ export class WebinarsService {
       include: {
         heroImage: true,
         ogImage: true,
-        panel: { where: PUBLISHED, include: TEAM_SUMMARY_INCLUDE, orderBy: { sortOrder: 'asc' } },
+        panel: {
+          where: PUBLISHED,
+          omit: TEAM_SUMMARY_OMIT,
+          include: TEAM_SUMMARY_INCLUDE,
+          orderBy: { sortOrder: 'asc' },
+        },
       },
     });
     if (!webinar) throw new NotFoundException(`No webinar found for "${slug}"`);
