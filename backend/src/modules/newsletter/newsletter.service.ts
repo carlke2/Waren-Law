@@ -1,8 +1,9 @@
 import { createHash, randomBytes } from 'node:crypto';
 import { Inject, Injectable, Logger } from '@nestjs/common';
-import { ROUTES, type NewsletterForm, type NewsletterResponse } from '@waren/shared';
+import { ROUTES, type NewsletterRequest, type NewsletterResponse } from '@waren/shared';
 import { ENV, type Env } from '../../config/config.module.js';
 import { PrismaService } from '../../database/prisma.service.js';
+import { resolveAttribution } from '../leads/attribution.js';
 import { CONFIRMATION_TOKEN_BYTES } from './newsletter.constants.js';
 import { NewsletterMailer } from './newsletter-mailer.service.js';
 
@@ -21,7 +22,8 @@ export class NewsletterService {
   ) {}
 
   // Every outcome gets the same answer, so the form can't reveal who is subscribed.
-  async subscribe({ email, website }: NewsletterForm): Promise<NewsletterResponse> {
+  async subscribe(request: NewsletterRequest): Promise<NewsletterResponse> {
+    const { email, website } = request;
     if (website) return RECEIVED;
 
     const existing = await this.prisma.subscriber.findUnique({ where: { email } });
@@ -32,11 +34,21 @@ export class NewsletterService {
       : null;
     const confirmationTokenHash = token ? hashToken(token) : null;
     const consentAt = new Date();
+    const attribution = resolveAttribution(request);
     const subscriber = await this.prisma.subscriber.upsert({
       where: { email },
-      create: { email, source: 'newsletter', consentAt, confirmationTokenHash },
-      update: { consentAt, unsubscribedAt: null, confirmedAt: null, confirmationTokenHash },
+      create: { email, signupType: 'newsletter', consentAt, confirmationTokenHash, ...attribution },
+      update: {
+        consentAt,
+        unsubscribedAt: null,
+        confirmedAt: null,
+        confirmationTokenHash,
+        ...attribution,
+      },
     });
+    this.logger.log(
+      `Lead form=${subscriber.form} channel=${subscriber.channel} source=${subscriber.source} country=-`,
+    );
 
     if (token) {
       try {

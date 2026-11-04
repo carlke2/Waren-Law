@@ -27,9 +27,16 @@ describe('ContactMailer', () => {
       email: 'a@example.test',
       phone: null,
       message: 'Hello',
-      source: '/contact-us/',
+      page: '/contact-us/',
+      form: 'contact',
+      channel: 'Newsletter',
+      campaign: 'October 2026',
+      country: 'United Kingdom',
       createdAt: new Date('2026-11-05T10:00:00Z'),
     } as never);
+    expect(body.split('\n')[0]).toBe(
+      'Source: Newsletter (October 2026) · Form: Contact · Country: United Kingdom',
+    );
     expect(body).toContain('Phone: -');
     expect(body).toContain('Time: 2026-11-05T10:00:00.000Z');
     expect(body.endsWith('Hello')).toBe(true);

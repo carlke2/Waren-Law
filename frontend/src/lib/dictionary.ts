@@ -39,6 +39,10 @@ export const dictionary = {
     wordmark: 'WAREN',
     suffix: 'LAW ADVOCATES LLP',
   },
+  forms: {
+    heardAbout: 'How did you hear about us? (optional)',
+    choose: 'Please choose',
+  },
   newsletter: {
     heading: 'Newsletter',
     email: 'Email address',

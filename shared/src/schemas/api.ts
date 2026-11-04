@@ -21,6 +21,14 @@ import {
   SEARCH_RESULT_TYPES,
 } from '../constants/api.js';
 import {
+  CLIENT_TYPES,
+  COUNTRIES,
+  HEARD_ABOUT_OPTIONS,
+  LEAD_CHANNELS,
+  LEAD_FORMS,
+  MEETING_OPTIONS,
+} from '../constants/leads.js';
+import {
   headingBlockSchema,
   imageBlockSchema,
   listBlockSchema,
@@ -376,27 +384,102 @@ export const redirectResponseSchema = z.object({
 
 export const redirectListResponseSchema = z.array(redirectResponseSchema);
 
-export const contactFormSchema = z.object({
-  firstName: z.string().trim().min(1).max(CONTACT_FIELD_MAX_LENGTH),
-  lastName: z.string().trim().min(1).max(CONTACT_FIELD_MAX_LENGTH),
-  phone: z.string().trim().max(CONTACT_FIELD_MAX_LENGTH).optional(),
-  email: z.email().max(CONTACT_FIELD_MAX_LENGTH),
-  message: z.string().trim().min(1).max(CONTACT_MESSAGE_MAX_LENGTH),
-  website: z.string().max(CONTACT_FIELD_MAX_LENGTH).optional(),
+export const attributionSchema = z.object({
+  page: z.string().startsWith('/').max(CONTACT_SOURCE_MAX_LENGTH),
+  utmSource: z.string().max(CONTACT_FIELD_MAX_LENGTH).optional(),
+  utmCampaign: z.string().max(CONTACT_FIELD_MAX_LENGTH).optional(),
+  referrer: z.string().max(CONTACT_MESSAGE_MAX_LENGTH).optional(),
+  heardAbout: z.enum(HEARD_ABOUT_OPTIONS).optional(),
 });
 
-export const contactRequestSchema = contactFormSchema.extend({
-  source: z.string().startsWith('/').max(CONTACT_SOURCE_MAX_LENGTH),
+const personFields = {
+  name: z.string().trim().min(1).max(CONTACT_FIELD_MAX_LENGTH),
+  email: z.string().trim().toLowerCase().pipe(z.email().max(CONTACT_FIELD_MAX_LENGTH)),
+  website: z.string().max(CONTACT_FIELD_MAX_LENGTH).optional(),
+};
+
+export const contactFormSchema = z.object({
+  ...personFields,
+  phone: z.string().trim().max(CONTACT_FIELD_MAX_LENGTH).optional(),
+  country: z.enum(COUNTRIES),
+  message: z.string().trim().min(1).max(CONTACT_MESSAGE_MAX_LENGTH),
 });
+
+export const contactRequestSchema = contactFormSchema.extend(attributionSchema.shape);
 
 export const contactResponseSchema = z.object({ received: z.literal(true) });
+
+export const consultationFormSchema = z.object({
+  ...personFields,
+  phone: z.string().trim().min(1).max(CONTACT_FIELD_MAX_LENGTH),
+  country: z.enum(COUNTRIES),
+  practiceArea: z.string().trim().min(1).max(CONTACT_FIELD_MAX_LENGTH),
+  clientType: z.enum(CLIENT_TYPES),
+  preferredMeeting: z.enum(MEETING_OPTIONS),
+  preferredDates: z.string().trim().min(1).max(CONTACT_FIELD_MAX_LENGTH),
+  summary: z.string().trim().min(1).max(CONTACT_MESSAGE_MAX_LENGTH),
+});
+
+export const consultationRequestSchema = consultationFormSchema.extend(attributionSchema.shape);
+
+export const recordingFormSchema = z.object(personFields);
+
+export const recordingRequestSchema = recordingFormSchema.extend(attributionSchema.shape);
 
 export const newsletterFormSchema = z.object({
   email: z.string().trim().toLowerCase().pipe(z.email().max(CONTACT_FIELD_MAX_LENGTH)),
   website: z.string().max(CONTACT_FIELD_MAX_LENGTH).optional(),
 });
 
+export const newsletterRequestSchema = newsletterFormSchema.extend(attributionSchema.shape);
+
 export const newsletterResponseSchema = z.object({ received: z.literal(true) });
+
+export const leadListQuerySchema = z.object({
+  page: z.coerce.number().int().min(1).default(1),
+  pageSize: z.coerce.number().int().min(1).max(MAX_PAGE_SIZE).default(DEFAULT_PAGE_SIZE),
+  form: z.enum(LEAD_FORMS).optional(),
+  channel: z.enum(LEAD_CHANNELS).optional(),
+  source: z.string().max(CONTACT_FIELD_MAX_LENGTH).optional(),
+  country: z.string().max(CONTACT_FIELD_MAX_LENGTH).optional(),
+  from: z.coerce.date().optional(),
+  to: z.coerce.date().optional(),
+});
+
+export const leadRowSchema = z.object({
+  id: z.string(),
+  createdAt: z.string(),
+  form: z.string(),
+  name: z.string().nullable(),
+  email: z.string(),
+  phone: z.string().nullable(),
+  country: z.string().nullable(),
+  channel: z.string(),
+  source: z.string(),
+  campaign: z.string().nullable(),
+  heardAbout: z.string().nullable(),
+  page: z.string(),
+});
+
+export const leadListResponseSchema = z.object({
+  items: z.array(leadRowSchema),
+  page: z.number(),
+  pageSize: z.number(),
+  total: z.number(),
+  totalPages: z.number(),
+});
+
+export const leadSummaryResponseSchema = z.object({
+  forms: z.array(z.string()).readonly(),
+  months: z.array(
+    z.object({
+      month: z.string(),
+      total: z.number(),
+      byChannel: z.record(z.string(), z.number()),
+      byCountry: z.record(z.string(), z.number()),
+    }),
+  ),
+});
 
 export const newsletterConfirmQuerySchema = z.object({
   token: z.string().regex(NEWSLETTER_TOKEN_PATTERN),

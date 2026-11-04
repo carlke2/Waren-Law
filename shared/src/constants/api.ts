@@ -21,6 +21,9 @@ export const API_ROUTES = {
   contact: 'contact',
   home: 'home',
   newsletter: 'newsletter',
+  consultation: 'consultation',
+  recordingRequests: 'recording-requests',
+  leads: 'leads',
 } as const;
 export const RELATED_INSIGHTS_LIMIT = 3;
 export const SEARCH_RESULT_LIMIT = 20;

@@ -25,6 +25,8 @@ export const envSchema = z.object({
   NEWSLETTER_RATE_LIMIT_PER_HOUR: z.coerce.number().int().positive().default(5),
   CONTACT_RETENTION_MONTHS: z.coerce.number().int().positive().default(12),
   CONTACT_RETENTION_INTERVAL_HOURS: z.coerce.number().positive().default(24),
+  // Empty means the leads API refuses every request.
+  LEADS_API_KEY: optionalString,
   UPLOADS_DIR: z.string().min(1),
   PREVIEW_UNREVIEWED_PAGES: z
     .enum(['true', 'false'])

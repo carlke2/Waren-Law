@@ -9,12 +9,14 @@ const url = `/${API_PREFIX}/${API_ROUTES.contact}`;
 const FIRM_EMAIL = 'firm@example.test';
 
 const valid = {
-  firstName: 'Asha',
-  lastName: 'Otieno',
+  name: 'Asha Otieno',
   email: 'asha@example.test',
   phone: '+254700000000',
+  country: 'Kenya',
   message: 'I need help with a property purchase.',
-  source: '/contact-us/',
+  page: '/contact-us/',
+  referrer: 'https://www.google.com/search?q=secret',
+  heardAbout: 'Google',
 };
 
 describe('POST /api/v1/contact', () => {
@@ -45,7 +47,12 @@ describe('POST /api/v1/contact', () => {
       email: valid.email,
       phone: valid.phone,
       message: valid.message,
-      source: valid.source,
+      page: valid.page,
+      form: 'contact',
+      source: 'google.com',
+      channel: 'Search',
+      heardAbout: 'Google',
+      country: 'Kenya',
       emailedAt: null,
     });
     expect(stored?.consentAt).toBeInstanceOf(Date);
@@ -55,8 +62,8 @@ describe('POST /api/v1/contact', () => {
   it.each([
     ['a bad email', { email: 'nope' }],
     ['an empty message', { message: '   ' }],
-    ['a missing first name', { firstName: '' }],
-    ['a source that is not a path', { source: 'https://evil.example' }],
+    ['a missing name', { name: '' }],
+    ['a page that is not a path', { page: 'https://evil.example' }],
     ['an oversized message', { message: 'x'.repeat(5001) }],
   ])('rejects %s and stores nothing', async (_name, change) => {
     const response = await post({ ...valid, ...change }).expect(400);
@@ -68,6 +75,44 @@ describe('POST /api/v1/contact', () => {
     const response = await post({ ...valid, website: 'https://spam.example' }).expect(200);
     expect(response.body).toEqual({ received: true });
     await expect(prisma.contactSubmission.count()).resolves.toBe(0);
+  });
+
+  it('stores a consultation request with its details and form name', async () => {
+    await request(app.getHttpServer())
+      .post(`/${API_PREFIX}/${API_ROUTES.consultation}`)
+      .send({
+        name: 'Asha Otieno',
+        email: 'asha@example.test',
+        phone: '+254700000000',
+        country: 'United Kingdom',
+        practiceArea: 'Real Estate',
+        clientType: 'Kenyan abroad',
+        preferredMeeting: 'Video call',
+        preferredDates: 'Next week',
+        summary: 'Buying land from abroad.',
+        page: '/book-a-consultation/',
+        utmSource: 'newsletter',
+        utmCampaign: 'October 2026',
+      })
+      .expect(200);
+    const [stored] = await prisma.contactSubmission.findMany();
+    expect(stored).toMatchObject({
+      form: 'consultation',
+      channel: 'Newsletter',
+      campaign: 'October 2026',
+      country: 'United Kingdom',
+      preferredMeeting: 'Video call',
+      message: 'Buying land from abroad.',
+    });
+  });
+
+  it('stores a webinar recording request', async () => {
+    await request(app.getHttpServer())
+      .post(`/${API_PREFIX}/${API_ROUTES.recordingRequests}`)
+      .send({ name: 'Asha', email: 'asha@example.test', page: '/some-webinar/' })
+      .expect(200);
+    const [stored] = await prisma.contactSubmission.findMany();
+    expect(stored).toMatchObject({ form: 'webinar', page: '/some-webinar/', channel: 'Direct' });
   });
 
   it('deletes only submissions past the retention period', async () => {
@@ -84,7 +129,7 @@ describe('POST /api/v1/contact', () => {
   });
 
   function base(name: string) {
-    return { name, email: 'a@example.test', message: 'm', source: '/' };
+    return { name, email: 'a@example.test', message: 'm', page: '/' };
   }
 });
 
@@ -125,7 +170,7 @@ describe('contact email', () => {
       from: 'website@example.test',
       replyTo: valid.email,
     });
-    for (const part of ['Asha Otieno', valid.email, valid.phone, valid.message, valid.source]) {
+    for (const part of ['Asha Otieno', valid.email, valid.phone, valid.message, valid.page]) {
       expect(message.text).toContain(part);
     }
     expect(message.html).toBeUndefined();

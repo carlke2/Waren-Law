@@ -17,12 +17,32 @@ export interface MailTransport {
 
 const firmContactSchema = siteSettingsSchema.shape[SETTING_KEYS.contact].pick({ email: true });
 
+const capitalise = (word: string) => `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
+
+export function sourceLine(submission: ContactSubmission): string {
+  const channel = submission.campaign
+    ? `${submission.channel} (${submission.campaign})`
+    : submission.channel;
+  const parts = [`Source: ${channel}`, `Form: ${capitalise(submission.form)}`];
+  if (submission.country) parts.push(`Country: ${submission.country}`);
+  return parts.join(' · ');
+}
+
 export function contactEmailBody(submission: ContactSubmission): string {
+  const optional: [string, string | null][] = [
+    ['Practice area', submission.practiceArea],
+    ['I am a', submission.clientType],
+    ['Preferred meeting', submission.preferredMeeting],
+    ['Preferred dates', submission.preferredDates],
+    ['Heard about us', submission.heardAbout],
+  ];
   return [
+    sourceLine(submission),
     `Name: ${submission.name}`,
     `Email: ${submission.email}`,
     `Phone: ${submission.phone ?? '-'}`,
-    `Page: ${submission.source}`,
+    ...optional.flatMap(([label, value]) => (value ? [`${label}: ${value}`] : [])),
+    `Page: ${submission.page}`,
     `Time: ${submission.createdAt.toISOString()}`,
     '',
     submission.message,

@@ -4,12 +4,12 @@ import {
   API_ROUTES,
   NEWSLETTER_CONFIRM_PATH,
   newsletterConfirmQuerySchema,
-  newsletterFormSchema,
+  newsletterRequestSchema,
 } from '@waren/shared';
 import { zodDto } from '../../common/zod-validation.pipe.js';
 import { NewsletterService } from './newsletter.service.js';
 
-class NewsletterBody extends zodDto(newsletterFormSchema) {}
+class NewsletterBody extends zodDto(newsletterRequestSchema) {}
 class ConfirmQuery extends zodDto(newsletterConfirmQuerySchema) {}
 
 const OK = 200;

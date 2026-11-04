@@ -30,12 +30,14 @@ describe('POST /api/v1/newsletter without SMTP', () => {
   });
 
   it('stores a normalised address with its consent time, and no token', async () => {
-    const response = await post({ email: ` ${EMAIL.toUpperCase()} ` }).expect(200);
+    const response = await post({ email: ` ${EMAIL.toUpperCase()} `, page: '/' }).expect(200);
     expect(newsletterResponseSchema.parse(response.body)).toEqual({ received: true });
     const [stored] = await prisma.subscriber.findMany();
     expect(stored).toMatchObject({
       email: EMAIL,
-      source: 'newsletter',
+      signupType: 'newsletter',
+      page: '/',
+      channel: 'Direct',
       confirmedAt: null,
       confirmationTokenHash: null,
     });
@@ -43,23 +45,27 @@ describe('POST /api/v1/newsletter without SMTP', () => {
   });
 
   it.each([
-    ['a bad address', { email: 'nope' }],
+    ['a bad address', { email: 'nope', page: '/' }],
     ['a missing address', {}],
-    ['an oversized address', { email: `${'x'.repeat(200)}@example.test` }],
+    ['an oversized address', { email: `${'x'.repeat(200)}@example.test`, page: '/' }],
   ])('rejects %s and stores nothing', async (_name, body) => {
     await post(body).expect(400);
     await expect(prisma.subscriber.count()).resolves.toBe(0);
   });
 
   it('answers a filled honeypot as normal but discards it', async () => {
-    const response = await post({ email: EMAIL, website: 'https://spam.example' }).expect(200);
+    const response = await post({
+      email: EMAIL,
+      page: '/',
+      website: 'https://spam.example',
+    }).expect(200);
     expect(response.body).toEqual({ received: true });
     await expect(prisma.subscriber.count()).resolves.toBe(0);
   });
 
   it('gives the same answer for an existing address and keeps one record', async () => {
-    await post({ email: EMAIL }).expect(200);
-    const response = await post({ email: EMAIL }).expect(200);
+    await post({ email: EMAIL, page: '/' }).expect(200);
+    const response = await post({ email: EMAIL, page: '/' }).expect(200);
     expect(response.body).toEqual({ received: true });
     await expect(prisma.subscriber.count()).resolves.toBe(1);
   });
@@ -95,7 +101,7 @@ describe('newsletter double opt-in', () => {
 
   it('emails a link, stores only a hash of its token, and confirms once', async () => {
     sendMail.mockResolvedValue({});
-    await post({ email: EMAIL }).expect(200);
+    await post({ email: EMAIL, page: '/' }).expect(200);
     expect(sendMail).toHaveBeenCalledOnce();
     expect(sendMail.mock.calls[0]?.[0]).toMatchObject({ to: EMAIL });
     const token = emailedToken();
@@ -115,12 +121,12 @@ describe('newsletter double opt-in', () => {
 
   it('does not email an address that is already confirmed', async () => {
     sendMail.mockResolvedValue({});
-    await post({ email: EMAIL }).expect(200);
+    await post({ email: EMAIL, page: '/' }).expect(200);
     await request(app.getHttpServer())
       .get(`${url}/${NEWSLETTER_CONFIRM_PATH}`)
       .query({ token: emailedToken() })
       .expect(302);
-    await post({ email: EMAIL }).expect(200);
+    await post({ email: EMAIL, page: '/' }).expect(200);
     expect(sendMail).toHaveBeenCalledOnce();
   });
 
@@ -133,7 +139,7 @@ describe('newsletter double opt-in', () => {
 
   it('still succeeds and keeps the record when the mail server fails', async () => {
     sendMail.mockRejectedValue(new Error('mail server down'));
-    await post({ email: EMAIL }).expect(200);
+    await post({ email: EMAIL, page: '/' }).expect(200);
     await expect(prisma.subscriber.count()).resolves.toBe(1);
   });
 });

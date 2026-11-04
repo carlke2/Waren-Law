@@ -2,6 +2,7 @@ import { ROUTES } from '@waren/shared';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { CookieConsent } from '@/components/site/cookie-consent';
+import { VisitCapture } from '@/components/site/visit-capture';
 import { JsonLd } from '@/components/site/json-ld';
 import { SiteFooter } from '@/components/site/site-footer';
 import { SiteHeader } from '@/components/site/site-header';
@@ -60,6 +61,7 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
       <SiteFooter settings={settings} practiceAreas={practiceAreas} rootSlugs={rootSlugs} />
       <WhatsAppButton whatsApp={settings.whatsApp} />
       <CookieConsent tracking={settings.tracking} />
+      <VisitCapture />
     </>
   );
 }
