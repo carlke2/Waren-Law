@@ -153,6 +153,7 @@ export const dictionary = {
   },
   insights: {
     title: 'Insights',
+    featured: 'Featured',
     lead: 'Articles on Kenyan law, investment, property and succession from WAREN Law Advocates LLP.',
     all: 'All',
     filterLabel: 'Filter insights by category',
@@ -171,8 +172,8 @@ export const dictionary = {
     faq: 'Your questions answered',
     register: 'Register now',
     requestRecording: 'Request the recording',
-    recordingAvailableSoon:
-      'Recording requests will be available soon. Please contact us in the meantime.',
+    watchRecording: 'Watch the recording',
+    groups: { upcoming: 'Upcoming', recording: 'Recordings', past: 'Past webinars' },
     states: { upcoming: 'Upcoming', recording: 'Recording', past: 'Past webinar' },
   },
   contact: {
@@ -259,6 +260,7 @@ export const dictionary = {
     navigation: 'Pagination',
     previous: 'Previous',
     next: 'Next',
+    gap: '…',
     page: (page: number) => `Page ${page}`,
   },
 };

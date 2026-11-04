@@ -26,7 +26,7 @@ describe('holdingTitle', () => {
   });
 
   it('uses the nav label for a fixed route, without calling the API', async () => {
-    await expect(holdingTitle(segments(ROUTES.insights))).resolves.toBe(dictionary.nav.insights);
+    await expect(holdingTitle(segments(ROUTES.search))).resolves.toBe(dictionary.nav.search);
     expect(fetchMock).not.toHaveBeenCalled();
   });
 

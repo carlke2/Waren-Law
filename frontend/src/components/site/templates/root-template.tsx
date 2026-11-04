@@ -5,8 +5,10 @@ import { seoMetadataInput } from '@/lib/seo/metadata';
 import { HoldingPage } from '../holding-page';
 import { AboutTemplate } from './about-template';
 import { ContactTemplate } from './contact-template';
+import { InsightTemplate } from './insight-template';
 import { PartnersTemplate } from './partners-template';
 import { PracticeAreaTemplate } from './practice-area-template';
+import { WebinarTemplate } from './webinar-template';
 
 export function rootMetadata(root: RootContent) {
   switch (root.type) {
@@ -67,7 +69,8 @@ export function RootTemplate({ root }: { root: RootContent }) {
     case 'practice_area':
       return <PracticeAreaTemplate area={root.content} />;
     case 'insight':
+      return <InsightTemplate insight={root.content} />;
     case 'webinar':
-      return <HoldingPage title={root.content.title} />;
+      return <WebinarTemplate webinar={root.content} />;
   }
 }
