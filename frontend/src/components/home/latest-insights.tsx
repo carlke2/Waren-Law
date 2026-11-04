@@ -44,7 +44,7 @@ interface LatestInsightsProps {
 export function LatestInsights({ home, insights }: LatestInsightsProps) {
   return (
     <section className="bg-surface">
-      <div className="site-container flex flex-col gap-12 py-16 sm:py-22 lg:py-28">
+      <div className="site-container flex flex-col gap-12 py-16 sm:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="flex flex-col gap-3">
             <Eyebrow>{text.insightsEyebrow}</Eyebrow>

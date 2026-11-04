@@ -42,7 +42,7 @@ interface ExpertiseProps {
 export function Expertise({ home, practiceAreas }: ExpertiseProps) {
   return (
     <section className="bg-surface-alt">
-      <div className="site-container flex flex-col gap-12 py-16 sm:py-22 lg:py-28">
+      <div className="site-container flex flex-col gap-12 py-16 sm:py-28">
         <div className="flex flex-col items-center gap-3 text-center">
           <Eyebrow>{text.expertiseEyebrow}</Eyebrow>
           <h2 className="font-heading text-h2 font-medium text-brand">{home.expertiseTitle}</h2>

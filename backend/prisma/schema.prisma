@@ -3,6 +3,7 @@ generator client {
   output              = "./generated"
   moduleFormat        = "esm"
   importFileExtension = "js"
+  previewFeatures     = ["relationJoins"]
 }
 
 datasource db {

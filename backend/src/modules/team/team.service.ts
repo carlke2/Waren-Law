@@ -12,7 +12,9 @@ import { ContentPresenter } from '../content/content-presenter.service.js';
 import {
   INSIGHT_NEWEST_FIRST,
   INSIGHT_SUMMARY_INCLUDE,
+  INSIGHT_SUMMARY_OMIT,
   TEAM_SUMMARY_INCLUDE,
+  TEAM_SUMMARY_OMIT,
 } from '../content/content-queries.js';
 import { PUBLISHED, PUBLISHED_AND_APPROVED } from '../content/visibility.js';
 import { presentOffice } from '../offices/offices.service.js';
@@ -33,6 +35,7 @@ export class TeamService {
     };
     const members = await this.prisma.teamMember.findMany({
       where,
+      omit: TEAM_SUMMARY_OMIT,
       include: TEAM_SUMMARY_INCLUDE,
       orderBy: { sortOrder: 'asc' },
     });
@@ -55,6 +58,7 @@ export class TeamService {
         office: true,
         insights: {
           where: PUBLISHED_AND_APPROVED,
+          omit: INSIGHT_SUMMARY_OMIT,
           include: INSIGHT_SUMMARY_INCLUDE,
           orderBy: INSIGHT_NEWEST_FIRST,
         },

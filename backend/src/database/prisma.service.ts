@@ -13,6 +13,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
         ssl: databaseSslOptions(env),
         // Reconnecting after a quiet spell is slow, so idle connections stay open for a while.
         idleTimeoutMillis: env.DATABASE_POOL_IDLE_TIMEOUT_MS,
+        min: env.DATABASE_POOL_MIN,
         keepAlive: true,
         // Without these limits, a silently dropped connection hung a request for over 3 minutes.
         connectionTimeoutMillis: env.DATABASE_CONNECT_TIMEOUT_MS,
