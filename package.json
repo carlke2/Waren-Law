@@ -15,6 +15,7 @@
     "typecheck": "pnpm -r run --if-present typecheck",
     "test": "pnpm -r run --if-present test",
     "test:e2e": "pnpm --filter @waren/frontend test:e2e",
+    "test:match": "pnpm --filter @waren/frontend test:match",
     "import:wp": "pnpm --filter @waren/import-wordpress start",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

@@ -52,21 +52,3 @@ export function groupSections(blocks: readonly ContentBlock[]): ContentSection[]
   }
   return sections;
 }
-
-export interface HomeContent {
-  headline: string;
-  whoWeServe: string;
-  sections: ContentSection[];
-}
-
-export function parseHomeContent(blocks: readonly ContentBlock[]): HomeContent {
-  const [headline, whoWeServe, ...rest] = blocks;
-  if (headline?.type !== 'heading' || whoWeServe?.type !== 'paragraph') {
-    throw new Error('The Home page must start with a headline and a who-we-serve line');
-  }
-  return {
-    headline: inlineToText(headline),
-    whoWeServe: inlineToText(whoWeServe),
-    sections: groupSections(rest),
-  };
-}
