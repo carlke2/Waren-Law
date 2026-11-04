@@ -12,7 +12,7 @@ Status key: ⬜ not started · 🎨 designing · 🔒 locked · 🛠 building ·
 |---|---|---|
 | Home | `/` | Hero (image + 3 cards) · Welcome · Areas of Expertise (8 cards) · Meet Our Partners · Latest insights · Recognition · CTA · Footer |
 
-## 1. About 🎨
+## 1. About 🎨 (reference: about-us.html, our-partners.html)
 | Page | URL | Sections |
 |---|---|---|
 | About Us | `/about-us/` | Page hero · Our story · Film (video, coming soon) · Mission & vision · Why clients choose us (4 points) + values · Recognition · Leadership (partners) · International partners teaser · CTA |

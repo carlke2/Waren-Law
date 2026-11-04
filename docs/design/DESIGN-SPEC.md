@@ -2,7 +2,7 @@
 
 **Version:** 3.4 · 4 November 2026 · **Status:** LOCKED by the owner (decision 0016)
 **Direction:** the layout of the Frieden & Forbes reference with the navy-and-gold look of the Juristo reference, and a **hero in the style of the Apex reference** (header over the image, three compact cards near the bottom of the image, as in the Kemen reference), filled with WAREN content.
-**Visual source of truth:** the "WAREN Law Home Design" canvas, board "LOCKED — Home", saved in the repo as `docs/design/reference/home-design-v3.dc.html`. Where this document and the design differ, the design wins; ask the planner.
+**Visual source of truth:** the "WAREN Law Home Design" canvas, board "LOCKED — Home", saved in the repo as `docs/design/reference/home-design.html`. Where this document and the design differ, the design wins; ask the planner.
 
 **Scope now:** Home, header, footer only.
 
@@ -36,8 +36,7 @@ All colours, fonts, sizes, spacing, radius, shadows and motion live in **one the
 | `--color-surface-alt` | mist | Alternate bands |
 | `--color-border` | line | Card borders |
 | `--color-border-strong` | line-strong | Inputs, icon buttons |
-| `--color-success` / `--color-error` | #1F6B45 / #B42318 | Form states on light (decision 0020) |
-| `--color-success-on-brand` / `--color-error-on-brand` | #7FD3A6 / #FF9C8F | Form states on navy (decision 0020) |
+| `--color-success` / `--color-error` | §1 | Form states |
 
   Also in the same file: `--font-heading`, `--font-body`, the type scale (`--text-h1` …), spacing scale, `--radius`, `--shadow-card`, `--shadow-header`, motion durations, `--container`.
 - `frontend/tailwind.config` (or Tailwind v4 `@theme`) maps utilities **only** to the semantic tokens (e.g. `bg-brand`, `text-accent`), not to palette names and not to Tailwind's default colours.
@@ -130,7 +129,7 @@ Hero: Nairobi skyline, ≥ 2400 × 1350, commercial licence recorded in `docs/de
 
 ## 7. Responsive — tested on phones first
 
-Test widths: **360, 390, 430** (phones), **768** (tablet), **1024, 1280, 1440, 1920** (desktop). The design canvas has a phone board ("LOCKED — Home on a phone (390 px)") as the visual reference for phones.
+Test widths: **360, 390, 430** (phones), **768** (tablet), **1024, 1280, 1440, 1920** (desktop). The phone reference is `docs/design/reference/home-design.html` opened at 390 px width (the same file is responsive), matching the "Home on a phone" board on the canvas.
 
 | Section | Phone (< 640 px) | Tablet (640–1023 px) | Desktop |
 |---|---|---|---|
