@@ -34,7 +34,7 @@ test.describe('desktop header', () => {
   test('sits over the page hero on an inner page, with its section in gold', async ({ page }) => {
     await page.goto(ROUTES.partners);
     await expect(page.locator('header')).toHaveAttribute('data-solid', 'false');
-    await expect(page.locator('header').getByRole('link', { name: nav.about })).toHaveAttribute(
+    await expect(page.locator('header').getByRole('link', { name: nav.partners })).toHaveAttribute(
       'aria-current',
       'page',
     );

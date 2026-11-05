@@ -2,7 +2,11 @@ import {
   API_ROUTES,
   awardResponseSchema,
   categoryResponseSchema,
+  clientLogoResponseSchema,
+  faqEntryResponseSchema,
   DEFAULT_PAGE_SIZE,
+  INSIGHT_CATEGORY_PARAM,
+  INSIGHT_PRACTICE_PARAM,
   homeResponseSchema,
   insightDetailSchema,
   insightListResponseSchema,
@@ -19,6 +23,7 @@ import {
   siteSettingsSchema,
   teamDetailSchema,
   teamListResponseSchema,
+  testimonialResponseSchema,
   webinarDetailSchema,
   webinarSummarySchema,
   type WebinarSummary,
@@ -50,11 +55,18 @@ interface InsightQuery {
   page?: number;
   pageSize?: number;
   category?: string;
+  practiceArea?: string;
 }
 
-export const getInsights = ({ page = 1, pageSize = DEFAULT_PAGE_SIZE, category }: InsightQuery) => {
+export const getInsights = ({
+  page = 1,
+  pageSize = DEFAULT_PAGE_SIZE,
+  category,
+  practiceArea,
+}: InsightQuery) => {
   const query = new URLSearchParams({ page: String(page), pageSize: String(pageSize) });
-  if (category) query.set('category', category);
+  if (category) query.set(INSIGHT_CATEGORY_PARAM, category);
+  if (practiceArea) query.set(INSIGHT_PRACTICE_PARAM, practiceArea);
   return apiFetch(`${API_ROUTES.insights}?${query}`, insightListResponseSchema);
 };
 export const getInsight = (slug: string) =>
@@ -69,6 +81,11 @@ export const getWebinar = (slug: string) =>
   apiFetchOrNull(slugPath(API_ROUTES.webinars, slug), webinarDetailSchema);
 export const getPartners = () => apiFetch(API_ROUTES.partners, z.array(partnerResponseSchema));
 export const getAwards = () => apiFetch(API_ROUTES.awards, z.array(awardResponseSchema));
+export const getTestimonials = () =>
+  apiFetch(API_ROUTES.testimonials, z.array(testimonialResponseSchema));
+export const getClientLogos = () =>
+  apiFetch(API_ROUTES.clientLogos, z.array(clientLogoResponseSchema));
+export const getFaqs = () => apiFetch(API_ROUTES.faqs, z.array(faqEntryResponseSchema));
 export const getRootSlugs = () => apiFetch(API_ROUTES.resolve, rootSlugsResponseSchema);
 export const resolveRootSlug = (slug: string) =>
   apiFetchOrNull(slugPath(API_ROUTES.resolve, slug), resolveResponseSchema);

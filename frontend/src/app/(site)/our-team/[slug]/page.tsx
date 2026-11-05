@@ -1,13 +1,12 @@
 import { ROUTES, type TeamDetail } from '@waren/shared';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { SiteCta } from '@/components/home/cta-band';
 import { BlockRenderer } from '@/components/site/block-renderer';
 import { InsightsBand } from '@/components/site/insights-band';
 import { JsonLd } from '@/components/site/json-ld';
 import { PageHero } from '@/components/site/page-hero';
-import { PortraitGrid } from '@/components/site/portrait-card';
+import { TeamGrid, TeamPhoto } from '@/components/site/team-photo';
 import { ButtonLink } from '@/components/ui/button-link';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { SectionHeading } from '@/components/ui/section-heading';
@@ -22,7 +21,7 @@ import { mailLink, telLink, whatsAppLink } from '@/lib/utils/links';
 
 const text = dictionary.profile;
 const RELATED_LIMIT = 4;
-const PORTRAIT_SIZES = '(min-width: 40rem) 18rem, 100vw';
+const PROFILE_PHOTO_SIZES = '(min-width: 40rem) 18rem, 100vw';
 
 interface ProfilePageProps {
   params: Promise<{ slug: string }>;
@@ -110,15 +109,14 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
         crumbs={[{ label: dictionary.nav.people, href: ROUTES.team }, { label: name }]}
         aside={
           member.portrait ? (
-            <div className="relative aspect-portrait w-full max-w-profile bg-placeholder">
-              <Image
-                src={member.portrait.url}
-                alt={member.portrait.alt}
-                fill
-                sizes={PORTRAIT_SIZES}
-                className="object-cover object-top"
-              />
-            </div>
+            <TeamPhoto
+              member={member}
+              caption={false}
+              linked={false}
+              priority
+              sizes={PROFILE_PHOTO_SIZES}
+              className="w-full max-w-profile"
+            />
           ) : null
         }
       >
@@ -182,7 +180,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
         <section data-tone="dark" className="bg-brand text-on-brand">
           <div className="site-container flex flex-col gap-12 py-16 sm:py-28">
             <SectionHeading eyebrow={text.relatedEyebrow} title={text.related} onBrand />
-            <PortraitGrid members={related} />
+            <TeamGrid members={related} />
           </div>
         </section>
       ) : null}

@@ -2,20 +2,26 @@ import { dictionary } from '@/lib/dictionary';
 
 const { brand } = dictionary;
 
+export function BrandMark({ className = 'size-10' }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2.4}
+      aria-hidden="true"
+      className={className}
+    >
+      <path d="M8 12l8 26 8-20 8 20 8-26" />
+      <path d="M6 12h8M34 12h8" />
+    </svg>
+  );
+}
+
 export function HeaderLogo() {
   return (
     <span className="flex items-center gap-3">
-      <svg
-        viewBox="0 0 48 48"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={2.4}
-        aria-hidden="true"
-        className="size-10 text-accent"
-      >
-        <path d="M8 12l8 26 8-20 8 20 8-26" />
-        <path d="M6 12h8M34 12h8" />
-      </svg>
+      <BrandMark className="size-10 text-accent" />
       <span className="flex flex-col">
         <span className="font-heading text-wordmark font-semibold tracking-wordmark text-on-brand">
           {brand.wordmark}

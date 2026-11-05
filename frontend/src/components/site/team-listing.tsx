@@ -4,7 +4,7 @@ import { getPracticeAreas, getTeam } from '@/lib/api/content';
 import { teamFilterChips } from '@/lib/content/team';
 import { dictionary } from '@/lib/dictionary';
 import { PageHero } from './page-hero';
-import { PortraitGrid } from './portrait-card';
+import { TeamGrid } from './team-photo';
 
 const text = dictionary.team;
 
@@ -29,7 +29,7 @@ export async function TeamListing({ practiceArea }: { practiceArea?: string }) {
           {team.groups.map(({ memberType, members }) => (
             <div key={memberType} className="flex flex-col gap-9">
               <h2 className="font-heading text-h2 font-medium">{text.groups[memberType]}</h2>
-              <PortraitGrid members={members} />
+              <TeamGrid members={members} />
             </div>
           ))}
         </div>

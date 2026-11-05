@@ -18,7 +18,11 @@ interface ButtonLinkProps {
 }
 
 export function ButtonLink({ href, variant, external, className, children }: ButtonLinkProps) {
-  const classes = cx('inline-block text-center text-button', VARIANTS[variant], className);
+  const classes = cx(
+    'inline-block rounded-lg text-center text-button',
+    VARIANTS[variant],
+    className,
+  );
   return external ? (
     <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
       {children}

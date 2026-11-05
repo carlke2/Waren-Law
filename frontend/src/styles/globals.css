@@ -33,6 +33,59 @@
 }
 
 @layer components {
+  .team-photo {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--spacing) * 3);
+    text-align: center;
+  }
+
+  .team-photo-frame {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    border: var(--border-card-rule) solid var(--photo-ring);
+    background: var(--photo-backdrop);
+    transition:
+      border-color var(--motion-photo) ease,
+      box-shadow var(--motion-photo) ease,
+      transform var(--motion-photo) ease;
+  }
+
+  .team-photo-image {
+    object-fit: cover;
+    filter: brightness(0.95);
+    transition:
+      transform var(--motion-photo) ease,
+      filter var(--motion-photo) ease;
+  }
+
+  .team-photo:hover .team-photo-frame,
+  .team-photo:focus-visible .team-photo-frame {
+    border-color: var(--color-accent);
+    box-shadow: var(--photo-shadow);
+    transform: translateY(calc(var(--spacing) * -1));
+  }
+
+  .team-photo:hover .team-photo-image,
+  .team-photo:focus-visible .team-photo-image {
+    transform: scale(1.06);
+    filter: brightness(1.1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .team-photo:hover .team-photo-frame,
+    .team-photo:focus-visible .team-photo-frame,
+    .team-photo:hover .team-photo-image,
+    .team-photo:focus-visible .team-photo-image {
+      transform: none;
+    }
+  }
+
   .prose-body {
     display: flex;
     flex-direction: column;

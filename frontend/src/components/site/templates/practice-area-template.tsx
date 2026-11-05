@@ -7,7 +7,7 @@ import { BlockRenderer } from '../block-renderer';
 import { FaqList } from '../faq-list';
 import { InsightsBand } from '../insights-band';
 import { PageHero } from '../page-hero';
-import { PortraitGrid } from '../portrait-card';
+import { TeamGrid } from '../team-photo';
 
 const text = dictionary.practice;
 
@@ -37,7 +37,7 @@ export function PracticeAreaTemplate({ area }: { area: PracticeAreaDetail }) {
         <section data-tone="dark" className="bg-brand text-on-brand">
           <div className="site-container flex flex-col gap-12 py-16 sm:py-28">
             <SectionHeading eyebrow={text.teamEyebrow} title={text.team} onBrand />
-            <PortraitGrid members={area.team} />
+            <TeamGrid members={area.team} />
           </div>
         </section>
       ) : null}

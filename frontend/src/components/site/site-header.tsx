@@ -1,6 +1,6 @@
 'use client';
 
-import { ROUTES } from '@waren/shared/constants';
+import { ROUTES, type SiteSettings } from '@waren/shared';
 import { SiteLink } from '@/components/ui/site-link';
 import { usePathname } from 'next/navigation';
 import { useRef, useSyncExternalStore } from 'react';
@@ -8,7 +8,11 @@ import { LineSvg } from '@/components/ui/icon';
 import { dictionary } from '@/lib/dictionary';
 import { activeNavHref, CONTACT_LINK, PRIMARY_NAV, type RootSlugType } from '@/lib/navigation';
 import { cx } from '@/lib/utils/cx';
+import { formatPhone, mailLink, telLink } from '@/lib/utils/links';
+import { buttonClass } from '@/components/ui/button';
+import { MorphicNavbar } from '@/components/kokonutui/morphic-navbar';
 import { HeaderLogo } from './logo';
+import { SocialLinks } from './social-links';
 
 const { nav } = dictionary;
 
@@ -20,66 +24,97 @@ function subscribeToScroll(onChange: () => void): () => void {
 const isScrolled = () => window.scrollY > 0;
 const notScrolledOnServer = () => false;
 
-export function SiteHeader({ rootSlugs }: { rootSlugs: readonly RootSlugType[] }) {
+export function SiteHeader({
+  rootSlugs,
+  settings,
+}: {
+  rootSlugs: readonly RootSlugType[];
+  settings: SiteSettings;
+}) {
   const pathname = usePathname();
   const scrolled = useSyncExternalStore(subscribeToScroll, isScrolled, notScrolledOnServer);
   const menu = useRef<HTMLDialogElement>(null);
   const solid = scrolled;
   const activeHref = activeNavHref(pathname, rootSlugs);
+  const { contact } = settings;
 
   return (
     <header
       data-tone="dark"
       data-solid={solid}
-      className={cx(
-        'sticky top-0 z-40 h-header transition-colors',
-        solid ? 'bg-brand shadow-header' : 'bg-transparent',
-      )}
+      className="sticky top-0 z-40 flex h-header flex-col-reverse"
     >
-      <div className="site-container flex h-full items-center justify-between gap-6">
-        <SiteLink href={ROUTES.home} aria-label={dictionary.brand.wordmark}>
-          <HeaderLogo />
-        </SiteLink>
-        <nav aria-label={nav.primary} className="hidden items-center gap-7.5 text-nav lg:flex">
-          {PRIMARY_NAV.map(({ label, href }) => (
-            <SiteLink
-              key={href}
-              href={href}
-              aria-current={activeHref === href ? 'page' : undefined}
-              className={cx(
-                'font-medium hover:text-accent',
-                activeHref === href ? 'text-accent' : 'text-on-brand',
-              )}
-            >
-              {label}
-            </SiteLink>
-          ))}
-          <SiteLink
-            href={CONTACT_LINK.href}
-            className="bg-accent px-5 py-2.75 font-bold text-on-accent"
-          >
-            {CONTACT_LINK.label}
+      <div
+        className={cx(
+          'flex h-nav items-center transition-colors',
+          solid ? 'bg-brand shadow-header' : 'bg-transparent',
+        )}
+      >
+        <div className="site-container flex h-full w-full items-center justify-between gap-6">
+          <SiteLink href={ROUTES.home} aria-label={dictionary.brand.wordmark}>
+            <HeaderLogo />
           </SiteLink>
-        </nav>
-        <button
-          type="button"
-          aria-label={nav.openMenu}
-          aria-haspopup="dialog"
-          onClick={() => menu.current?.showModal()}
-          className="inline-flex size-11 items-center justify-center border border-menu-outline text-on-brand lg:hidden"
-        >
-          <LineSvg className="size-5.5">
-            <path d="M4 7h16M4 12h16M4 17h16" />
-          </LineSvg>
-        </button>
+          <nav aria-label={nav.primary} className="hidden items-center gap-5 text-nav xl:flex">
+            <MorphicNavbar
+              compact
+              currentPath={activeHref}
+              items={Object.fromEntries(
+                PRIMARY_NAV.map(({ href, label }) => [href, { name: label }]),
+              )}
+              className="px-0 py-0"
+            />
+            <SiteLink href={CONTACT_LINK.href} className={buttonClass({ variant: 'accent' })}>
+              {CONTACT_LINK.label}
+            </SiteLink>
+            <SiteLink
+              href={ROUTES.search}
+              aria-label={nav.search}
+              className="inline-flex size-11 items-center justify-center text-on-brand hover:text-accent"
+            >
+              <LineSvg className="size-5">
+                <circle cx="11" cy="11" r="6" />
+                <path d="M20 20l-3.5-3.5" />
+              </LineSvg>
+            </SiteLink>
+          </nav>
+          <button
+            type="button"
+            aria-label={nav.openMenu}
+            aria-haspopup="dialog"
+            onClick={() => menu.current?.showModal()}
+            className="inline-flex size-11 items-center justify-center border border-menu-outline text-on-brand xl:hidden"
+          >
+            <LineSvg className="size-5.5">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </LineSvg>
+          </button>
+        </div>
+      </div>
+      <div className="hidden h-topbar items-center bg-brand-strong text-meta text-on-brand xl:flex">
+        <div className="site-container flex w-full items-center justify-between gap-4">
+          <SocialLinks socials={settings.socials} />
+          <div className="flex items-center gap-5">
+            {contact.phones.map((phone) => (
+              <a key={phone} href={telLink(phone)} className="hover:text-accent">
+                {formatPhone(phone)}
+              </a>
+            ))}
+            <a href={mailLink(contact.email)} className="hover:text-accent">
+              {contact.email}
+            </a>
+            <SiteLink href={ROUTES.consultation} className={buttonClass({ variant: 'accent' })}>
+              {settings.cta.bookingLabel}
+            </SiteLink>
+          </div>
+        </div>
       </div>
       <dialog
         ref={menu}
         aria-label={nav.primary}
         data-tone="dark"
-        className="fixed inset-0 m-0 size-full max-h-none max-w-none bg-brand text-on-brand open:flex open:flex-col lg:hidden"
+        className="fixed inset-0 m-0 size-full max-h-none max-w-none bg-brand text-on-brand open:flex open:flex-col xl:hidden"
       >
-        <div className="site-container flex h-header shrink-0 items-center justify-between gap-6">
+        <div className="site-container flex h-nav shrink-0 items-center justify-between gap-6">
           <HeaderLogo />
           <button
             type="button"
@@ -93,7 +128,10 @@ export function SiteHeader({ rootSlugs }: { rootSlugs: readonly RootSlugType[] }
             </LineSvg>
           </button>
         </div>
-        <nav aria-label={nav.primary} className="site-container flex flex-col gap-2 py-8">
+        <nav
+          aria-label={nav.primary}
+          className="site-container flex flex-col gap-2 overflow-auto py-8"
+        >
           {PRIMARY_NAV.map(({ label, href }) => (
             <SiteLink
               key={href}
@@ -111,9 +149,16 @@ export function SiteHeader({ rootSlugs }: { rootSlugs: readonly RootSlugType[] }
           <SiteLink
             href={CONTACT_LINK.href}
             onClick={() => menu.current?.close()}
-            className="mt-6 bg-accent px-6.5 py-3.5 text-center text-button font-bold text-on-accent"
+            className={buttonClass({ variant: 'accent', size: 'lg', className: 'mt-6' })}
           >
             {CONTACT_LINK.label}
+          </SiteLink>
+          <SiteLink
+            href={ROUTES.search}
+            onClick={() => menu.current?.close()}
+            className="mt-3 flex min-h-11 items-center text-button font-semibold"
+          >
+            {nav.search}
           </SiteLink>
         </nav>
       </dialog>

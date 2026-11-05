@@ -8,6 +8,7 @@ import { formatPhone, mailLink, telLink } from '@/lib/utils/links';
 import { CookiePreferencesButton } from './cookie-consent';
 import { FooterLogo } from './logo';
 import { NewsletterForm } from './newsletter-form';
+import { SocialLinks } from './social-links';
 
 const text = dictionary.footer;
 // Phone targets are 44 tall, with negative margins so the rows keep the design's spacing.
@@ -41,7 +42,7 @@ interface SiteFooterProps {
 }
 
 export function SiteFooter({ settings, practiceAreas, rootSlugs }: SiteFooterProps) {
-  const { firm, contact, newsletter } = settings;
+  const { firm, contact, newsletter, socials } = settings;
   const published = new Set(rootSlugs.map(({ slug }) => slug));
   return (
     <footer data-tone="dark" className="bg-brand text-footer text-on-brand-muted">
@@ -59,6 +60,7 @@ export function SiteFooter({ settings, practiceAreas, rootSlugs }: SiteFooterPro
               {contact.email}
             </a>
           </div>
+          <SocialLinks socials={socials} className="-ml-3" />
         </div>
         <Column heading={text.quickLinks}>
           {QUICK_LINKS.map(({ label, href }) => (

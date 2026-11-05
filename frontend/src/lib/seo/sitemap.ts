@@ -15,6 +15,7 @@ const STATIC_PATHS = [
   ROUTES.insights,
   ROUTES.webinars,
   ROUTES.consultation,
+  ROUTES.faq,
 ];
 
 export function sitemapEntries({ siteUrl, rootSlugs, team, categories }: SitemapInput) {

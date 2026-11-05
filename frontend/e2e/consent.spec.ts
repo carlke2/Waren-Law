@@ -54,10 +54,14 @@ test('sits bottom-left without covering the hero cards at 1366 × 768', async ({
   await page.setViewportSize({ width: 1366, height: 768 });
   await page.goto(ROUTES.home);
   const panel = await page.getByRole('region', { name: text.title }).boundingBox();
-  const hero = page.locator('main > section').first();
-  const card = await hero.getByRole('link').first().boundingBox();
+  const action = await page
+    .locator('main > section')
+    .first()
+    .getByRole('link')
+    .first()
+    .boundingBox();
   expect(panel?.x).toBeLessThan(100);
-  expect((card?.y ?? 0) + (card?.height ?? 0)).toBeLessThanOrEqual(panel?.y ?? 0);
+  expect((action?.y ?? 0) + (action?.height ?? 0)).toBeLessThanOrEqual(panel?.y ?? 0);
 });
 
 test('is a bottom sheet on phones', async ({ page }) => {

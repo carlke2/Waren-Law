@@ -9,8 +9,12 @@ import {
   MEETING_OPTIONS,
   ROUTES,
 } from '@waren/shared/constants';
-import { useId, useState, type FormEvent } from 'react';
+import { useId, useState, type FormEvent, type ReactNode } from 'react';
+import { Button } from '@/components/ui/button';
+import { Field, FieldError, FieldLabel } from '@/components/ui/field';
+import { Input, inputClass } from '@/components/ui/input';
 import { SiteLink } from '@/components/ui/site-link';
+import { Textarea } from '@/components/ui/textarea';
 import { visitAttribution } from '@/lib/attribution/visit';
 import { dictionary } from '@/lib/dictionary';
 import { cx } from '@/lib/utils/cx';
@@ -18,14 +22,12 @@ import { cx } from '@/lib/utils/cx';
 const text = dictionary.leadForm;
 const HONEYPOT_FIELD = 'website';
 const TOO_MANY_REQUESTS = 429;
-const CONTROL =
-  'min-h-12 w-full border border-border-strong bg-surface px-3.5 py-2.5 text-text aria-invalid:border-error';
 
 type FormName = 'contact' | 'consultation' | 'recording';
 type FieldName = keyof typeof text.labels;
 type Status = 'idle' | 'sending' | 'sent' | 'failed' | 'limited' | 'invalid';
 
-interface Field {
+interface FormField {
   name: FieldName;
   type: 'text' | 'email' | 'tel' | 'textarea' | 'select';
   options?: readonly string[];
@@ -34,23 +36,23 @@ interface Field {
   wide?: boolean;
 }
 
-const NAME: Field = { name: 'name', type: 'text', required: true, autoComplete: 'name' };
-const EMAIL: Field = { name: 'email', type: 'email', required: true, autoComplete: 'email' };
-const COUNTRY: Field = {
+const NAME: FormField = { name: 'name', type: 'text', required: true, autoComplete: 'name' };
+const EMAIL: FormField = { name: 'email', type: 'email', required: true, autoComplete: 'email' };
+const COUNTRY: FormField = {
   name: 'country',
   type: 'select',
   options: COUNTRIES,
   required: true,
   autoComplete: 'country-name',
 };
-const HEARD_ABOUT: Field = {
+const HEARD_ABOUT: FormField = {
   name: 'heardAbout',
   type: 'select',
   options: HEARD_ABOUT_OPTIONS,
   wide: true,
 };
 
-function fieldsFor(form: FormName, practiceAreas: readonly string[]): Field[] {
+function fieldsFor(form: FormName, practiceAreas: readonly string[]): FormField[] {
   switch (form) {
     case 'contact':
       return [
@@ -103,7 +105,15 @@ async function schemaFor(form: FormName) {
   return schemas[form];
 }
 
-function FieldControl({ field, error }: { field: Field; error: string | undefined }) {
+function FieldControl({
+  field,
+  error,
+  submit,
+}: {
+  field: FormField;
+  error: string | undefined;
+  submit?: ReactNode;
+}) {
   const id = useId();
   const errorId = `${id}-error`;
   const shared = {
@@ -113,17 +123,17 @@ function FieldControl({ field, error }: { field: Field; error: string | undefine
     autoComplete: field.autoComplete,
     'aria-invalid': error ? true : undefined,
     'aria-describedby': error ? errorId : undefined,
-    className: CONTROL,
   };
   return (
-    <div className={cx('flex min-w-0 flex-col gap-2', field.wide && 'col-span-full')}>
-      <label htmlFor={id} className="text-link font-semibold text-brand">
-        {text.labels[field.name]}
-      </label>
+    <Field
+      className={cx('min-w-0', field.wide && 'col-span-full')}
+      data-invalid={error ? true : undefined}
+    >
+      <FieldLabel htmlFor={id}>{text.labels[field.name]}</FieldLabel>
       {field.type === 'textarea' ? (
-        <textarea rows={5} {...shared} />
+        <Textarea rows={5} {...shared} />
       ) : field.type === 'select' ? (
-        <select defaultValue="" {...shared}>
+        <select defaultValue="" className={inputClass()} {...shared}>
           <option value="">{dictionary.forms.choose}</option>
           {field.options?.map((option) => (
             <option key={option} value={option}>
@@ -132,14 +142,11 @@ function FieldControl({ field, error }: { field: Field; error: string | undefine
           ))}
         </select>
       ) : (
-        <input type={field.type} {...shared} />
+        <Input type={field.type} {...shared} />
       )}
-      {error ? (
-        <p id={errorId} className="text-meta text-error">
-          {error}
-        </p>
-      ) : null}
-    </div>
+      <FieldError id={errorId}>{error}</FieldError>
+      {submit}
+    </Field>
   );
 }
 
@@ -153,6 +160,8 @@ export function LeadForm({ form, practiceAreas = [], submitLabel }: LeadFormProp
   const [status, setStatus] = useState<Status>('idle');
   const [errors, setErrors] = useState<Partial<Record<FieldName, string>>>({});
   const fields = fieldsFor(form, practiceAreas);
+  const notes = fields.filter((field) => field.type !== 'textarea');
+  const messages = fields.filter((field) => field.type === 'textarea');
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -200,7 +209,7 @@ export function LeadForm({ form, practiceAreas = [], submitLabel }: LeadFormProp
 
   return (
     <form noValidate onSubmit={onSubmit} className="grid grid-auto-field gap-5">
-      {fields.map((field) => (
+      {notes.map((field) => (
         <FieldControl key={field.name} field={field} error={errors[field.name]} />
       ))}
       <div className="sr-only" aria-hidden="true">
@@ -215,15 +224,23 @@ export function LeadForm({ form, practiceAreas = [], submitLabel }: LeadFormProp
           {text.privacyLink}
         </SiteLink>
       </p>
-      <div className="col-span-full">
-        <button
-          type="submit"
-          disabled={status === 'sending'}
-          className="inline-block min-h-12 bg-brand px-6.5 py-3.5 text-center text-button font-semibold text-on-brand"
-        >
+      {messages.map((field) => (
+        <FieldControl
+          key={field.name}
+          field={field}
+          error={errors[field.name]}
+          submit={
+            <Button type="submit" disabled={status === 'sending'} className="self-start">
+              {submitLabel}
+            </Button>
+          }
+        />
+      ))}
+      {messages.length === 0 ? (
+        <Button type="submit" disabled={status === 'sending'} className="col-span-full w-fit">
           {submitLabel}
-        </button>
-      </div>
+        </Button>
+      ) : null}
       <p
         role="status"
         className={cx(

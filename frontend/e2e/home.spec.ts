@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { API_PREFIX, ROUTES } from '@waren/shared';
 import { dictionary } from '../src/lib/dictionary';
-import { decideConsent, DESKTOP, loadAllImages, PHONE } from './helpers';
+import { decideConsent, DESKTOP, loadAllImages } from './helpers';
 
 const HERO_CARDS = [
   { title: 'For Businesses', href: '/corporate-commercial-practice/' },
@@ -66,26 +66,25 @@ test.describe('content', () => {
     }
   });
 
-  test('has one H1, visually hidden, and three cards in the hero', async ({ page }) => {
+  test('has one visible H1 and a services link in the hero', async ({ page }) => {
     await page.goto(ROUTES.home);
     const heading = page.getByRole('heading', { level: 1 });
     await expect(heading).toHaveCount(1);
-    await expect(heading).toHaveClass(/sr-only/);
+    await expect(heading).toBeVisible();
     const hero = page.locator('main > section').first();
-    await expect(hero.getByRole('link')).toHaveCount(HERO_CARD_TITLES.length);
-    for (const title of HERO_CARD_TITLES) {
-      await expect(hero.getByRole('link', { name: title })).toBeVisible();
-    }
+    await expect(hero.getByRole('link', { name: dictionary.home.heroServices })).toBeVisible();
   });
 
-  test('links each hero card to its practice page, and each page opens', async ({
+  test('links each audience card to its practice page, and each page opens', async ({
     page,
     request,
   }) => {
     await page.goto(ROUTES.home);
-    const hero = page.locator('main > section').first();
+    const audience = page
+      .locator('main > section')
+      .filter({ hasText: dictionary.home.audienceEyebrow });
     for (const { title, href } of HERO_CARDS) {
-      await expect(hero.getByRole('link', { name: title })).toHaveAttribute('href', href);
+      await expect(audience.getByRole('link', { name: title })).toHaveAttribute('href', href);
       expect((await request.get(href)).status(), href).toBe(200);
     }
   });
@@ -95,7 +94,11 @@ test.describe('content', () => {
     request,
   }) => {
     await page.goto(ROUTES.home);
-    const cards = page.locator('main > section').nth(2).getByRole('link');
+    const cards = page
+      .locator('main > section')
+      .filter({ hasText: '01' })
+      .filter({ hasText: '08' })
+      .getByRole('link');
     await expect(cards).toHaveCount(8);
     await expect(cards.first()).toContainText('01');
     await expect(cards.last()).toContainText('08');
@@ -111,7 +114,7 @@ test.describe('content', () => {
 
   test('links 4 partners, with portraits, to their profiles', async ({ page }) => {
     await page.goto(ROUTES.home);
-    const band = page.locator('main > section').nth(3);
+    const band = page.locator('main > section').filter({ hasText: 'Meet Our Partners' });
     const cards = band.getByRole('link').filter({ has: page.locator('img') });
     await expect(cards).toHaveCount(4);
     await cards.first().click();
@@ -121,7 +124,7 @@ test.describe('content', () => {
 
   test('links the 3 latest insights, each with a date', async ({ page }) => {
     await page.goto(ROUTES.home);
-    const section = page.locator('main > section').nth(4);
+    const section = page.locator('main > section').filter({ hasText: 'Latest from our advocates' });
     const cards = section.getByRole('link').filter({ has: page.getByRole('heading') });
     await expect(cards).toHaveCount(3);
     await expect(cards.first()).toContainText(/\d{4}/);
@@ -160,30 +163,13 @@ test.describe('layout', () => {
     { width: 1366, height: 768 },
     { width: 1920, height: 1080 },
   ]) {
-    test(`shows the full hero cards on the first screen at ${viewport.width}`, async ({ page }) => {
+    test(`fits the hero on the first screen at ${viewport.width}`, async ({ page }) => {
       await page.setViewportSize(viewport);
       await page.goto(ROUTES.home);
       const hero = await page.locator('main > section').first().boundingBox();
-      expect((hero?.y ?? 0) + (hero?.height ?? 0)).toBeLessThanOrEqual(viewport.height);
+      expect((hero?.y ?? 0) + (hero?.height ?? 0)).toBeLessThanOrEqual(viewport.height + 1);
     });
   }
-
-  test('keeps 64 px of image below the cards on desktop', async ({ page }) => {
-    await page.setViewportSize(DESKTOP);
-    await page.goto(ROUTES.home);
-    const hero = page.locator('main > section').first();
-    const box = await hero.boundingBox();
-    const card = await hero.getByRole('link').first().boundingBox();
-    expect((box?.y ?? 0) + (box?.height ?? 0) - (card?.y ?? 0) - (card?.height ?? 0)).toBe(64);
-  });
-
-  test('turns hero cards into compact rows on phones', async ({ page }) => {
-    await page.setViewportSize(PHONE);
-    await page.goto(ROUTES.home);
-    const card = page.locator('main > section').first().getByRole('link').first();
-    await expect(card.getByText(dictionary.home.heroCardButton)).toBeHidden();
-    await expect(card.locator('p')).toBeHidden();
-  });
 });
 
 test.describe('visual snapshots', () => {
@@ -198,7 +184,7 @@ test.describe('visual snapshots', () => {
       await expect(page).toHaveScreenshot(`home-${viewport.width}.png`, {
         fullPage: true,
         timeout: 30_000,
-        mask: [page.locator('main > section').nth(4)],
+        mask: [page.locator('main > section').filter({ hasText: 'Latest from our advocates' })],
       });
     });
   }

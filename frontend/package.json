@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@waren/shared": "workspace:*",
+    "motion": "^14.9.1",
     "next": "^16.4.4",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",

@@ -56,7 +56,10 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
       >
         {dictionary.common.skipToContent}
       </a>
-      <SiteHeader rootSlugs={rootSlugs.map(({ slug, type }) => ({ slug, type }))} />
+      <SiteHeader
+        rootSlugs={rootSlugs.map(({ slug, type }) => ({ slug, type }))}
+        settings={settings}
+      />
       <main id="main">{children}</main>
       <SiteFooter settings={settings} practiceAreas={practiceAreas} rootSlugs={rootSlugs} />
       <WhatsAppButton whatsApp={settings.whatsApp} />

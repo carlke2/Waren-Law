@@ -40,7 +40,7 @@ export async function PageHero({ title, crumbs, eyebrow, intro, aside, children 
             preload
             fetchPriority="high"
             sizes={IMAGE_SIZES}
-            className="object-cover object-bottom"
+            className="object-cover object-center"
           />
           <div className="hero-overlay absolute inset-0" />
           <div className="hero-overlay-top absolute inset-x-0 top-0" />

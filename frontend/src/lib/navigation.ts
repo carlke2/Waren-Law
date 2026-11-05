@@ -15,6 +15,8 @@ export const PRIMARY_NAV: readonly NavLink[] = [
   { label: nav.practiceAreas, href: ROUTES.expertise },
   { label: nav.people, href: ROUTES.team },
   { label: nav.insights, href: ROUTES.insights },
+  { label: nav.partners, href: ROUTES.partners },
+  { label: nav.faq, href: ROUTES.faq },
 ];
 
 export const CONTACT_LINK: NavLink = { label: nav.contactUs, href: ROUTES.contact };
@@ -26,6 +28,7 @@ export const QUICK_LINKS: readonly NavLink[] = [
   { label: footer.insights, href: ROUTES.insights },
   { label: footer.webinars, href: ROUTES.webinars },
   { label: footer.contact, href: ROUTES.contact },
+  { label: footer.faq, href: ROUTES.faq },
 ];
 
 export const FOOTER_PRACTICE_LIMIT = 5;
@@ -37,11 +40,13 @@ export const LEGAL_LINKS = [
 
 export type RootSlugType = Pick<RootSlug, 'slug' | 'type'>;
 
-const ABOUT_PATHS: readonly string[] = [ROUTES.about, ROUTES.partners];
+const ABOUT_PATHS: readonly string[] = [ROUTES.about];
 const CATEGORY_PREFIX = ROUTES.category('');
 
 export function activeNavHref(pathname: string, rootSlugs: readonly RootSlugType[]): string | null {
   if (pathname === ROUTES.home) return ROUTES.home;
+  if (pathname === ROUTES.partners) return ROUTES.partners;
+  if (pathname === ROUTES.faq) return ROUTES.faq;
   if (ABOUT_PATHS.includes(pathname)) return ROUTES.about;
   if (pathname.startsWith(ROUTES.team)) return ROUTES.team;
   if (pathname === ROUTES.expertise) return ROUTES.expertise;

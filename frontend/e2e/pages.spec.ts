@@ -26,6 +26,7 @@ const PAGES = [
   { name: 'webinar-recording', path: '/wealth-protection-plan-for-kenyans-abroad-webinar/' },
   { name: 'webinar-past', path: '/trusts-taxes-protecting-wealth-across-borders/' },
   { name: 'privacy-policy', path: '/privacy-policy/' },
+  { name: 'faq', path: '/faq/' },
 ];
 
 for (const { name, path: route } of PAGES) {

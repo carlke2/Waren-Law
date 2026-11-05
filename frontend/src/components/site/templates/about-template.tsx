@@ -10,7 +10,7 @@ import { dictionary } from '@/lib/dictionary';
 import { AboutFilm } from '../about-film';
 import { BlockRenderer } from '../block-renderer';
 import { PageHero } from '../page-hero';
-import { PortraitGrid } from '../portrait-card';
+import { TeamGrid } from '../team-photo';
 import { RecognitionBlock } from '../recognition-block';
 
 const text = dictionary.about;
@@ -137,7 +137,7 @@ export async function AboutTemplate({ page }: { page: PageResponse }) {
                 {dictionary.home.allPeople}
               </ButtonLink>
             </div>
-            <PortraitGrid members={leaders} />
+            <TeamGrid members={leaders} />
           </div>
         </section>
       ) : null}

@@ -12,7 +12,6 @@ import { BlockRenderer } from '../block-renderer';
 import { FaqList } from '../faq-list';
 import { InsightsBand } from '../insights-band';
 import { JsonLd } from '../json-ld';
-import { NewsletterBand } from '../newsletter-band';
 import { PageHero } from '../page-hero';
 
 const text = dictionary.insights;
@@ -88,7 +87,6 @@ export async function InsightTemplate({ insight }: { insight: InsightDetail }) {
       </article>
       <FaqList items={insight.faq} />
       <InsightsBand title={text.related} insights={insight.related} />
-      <NewsletterBand />
       <SiteCta />
     </>
   );

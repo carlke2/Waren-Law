@@ -1,5 +1,5 @@
 import { ROUTES, type HomeResponse, type TeamSummary } from '@waren/shared';
-import { PortraitGrid } from '@/components/site/portrait-card';
+import { TeamGrid } from '@/components/site/team-photo';
 import { ButtonLink } from '@/components/ui/button-link';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { dictionary } from '@/lib/dictionary';
@@ -27,7 +27,7 @@ export function PartnersBand({ home, partners }: PartnersBandProps) {
             {text.allPeople}
           </ButtonLink>
         </div>
-        <PortraitGrid members={partners} />
+        <TeamGrid members={partners} />
       </div>
     </section>
   );

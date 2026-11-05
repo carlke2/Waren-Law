@@ -1,8 +1,8 @@
 :root {
-  --palette-navy-950: #070f2a;
-  --palette-navy-900: #0b1a4a;
-  --palette-navy-800: #12245e;
-  --palette-navy-700: #1b2f6e;
+  --palette-navy-950: #030b2c;
+  --palette-navy-900: #061557;
+  --palette-navy-800: #0c2378;
+  --palette-navy-700: #16318f;
   --palette-gold-500: #d4af37;
   --palette-gold-700: #8a6a12;
   --palette-ink-900: #141a2e;
@@ -31,6 +31,21 @@
   --border-hair: 0.0625rem;
   --motion-fast: 150ms;
   --motion-slow: 250ms;
+  --motion-photo: 350ms;
+  /* Switch portraits: var(--photo-backdrop-royal), var(--photo-backdrop-steel), or var(--photo-backdrop-deep). */
+  --photo-backdrop-royal: radial-gradient(
+    circle at 50% 32%,
+    #5b80ea 0%,
+    #2a4bc0 55%,
+    var(--palette-navy-700) 100%
+  );
+  --photo-backdrop-steel: radial-gradient(circle at 50% 32%, #8aa0dc 0%, #5169b4 55%, #2f458f 100%);
+  --photo-backdrop-deep: radial-gradient(circle at 50% 32%, #3552b8 0%, #1d3699 55%, #101f78 100%);
+  --photo-backdrop: var(--photo-backdrop-royal);
+  --photo-ring: #3a56b8;
+  --photo-shadow:
+    0 0 0 0.3125rem color-mix(in srgb, var(--palette-gold-500) 28%, transparent),
+    0 0.625rem 1.75rem color-mix(in srgb, var(--palette-gold-500) 50%, transparent);
   --gutter: 1.25rem;
   --grid-min-practice: 16.25rem;
   --grid-min-team: 15rem;
@@ -106,6 +121,10 @@
   --text-name--line-height: 1.6;
   --text-name-phone: 1.0625rem;
   --text-name-phone--line-height: 1.6;
+  --text-photo-name: 0.9375rem;
+  --text-photo-name--line-height: 1.35;
+  --text-photo-title: 0.75rem;
+  --text-photo-title--line-height: 1.4;
   --text-footer-heading: 1.3125rem;
   --text-footer-heading--line-height: 1.6;
   --text-recognition: 1.5rem;
@@ -154,6 +173,8 @@
   --text-hero-button--line-height: 1.6;
   --text-arrow: 1.125rem;
   --text-arrow--line-height: 1;
+  --text-stat: clamp(1.75rem, 1rem + 2.4vw, 3rem);
+  --text-stat--line-height: 1;
 
   --tracking-*: initial;
   --tracking-eyebrow: 0.2em;
@@ -166,6 +187,8 @@
   --tracking-logo-sub-footer: 0.28em;
 
   --radius-*: initial;
+  --radius-lg: 0.5rem;
+  --radius-nav: 0.75rem;
   --radius-full: 9999px;
 
   --shadow-*: initial;
@@ -173,11 +196,15 @@
   --shadow-header: 0 0.5rem 1.5rem color-mix(in srgb, var(--palette-navy-950) 25%, transparent);
 
   --spacing: 0.25rem;
-  --spacing-header: 4.5rem;
+  --spacing-topbar: 2.75rem;
+  --spacing-nav: 4.5rem;
+  --spacing-header: var(--spacing-nav);
   --spacing-hero-space: 8.75rem;
   --spacing-rule: 0.125rem;
   --spacing-rule-short: 2.5rem;
   --spacing-rule-long: 4rem;
+  --spacing-hair: 0.0625rem;
+  --spacing-stat: 6ch;
 
   --container-*: initial;
   --container-site: 80rem;
@@ -195,10 +222,12 @@
   --breakpoint-*: initial;
   --breakpoint-sm: 40rem;
   --breakpoint-lg: 64rem;
+  --breakpoint-xl: 90rem;
 
   --default-transition-duration: var(--motion-fast);
   --aspect-portrait: 4 / 5;
   --aspect-insight: 16 / 10;
+  --aspect-insight-banner: 21 / 8;
   --aspect-film: 16 / 9;
   --aspect-photo: 4 / 3;
   --aspect-certificate: 3 / 4;
@@ -211,7 +240,7 @@
 @media (min-width: 40rem) {
   :root {
     --gutter: 2rem;
-    --spacing-header: 6rem;
+    --spacing-nav: 5.5rem;
     --spacing-hero-space: clamp(9.375rem, 15vw, 15rem);
   }
 }
@@ -252,6 +281,21 @@
 @utility hero-overlay-top {
   height: var(--overlay-hero-top-height);
   background: linear-gradient(180deg, var(--overlay-hero-top), transparent);
+}
+
+@utility hero-veil {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--palette-navy-950) 72%, transparent),
+    color-mix(in srgb, var(--palette-navy-950) 38%, transparent) 46%,
+    color-mix(in srgb, var(--palette-navy-950) 64%, transparent)
+  );
+}
+
+@media (min-width: 90rem) {
+  :root {
+    --spacing-header: calc(var(--spacing-topbar) + var(--spacing-nav));
+  }
 }
 
 @utility grid-auto-hero {

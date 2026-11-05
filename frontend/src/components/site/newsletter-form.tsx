@@ -2,6 +2,9 @@
 
 import { API_PREFIX, API_ROUTES, HEARD_ABOUT_OPTIONS, ROUTES } from '@waren/shared/constants';
 import { useId, useState, type FormEvent } from 'react';
+import { Button } from '@/components/ui/button';
+import { Field, FieldDescription, FieldLabel } from '@/components/ui/field';
+import { Input, inputClass } from '@/components/ui/input';
 import { SiteLink } from '@/components/ui/site-link';
 import { visitAttribution } from '@/lib/attribution/visit';
 import { dictionary } from '@/lib/dictionary';
@@ -11,6 +14,8 @@ const text = dictionary.newsletter;
 const ENDPOINT = `/${API_PREFIX}/${API_ROUTES.newsletter}/`;
 const HONEYPOT_FIELD = 'website';
 const TOO_MANY_REQUESTS = 429;
+const ON_BRAND =
+  'border-border-on-brand bg-brand-soft text-on-brand placeholder:text-on-brand-muted';
 
 type Status = 'idle' | 'sending' | 'sent' | 'invalid' | 'failed' | 'limited';
 
@@ -42,6 +47,8 @@ export function NewsletterForm() {
   const statusId = useId();
   const heardAboutId = useId();
   const message = MESSAGES[status];
+  const invalid = status === 'invalid';
+  const sending = status === 'sending';
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -63,52 +70,53 @@ export function NewsletterForm() {
 
   return (
     <form noValidate onSubmit={onSubmit} className="flex flex-col gap-2">
-      <label htmlFor={emailId} className="text-meta text-on-brand">
-        {text.email}
-      </label>
-      <div className="flex">
-        <input
-          id={emailId}
-          name="email"
-          type="email"
-          autoComplete="email"
-          required
-          placeholder={text.placeholder}
-          aria-invalid={status === 'invalid'}
-          aria-describedby={statusId}
-          className="h-12 min-w-0 flex-auto border border-border-on-brand bg-brand-soft px-3.5 text-on-brand placeholder:text-on-brand-muted"
-        />
-        <button
-          type="submit"
-          aria-label={text.submit}
-          disabled={status === 'sending'}
-          className="h-12 w-13 shrink-0 bg-accent text-arrow font-bold text-on-accent"
+      <Field data-invalid={invalid || undefined} data-disabled={sending || undefined}>
+        <FieldLabel htmlFor={emailId} className="text-on-brand">
+          {text.email}
+        </FieldLabel>
+        <Field orientation="horizontal">
+          <Input
+            id={emailId}
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            placeholder={text.placeholder}
+            disabled={sending}
+            aria-invalid={invalid || undefined}
+            aria-describedby={statusId}
+            className={ON_BRAND}
+          />
+          <Button type="submit" variant="accent" disabled={sending}>
+            {text.submit}
+          </Button>
+        </Field>
+      </Field>
+      <Field>
+        <FieldLabel htmlFor={heardAboutId} className="text-on-brand">
+          {dictionary.forms.heardAbout}
+        </FieldLabel>
+        <select
+          id={heardAboutId}
+          name="heardAbout"
+          defaultValue=""
+          disabled={sending}
+          className={inputClass(ON_BRAND)}
         >
-          {text.submitIcon}
-        </button>
-      </div>
-      <label htmlFor={heardAboutId} className="text-meta text-on-brand">
-        {dictionary.forms.heardAbout}
-      </label>
-      <select
-        id={heardAboutId}
-        name="heardAbout"
-        defaultValue=""
-        className="h-12 border border-border-on-brand bg-brand-soft px-3.5 text-on-brand"
-      >
-        <option value="">{dictionary.forms.choose}</option>
-        {HEARD_ABOUT_OPTIONS.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-      <p className="text-meta text-on-brand-muted">
+          <option value="">{dictionary.forms.choose}</option>
+          {HEARD_ABOUT_OPTIONS.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </Field>
+      <FieldDescription className="text-on-brand-muted">
         {text.privacyNote}{' '}
         <SiteLink href={ROUTES.privacy} className="underline hover:text-on-brand">
           {text.privacyLink}
         </SiteLink>
-      </p>
+      </FieldDescription>
       <div className="sr-only" aria-hidden="true">
         <label>
           {text.honeypot}

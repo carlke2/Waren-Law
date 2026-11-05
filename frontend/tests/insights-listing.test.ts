@@ -1,4 +1,10 @@
-import { categoryChips, pageNumbersAfterFirst, parsePageNumber } from '@/lib/content/insights';
+import {
+  categoryChips,
+  insightListHref,
+  pageNumbersAfterFirst,
+  parsePageNumber,
+  readInsightSearch,
+} from '@/lib/content/insights';
 
 describe('parsePageNumber', () => {
   it('accepts positive whole numbers only', () => {
@@ -15,6 +21,26 @@ describe('pageNumbersAfterFirst', () => {
     expect(pageNumbersAfterFirst(32)).toEqual([2, 3]);
     expect(pageNumbersAfterFirst(12)).toEqual([]);
     expect(pageNumbersAfterFirst(0)).toEqual([]);
+  });
+});
+
+describe('insight search', () => {
+  it('keeps a real practice area and category, and drops an empty form', () => {
+    expect(
+      readInsightSearch({ practiceArea: 'debt-recovery', category: 'conveyancing', kind: '' }),
+    ).toMatchObject({
+      practiceArea: 'debt-recovery',
+      category: 'conveyancing',
+      webinars: false,
+      needsRedirect: true,
+    });
+    expect(insightListHref(2, { practiceArea: 'debt-recovery', category: 'conveyancing' })).toBe(
+      '/insights/page/2/?practiceArea=debt-recovery&category=conveyancing',
+    );
+  });
+
+  it('sends the webinar choice to the webinar list', () => {
+    expect(readInsightSearch({ kind: 'webinars' }).webinars).toBe(true);
   });
 });
 
