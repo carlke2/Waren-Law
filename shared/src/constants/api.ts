@@ -15,6 +15,7 @@ export const API_ROUTES = {
   awards: 'awards',
   clientLogos: 'client-logos',
   testimonials: 'testimonials',
+  faqs: 'faqs',
   resolve: 'resolve',
   search: 'search',
   redirects: 'redirects',
@@ -36,6 +37,7 @@ export const NEWSLETTER_CONFIRM_PATH = 'confirm';
 export const NEWSLETTER_TOKEN_PARAM = 'token';
 export const NEWSLETTER_TOKEN_PATTERN = /^[a-f0-9]{64}$/;
 export const FEATURED_TEAM_LIMIT = 4;
+export const HOME_FAQ_LIMIT = 6;
 export const LATEST_INSIGHTS_LIMIT = 3;
 export const REDIRECTS_ALL_PATH = 'all';
 export const FEED_ITEM_LIMIT = 30;

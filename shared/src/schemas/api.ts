@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import {
   DEFAULT_PAGE_SIZE,
+  FAQ_SOURCE_TYPES,
   HERO_CARD_COUNT,
   ICON_NAMES,
   LEGAL_REVIEW_STATUSES,
@@ -273,6 +274,7 @@ export const insightListQuerySchema = z.object({
   page: z.coerce.number().int().min(1).default(1),
   pageSize: z.coerce.number().int().min(1).max(MAX_PAGE_SIZE).default(DEFAULT_PAGE_SIZE),
   category: slugSchema.optional(),
+  practiceArea: slugSchema.optional(),
 });
 
 export const insightListResponseSchema = z.object({
@@ -351,6 +353,14 @@ export const testimonialResponseSchema = z.object({
   quote: z.string(),
   attribution: z.string(),
   location: z.string().nullable(),
+});
+
+export const faqEntryResponseSchema = z.object({
+  question: z.string(),
+  answer: z.string(),
+  sourceType: z.enum(FAQ_SOURCE_TYPES),
+  sourceTitle: z.string(),
+  href: z.string().startsWith('/'),
 });
 
 export const resolveResponseSchema = z.object({ type: z.enum(SLUG_TYPES), slug: z.string() });

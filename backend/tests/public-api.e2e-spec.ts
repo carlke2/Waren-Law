@@ -25,6 +25,7 @@ import {
   settingsResponseSchema,
   teamDetailSchema,
   teamListResponseSchema,
+  faqEntryResponseSchema,
   testimonialResponseSchema,
   webinarDetailSchema,
   webinarSummarySchema,
@@ -213,6 +214,17 @@ describe('public read API', () => {
       expect(list.items.map(({ slug }) => slug)).toEqual(['third-insight']);
     });
 
+    it('filters by practice area and leaves out items awaiting review', async () => {
+      const list = insightListResponseSchema.parse(
+        (await get(`${API_ROUTES.insights}?practiceArea=fixture-practice`)).body,
+      );
+      expect(list.items.map(({ slug }) => slug)).toEqual([
+        'third-insight',
+        'second-insight',
+        'first-insight',
+      ]);
+    });
+
     it('rejects an oversized page', async () => {
       const response = await get(`${API_ROUTES.insights}?pageSize=9999`, 400);
       expect(response.body.message).toBe('Validation failed');
@@ -276,6 +288,22 @@ describe('public read API', () => {
   it('GET client-logos returns only logos with permission', async () => {
     const logos = z.array(clientLogoResponseSchema).parse((await get(API_ROUTES.clientLogos)).body);
     expect(logos.map(({ slug }) => slug)).toEqual(['permitted-logo']);
+  });
+
+  it('GET faqs collects published questions and skips drafts', async () => {
+    const faqs = z.array(faqEntryResponseSchema).parse((await get(API_ROUTES.faqs)).body);
+    expect(faqs.map(({ href }) => href)).toEqual([
+      '/fixture-practice/',
+      '/third-insight/',
+      '/second-insight/',
+      '/first-insight/',
+    ]);
+    expect(faqs[0]).toMatchObject({
+      question: 'Q?',
+      answer: 'A.',
+      sourceType: 'practice_area',
+      sourceTitle: 'Fixture Practice',
+    });
   });
 
   it('GET testimonials returns only those with consent and approval', async () => {

@@ -23,6 +23,7 @@ export type PartnerResponse = z.infer<typeof api.partnerResponseSchema>;
 export type AwardResponse = z.infer<typeof api.awardResponseSchema>;
 export type ClientLogoResponse = z.infer<typeof api.clientLogoResponseSchema>;
 export type TestimonialResponse = z.infer<typeof api.testimonialResponseSchema>;
+export type FaqEntry = z.infer<typeof api.faqEntryResponseSchema>;
 export type ResolveResponse = z.infer<typeof api.resolveResponseSchema>;
 export type SearchResponse = z.infer<typeof api.searchResponseSchema>;
 export type RedirectResponse = z.infer<typeof api.redirectResponseSchema>;

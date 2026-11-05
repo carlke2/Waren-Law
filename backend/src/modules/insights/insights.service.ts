@@ -20,6 +20,7 @@ interface ListOptions {
   page: number;
   pageSize: number;
   category?: string | undefined;
+  practiceArea?: string | undefined;
 }
 
 @Injectable()
@@ -29,10 +30,18 @@ export class InsightsService {
     private readonly present: ContentPresenter,
   ) {}
 
-  async list({ page, pageSize, category }: ListOptions): Promise<InsightListResponse> {
+  async list({
+    page,
+    pageSize,
+    category,
+    practiceArea,
+  }: ListOptions): Promise<InsightListResponse> {
     const where: Prisma.InsightWhereInput = {
       ...PUBLISHED_AND_APPROVED,
       ...(category ? { categories: { some: { slug: category, ...PUBLISHED } } } : {}),
+      ...(practiceArea
+        ? { practiceAreas: { some: { slug: practiceArea, ...PUBLISHED_AND_APPROVED } } }
+        : {}),
     };
     const [total, rows] = await Promise.all([
       this.prisma.insight.count({ where }),

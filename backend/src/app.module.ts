@@ -28,6 +28,7 @@ import { PartnersModule } from './modules/partners/partners.module.js';
 import { AwardsModule } from './modules/awards/awards.module.js';
 import { ClientLogosModule } from './modules/client-logos/client-logos.module.js';
 import { TestimonialsModule } from './modules/testimonials/testimonials.module.js';
+import { FaqsModule } from './modules/faqs/faqs.module.js';
 import { ResolveModule } from './modules/resolve/resolve.module.js';
 import { SearchModule } from './modules/search/search.module.js';
 import { LeadsModule } from './modules/leads/leads.module.js';
@@ -72,6 +73,7 @@ import { RedirectsModule } from './modules/redirects/redirects.module.js';
     AwardsModule,
     ClientLogosModule,
     TestimonialsModule,
+    FaqsModule,
     ResolveModule,
     SearchModule,
     RedirectsModule,

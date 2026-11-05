@@ -12,6 +12,7 @@ export const ROUTES = {
   terms: '/terms/',
   cookies: '/cookie-policy/',
   search: '/search/',
+  faq: '/faq/',
   feed: '/feed/',
   root: (slug: string) => `/${slug}/`,
   profile: (slug: string) => `/our-team/${slug}/`,
@@ -23,4 +24,8 @@ export const ROUTES = {
 } as const;
 
 export const TEAM_FILTER_PARAM = 'practiceArea';
+export const INSIGHT_PRACTICE_PARAM = 'practiceArea';
+export const INSIGHT_CATEGORY_PARAM = 'category';
+export const INSIGHT_KIND_PARAM = 'kind';
+export const INSIGHT_KIND_WEBINARS = 'webinars';
 export const SEARCH_PARAM = 'q';

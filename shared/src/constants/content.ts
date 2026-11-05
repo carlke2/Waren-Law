@@ -4,6 +4,7 @@ export const MEMBER_TYPES = ['partner', 'advocate', 'consultant', 'staff'] as co
 export const OFFICE_TYPES = ['head', 'branch', 'joint'] as const;
 export const WEBINAR_STATES = ['upcoming', 'recording', 'past'] as const;
 export const SLUG_TYPES = ['page', 'practice_area', 'insight', 'webinar'] as const;
+export const FAQ_SOURCE_TYPES = ['practice_area', 'insight', 'webinar'] as const;
 export const SUBSCRIBER_SOURCES = ['newsletter', 'webinar'] as const;
 export const CHANGE_ACTIONS = [
   'create',
