@@ -10,8 +10,8 @@ import { PageHero } from '@/components/site/page-hero';
 import { SearchForm } from '@/components/site/search-form';
 import { SiteLink } from '@/components/ui/site-link';
 import { searchContent } from '@/lib/api/content';
-import { dictionary } from '@/lib/dictionary';
-import { NOINDEX_FOLLOW } from '@/lib/seo/metadata';
+import { dictionary } from '@/lib/utils/dictionary';
+import { NOINDEX_FOLLOW } from '@/lib/utils/seo/metadata';
 
 const text = dictionary.search;
 

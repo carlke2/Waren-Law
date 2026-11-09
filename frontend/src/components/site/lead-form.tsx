@@ -15,8 +15,8 @@ import { Field, FieldError, FieldLabel } from '@/components/ui/field';
 import { Input, inputClass } from '@/components/ui/input';
 import { SiteLink } from '@/components/ui/site-link';
 import { Textarea } from '@/components/ui/textarea';
-import { visitAttribution } from '@/lib/attribution/visit';
-import { dictionary } from '@/lib/dictionary';
+import { visitAttribution } from '@/lib/utils/attribution/visit';
+import { dictionary } from '@/lib/utils/dictionary';
 import { cx } from '@/lib/utils/cx';
 
 const text = dictionary.leadForm;

@@ -1,6 +1,6 @@
 import type { SiteSettings } from '@waren/shared';
 import { LineSvg } from '@/components/ui/icon';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 import { cx } from '@/lib/utils/cx';
 
 const text = dictionary.social;
@@ -48,12 +48,18 @@ function SocialIcon({ name }: { name: (typeof LINKS)[number][0] }) {
 export function SocialLinks({
   socials,
   className,
+  tone = 'onBrand',
 }: {
   socials: SiteSettings['socials'];
   className?: string;
+  tone?: 'onBrand' | 'card';
 }) {
+  const linkClass =
+    tone === 'card'
+      ? 'team-social'
+      : 'inline-flex size-11 items-center justify-center text-on-brand hover:text-accent';
   return (
-    <ul className={cx('flex items-center', className)}>
+    <ul className={cx('flex items-center', tone === 'card' && 'gap-2', className)}>
       {LINKS.map(([key, label]) => (
         <li key={key}>
           <a
@@ -61,7 +67,7 @@ export function SocialLinks({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={text.open(label)}
-            className="inline-flex size-11 items-center justify-center text-on-brand hover:text-accent"
+            className={linkClass}
           >
             <SocialIcon name={key} />
           </a>

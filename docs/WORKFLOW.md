@@ -9,25 +9,29 @@
 | **Client** (WAREN Law) | Reviews each version, supplies content and access when available (never blocks the build) |
 
 ## The loop (every batch of work)
-1. **Planner** writes a brief → `docs/prompts/NN-….md` (sent to the owner as a zip of changed planner files).
-2. **Owner** extracts the zip into the repo and tells the agent: *"Carry out docs/prompts/NN-….md, then report and stop."*
-3. **Agent** creates the task files, builds one branch per task, runs lint + typecheck + tests, merges to `main`, writes `docs/reports/…`, posts the report, stops.
+1. **Planner** writes the brief and sends it to the owner.
+2. **Owner** gives that brief to the agent.
+3. **Agent** builds on one branch, runs lint, typecheck and tests, merges to `main`, and reports back in chat.
 4. **Owner** pastes the report to the planner.
-5. **Planner** reviews against the brief, records any decision in `docs/decisions/`, writes the next brief.
+5. **Planner** reviews against the brief, records any decision in `docs/decisions/`, and writes the next brief.
+
+Earlier briefs and build reports are in git history. The index of what is in `docs/` now is [README.md](README.md).
 
 ## Where things live
 | File | Purpose |
 |---|---|
-| `docs/PLAN.md` | What we build and when (versions, phases, tasks T002–T034) |
+| `docs/README.md` | Index of the planning documents |
+| `docs/PLAN.md` | What we build and when |
 | `docs/WORKFLOW.md` | This file: how we work |
 | `docs/DIRECTION.md` | Agreed architecture, design, language |
 | `docs/STRUCTURE.md` | Folder layout and structure rules |
-| `AGENTS.md` | Agent rules + code standards (loaded automatically) |
+| `docs/GROUND-RULES.md` | How the site runs |
+| `docs/FIRM-REVIEW.md` | Items still waiting for the firm |
+| `AGENTS.md` | Agent rules and code standards |
 | `docs/decisions/` | Every decision and why |
-| `docs/prompts/` | Every brief given to the agent |
-| `docs/tasks/` | One file per task with status and "Done when" |
-| `docs/reports/` | Agent reports |
+| `docs/design/` | Design specification and reference assets |
 | `docs/audit/` | The WordPress analysis |
+| `docs/seo/` | URL inventory and redirects |
 
 ## Rules that never change
 - `main` is always working: nothing merges with failing lint, typecheck or tests.
@@ -44,4 +48,4 @@
 | **V2** (≈ 2 weeks) | Admin panel, media, newsletter, history | Admin demo; content editing |
 | **V3 / Launch** | Content review, QA, production server, DNS switch | warenlaw.com live |
 
-After each version: client feedback → planner turns it into tasks → next brief.
+After each version: client feedback → planner writes the next brief.

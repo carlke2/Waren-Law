@@ -4,7 +4,7 @@
 **Status:** Accepted (planner's review of brief 06)
 
 ## Decision
-1. **Home is not legal content.** Its record is `approved` and `GET /api/v1/home` no longer checks `legalReviewStatus`, so `/` is published in production. This replaces point 2 of decision 0018. The gate is for practice pages, insights, webinars and legal pages. The firm's review of the wording is tracked in [`docs/content/firm-review-list.md`](../content/firm-review-list.md) and doesn't block the page.
+1. **Home is not legal content.** Its record is `approved` and `GET /api/v1/home` no longer checks `legalReviewStatus`, so `/` is published in production. This replaces point 2 of decision 0018. The gate is for practice pages, insights, webinars and legal pages. The firm's review of the wording is tracked in [`docs/FIRM-REVIEW.md`](../FIRM-REVIEW.md) and doesn't block the page.
 2. **Phylis Njane's portrait alt text** is "Phylis Njane, Partner". The import now sets it from `portraitAlt` in the curation file, because it otherwise keeps whatever alt text is already stored.
 3. **Newsletter form** has one line under the field: "We’ll only use your email to send our insights." and a Privacy Policy link. The wording is in the dictionary.
 4. **Form state tokens:** `--color-success` #1F6B45 and `--color-error` #B42318 on light; `--color-success-on-brand` #7FD3A6 and `--color-error-on-brand` #FF9C8F on navy. The footer form uses the on-brand pair.

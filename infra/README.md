@@ -1,6 +1,6 @@
 # infra
 
-Deployment configuration: Docker, Nginx and HTTPS. See `docs/runbook.md`.
+Deployment configuration: Docker, Nginx and HTTPS. How to run it is in the root README, under Production and deployment.
 
 | Path | What it is |
 |---|---|
@@ -8,4 +8,4 @@ Deployment configuration: Docker, Nginx and HTTPS. See `docs/runbook.md`.
 | `docker-compose.prod.yml` | Frontend, backend and Nginx. The database is Supabase, so it has no database service |
 | `env/*.env.example` | Examples of the server's env files. Real values are never committed |
 | `nginx/` | Reverse proxy, caching, security headers, optional password for staging |
-| `scripts/` | `deploy.sh` and `backup-uploads.sh` |
+| `scripts/` | Build, start, deploy, backup and the URL checks |

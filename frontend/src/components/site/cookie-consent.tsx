@@ -11,9 +11,9 @@ import {
   subscribeToConsent,
   writeConsent,
   type ConsentChoice,
-} from '@/lib/consent/consent';
-import { loadConsentedTags } from '@/lib/consent/tags';
-import { dictionary } from '@/lib/dictionary';
+} from '@/lib/utils/consent/consent';
+import { loadConsentedTags } from '@/lib/utils/consent/tags';
+import { dictionary } from '@/lib/utils/dictionary';
 
 const text = dictionary.consent;
 const NOT_READ_YET = 'server';
@@ -151,7 +151,7 @@ export function CookiePreferencesButton() {
     <button
       type="button"
       onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_EVENT))}
-      className="max-sm:inline-flex max-sm:min-h-11 max-sm:items-center hover:text-on-brand"
+      className="text-team-muted hover:text-team-accent max-sm:inline-flex max-sm:min-h-11 max-sm:items-center"
     >
       {text.reopen}
     </button>

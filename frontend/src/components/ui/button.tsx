@@ -7,6 +7,7 @@ const BASE =
 const VARIANTS = {
   default: 'bg-brand text-on-brand',
   accent: 'bg-accent text-on-accent',
+  blue: 'bg-team-accent text-on-brand hover:bg-brand',
   outline: 'border-border-strong bg-surface text-brand',
 } as const;
 

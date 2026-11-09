@@ -1,6 +1,6 @@
 import type { FaqItem } from '@waren/shared';
-import { dictionary } from '@/lib/dictionary';
-import { faqSchema } from '@/lib/seo/schema';
+import { dictionary } from '@/lib/utils/dictionary';
+import { faqSchema } from '@/lib/utils/seo/schema';
 import { JsonLd } from './json-ld';
 
 interface FaqListProps {

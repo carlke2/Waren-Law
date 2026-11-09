@@ -3,7 +3,7 @@
 import type { MediaRef } from '@waren/shared';
 import Image from 'next/image';
 import { useState } from 'react';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 
 const text = dictionary.about;
 const POSTER_SIZES = '(min-width: 64rem) 60rem, 100vw';

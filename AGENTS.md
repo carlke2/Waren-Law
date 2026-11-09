@@ -1,18 +1,18 @@
 # Instructions for the execution agent
 
 You are the execution agent for the WAREN Law website rebuild (warenlaw.com).
-The planner scopes and writes task briefs; you build them. Current brief: see `docs/prompts/` (latest numbered file).
+The planner scopes and writes briefs; you build them. The index of planning documents is `docs/README.md`.
 
-Read first, every task: this file → `docs/DIRECTION.md` → `docs/STRUCTURE.md` → the task brief in `docs/tasks/`.
+Read first, every task: this file → `docs/DIRECTION.md` → `docs/STRUCTURE.md` → the brief the owner gave you.
 
 ## How you work
-1. Only work on tasks marked `Status: Ready`, lowest number first. If none are Ready, stop and say so.
-2. Set the task to `In progress`. Work on a branch named `task/T00X-short-name`.
+1. Do the brief the owner gave you. If none is in front of you, stop and say so.
+2. Work on a branch named for the change.
 3. Do only what the brief asks. No extra features; no new dependencies or services beyond what the brief allows (list any you add).
-4. Unclear or blocked → set `Status: Blocked`, write the question under **Result**, stop. Never guess on legal content, brand assets, credentials or anything costing money.
-5. Check every **Done when** item. For code: lint, type check and tests must pass.
-6. Commit as `T00X: what changed`. Open a pull request (or leave the branch pushed) with the report as its description.
-7. Set the task to `Done` or `Blocked`, fill in **Result**, save the report to `docs/reports/T00X-report.md`.
+4. Unclear or blocked → stop and ask. Never guess on legal content, brand assets, credentials or anything costing money.
+5. Check every acceptance item. For code: lint, type check and tests must pass.
+6. Commit with a message that says what changed. Open a pull request when the brief asks for one.
+7. Report the result in chat, in the format at the bottom of this file.
 8. Record any decision you made in `docs/decisions/` (next number: Decision / Why / Consequences).
 
 ## Ground rules (decision 0014 — override everything else)

@@ -1,12 +1,12 @@
 import { ROUTES, WEBINAR_STATES } from '@waren/shared';
 import type { Metadata } from 'next';
-import { SiteCta } from '@/components/home/cta-band';
+import { SiteCta } from '@/components/site/home/cta-band';
 import { PageHero } from '@/components/site/page-hero';
 import { WebinarCard } from '@/components/site/webinar-card';
 import { getWebinars } from '@/lib/api/content';
-import { dictionary } from '@/lib/dictionary';
-import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/prerender';
-import { pageMetadata } from '@/lib/seo/metadata';
+import { dictionary } from '@/lib/utils/dictionary';
+import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/utils/prerender';
+import { pageMetadata } from '@/lib/utils/seo/metadata';
 
 const text = dictionary.webinars;
 

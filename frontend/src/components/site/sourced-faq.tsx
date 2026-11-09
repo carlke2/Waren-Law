@@ -1,7 +1,7 @@
 import { HOME_FAQ_LIMIT, ROUTES, type FaqEntry } from '@waren/shared';
 import { SiteLink } from '@/components/ui/site-link';
-import { dictionary } from '@/lib/dictionary';
-import { faqSchema } from '@/lib/seo/schema';
+import { dictionary } from '@/lib/utils/dictionary';
+import { faqSchema } from '@/lib/utils/seo/schema';
 import { JsonLd } from './json-ld';
 
 const text = dictionary.faqPage;

@@ -1,13 +1,14 @@
 import { ROUTES, type PracticeAreaDetail } from '@waren/shared';
-import { SiteCta } from '@/components/home/cta-band';
+import { SiteCta } from '@/components/site/home/cta-band';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { SectionHeading } from '@/components/ui/section-heading';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 import { BlockRenderer } from '../block-renderer';
 import { FaqList } from '../faq-list';
 import { InsightsBand } from '../insights-band';
 import { PageHero } from '../page-hero';
-import { TeamGrid } from '../team-photo';
+import { CARD_PHOTO } from '@/lib/utils/content/photo-files';
+import { TeamCardGrid } from '@/components/site/home/team-member-card';
 
 const text = dictionary.practice;
 
@@ -34,10 +35,10 @@ export function PracticeAreaTemplate({ area }: { area: PracticeAreaDetail }) {
         </div>
       </section>
       {area.team.length ? (
-        <section data-tone="dark" className="bg-brand text-on-brand">
+        <section className="bg-team-canvas">
           <div className="site-container flex flex-col gap-12 py-16 sm:py-28">
-            <SectionHeading eyebrow={text.teamEyebrow} title={text.team} onBrand />
-            <TeamGrid members={area.team} />
+            <SectionHeading eyebrow={text.teamEyebrow} title={text.team} />
+            <TeamCardGrid members={area.team} photos={CARD_PHOTO} />
           </div>
         </section>
       ) : null}

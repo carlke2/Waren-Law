@@ -1,16 +1,17 @@
 import { FEATURED_TEAM_LIMIT, ROUTES, type PageResponse } from '@waren/shared';
-import { SiteCta } from '@/components/home/cta-band';
+import { SiteCta } from '@/components/site/home/cta-band';
 import { ButtonLink } from '@/components/ui/button-link';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { TextLink } from '@/components/ui/text-link';
 import { getAwards, getPartners, getSettings, getTeam } from '@/lib/api/content';
-import { groupSections, inlineToText } from '@/lib/content/sections';
-import { dictionary } from '@/lib/dictionary';
+import { groupSections, inlineToText } from '@/lib/utils/content/sections';
+import { dictionary } from '@/lib/utils/dictionary';
 import { AboutFilm } from '../about-film';
 import { BlockRenderer } from '../block-renderer';
 import { PageHero } from '../page-hero';
-import { TeamGrid } from '../team-photo';
+import { CARD_PHOTO } from '@/lib/utils/content/photo-files';
+import { TeamCardGrid } from '@/components/site/home/team-member-card';
 import { RecognitionBlock } from '../recognition-block';
 
 const text = dictionary.about;
@@ -79,7 +80,7 @@ export async function AboutTemplate({ page }: { page: PageResponse }) {
             {statements.cards.map((card) => (
               <div
                 key={card.title}
-                className="flex flex-col gap-3.5 border border-t-3 border-border border-t-accent bg-surface px-9 py-10"
+                className="surface-card flex flex-col gap-3.5 p-8"
               >
                 <Eyebrow>{text.statementLabel(card.title)}</Eyebrow>
                 <p className="font-heading text-statement text-brand">
@@ -101,7 +102,7 @@ export async function AboutTemplate({ page }: { page: PageResponse }) {
               {values?.cards.map(({ title }) => (
                 <span
                   key={title}
-                  className="border border-border-strong px-4 py-2 text-eyebrow font-bold tracking-chip text-brand uppercase"
+                  className="rounded-full border border-border bg-surface px-4 py-2 text-eyebrow font-bold tracking-chip text-brand uppercase"
                 >
                   {title}
                 </span>
@@ -110,7 +111,7 @@ export async function AboutTemplate({ page }: { page: PageResponse }) {
           </div>
           <div className="grid grid-auto-team gap-8">
             {copy.whyPoints.map(({ title, text: pointText }, index) => (
-              <div key={title} className="flex flex-col gap-2.5 border-t-2 border-brand pt-5">
+              <div key={title} className="surface-card flex flex-col gap-2.5 p-6">
                 <span className="text-eyebrow font-bold text-accent-text">
                   {String(index + 1).padStart(NUMBER_WIDTH, '0')}
                 </span>
@@ -125,19 +126,15 @@ export async function AboutTemplate({ page }: { page: PageResponse }) {
       {award ? <RecognitionBlock award={award} /> : null}
 
       {leaders.length ? (
-        <section data-tone="dark" className="bg-brand text-on-brand">
+        <section className="bg-team-canvas">
           <div className="site-container flex flex-col gap-12 py-16 sm:py-28">
             <div className="flex flex-wrap items-end justify-between gap-6">
-              <SectionHeading
-                eyebrow={text.leadershipEyebrow}
-                title={copy.leadershipTitle}
-                onBrand
-              />
-              <ButtonLink href={ROUTES.team} variant="outline">
+              <SectionHeading eyebrow={text.leadershipEyebrow} title={copy.leadershipTitle} />
+              <ButtonLink href={ROUTES.team} variant="primary">
                 {dictionary.home.allPeople}
               </ButtonLink>
             </div>
-            <TeamGrid members={leaders} />
+            <TeamCardGrid members={leaders} photos={CARD_PHOTO} />
           </div>
         </section>
       ) : null}
@@ -152,7 +149,7 @@ export async function AboutTemplate({ page }: { page: PageResponse }) {
               {partners.map(({ slug, name }) => (
                 <span
                   key={slug}
-                  className="border border-border px-5.5 py-4.5 font-semibold text-brand"
+                  className="rounded-card border border-border bg-surface px-5 py-4 font-semibold text-brand shadow-card"
                 >
                   {name}
                 </span>

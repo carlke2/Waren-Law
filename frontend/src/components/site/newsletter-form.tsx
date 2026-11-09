@@ -6,16 +6,14 @@ import { Button } from '@/components/ui/button';
 import { Field, FieldDescription, FieldLabel } from '@/components/ui/field';
 import { Input, inputClass } from '@/components/ui/input';
 import { SiteLink } from '@/components/ui/site-link';
-import { visitAttribution } from '@/lib/attribution/visit';
-import { dictionary } from '@/lib/dictionary';
+import { visitAttribution } from '@/lib/utils/attribution/visit';
+import { dictionary } from '@/lib/utils/dictionary';
 import { cx } from '@/lib/utils/cx';
 
 const text = dictionary.newsletter;
 const ENDPOINT = `/${API_PREFIX}/${API_ROUTES.newsletter}/`;
 const HONEYPOT_FIELD = 'website';
 const TOO_MANY_REQUESTS = 429;
-const ON_BRAND =
-  'border-border-on-brand bg-brand-soft text-on-brand placeholder:text-on-brand-muted';
 
 type Status = 'idle' | 'sending' | 'sent' | 'invalid' | 'failed' | 'limited';
 
@@ -71,10 +69,8 @@ export function NewsletterForm() {
   return (
     <form noValidate onSubmit={onSubmit} className="flex flex-col gap-2">
       <Field data-invalid={invalid || undefined} data-disabled={sending || undefined}>
-        <FieldLabel htmlFor={emailId} className="text-on-brand">
-          {text.email}
-        </FieldLabel>
-        <Field orientation="horizontal">
+        <FieldLabel htmlFor={emailId}>{text.email}</FieldLabel>
+        <div className="flex w-full flex-col gap-2 sm:flex-row">
           <Input
             id={emailId}
             name="email"
@@ -85,23 +81,20 @@ export function NewsletterForm() {
             disabled={sending}
             aria-invalid={invalid || undefined}
             aria-describedby={statusId}
-            className={ON_BRAND}
           />
-          <Button type="submit" variant="accent" disabled={sending}>
+          <Button type="submit" variant="blue" disabled={sending} className="w-full sm:w-auto">
             {text.submit}
           </Button>
-        </Field>
+        </div>
       </Field>
       <Field>
-        <FieldLabel htmlFor={heardAboutId} className="text-on-brand">
-          {dictionary.forms.heardAbout}
-        </FieldLabel>
+        <FieldLabel htmlFor={heardAboutId}>{dictionary.forms.heardAbout}</FieldLabel>
         <select
           id={heardAboutId}
           name="heardAbout"
           defaultValue=""
           disabled={sending}
-          className={inputClass(ON_BRAND)}
+          className={inputClass()}
         >
           <option value="">{dictionary.forms.choose}</option>
           {HEARD_ABOUT_OPTIONS.map((option) => (
@@ -111,9 +104,9 @@ export function NewsletterForm() {
           ))}
         </select>
       </Field>
-      <FieldDescription className="text-on-brand-muted">
+      <FieldDescription>
         {text.privacyNote}{' '}
-        <SiteLink href={ROUTES.privacy} className="underline hover:text-on-brand">
+        <SiteLink href={ROUTES.privacy} className="text-team-accent underline hover:text-brand">
           {text.privacyLink}
         </SiteLink>
       </FieldDescription>
@@ -128,9 +121,8 @@ export function NewsletterForm() {
         role="status"
         className={cx(
           'text-meta empty:hidden',
-          status === 'sent' && 'text-success-on-brand',
-          (status === 'invalid' || status === 'failed' || status === 'limited') &&
-            'text-error-on-brand',
+          status === 'sent' && 'text-success',
+          (status === 'invalid' || status === 'failed' || status === 'limited') && 'text-error',
         )}
       >
         {message}

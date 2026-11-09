@@ -3,9 +3,9 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { InsightListing } from '@/components/site/insight-listing';
 import { getCategories } from '@/lib/api/content';
-import { dictionary } from '@/lib/dictionary';
-import { deferToRequestWhenPrerenderIsSkipped, staticParams } from '@/lib/prerender';
-import { NOINDEX_FOLLOW, pageMetadata } from '@/lib/seo/metadata';
+import { dictionary } from '@/lib/utils/dictionary';
+import { deferToRequestWhenPrerenderIsSkipped, staticParams } from '@/lib/utils/prerender';
+import { NOINDEX_FOLLOW, pageMetadata } from '@/lib/utils/seo/metadata';
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;

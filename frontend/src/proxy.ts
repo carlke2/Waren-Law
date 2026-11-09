@@ -1,8 +1,8 @@
 import { ROUTES, TEAM_FILTER_PARAM } from '@waren/shared/constants';
 import { NextResponse, type NextRequest } from 'next/server';
-import { parseTeamFilter } from '@/lib/content/team';
-import { patternRedirect, withTrailingSlash } from '@/lib/redirects/patterns';
-import { insightsPageRedirect, tableRedirect } from '@/lib/redirects/table';
+import { parseTeamFilter } from '@/lib/utils/content/team';
+import { patternRedirect, withTrailingSlash } from '@/lib/utils/redirects/patterns';
+import { insightsPageRedirect, tableRedirect } from '@/lib/utils/redirects/table';
 
 const PERMANENT = 301;
 

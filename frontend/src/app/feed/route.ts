@@ -1,8 +1,8 @@
 import { FEED_ITEM_LIMIT } from '@waren/shared';
 import { getInsights, getSettings } from '@/lib/api/content';
-import { dictionary } from '@/lib/dictionary';
-import { serverEnv } from '@/lib/env';
-import { buildRssFeed } from '@/lib/seo/feed';
+import { dictionary } from '@/lib/utils/dictionary';
+import { serverEnv } from '@/lib/utils/env';
+import { buildRssFeed } from '@/lib/utils/seo/feed';
 
 export async function GET(): Promise<Response> {
   const { siteUrl, revalidateSeconds } = serverEnv();

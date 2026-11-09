@@ -3,10 +3,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { RootTemplate, rootMetadata } from '@/components/site/templates/root-template';
 import { getRootSlugs } from '@/lib/api/content';
-import { loadRootContent } from '@/lib/content/root-content';
-import { dictionary } from '@/lib/dictionary';
-import { deferToRequestWhenPrerenderIsSkipped, staticParams } from '@/lib/prerender';
-import { NOINDEX_FOLLOW, pageMetadata } from '@/lib/seo/metadata';
+import { loadRootContent } from '@/lib/utils/content/root-content';
+import { dictionary } from '@/lib/utils/dictionary';
+import { deferToRequestWhenPrerenderIsSkipped, staticParams } from '@/lib/utils/prerender';
+import { NOINDEX_FOLLOW, pageMetadata } from '@/lib/utils/seo/metadata';
 
 interface RootPageProps {
   params: Promise<{ slug: string }>;

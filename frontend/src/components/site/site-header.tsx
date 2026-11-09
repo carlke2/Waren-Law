@@ -5,12 +5,12 @@ import { SiteLink } from '@/components/ui/site-link';
 import { usePathname } from 'next/navigation';
 import { useRef, useSyncExternalStore } from 'react';
 import { LineSvg } from '@/components/ui/icon';
-import { dictionary } from '@/lib/dictionary';
-import { activeNavHref, CONTACT_LINK, PRIMARY_NAV, type RootSlugType } from '@/lib/navigation';
+import { dictionary } from '@/lib/utils/dictionary';
+import { activeNavHref, CONTACT_LINK, PRIMARY_NAV, type RootSlugType } from '@/lib/utils/navigation';
 import { cx } from '@/lib/utils/cx';
 import { formatPhone, mailLink, telLink } from '@/lib/utils/links';
 import { buttonClass } from '@/components/ui/button';
-import { MorphicNavbar } from '@/components/kokonutui/morphic-navbar';
+import { MorphicNavbar } from '@/components/site/morphic-navbar';
 import { HeaderLogo } from './logo';
 import { SocialLinks } from './social-links';
 

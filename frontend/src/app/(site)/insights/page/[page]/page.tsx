@@ -8,10 +8,10 @@ import {
   pageNumbersAfterFirst,
   parsePageNumber,
   readInsightSearch,
-} from '@/lib/content/insights';
-import { dictionary } from '@/lib/dictionary';
-import { deferToRequestWhenPrerenderIsSkipped, staticParams } from '@/lib/prerender';
-import { NOINDEX_FOLLOW, pageMetadata } from '@/lib/seo/metadata';
+} from '@/lib/utils/content/insights';
+import { dictionary } from '@/lib/utils/dictionary';
+import { deferToRequestWhenPrerenderIsSkipped, staticParams } from '@/lib/utils/prerender';
+import { NOINDEX_FOLLOW, pageMetadata } from '@/lib/utils/seo/metadata';
 
 interface InsightsPageProps {
   params: Promise<{ page: string }>;

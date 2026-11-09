@@ -1,19 +1,19 @@
 import { FEATURED_TEAM_LIMIT, LATEST_INSIGHTS_LIMIT, ROUTES } from '@waren/shared';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Audience } from '@/components/home/audience';
-import { ClientLogos } from '@/components/home/client-logos';
-import { CtaBand } from '@/components/home/cta-band';
-import { Expertise } from '@/components/home/expertise';
-import { HelpIntro } from '@/components/home/help-intro';
-import { Hero } from '@/components/home/hero';
-import { StatsBar } from '@/components/home/stats-bar';
-import { LatestInsights } from '@/components/home/latest-insights';
-import { OfficesBand } from '@/components/home/offices-band';
-import { PartnersBand } from '@/components/home/partners-band';
-import { RecognitionStrip } from '@/components/home/recognition-strip';
-import { Testimonials } from '@/components/home/testimonials';
-import { Welcome } from '@/components/home/welcome';
+import { Audience } from '@/components/site/home/audience';
+import { ClientLogos } from '@/components/site/home/client-logos';
+import { CtaBand } from '@/components/site/home/cta-band';
+import { Expertise } from '@/components/site/home/expertise';
+import { HelpIntro } from '@/components/site/home/help-intro';
+import { Hero } from '@/components/site/home/hero';
+import { StatsBar } from '@/components/site/home/stats-bar';
+import { LatestInsights } from '@/components/site/home/latest-insights';
+import { OfficesBand } from '@/components/site/home/offices-band';
+import { PartnersBand } from '@/components/site/home/partners-band';
+import { RecognitionStrip } from '@/components/site/home/recognition-strip';
+import { Testimonials } from '@/components/site/home/testimonials';
+import { Welcome } from '@/components/site/home/welcome';
 import { SourcedFaq } from '@/components/site/sourced-faq';
 import {
   getAwards,
@@ -28,9 +28,9 @@ import {
   getTeam,
   getTestimonials,
 } from '@/lib/api/content';
-import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/prerender';
-import { dictionary } from '@/lib/dictionary';
-import { pageMetadata, seoMetadataInput } from '@/lib/seo/metadata';
+import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/utils/prerender';
+import { dictionary } from '@/lib/utils/dictionary';
+import { pageMetadata, seoMetadataInput } from '@/lib/utils/seo/metadata';
 
 const PARTNER_GROUP = 'partner';
 
@@ -89,7 +89,7 @@ export default async function HomePage() {
       <Expertise home={home} practiceAreas={practiceAreas} />
       <Welcome home={home} whyPoints={settings.pageCopy.about.whyPoints} />
       <SourcedFaq items={faqs} title={dictionary.practice.faq} preview />
-      <PartnersBand home={home} partners={partners} />
+      <PartnersBand partners={partners} />
       <Testimonials items={quotes} />
       <ClientLogos logos={logos} />
       <LatestInsights home={home} insights={insights.items} />

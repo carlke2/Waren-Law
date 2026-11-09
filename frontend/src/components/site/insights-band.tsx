@@ -1,7 +1,7 @@
 import { ROUTES, type InsightSummary } from '@waren/shared';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { TextLink } from '@/components/ui/text-link';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 import { InsightCard } from './insight-card';
 
 interface InsightsBandProps {

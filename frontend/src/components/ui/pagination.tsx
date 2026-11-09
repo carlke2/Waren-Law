@@ -1,4 +1,4 @@
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 import { cx } from '@/lib/utils/cx';
 import { pageItems } from '@/lib/utils/pagination';
 import { SiteLink } from './site-link';
