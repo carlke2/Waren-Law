@@ -1,12 +1,12 @@
 import { ROUTES, type PageResponse } from '@waren/shared';
 import Image from 'next/image';
-import { SiteCta } from '@/components/home/cta-band';
+import { SiteCta } from '@/components/site/home/cta-band';
 import { ButtonLink } from '@/components/ui/button-link';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { TextLink } from '@/components/ui/text-link';
 import { getOffices, getPartners, getSettings } from '@/lib/api/content';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 import { PageHero } from '../page-hero';
 
 const text = dictionary.partners;
@@ -90,14 +90,27 @@ export async function PartnersTemplate({ page }: { page: PageResponse }) {
           {photos.length ? (
             <div className="grid grid-auto-practice gap-4 lg:grid-cols-3">
               {photos.map((photo) => (
-                <div key={photo.url} className="relative aspect-photo bg-surface">
-                  <Image
-                    src={photo.url}
-                    alt={photo.alt}
-                    fill
-                    sizes={GALLERY_SIZES}
-                    className="object-cover"
-                  />
+                <div key={photo.url} className="surface-card overflow-hidden">
+                  {photo.width && photo.height ? (
+                    <Image
+                      src={photo.url}
+                      alt={photo.alt}
+                      width={photo.width}
+                      height={photo.height}
+                      sizes={GALLERY_SIZES}
+                      className="h-auto w-full"
+                    />
+                  ) : (
+                    <div className="relative aspect-photo">
+                      <Image
+                        src={photo.url}
+                        alt={photo.alt}
+                        fill
+                        sizes={GALLERY_SIZES}
+                        className="object-contain"
+                      />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

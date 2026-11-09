@@ -1,4 +1,4 @@
-import type { FilterChip } from '@/lib/content/filter-chip';
+import type { FilterChip } from '@/lib/utils/content/filter-chip';
 import { cx } from '@/lib/utils/cx';
 import { SiteLink } from './site-link';
 

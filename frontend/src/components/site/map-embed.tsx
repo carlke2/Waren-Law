@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 
 const text = dictionary.contact;
 

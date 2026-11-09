@@ -8,11 +8,11 @@ import { SiteFooter } from '@/components/site/site-footer';
 import { SiteHeader } from '@/components/site/site-header';
 import { WhatsAppButton } from '@/components/site/whatsapp-button';
 import { getOffices, getPracticeAreas, getRootSlugs, getSettings } from '@/lib/api/content';
-import { dictionary } from '@/lib/dictionary';
-import { serverEnv } from '@/lib/env';
-import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/prerender';
-import { pageRobots } from '@/lib/seo/metadata';
-import { organizationSchema, websiteSchema } from '@/lib/seo/schema';
+import { dictionary } from '@/lib/utils/dictionary';
+import { serverEnv } from '@/lib/utils/env';
+import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/utils/prerender';
+import { pageRobots } from '@/lib/utils/seo/metadata';
+import { organizationSchema, websiteSchema } from '@/lib/utils/seo/schema';
 
 export async function generateMetadata(): Promise<Metadata> {
   await deferToRequestWhenPrerenderIsSkipped();

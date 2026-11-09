@@ -4,9 +4,9 @@ import type { ReactNode } from 'react';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { SiteLink } from '@/components/ui/site-link';
 import { getHome } from '@/lib/api/content';
-import { dictionary } from '@/lib/dictionary';
-import { serverEnv } from '@/lib/env';
-import { breadcrumbSchema } from '@/lib/seo/schema';
+import { dictionary } from '@/lib/utils/dictionary';
+import { serverEnv } from '@/lib/utils/env';
+import { breadcrumbSchema } from '@/lib/utils/seo/schema';
 import { JsonLd } from './json-ld';
 
 const IMAGE_SIZES = '100vw';

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 
 export const metadata: Metadata = {
   title: dictionary.admin.title,

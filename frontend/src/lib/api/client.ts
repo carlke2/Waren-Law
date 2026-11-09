@@ -1,6 +1,6 @@
 import { API_PREFIX } from '@waren/shared';
 import type { z } from 'zod';
-import { serverEnv } from '@/lib/env';
+import { serverEnv } from '@/lib/utils/env';
 
 export class ApiError extends Error {
   constructor(

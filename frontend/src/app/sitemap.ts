@@ -1,8 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { connection } from 'next/server';
 import { getCategories, getRootSlugs, getTeam } from '@/lib/api/content';
-import { serverEnv } from '@/lib/env';
-import { sitemapEntries } from '@/lib/seo/sitemap';
+import { serverEnv } from '@/lib/utils/env';
+import { sitemapEntries } from '@/lib/utils/seo/sitemap';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   await connection();

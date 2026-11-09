@@ -1,18 +1,19 @@
 import { ROUTES, type WebinarDetail } from '@waren/shared';
-import { SiteCta } from '@/components/home/cta-band';
+import { SiteCta } from '@/components/site/home/cta-band';
 import { ButtonLink } from '@/components/ui/button-link';
 import { SectionHeading } from '@/components/ui/section-heading';
-import { webinarStateLabel } from '@/lib/content/webinars';
-import { dictionary } from '@/lib/dictionary';
-import { serverEnv } from '@/lib/env';
-import { eventSchema } from '@/lib/seo/schema';
+import { webinarStateLabel } from '@/lib/utils/content/webinars';
+import { dictionary } from '@/lib/utils/dictionary';
+import { serverEnv } from '@/lib/utils/env';
+import { eventSchema } from '@/lib/utils/seo/schema';
 import { formatDate } from '@/lib/utils/dates';
 import { BlockRenderer } from '../block-renderer';
 import { FaqList } from '../faq-list';
 import { JsonLd } from '../json-ld';
 import { LeadForm } from '../lead-form';
 import { PageHero } from '../page-hero';
-import { TeamGrid } from '../team-photo';
+import { SPEAKER_PHOTO } from '@/lib/utils/content/photo-files';
+import { TeamCardGrid } from '@/components/site/home/team-member-card';
 
 const text = dictionary.webinars;
 
@@ -65,10 +66,10 @@ export function WebinarTemplate({ webinar }: { webinar: WebinarDetail }) {
         </div>
       </section>
       {webinar.panel.length ? (
-        <section data-tone="dark" className="bg-brand text-on-brand">
+        <section className="bg-team-canvas">
           <div className="site-container flex flex-col gap-12 py-16 sm:py-28">
-            <SectionHeading eyebrow={text.title} title={text.panel} onBrand />
-            <TeamGrid members={webinar.panel} />
+            <SectionHeading eyebrow={text.title} title={text.panel} />
+            <TeamCardGrid members={webinar.panel} photos={SPEAKER_PHOTO} />
           </div>
         </section>
       ) : null}

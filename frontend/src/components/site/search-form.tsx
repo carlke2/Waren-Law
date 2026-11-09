@@ -2,7 +2,7 @@ import { ROUTES, SEARCH_PARAM, SEARCH_QUERY_MAX_LENGTH } from '@waren/shared';
 import { Button } from '@/components/ui/button';
 import { Field, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 
 const text = dictionary.search;
 

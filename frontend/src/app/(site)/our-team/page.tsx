@@ -1,9 +1,9 @@
 import { ROUTES } from '@waren/shared';
 import type { Metadata } from 'next';
 import { TeamListing } from '@/components/site/team-listing';
-import { dictionary } from '@/lib/dictionary';
-import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/prerender';
-import { pageMetadata } from '@/lib/seo/metadata';
+import { dictionary } from '@/lib/utils/dictionary';
+import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/utils/prerender';
+import { pageMetadata } from '@/lib/utils/seo/metadata';
 
 const text = dictionary.team;
 

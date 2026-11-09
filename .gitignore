@@ -37,6 +37,9 @@ backend/uploads/*
 .DS_Store
 Thumbs.db
 
+# Recreated by `next dev`; not part of the project tree
+frontend/AGENTS.md
+
 # Editors (shared settings may be added later)
 .vscode/*
 !.vscode/settings.json

@@ -1,5 +1,5 @@
 import type { PageResponse } from '@waren/shared';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 import { formatDate } from '@/lib/utils/dates';
 import { BlockRenderer } from '../block-renderer';
 import { PageHero } from '../page-hero';

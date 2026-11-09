@@ -1,7 +1,7 @@
 import type { AwardResponse } from '@waren/shared';
 import Image from 'next/image';
 import { Eyebrow } from '@/components/ui/eyebrow';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 
 const CERTIFICATE_SIZES = '10rem';
 

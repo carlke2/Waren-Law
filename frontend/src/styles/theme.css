@@ -15,6 +15,13 @@
   --palette-line-strong: #c9cedd;
   --palette-mist: #f3f4f8;
   --palette-white: #ffffff;
+  --palette-team-canvas: #f8fafc;
+  --palette-team-heading: #101d46;
+  --palette-team-body: #475569;
+  --palette-team-muted: #64748b;
+  --palette-team-accent: #2563eb;
+  --palette-team-wash: #e8f0ff;
+  --palette-team-line: #e2e8f0;
   --palette-green-700: #1f6b45;
   --palette-green-300: #7fd3a6;
   --palette-red-700: #b42318;
@@ -31,21 +38,6 @@
   --border-hair: 0.0625rem;
   --motion-fast: 150ms;
   --motion-slow: 250ms;
-  --motion-photo: 350ms;
-  /* Switch portraits: var(--photo-backdrop-royal), var(--photo-backdrop-steel), or var(--photo-backdrop-deep). */
-  --photo-backdrop-royal: radial-gradient(
-    circle at 50% 32%,
-    #5b80ea 0%,
-    #2a4bc0 55%,
-    var(--palette-navy-700) 100%
-  );
-  --photo-backdrop-steel: radial-gradient(circle at 50% 32%, #8aa0dc 0%, #5169b4 55%, #2f458f 100%);
-  --photo-backdrop-deep: radial-gradient(circle at 50% 32%, #3552b8 0%, #1d3699 55%, #101f78 100%);
-  --photo-backdrop: var(--photo-backdrop-royal);
-  --photo-ring: #3a56b8;
-  --photo-shadow:
-    0 0 0 0.3125rem color-mix(in srgb, var(--palette-gold-500) 28%, transparent),
-    0 0.625rem 1.75rem color-mix(in srgb, var(--palette-gold-500) 50%, transparent);
   --gutter: 1.25rem;
   --grid-min-practice: 16.25rem;
   --grid-min-team: 15rem;
@@ -81,6 +73,14 @@
   --color-outline-on-brand: color-mix(in srgb, var(--palette-white) 70%, transparent);
   --color-menu-outline: color-mix(in srgb, var(--palette-white) 50%, transparent);
   --color-placeholder: var(--palette-navy-700);
+  --color-icon-wash: color-mix(in srgb, var(--palette-navy-700) 12%, var(--palette-white));
+  --color-team-canvas: var(--palette-team-canvas);
+  --color-team-heading: var(--palette-team-heading);
+  --color-team-body: var(--palette-team-body);
+  --color-team-muted: var(--palette-team-muted);
+  --color-team-accent: var(--palette-team-accent);
+  --color-team-wash: var(--palette-team-wash);
+  --color-team-line: var(--palette-team-line);
   --color-overlay-film: color-mix(in srgb, var(--palette-navy-950) 45%, transparent);
   --color-success: var(--palette-green-700);
   --color-error: var(--palette-red-700);
@@ -121,10 +121,6 @@
   --text-name--line-height: 1.6;
   --text-name-phone: 1.0625rem;
   --text-name-phone--line-height: 1.6;
-  --text-photo-name: 0.9375rem;
-  --text-photo-name--line-height: 1.35;
-  --text-photo-title: 0.75rem;
-  --text-photo-title--line-height: 1.4;
   --text-footer-heading: 1.3125rem;
   --text-footer-heading--line-height: 1.6;
   --text-recognition: 1.5rem;
@@ -190,9 +186,17 @@
   --radius-lg: 0.5rem;
   --radius-nav: 0.75rem;
   --radius-full: 9999px;
+  --radius-portrait: 0.3125rem;
+  --radius-profile: 50%;
+  --radius-partner: 0.625rem;
+  --radius-office: 0.5rem;
+  --radius-card: 1rem;
+  --radius-team: 1.25rem;
+  --radius-team-photo: 1rem;
 
   --shadow-*: initial;
-  --shadow-card: 0 1.125rem 2.5rem color-mix(in srgb, var(--palette-navy-950) 18%, transparent);
+  --shadow-card: 0 0.375rem 1.25rem color-mix(in srgb, var(--palette-navy-950) 8%, transparent);
+  --shadow-card-hover: 0 0.75rem 2rem color-mix(in srgb, var(--palette-navy-950) 16%, transparent);
   --shadow-header: 0 0.5rem 1.5rem color-mix(in srgb, var(--palette-navy-950) 25%, transparent);
 
   --spacing: 0.25rem;
@@ -235,6 +239,52 @@
 
 @utility border-b-card-rule {
   border-bottom-width: var(--border-card-rule);
+}
+
+@utility bg-welcome {
+  background-color: var(--color-surface);
+  background-image:
+    radial-gradient(
+      42rem 24rem at 8% 0%,
+      color-mix(in srgb, var(--palette-navy-700) 14%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      36rem 22rem at 100% 100%,
+      color-mix(in srgb, var(--palette-navy-800) 10%, transparent),
+      transparent 68%
+    );
+}
+
+@utility bg-gold-gradient {
+  background-image: linear-gradient(90deg, var(--palette-gold-500), var(--palette-gold-700));
+}
+
+@utility text-gold-gradient {
+  background-image: linear-gradient(180deg, var(--palette-gold-500), var(--palette-gold-700));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.welcome-statue {
+  object-fit: contain;
+  object-position: left center;
+  opacity: 0.08;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, black 8%, black 58%, transparent),
+    linear-gradient(to bottom, transparent, black 6%, black 86%, transparent);
+  mask-image:
+    linear-gradient(to right, transparent, black 8%, black 58%, transparent),
+    linear-gradient(to bottom, transparent, black 6%, black 86%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+@media (min-width: 64rem) {
+  .welcome-statue {
+    opacity: 0.18;
+  }
 }
 
 @media (min-width: 40rem) {
@@ -296,6 +346,14 @@
   :root {
     --spacing-header: calc(var(--spacing-topbar) + var(--spacing-nav));
   }
+}
+
+@utility aspect-team {
+  aspect-ratio: 4 / 5;
+}
+
+@utility grid-welcome {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
 }
 
 @utility grid-auto-hero {

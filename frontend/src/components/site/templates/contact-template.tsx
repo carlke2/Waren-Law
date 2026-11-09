@@ -1,8 +1,8 @@
 import type { PageResponse } from '@waren/shared';
-import { SiteCta } from '@/components/home/cta-band';
+import { SiteCta } from '@/components/site/home/cta-band';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { getOffices, getSettings } from '@/lib/api/content';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 import { formatPhone, mailLink, telLink, whatsAppLink } from '@/lib/utils/links';
 import { LeadForm } from '../lead-form';
 import { MapEmbed } from '../map-embed';
@@ -56,9 +56,9 @@ export async function ContactTemplate({ page }: { page: PageResponse }) {
             {offices.map((office) => (
               <div
                 key={office.slug}
-                className="flex flex-col gap-3.5 border border-b-card-rule border-border border-b-brand bg-surface px-7 py-8"
+                className="surface-card flex flex-col gap-3.5 p-6"
               >
-                <h3 className="font-heading text-h3-card font-semibold text-brand">
+                <h3 className="font-heading text-h3-card font-semibold">
                   {office.name}
                 </h3>
                 <p className="text-card-body text-text-muted">

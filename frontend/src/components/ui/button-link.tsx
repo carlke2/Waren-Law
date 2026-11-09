@@ -3,10 +3,12 @@ import type { ReactNode } from 'react';
 import { cx } from '@/lib/utils/cx';
 
 const VARIANTS = {
-  primary: 'bg-brand px-6.5 py-3.5 font-semibold text-on-brand',
-  gold: 'bg-accent px-7 py-4 font-bold text-on-accent',
-  outline: 'border border-outline-on-brand px-6.5 py-3.5 font-semibold text-on-brand',
-  'outline-large': 'border border-outline-on-brand px-6.75 py-3.75 font-semibold text-on-brand',
+  primary: 'rounded-lg bg-brand px-6.5 py-3.5 font-semibold text-on-brand',
+  gold: 'rounded-lg bg-accent px-7 py-4 font-bold text-on-accent',
+  outline: 'rounded-lg border border-outline-on-brand px-6.5 py-3.5 font-semibold text-on-brand',
+  'outline-large':
+    'rounded-lg border border-outline-on-brand px-6.75 py-3.75 font-semibold text-on-brand',
+  pill: 'rounded-full bg-brand px-6.5 py-3.5 font-semibold text-on-brand',
 } as const;
 
 interface ButtonLinkProps {
@@ -19,7 +21,7 @@ interface ButtonLinkProps {
 
 export function ButtonLink({ href, variant, external, className, children }: ButtonLinkProps) {
   const classes = cx(
-    'inline-block rounded-lg text-center text-button',
+    'inline-flex items-center justify-center gap-2 text-center text-button',
     VARIANTS[variant],
     className,
   );

@@ -1,27 +1,29 @@
 import { ROUTES, type TeamDetail } from '@waren/shared';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { SiteCta } from '@/components/home/cta-band';
+import { SiteCta } from '@/components/site/home/cta-band';
 import { BlockRenderer } from '@/components/site/block-renderer';
 import { InsightsBand } from '@/components/site/insights-band';
 import { JsonLd } from '@/components/site/json-ld';
 import { PageHero } from '@/components/site/page-hero';
-import { TeamGrid, TeamPhoto } from '@/components/site/team-photo';
+import { TeamCardGrid } from '@/components/site/home/team-member-card';
 import { ButtonLink } from '@/components/ui/button-link';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { SiteLink } from '@/components/ui/site-link';
 import { getTeam, getTeamMember } from '@/lib/api/content';
-import { dictionary } from '@/lib/dictionary';
-import { serverEnv } from '@/lib/env';
-import { deferToRequestWhenPrerenderIsSkipped, staticParams } from '@/lib/prerender';
-import { NOINDEX_FOLLOW, pageMetadata, seoMetadataInput } from '@/lib/seo/metadata';
-import { personSchema } from '@/lib/seo/schema';
+import { CARD_PHOTO, memberPhoto, PROFILE_PHOTO } from '@/lib/utils/content/photo-files';
+import { dictionary } from '@/lib/utils/dictionary';
+import { serverEnv } from '@/lib/utils/env';
+import { deferToRequestWhenPrerenderIsSkipped, staticParams } from '@/lib/utils/prerender';
+import { NOINDEX_FOLLOW, pageMetadata, seoMetadataInput } from '@/lib/utils/seo/metadata';
+import { personSchema } from '@/lib/utils/seo/schema';
 import { mailLink, telLink, whatsAppLink } from '@/lib/utils/links';
 
 const text = dictionary.profile;
 const RELATED_LIMIT = 4;
-const PROFILE_PHOTO_SIZES = '(min-width: 40rem) 18rem, 100vw';
+const PROFILE_SIZES = '(min-width: 40rem) 18rem, 100vw';
 
 interface ProfilePageProps {
   params: Promise<{ slug: string }>;
@@ -109,14 +111,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
         crumbs={[{ label: dictionary.nav.people, href: ROUTES.team }, { label: name }]}
         aside={
           member.portrait ? (
-            <TeamPhoto
-              member={member}
-              caption={false}
-              linked={false}
-              priority
-              sizes={PROFILE_PHOTO_SIZES}
-              className="w-full max-w-profile"
-            />
+            <ProfilePhoto member={member} />
           ) : null
         }
       >
@@ -161,7 +156,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
                     <li key={areaSlug}>
                       <SiteLink
                         href={ROUTES.root(areaSlug)}
-                        className="inline-flex min-h-11 items-center border border-border-strong bg-surface px-4 py-2 text-link font-semibold text-brand hover:border-brand"
+                        className="inline-flex min-h-11 items-center rounded-full border border-border bg-surface px-4 py-2 text-link font-semibold text-brand shadow-card hover:border-border-strong"
                       >
                         {areaName}
                       </SiteLink>
@@ -177,15 +172,32 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
       <InsightsBand title={text.insights(name)} insights={member.insights} />
 
       {related.length ? (
-        <section data-tone="dark" className="bg-brand text-on-brand">
+        <section className="bg-team-canvas">
           <div className="site-container flex flex-col gap-12 py-16 sm:py-28">
-            <SectionHeading eyebrow={text.relatedEyebrow} title={text.related} onBrand />
-            <TeamGrid members={related} />
+            <SectionHeading eyebrow={text.relatedEyebrow} title={text.related} />
+            <TeamCardGrid members={related} photos={CARD_PHOTO} />
           </div>
         </section>
       ) : null}
 
       <SiteCta />
     </>
+  );
+}
+
+function ProfilePhoto({ member }: { member: TeamDetail }) {
+  const photo = memberPhoto(member, PROFILE_PHOTO);
+  if (!photo) return null;
+  return (
+    <div className="relative aspect-square w-full max-w-profile overflow-hidden rounded-profile">
+      <Image
+        src={photo.url}
+        alt={photo.alt}
+        fill
+        sizes={PROFILE_SIZES}
+        priority
+        className="object-cover object-center"
+      />
+    </div>
   );
 }

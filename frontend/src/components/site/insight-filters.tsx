@@ -9,7 +9,7 @@ import {
 } from '@waren/shared';
 import { Button } from '@/components/ui/button';
 import { SiteLink } from '@/components/ui/site-link';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 
 const text = dictionary.insights;
 const FIELD =

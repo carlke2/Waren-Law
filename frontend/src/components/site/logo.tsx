@@ -1,48 +1,35 @@
-import { dictionary } from '@/lib/dictionary';
+import Image from 'next/image';
+import { dictionary } from '@/lib/utils/dictionary';
 
 const { brand } = dictionary;
+const LOGO = '/brand/golden-logo.png';
+const LOGO_WIDTH = 1600;
+const LOGO_HEIGHT = 351;
+const alt = `${brand.wordmark} ${brand.suffix}`;
 
-export function BrandMark({ className = 'size-10' }: { className?: string }) {
+export function BrandMark({
+  className = 'h-12 w-auto',
+  priority = false,
+}: {
+  className?: string;
+  priority?: boolean;
+}) {
   return (
-    <svg
-      viewBox="0 0 48 48"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2.4}
-      aria-hidden="true"
+    <Image
+      src={LOGO}
+      alt={alt}
+      width={LOGO_WIDTH}
+      height={LOGO_HEIGHT}
+      priority={priority}
       className={className}
-    >
-      <path d="M8 12l8 26 8-20 8 20 8-26" />
-      <path d="M6 12h8M34 12h8" />
-    </svg>
+    />
   );
 }
 
 export function HeaderLogo() {
-  return (
-    <span className="flex items-center gap-3">
-      <BrandMark className="size-10 text-accent" />
-      <span className="flex flex-col">
-        <span className="font-heading text-wordmark font-semibold tracking-wordmark text-on-brand">
-          {brand.wordmark}
-        </span>
-        <span className="mt-1 text-logo-sub font-bold tracking-logo-sub text-accent">
-          {brand.suffix}
-        </span>
-      </span>
-    </span>
-  );
+  return <BrandMark priority className="h-12 w-auto" />;
 }
 
 export function FooterLogo() {
-  return (
-    <span className="flex flex-col">
-      <span className="font-heading text-wordmark-footer font-semibold tracking-wordmark-footer text-accent">
-        {brand.wordmark}
-      </span>
-      <span className="mt-1 text-logo-sub-footer font-bold tracking-logo-sub-footer text-on-brand">
-        {brand.suffix}
-      </span>
-    </span>
-  );
+  return <BrandMark className="h-14 w-auto" />;
 }

@@ -1,6 +1,6 @@
 import { ROUTES, type InsightSummary } from '@waren/shared';
 import { SiteLink } from '@/components/ui/site-link';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 
 export function InsightAuthors({
   authors,

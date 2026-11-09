@@ -2,8 +2,8 @@ import { ROUTES } from '@waren/shared';
 import { PageHero } from '@/components/site/page-hero';
 import { SearchForm } from '@/components/site/search-form';
 import { TextLink } from '@/components/ui/text-link';
-import { dictionary } from '@/lib/dictionary';
-import { PRIMARY_NAV } from '@/lib/navigation';
+import { dictionary } from '@/lib/utils/dictionary';
+import { PRIMARY_NAV } from '@/lib/utils/navigation';
 
 const text = dictionary.notFound;
 

@@ -3,7 +3,7 @@ import { defineConfig } from '@playwright/test';
 const BASE_URL = 'http://localhost:3000';
 
 export default defineConfig({
-  testDir: './e2e',
+  testDir: './tests/e2e',
   fullyParallel: true,
   workers: 2,
   timeout: 60_000,

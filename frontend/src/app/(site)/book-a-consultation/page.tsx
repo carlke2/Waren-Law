@@ -1,13 +1,13 @@
 import { ROUTES } from '@waren/shared';
 import type { Metadata } from 'next';
-import { SiteCta } from '@/components/home/cta-band';
+import { SiteCta } from '@/components/site/home/cta-band';
 import { LeadForm } from '@/components/site/lead-form';
 import { PageHero } from '@/components/site/page-hero';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { getPracticeAreas, getSettings } from '@/lib/api/content';
-import { dictionary } from '@/lib/dictionary';
-import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/prerender';
-import { pageMetadata } from '@/lib/seo/metadata';
+import { dictionary } from '@/lib/utils/dictionary';
+import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/utils/prerender';
+import { pageMetadata } from '@/lib/utils/seo/metadata';
 
 const text = dictionary.consultation;
 const NUMBER_WIDTH = 2;
@@ -52,8 +52,8 @@ export default async function ConsultationPage() {
           </div>
           <div className="grid grid-auto-team gap-8">
             {copy.steps.map(({ title, text: stepText }, index) => (
-              <div key={title} className="flex flex-col gap-2.5 border-t-2 border-brand pt-5">
-                <span className="text-eyebrow font-bold text-accent-text">
+              <div key={title} className="surface-card flex flex-col gap-2.5 p-6">
+                <span className="font-heading text-eyebrow text-text-subtle">
                   {String(index + 1).padStart(NUMBER_WIDTH, '0')}
                 </span>
                 <h3 className="font-heading text-h3-card font-semibold text-brand">{title}</h3>

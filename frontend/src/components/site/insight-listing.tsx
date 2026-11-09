@@ -1,12 +1,12 @@
 import { ROUTES } from '@waren/shared';
 import { notFound } from 'next/navigation';
-import { SiteCta } from '@/components/home/cta-band';
+import { SiteCta } from '@/components/site/home/cta-band';
 import { Pagination } from '@/components/ui/pagination';
 import { getCategories, getHome, getInsights, getPracticeAreas } from '@/lib/api/content';
-import { insightListHref, type InsightListFilters } from '@/lib/content/insights';
-import { dictionary } from '@/lib/dictionary';
-import { serverEnv } from '@/lib/env';
-import { breadcrumbSchema } from '@/lib/seo/schema';
+import { insightListHref, type InsightListFilters } from '@/lib/utils/content/insights';
+import { dictionary } from '@/lib/utils/dictionary';
+import { serverEnv } from '@/lib/utils/env';
+import { breadcrumbSchema } from '@/lib/utils/seo/schema';
 import { InsightCard } from './insight-card';
 import { InsightFilters } from './insight-filters';
 import { InsightSpotlight } from './insight-spotlight';

@@ -2,7 +2,7 @@ import type { Inline } from '@waren/shared';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { SiteLink } from '@/components/ui/site-link';
-import type { ContentBlock } from '@/lib/content/sections';
+import type { ContentBlock } from '@/lib/utils/content/sections';
 import { cx } from '@/lib/utils/cx';
 import { isExternalLink } from '@/lib/utils/links';
 

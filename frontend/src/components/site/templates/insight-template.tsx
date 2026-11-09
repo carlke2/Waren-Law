@@ -1,12 +1,12 @@
 import { ROUTES, type InsightDetail } from '@waren/shared';
 import Image from 'next/image';
-import { SiteCta } from '@/components/home/cta-band';
+import { SiteCta } from '@/components/site/home/cta-band';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { SiteLink } from '@/components/ui/site-link';
 import { getSettings } from '@/lib/api/content';
-import { dictionary } from '@/lib/dictionary';
-import { serverEnv } from '@/lib/env';
-import { articleSchema } from '@/lib/seo/schema';
+import { dictionary } from '@/lib/utils/dictionary';
+import { serverEnv } from '@/lib/utils/env';
+import { articleSchema } from '@/lib/utils/seo/schema';
 import { formatDate } from '@/lib/utils/dates';
 import { BlockRenderer } from '../block-renderer';
 import { FaqList } from '../faq-list';
@@ -17,7 +17,7 @@ import { PageHero } from '../page-hero';
 const text = dictionary.insights;
 const IMAGE_SIZES = '(min-width: 48rem) 47.5rem, 100vw';
 const CHIP =
-  'inline-flex min-h-11 items-center border border-border-strong px-4 py-2 text-link font-semibold text-brand hover:border-brand';
+  'inline-flex min-h-11 items-center rounded-full border border-border bg-surface px-4 py-2 text-link font-semibold text-brand shadow-card hover:border-border-strong';
 
 export async function InsightTemplate({ insight }: { insight: InsightDetail }) {
   const settings = await getSettings();

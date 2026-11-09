@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { connection } from 'next/server';
-import { serverEnv } from '@/lib/env';
+import { serverEnv } from '@/lib/utils/env';
 
 const ADMIN_PATH = '/admin/';
 const SEARCH_PATH = '/search/';

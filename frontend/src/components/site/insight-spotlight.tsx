@@ -4,7 +4,7 @@ import { ROUTES, type InsightSummary } from '@waren/shared';
 import Image from 'next/image';
 import { useState } from 'react';
 import { SiteLink } from '@/components/ui/site-link';
-import { dictionary } from '@/lib/dictionary';
+import { dictionary } from '@/lib/utils/dictionary';
 import { formatDate } from '@/lib/utils/dates';
 import { cx } from '@/lib/utils/cx';
 import { InsightAuthors } from './insight-authors';

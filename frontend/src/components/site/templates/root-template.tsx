@@ -1,7 +1,7 @@
 import { ROUTES, type PageResponse } from '@waren/shared';
 import { notFound } from 'next/navigation';
-import type { RootContent } from '@/lib/content/root-content';
-import { seoMetadataInput } from '@/lib/seo/metadata';
+import type { RootContent } from '@/lib/utils/content/root-content';
+import { seoMetadataInput } from '@/lib/utils/seo/metadata';
 import { AboutTemplate } from './about-template';
 import { ContactTemplate } from './contact-template';
 import { InsightTemplate } from './insight-template';
