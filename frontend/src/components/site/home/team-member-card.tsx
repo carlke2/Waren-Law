@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { Icon, LineSvg } from '@/components/ui/icon';
 import { SiteLink } from '@/components/ui/site-link';
 import { getTeamMember } from '@/lib/api/content';
+import { cx } from '@/lib/utils/cx';
 import { memberPhoto, type PhotoFile } from '@/lib/utils/content/photo-files';
 import { dictionary } from '@/lib/utils/dictionary';
 import { mailLink } from '@/lib/utils/links';
@@ -150,13 +151,15 @@ async function contactsFor(
 export async function TeamCardGrid({
   members,
   photos,
+  className,
 }: {
   members: readonly TeamSummary[];
   photos?: Record<string, PhotoFile>;
+  className?: string;
 }): Promise<ReactNode> {
   const contacts = await contactsFor(members);
   return (
-    <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div className={cx('grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4', className)}>
       {members.map((member) => (
         <TeamMemberCard
           key={member.slug}

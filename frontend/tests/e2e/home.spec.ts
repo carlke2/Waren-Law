@@ -66,14 +66,44 @@ test.describe('content', () => {
     }
   });
 
-  test('has one visible H1 and a services link in the hero', async ({ page }) => {
+  test('has one H1, hidden visually, and the welcome under the hero', async ({ page }) => {
     await page.goto(ROUTES.home);
     const heading = page.getByRole('heading', { level: 1 });
     await expect(heading).toHaveCount(1);
-    await expect(heading).toBeVisible();
+    await expect(heading).toBeAttached();
+    expect(await heading.boundingBox()).toMatchObject({ width: 1, height: 1 });
     const intro = page.locator('#intro');
-    await expect(intro.getByRole('heading', { level: 1 })).toBeVisible();
-    await expect(intro.getByRole('link', { name: dictionary.home.heroServices })).toBeVisible();
+    await expect(intro.getByRole('heading', { level: 2 })).toBeVisible();
+    await expect(intro.getByRole('link', { name: dictionary.cta.consultation })).toHaveAttribute(
+      'href',
+      ROUTES.consultation,
+    );
+    await expect(intro.getByRole('link', { name: /about us/i })).toHaveAttribute(
+      'href',
+      ROUTES.about,
+    );
+  });
+
+  test('jumps from the scroll cue to the welcome by keyboard', async ({ page }) => {
+    await page.goto(ROUTES.home);
+    const cue = page.getByRole('link', { name: dictionary.home.scrollCue });
+    await cue.focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(/#intro$/);
+    await expect(page.locator('#intro')).toBeInViewport();
+  });
+
+  test('leaves out the removed sections', async ({ page }) => {
+    await page.goto(ROUTES.home);
+    const main = page.locator('main');
+    for (const removed of [
+      dictionary.home.qualifiedLawyers,
+      dictionary.home.helpTitle,
+      dictionary.practice.faq,
+    ]) {
+      await expect(main.getByText(removed, { exact: true })).toHaveCount(0);
+    }
+    await expect(main.locator('[data-tone="dark"]')).toHaveCount(0);
   });
 
   test('links each audience card to its practice page, and each page opens', async ({
@@ -134,16 +164,20 @@ test.describe('content', () => {
     await expect(page.getByRole('heading', { level: 1, name: title })).toBeVisible();
   });
 
-  test('sends the CTA to Contact and WhatsApp as a plain link', async ({ page }) => {
+  test('closes with consultation, offices and partners links', async ({ page }) => {
     await page.goto(ROUTES.home);
-    const cta = page.locator('main > section').last();
-    await expect(cta.getByRole('link', { name: dictionary.cta.consultation })).toHaveAttribute(
+    const closing = page.locator('main > section').last();
+    await expect(closing.getByRole('link', { name: dictionary.cta.consultation })).toHaveAttribute(
       'href',
       ROUTES.consultation,
     );
-    await expect(cta.getByRole('link', { name: dictionary.cta.whatsApp })).toHaveAttribute(
+    await expect(closing.getByRole('link', { name: dictionary.nav.contactUs })).toHaveAttribute(
       'href',
-      /^https:\/\/wa\.me\//,
+      ROUTES.contact,
+    );
+    await expect(closing.getByRole('link', { name: dictionary.nav.partners })).toHaveAttribute(
+      'href',
+      ROUTES.partners,
     );
   });
 });

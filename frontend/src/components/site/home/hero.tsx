@@ -1,8 +1,8 @@
 import type { HomeResponse } from '@waren/shared';
 import Image from 'next/image';
 import { dictionary } from '@/lib/utils/dictionary';
-import { HOME_INTRO_ID } from './home-intro';
 import { HomeHeroVideo } from './home-hero-video';
+import { HOME_INTRO_ID } from './welcome';
 
 const HERO_IMAGE_SIZES = '100vw';
 
@@ -10,6 +10,7 @@ export function Hero({ home }: { home: HomeResponse }) {
   const poster = home.heroImage.url;
   return (
     <section className="relative -mt-header h-hero-home overflow-hidden bg-brand-strong">
+      {home.pageH1 ? <h1 className="sr-only">{home.pageH1}</h1> : null}
       <Image
         src={poster}
         alt=""

@@ -1,10 +1,12 @@
 import { ROUTES, type HomeResponse, type InsightSummary } from '@waren/shared';
 import { InsightCard } from '@/components/site/insight-card';
-import { SiteLink } from '@/components/ui/site-link';
 import { dictionary } from '@/lib/utils/dictionary';
-import { Eyebrow } from '@/components/ui/eyebrow';
+import { HomeSection } from './home-section';
+import { ArrowLink, CARD_HOVER_LINE } from './home-links';
+import { SectionHeading } from './section-heading';
 
 const text = dictionary.home;
+
 interface LatestInsightsProps {
   home: HomeResponse;
   insights: readonly InsightSummary[];
@@ -12,26 +14,16 @@ interface LatestInsightsProps {
 
 export function LatestInsights({ home, insights }: LatestInsightsProps) {
   return (
-    <section className="bg-surface">
-      <div className="site-container flex flex-col gap-12 py-16 sm:py-28">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div className="flex flex-col gap-3">
-            <Eyebrow>{text.insightsEyebrow}</Eyebrow>
-            <h2 className="font-heading text-h2 font-medium text-brand">{home.insightsTitle}</h2>
-          </div>
-          <SiteLink
-            href={ROUTES.insights}
-            className="inline-flex items-center border-b-2 border-accent pb-1 text-button font-bold text-brand max-sm:min-h-11"
-          >
-            {text.allInsights} {text.arrow}
-          </SiteLink>
-        </div>
-        <div className="grid grid-auto-insight gap-7">
-          {insights.map((insight) => (
-            <InsightCard key={insight.slug} insight={insight} />
-          ))}
-        </div>
+    <HomeSection tone="tint">
+      <div className="flex flex-wrap items-end justify-between gap-6">
+        <SectionHeading eyebrow={text.insightsEyebrow} title={home.insightsTitle} />
+        <ArrowLink href={ROUTES.insights}>{text.allInsights}</ArrowLink>
       </div>
-    </section>
+      <div className={`grid grid-auto-insight gap-7 ${CARD_HOVER_LINE}`}>
+        {insights.map((insight) => (
+          <InsightCard key={insight.slug} insight={insight} />
+        ))}
+      </div>
+    </HomeSection>
   );
 }
