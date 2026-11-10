@@ -173,7 +173,10 @@ test.describe('visual snapshots', () => {
       await expect(page).toHaveScreenshot(`home-${viewport.width}.png`, {
         fullPage: true,
         timeout: 30_000,
-        mask: [page.locator('main > section').filter({ hasText: 'Latest from our advocates' })],
+        mask: [
+          page.locator('main video'),
+          page.locator('main > section').filter({ hasText: 'Latest from our advocates' }),
+        ],
       });
     });
 
