@@ -71,8 +71,9 @@ test.describe('content', () => {
     const heading = page.getByRole('heading', { level: 1 });
     await expect(heading).toHaveCount(1);
     await expect(heading).toBeVisible();
-    const hero = page.locator('main > section').first();
-    await expect(hero.getByRole('link', { name: dictionary.home.heroServices })).toBeVisible();
+    const intro = page.locator('#intro');
+    await expect(intro.getByRole('heading', { level: 1 })).toBeVisible();
+    await expect(intro.getByRole('link', { name: dictionary.home.heroServices })).toBeVisible();
   });
 
   test('links each audience card to its practice page, and each page opens', async ({

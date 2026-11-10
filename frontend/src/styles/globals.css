@@ -52,6 +52,25 @@
     transform: translateY(calc(var(--spacing) * -0.5));
   }
 
+  .hero-control {
+    display: inline-flex;
+    min-width: calc(var(--spacing) * 11);
+    min-height: calc(var(--spacing) * 11);
+    align-items: center;
+    justify-content: center;
+    border: var(--border-hair) solid var(--color-border-strong);
+    border-radius: var(--radius-full);
+    background-color: var(--color-surface);
+    color: var(--color-brand);
+    font-size: var(--text-button);
+    font-weight: 600;
+    line-height: var(--text-button--line-height);
+  }
+
+  .hero-control:hover {
+    text-decoration: underline;
+  }
+
   .icon-badge {
     display: inline-flex;
     width: calc(var(--spacing) * 12);

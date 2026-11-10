@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { heroCardsSchema, HOME_PAGE_SLUG, type HomeResponse } from '@waren/shared';
+import { heroCardsSchema, HERO_VIDEO_FILE, HOME_PAGE_SLUG, type HomeResponse } from '@waren/shared';
 import { ContentStatus } from '../../../prisma/generated/client.js';
 import { PrismaService } from '../../database/prisma.service.js';
 import { ContentPresenter } from '../content/content-presenter.service.js';
@@ -17,9 +17,10 @@ export class HomeService {
       include: { heroImage: true, page: { include: { ogImage: true } } },
     });
     if (!home) throw new NotFoundException('No home content is available');
+    const heroVideo = await this.prisma.media.findUnique({ where: { fileName: HERO_VIDEO_FILE } });
     return {
       heroImage: this.present.media(home.heroImage),
-      heroVideoUrl: home.heroVideoUrl,
+      heroVideoUrl: heroVideo ? this.present.media(heroVideo).url : home.heroVideoUrl,
       heroCards: heroCardsSchema.parse(home.heroCards),
       pageH1: home.pageH1,
       welcomeTitle: home.welcomeTitle,
