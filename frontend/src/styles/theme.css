@@ -32,6 +32,7 @@
   --overlay-hero-to: color-mix(in srgb, var(--palette-navy-950) 10%, transparent);
   --overlay-hero-top: color-mix(in srgb, var(--palette-navy-950) 70%, transparent);
   --overlay-hero-top-height: 8.75rem;
+  --hero-home-height: 70svh;
 
   --radius: 0;
   --border-card-rule: 0.1875rem;
@@ -292,6 +293,7 @@
     --gutter: 2rem;
     --spacing-nav: 5.5rem;
     --spacing-hero-space: clamp(9.375rem, 15vw, 15rem);
+    --hero-home-height: max(480px, 100svh);
   }
 }
 
@@ -317,6 +319,10 @@
 
 @utility pb-safe {
   padding-bottom: calc(var(--spacing) * 5 + env(safe-area-inset-bottom, 0rem));
+}
+
+@utility h-hero-home {
+  height: var(--hero-home-height);
 }
 
 @utility hero-overlay {

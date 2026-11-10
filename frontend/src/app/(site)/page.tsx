@@ -1,12 +1,12 @@
 import { FEATURED_TEAM_LIMIT, LATEST_INSIGHTS_LIMIT, ROUTES } from '@waren/shared';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Audience } from '@/components/site/home/audience';
 import { ClientLogos } from '@/components/site/home/client-logos';
 import { CtaBand } from '@/components/site/home/cta-band';
 import { Expertise } from '@/components/site/home/expertise';
 import { HelpIntro } from '@/components/site/home/help-intro';
 import { Hero } from '@/components/site/home/hero';
+import { HomeIntro } from '@/components/site/home/home-intro';
 import { StatsBar } from '@/components/site/home/stats-bar';
 import { LatestInsights } from '@/components/site/home/latest-insights';
 import { OfficesBand } from '@/components/site/home/offices-band';
@@ -77,15 +77,15 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero
-        home={home}
-        tagline={settings.firm.tagline}
+      <Hero home={home} />
+      <HomeIntro
+        title={home.pageH1}
         description={settings.firm.description}
         bookingLabel={settings.cta.bookingLabel}
+        cards={home.heroCards}
       />
       <StatsBar />
       <HelpIntro />
-      <Audience cards={home.heroCards} />
       <Expertise home={home} practiceAreas={practiceAreas} />
       <Welcome home={home} whyPoints={settings.pageCopy.about.whyPoints} />
       <SourcedFaq items={faqs} title={dictionary.practice.faq} preview />

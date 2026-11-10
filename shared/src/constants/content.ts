@@ -32,6 +32,7 @@ export const ICON_NAMES = [
   'users',
 ] as const;
 export const HERO_CARD_COUNT = 3;
+export const HERO_VIDEO_FILE = 'hero.mp4';
 export const DEFAULT_PAGE_SIZE = 12;
 export const MAX_PAGE_SIZE = 50;
 export const SETTING_KEYS = {
