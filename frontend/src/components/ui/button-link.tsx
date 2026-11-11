@@ -9,6 +9,8 @@ const VARIANTS = {
   'outline-large':
     'rounded-lg border border-outline-on-brand px-6.75 py-3.75 font-semibold text-on-brand',
   pill: 'rounded-full bg-brand px-6.5 py-3.5 font-semibold text-on-brand',
+  soft: 'rounded-full bg-accent-soft px-6 py-3.5 font-semibold text-ink',
+  line: 'rounded-full border border-ink bg-surface px-6 py-3.5 font-semibold text-ink',
 } as const;
 
 interface ButtonLinkProps {

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { LineSvg } from '@/components/ui/icon';
 import { dictionary } from '@/lib/utils/dictionary';
@@ -29,7 +30,7 @@ function whenIdle(run: () => void): () => void {
   return () => clearTimeout(id);
 }
 
-export function HomeHeroVideo({ url, poster }: { url: string; poster: string }) {
+export function HomeHeroVideo({ url, poster }: { url: string; poster?: string }) {
   const [ready, setReady] = useState(false);
   const [paused, setPaused] = useState(false);
   const video = useRef<HTMLVideoElement>(null);
@@ -59,7 +60,12 @@ export function HomeHeroVideo({ url, poster }: { url: string; poster: string }) 
     setPaused(!paused);
   }
 
-  if (!ready) return null;
+  if (!ready) {
+    return poster ? (
+      <Image src={poster} alt="" fill sizes="100vw" className="object-cover object-center" />
+    ) : null;
+  }
+
   return (
     <>
       <video
@@ -76,16 +82,16 @@ export function HomeHeroVideo({ url, poster }: { url: string; poster: string }) 
         onPause={() => setPaused(true)}
         className="absolute inset-0 size-full object-cover object-center"
       />
-      <div className="absolute inset-x-0 top-header z-10">
-        <div className="site-container flex justify-end">
-          <button type="button" onClick={togglePlayback} className="hero-control gap-2 px-4">
-            {paused ? text.playVideo : text.pauseVideo}
-            <LineSvg className="size-4">
-              {paused ? <path d="M8 5.5v13l10-6.5z" /> : <path d="M9 5.5v13M15 5.5v13" />}
-            </LineSvg>
-          </button>
-        </div>
-      </div>
+      <button
+        type="button"
+        onClick={togglePlayback}
+        aria-label={paused ? text.playVideo : text.pauseVideo}
+        className="hero-control absolute top-header right-6 z-10"
+      >
+        <LineSvg className="size-4">
+          {paused ? <path d="M8 5.5v13l10-6.5z" /> : <path d="M9 5.5v13M15 5.5v13" />}
+        </LineSvg>
+      </button>
     </>
   );
 }

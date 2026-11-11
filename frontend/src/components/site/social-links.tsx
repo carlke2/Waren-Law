@@ -52,12 +52,14 @@ export function SocialLinks({
 }: {
   socials: SiteSettings['socials'];
   className?: string;
-  tone?: 'onBrand' | 'card';
+  tone?: 'onBrand' | 'card' | 'quiet';
 }) {
   const linkClass =
     tone === 'card'
       ? 'team-social'
-      : 'inline-flex size-11 items-center justify-center text-on-brand hover:text-accent';
+      : tone === 'quiet'
+        ? 'inline-flex size-11 items-center justify-center text-ink hover:text-accent'
+        : 'inline-flex size-11 items-center justify-center text-on-brand hover:text-accent';
   return (
     <ul className={cx('flex items-center', tone === 'card' && 'gap-2', className)}>
       {LINKS.map(([key, label]) => (

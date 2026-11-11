@@ -33,6 +33,20 @@ export const ICON_NAMES = [
 ] as const;
 export const HERO_CARD_COUNT = 3;
 export const HERO_VIDEO_FILE = 'hero.mp4';
+export const HOME_SERVICE_COUNT = 8;
+export const HOME_FEATURE_SLUGS = [
+  'wealth-protection-plan-for-kenyans-abroad-webinar',
+  'trusts-taxes-protecting-wealth-across-borders',
+] as const;
+export const MENU_WEBINAR_SLUGS = [
+  'trusts-taxes-protecting-wealth-across-borders',
+  'wealth-protection-plan-for-kenyans-abroad-webinar',
+  'wealth-built-abroad-protected-in-kenya-webinar',
+] as const;
+export const MENU_FEATURED_TEAM = 2;
+export const MENU_FEATURED_PARTNERS = 2;
+export const MENU_FEATURED_INSIGHTS = 3;
+export const INTRO_ALLIANCE_SLUG = 'beijing-jingping-law-firm';
 export const DEFAULT_PAGE_SIZE = 12;
 export const MAX_PAGE_SIZE = 50;
 export const SETTING_KEYS = {

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1235 650" role="img" aria-label="Flag of the United States">
+  <rect width="1235" height="650" fill="#B22234"/>
+  <path stroke="#fff" stroke-width="50" d="M0 50h1235M0 150h1235M0 250h1235M0 350h1235M0 450h1235M0 550h1235"/>
+  <rect width="494" height="350" fill="#3C3B6E"/>
+  <g fill="#fff">
+    <g id="row5">
+      <circle cx="41" cy="29" r="10"/><circle cx="123" cy="29" r="10"/><circle cx="205" cy="29" r="10"/>
+      <circle cx="287" cy="29" r="10"/><circle cx="369" cy="29" r="10"/><circle cx="451" cy="29" r="10"/>
+    </g>
+    <use href="#row5" y="58"/><use href="#row5" y="116"/><use href="#row5" y="174"/><use href="#row5" y="232"/>
+    <g id="row4">
+      <circle cx="82" cy="58" r="10"/><circle cx="164" cy="58" r="10"/><circle cx="246" cy="58" r="10"/>
+      <circle cx="328" cy="58" r="10"/><circle cx="410" cy="58" r="10"/>
+    </g>
+    <use href="#row4" y="58"/><use href="#row4" y="116"/><use href="#row4" y="174"/><use href="#row4" y="232"/>
+  </g>
+</svg>

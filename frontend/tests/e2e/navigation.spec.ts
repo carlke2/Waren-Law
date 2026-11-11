@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { ROUTES } from '@waren/shared';
 import { dictionary } from '../../src/lib/utils/dictionary';
-import { CONTACT_LINK, PRIMARY_NAV } from '../../src/lib/utils/navigation';
+import { PANEL_NAV } from '../../src/lib/utils/navigation';
 import { decideConsent, DESKTOP, PHONE } from './helpers';
 
 const { nav } = dictionary;
@@ -13,35 +13,20 @@ test.beforeEach(async ({ context, baseURL }) => {
 test.describe('desktop header', () => {
   test.use({ viewport: DESKTOP });
 
-  test('shows the full nav and turns solid on scroll', async ({ page }) => {
+  test('shows the panel menu without booking or email', async ({ page }) => {
     await page.goto(ROUTES.home);
     const header = page.locator('header');
-    const main = header.getByRole('navigation', { name: nav.primary }).first();
-    for (const { label, href } of [...PRIMARY_NAV, CONTACT_LINK]) {
-      await expect(main.getByRole('link', { name: label, exact: true })).toHaveAttribute(
-        'href',
-        href,
-      );
+    const main = header.getByRole('navigation', { name: nav.primary });
+    for (const { label } of PANEL_NAV) {
+      await expect(main.getByRole('button', { name: label, exact: true })).toBeVisible();
     }
+    await expect(header.getByRole('link', { name: dictionary.cta.consultation })).toHaveCount(0);
+    await expect(header.getByRole('link', { name: /info@warenlaw\.com/i })).toHaveCount(0);
+    await expect(header.getByRole('link', { name: nav.search })).toBeVisible();
     await expect(page.getByRole('button', { name: nav.openMenu })).toBeHidden();
-    await expect(header).toHaveAttribute('data-solid', 'false');
-    await page.mouse.wheel(0, 600);
-    await expect(header).toHaveAttribute('data-solid', 'true');
-    await page.evaluate(() => window.scrollTo(0, 0));
-    await expect(header).toHaveAttribute('data-solid', 'false');
   });
 
-  test('sits over the page hero on an inner page, with its section in gold', async ({ page }) => {
-    await page.goto(ROUTES.partners);
-    await expect(page.locator('header')).toHaveAttribute('data-solid', 'false');
-    await expect(page.locator('header').getByRole('link', { name: nav.partners })).toHaveAttribute(
-      'aria-current',
-      'page',
-    );
-    await expect(page.locator('h1')).toHaveCount(1);
-  });
-
-  test('can be used by keyboard, starting with the skip link', async ({ page }) => {
+  test('opens a panel from the keyboard and closes with Escape', async ({ page }) => {
     await page.goto(ROUTES.home);
     await page.keyboard.press('Tab');
     await expect(page.getByRole('link', { name: dictionary.common.skipToContent })).toBeFocused();
@@ -49,15 +34,31 @@ test.describe('desktop header', () => {
     await expect(
       page.getByRole('link', { name: dictionary.brand.wordmark, exact: true }),
     ).toBeFocused();
-    await page.keyboard.press('Tab');
-    await expect(page.locator('header nav a').first()).toBeFocused();
+    const about = page.locator('header').getByRole('button', { name: nav.aboutUs, exact: true });
+    await about.focus();
+    await page.keyboard.press('Enter');
+    await expect(about).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.getByRole('heading', { name: nav.aboutUs, exact: true })).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(about).toHaveAttribute('aria-expanded', 'false');
+    await expect(about).toBeFocused();
+  });
+
+  test('swaps panels without closing the shell', async ({ page }) => {
+    await page.goto(ROUTES.home);
+    const header = page.locator('header');
+    await header.getByRole('button', { name: nav.aboutUs, exact: true }).click();
+    await expect(page.getByRole('heading', { name: nav.aboutUs, exact: true })).toBeVisible();
+    await header.getByRole('button', { name: nav.ourTeam, exact: true }).click();
+    await expect(page.getByRole('heading', { name: nav.ourTeam, exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: nav.aboutUs, exact: true })).toHaveCount(0);
   });
 });
 
 test.describe('mobile menu', () => {
   test.use({ viewport: PHONE });
 
-  test('opens, traps focus and closes by keyboard', async ({ page }) => {
+  test('opens, expands a section and closes by keyboard', async ({ page }) => {
     await page.goto(ROUTES.home);
     const open = page.getByRole('button', { name: nav.openMenu });
     await open.focus();
@@ -67,10 +68,8 @@ test.describe('mobile menu', () => {
     await expect(dialog.getByRole('button', { name: nav.closeMenu })).toBeFocused();
     const box = await dialog.boundingBox();
     expect(box).toMatchObject({ x: 0, y: 0, width: PHONE.width, height: PHONE.height });
-    for (const { label } of [...PRIMARY_NAV, CONTACT_LINK]) {
-      await page.keyboard.press('Tab');
-      await expect(dialog.getByRole('link', { name: label, exact: true })).toBeFocused();
-    }
+    await dialog.getByRole('button', { name: nav.ourTeam, exact: true }).click();
+    await expect(dialog.getByRole('link', { name: nav.seeAllTeam, exact: true })).toBeVisible();
     await page.keyboard.press('Escape');
     await expect(dialog).toBeHidden();
     await expect(open).toBeFocused();
@@ -79,10 +78,12 @@ test.describe('mobile menu', () => {
   test('closes and navigates when a link is chosen', async ({ page }) => {
     await page.goto(ROUTES.home);
     await page.getByRole('button', { name: nav.openMenu }).click();
-    await page.getByRole('dialog').getByRole('link', { name: nav.people, exact: true }).click();
+    const dialog = page.getByRole('dialog');
+    await dialog.getByRole('button', { name: nav.ourTeam, exact: true }).click();
+    await dialog.getByRole('link', { name: nav.seeAllTeam, exact: true }).click();
     await expect(page).toHaveURL(ROUTES.team);
     await expect(page.getByRole('dialog')).toBeHidden();
-    await expect(page.getByRole('heading', { level: 1, name: nav.people })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   });
 
   test('has a 44 px menu button', async ({ page }) => {

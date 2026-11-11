@@ -21,6 +21,15 @@ export const PRIMARY_NAV: readonly NavLink[] = [
 
 export const CONTACT_LINK: NavLink = { label: nav.contactUs, href: ROUTES.contact };
 
+export const PANEL_NAV: readonly { id: string; label: string }[] = [
+  { id: 'about', label: nav.aboutUs },
+  { id: 'team', label: nav.ourTeam },
+  { id: 'partners', label: nav.ourPartners },
+  { id: 'expertise', label: nav.areaOfExpertise },
+  { id: 'insights', label: nav.insights },
+  { id: 'contact', label: nav.contactUs },
+];
+
 export const QUICK_LINKS: readonly NavLink[] = [
   { label: footer.aboutUs, href: ROUTES.about },
   { label: footer.ourPeople, href: ROUTES.team },

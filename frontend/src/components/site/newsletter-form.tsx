@@ -82,7 +82,7 @@ export function NewsletterForm() {
             aria-invalid={invalid || undefined}
             aria-describedby={statusId}
           />
-          <Button type="submit" variant="blue" disabled={sending} className="w-full sm:w-auto">
+          <Button type="submit" variant="soft" disabled={sending} className="w-full sm:w-auto">
             {text.submit}
           </Button>
         </div>
@@ -106,7 +106,7 @@ export function NewsletterForm() {
       </Field>
       <FieldDescription>
         {text.privacyNote}{' '}
-        <SiteLink href={ROUTES.privacy} className="text-team-accent underline hover:text-brand">
+        <SiteLink href={ROUTES.privacy} className="text-ink underline decoration-accent">
           {text.privacyLink}
         </SiteLink>
       </FieldDescription>

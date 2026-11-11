@@ -28,7 +28,7 @@ function ChoiceButton({ onClick, children }: { onClick: () => void; children: Re
     <button
       type="button"
       onClick={onClick}
-      className="min-h-11 flex-1 border border-outline-on-brand px-4 text-button font-semibold text-on-brand"
+      className="min-h-11 flex-1 border border-ink bg-surface px-4 text-button font-semibold text-ink"
     >
       {children}
     </button>
@@ -94,11 +94,10 @@ export function CookieConsent({ tracking }: { tracking: SiteSettings['tracking']
   return (
     <section
       aria-label={text.title}
-      data-tone="dark"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-border-on-brand bg-brand-strong p-5 pb-safe text-on-brand sm:inset-x-auto sm:bottom-4 sm:left-4 sm:w-full sm:max-w-consent sm:border sm:p-4"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-surface-deep p-5 pb-safe text-ink sm:inset-x-auto sm:bottom-4 sm:left-4 sm:w-full sm:max-w-consent sm:border sm:p-4"
     >
       <h2 className="font-heading text-footer-heading">{text.title}</h2>
-      <p className="mt-1 text-meta text-on-brand-muted">{text.description}</p>
+      <p className="mt-1 text-meta text-text-body">{text.description}</p>
       {showDetails ? (
         <div className="mt-2 flex flex-col">
           <Toggle
@@ -137,7 +136,7 @@ export function CookieConsent({ tracking }: { tracking: SiteSettings['tracking']
         )}
         <SiteLink
           href={ROUTES.cookies}
-          className="text-on-brand-muted underline underline-offset-4 max-sm:flex max-sm:min-h-11 max-sm:items-center"
+          className="text-text-body underline decoration-accent underline-offset-4 max-sm:flex max-sm:min-h-11 max-sm:items-center"
         >
           {text.policyLink}
         </SiteLink>
@@ -151,7 +150,7 @@ export function CookiePreferencesButton() {
     <button
       type="button"
       onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_EVENT))}
-      className="text-team-muted hover:text-team-accent max-sm:inline-flex max-sm:min-h-11 max-sm:items-center"
+      className="text-ink underline decoration-accent max-sm:inline-flex max-sm:min-h-11 max-sm:items-center"
     >
       {text.reopen}
     </button>

@@ -15,6 +15,26 @@
   --palette-line-strong: #c9cedd;
   --palette-mist: #f3f4f8;
   --palette-white: #ffffff;
+  --palette-warm: #fff8f0;
+  --palette-card: #fdf3e7;
+  --palette-deep: #faebd7;
+  --palette-footer: #f7f7f9;
+  --palette-panel: #f4f4f2;
+  --palette-ink: #1a1a1a;
+  --palette-intro: #f9f7f2;
+  --palette-intro-gold: #c59d5f;
+  --palette-intro-ink: #333333;
+  --palette-intro-glow: #f2ebdd;
+  --palette-expertise-desc: #555555;
+  --palette-expertise-rule: #e4d4b5;
+  --palette-expertise-hover: #f5f1e9;
+  --palette-expertise-curve: #efe8da;
+  --palette-feature-ink: #252525;
+  --palette-feature-muted: #66645f;
+  --palette-feature-gold: #c99b3f;
+  --palette-feature-line: #e6e0d5;
+  --palette-feature-card: #fffdf8;
+  --palette-gold-soft: #f6e7c1;
   --palette-team-canvas: #f8fafc;
   --palette-team-heading: #101d46;
   --palette-team-body: #475569;
@@ -32,13 +52,15 @@
   --overlay-hero-to: color-mix(in srgb, var(--palette-navy-950) 10%, transparent);
   --overlay-hero-top: color-mix(in srgb, var(--palette-navy-950) 70%, transparent);
   --overlay-hero-top-height: 8.75rem;
-  --hero-home-height: 70svh;
+  --hero-home-height: max(480px, 100svh);
+  --spacing-rise: 1rem;
 
   --radius: 0;
   --border-card-rule: 0.1875rem;
   --border-hair: 0.0625rem;
   --motion-fast: 150ms;
   --motion-slow: 250ms;
+  --motion-expertise: 500ms;
   --gutter: 1.25rem;
   --grid-min-practice: 16.25rem;
   --grid-min-team: 15rem;
@@ -66,6 +88,72 @@
   --color-on-brand-lead: var(--palette-on-navy-soft);
   --color-surface: var(--palette-white);
   --color-surface-alt: var(--palette-mist);
+  --color-surface-warm: var(--palette-warm);
+  --color-surface-card: var(--palette-card);
+  --color-surface-deep: var(--palette-deep);
+  --color-surface-footer: var(--palette-footer);
+  --color-surface-panel: var(--palette-panel);
+  --color-ink: var(--palette-ink);
+  --color-intro: var(--palette-intro);
+  --color-intro-gold: var(--palette-intro-gold);
+  --color-intro-ink: var(--palette-intro-ink);
+  --color-intro-glow: var(--palette-intro-glow);
+  --color-intro-muted: color-mix(in srgb, var(--palette-intro-ink) 68%, transparent);
+  --color-intro-line: color-mix(in srgb, var(--palette-intro-gold) 40%, transparent);
+  --color-intro-btn-border: color-mix(in srgb, var(--palette-intro-ink) 28%, transparent);
+  --color-on-intro-gold: var(--palette-intro-ink);
+  --color-expertise-desc: var(--palette-expertise-desc);
+  --color-expertise-rule: var(--palette-expertise-rule);
+  --color-expertise-hover: var(--palette-expertise-hover);
+  --color-expertise-curve: var(--palette-expertise-curve);
+  --color-feature-ink: var(--palette-feature-ink);
+  --color-feature-muted: var(--palette-feature-muted);
+  --color-feature-gold: var(--palette-feature-gold);
+  --color-feature-line: var(--palette-feature-line);
+  --color-feature-card: var(--palette-feature-card);
+  --color-on-feature-btn: var(--palette-white);
+  --spacing-feature-pad: 6.875rem;
+  --spacing-feature-eyebrow-gap: 1.25rem;
+  --spacing-feature-lead-gap: 1.5rem;
+  --spacing-feature-actions-gap: 2.25rem;
+  --spacing-feature-lead-max: 40rem;
+  --spacing-feature-btn-h: 3.75rem;
+  --spacing-feature-btn-h-mobile: 3.5rem;
+  --spacing-feature-flag-w: 7.5rem;
+  --spacing-feature-flag-h: 5rem;
+  --spacing-feature-usa-w: 8rem;
+  --spacing-feature-usa-h: 4.2rem;
+  --spacing-intro-section-min: 51.875rem;
+  --spacing-expertise-pad-top: 5.625rem;
+  --spacing-expertise-pad-bottom: 4.375rem;
+  --spacing-expertise-eyebrow-gap: 1.25rem;
+  --spacing-expertise-lead-gap: 1.5625rem;
+  --spacing-expertise-grid-gap: 4.375rem;
+  --spacing-expertise-col-gap: 4.0625rem;
+  --spacing-expertise-col-gap-tablet: 1.875rem;
+  --spacing-expertise-item-pad: 1.875rem;
+  --spacing-expertise-num: 4rem;
+  --spacing-expertise-divider-h: 4.125rem;
+  --spacing-expertise-divider-gap: 1.375rem;
+  --spacing-expertise-cta-gap: 2.5rem;
+  --spacing-expertise-btn-w: 26.5625rem;
+  --spacing-expertise-btn-h: 4.1875rem;
+  --spacing-expertise-btn-h-mobile: 3.5rem;
+  --spacing-expertise-lead-max: 46.875rem;
+  --spacing-expertise-arrow: 1.625rem;
+  --spacing-expertise-gutter-mobile: 1.5rem;
+  --spacing-intro-pad-top: 4.875rem;
+  --spacing-intro-pad-bottom: 4rem;
+  --spacing-intro-strip-gap: 3.25rem;
+  --spacing-intro-strip-max: 45rem;
+  --spacing-intro-lead-max: 35rem;
+  --spacing-intro-btn-h: 3.75rem;
+  --spacing-intro-btn-primary: 20.625rem;
+  --spacing-intro-btn-secondary: 18.75rem;
+  --spacing-intro-statue: 46.25rem;
+  --spacing-intro-statue-mobile: 28.125rem;
+  --color-accent-soft: var(--palette-gold-soft);
+  --color-overlay-menu: color-mix(in srgb, var(--palette-ink) 48%, transparent);
   --color-surface-hero: color-mix(in srgb, var(--palette-white) 96%, transparent);
   --color-border: var(--palette-line);
   --color-border-strong: var(--palette-line-strong);
@@ -172,6 +260,44 @@
   --text-arrow--line-height: 1;
   --text-stat: clamp(1.75rem, 1rem + 2.4vw, 3rem);
   --text-stat--line-height: 1;
+  --text-intro-headline: clamp(2.625rem, 1.85rem + 2.9vw, 4.875rem);
+  --text-intro-headline--line-height: 0.98;
+  --text-intro-eyebrow: 0.6875rem;
+  --text-intro-eyebrow--line-height: 1.4;
+  --text-intro-button: 0.6875rem;
+  --text-intro-button--line-height: 1;
+  --text-intro-lead: 1.125rem;
+  --text-intro-lead--line-height: 1.55;
+  --text-intro-strip-label: 0.625rem;
+  --text-intro-strip-label--line-height: 1.4;
+  --text-intro-strip-body: 0.8125rem;
+  --text-intro-strip-body--line-height: 1.45;
+  --text-expertise-headline: clamp(2.625rem, 1.25rem + 4.7vw, 5.5rem);
+  --text-expertise-headline--line-height: 1;
+  --text-expertise-lead: 1.25rem;
+  --text-expertise-lead--line-height: 1.5;
+  --text-expertise-lead-mobile: 1rem;
+  --text-expertise-number: clamp(2.375rem, 1.5rem + 1.5vw, 3rem);
+  --text-expertise-number--line-height: 1;
+  --text-expertise-title: clamp(1.375rem, 1rem + 0.7vw, 1.6875rem);
+  --text-expertise-title--line-height: 1.25;
+  --text-expertise-desc: 1rem;
+  --text-expertise-desc--line-height: 1.45;
+  --text-expertise-desc-mobile: 0.875rem;
+  --text-expertise-button: 0.875rem;
+  --text-expertise-button--line-height: 1;
+  --text-feature-headline: clamp(2.25rem, 0.85rem + 4vw, 4.5rem);
+  --text-feature-headline--line-height: 1.05;
+  --text-feature-lead: 1.125rem;
+  --text-feature-lead--line-height: 1.55;
+  --text-feature-button: 0.6875rem;
+  --text-feature-button--line-height: 1;
+  --text-feature-card-eyebrow: 0.75rem;
+  --text-feature-card-eyebrow--line-height: 1.3;
+  --text-feature-card-title: clamp(1.5rem, 1rem + 1.4vw, 2.5rem);
+  --text-feature-card-title--line-height: 1.2;
+  --text-feature-pill: 0.75rem;
+  --text-feature-pill--line-height: 1.2;
 
   --tracking-*: initial;
   --tracking-eyebrow: 0.2em;
@@ -182,6 +308,16 @@
   --tracking-wordmark-footer: 0.06em;
   --tracking-logo-sub: 0.3em;
   --tracking-logo-sub-footer: 0.28em;
+  --tracking-intro-headline: -0.125rem;
+  --tracking-intro-eyebrow: 0.28125rem;
+  --tracking-intro-button: 0.1625rem;
+  --tracking-intro-strip: 0.21875rem;
+  --tracking-expertise-eyebrow: 0.25rem;
+  --tracking-expertise-button: 0.1875rem;
+  --tracking-feature-eyebrow: 0.25rem;
+  --tracking-feature-button: 0.1625rem;
+  --tracking-feature-card-eyebrow: 0.1875rem;
+  --tracking-feature-pill: 0.12em;
 
   --radius-*: initial;
   --radius-lg: 0.5rem;
@@ -194,16 +330,20 @@
   --radius-card: 1rem;
   --radius-team: 1.25rem;
   --radius-team-photo: 1rem;
+  --radius-feature-card: 0.875rem;
 
   --shadow-*: initial;
   --shadow-card: 0 0.375rem 1.25rem color-mix(in srgb, var(--palette-navy-950) 8%, transparent);
   --shadow-card-hover: 0 0.75rem 2rem color-mix(in srgb, var(--palette-navy-950) 16%, transparent);
   --shadow-header: 0 0.5rem 1.5rem color-mix(in srgb, var(--palette-navy-950) 25%, transparent);
+  --shadow-feature: 0 0.75rem 1.75rem color-mix(in srgb, var(--palette-feature-ink) 8%, transparent);
 
   --spacing: 0.25rem;
   --spacing-topbar: 2.75rem;
-  --spacing-nav: 4.5rem;
-  --spacing-header: var(--spacing-nav);
+  --spacing-nav: 6rem;
+  --spacing-header: 6rem;
+  --spacing-menu-line: 0.25rem;
+  --motion-menu: 0.35s;
   --spacing-hero-space: 8.75rem;
   --spacing-rule: 0.125rem;
   --spacing-rule-short: 2.5rem;
@@ -291,9 +431,7 @@
 @media (min-width: 40rem) {
   :root {
     --gutter: 2rem;
-    --spacing-nav: 5.5rem;
     --spacing-hero-space: clamp(9.375rem, 15vw, 15rem);
-    --hero-home-height: max(480px, 100svh);
   }
 }
 
@@ -348,18 +486,46 @@
   );
 }
 
-@media (min-width: 90rem) {
-  :root {
-    --spacing-header: calc(var(--spacing-topbar) + var(--spacing-nav));
-  }
-}
-
 @utility aspect-team {
   aspect-ratio: 4 / 5;
 }
 
+@utility aspect-feature {
+  aspect-ratio: 16 / 9;
+}
+
+@utility aspect-intro {
+  aspect-ratio: 4 / 5;
+}
+
+@utility aspect-insight-short {
+  aspect-ratio: 16 / 7;
+}
+
+@utility aspect-insight-mid {
+  aspect-ratio: 16 / 10;
+}
+
+@utility aspect-insight-tall {
+  aspect-ratio: 16 / 13;
+}
+
+@utility py-section {
+  padding-block: 6rem;
+}
+
+@media (min-width: 40rem) {
+  .py-section {
+    padding-block: 7.5rem;
+  }
+}
+
 @utility grid-welcome {
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+}
+
+@utility grid-menu-panel {
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
 }
 
 @utility grid-auto-hero {
@@ -400,4 +566,41 @@
 
 @utility flex-recognition {
   flex: 1 1 26.25rem;
+}
+
+/* Intro statue masks (literal black stops required for luminance masks). */
+.intro-statue-soft {
+  opacity: 0.75;
+  filter: blur(5px);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 58%,
+    color-mix(in srgb, black 80%, transparent) 76%,
+    color-mix(in srgb, black 35%, transparent) 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 58%,
+    color-mix(in srgb, black 80%, transparent) 76%,
+    color-mix(in srgb, black 35%, transparent) 88%,
+    transparent 100%
+  );
+}
+
+.intro-statue-sharp {
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 60%,
+    color-mix(in srgb, black 35%, transparent) 80%,
+    transparent 96%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 60%,
+    color-mix(in srgb, black 35%, transparent) 80%,
+    transparent 96%
+  );
 }

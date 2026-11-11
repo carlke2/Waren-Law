@@ -3,12 +3,6 @@ import { API_PREFIX, ROUTES } from '@waren/shared';
 import { dictionary } from '../../src/lib/utils/dictionary';
 import { decideConsent, DESKTOP, loadAllImages } from './helpers';
 
-const HERO_CARDS = [
-  { title: 'For Businesses', href: '/corporate-commercial-practice/' },
-  { title: 'For Property & Families', href: '/real-estate-conveyancing-land-law/' },
-  { title: 'For Kenyans Abroad', href: '/wealth-management-investments/' },
-];
-const HERO_CARD_TITLES = HERO_CARDS.map(({ title }) => title);
 const RSC_PARAM = '_rsc=';
 const TEST_WIDTHS = [360, 390, 430, 768, 1024, 1280, 1440, 1920];
 
@@ -21,12 +15,10 @@ test.describe('content', () => {
 
   test('arrives complete in the first response', async ({ request }) => {
     const html = await (await request.get(ROUTES.home)).text();
-    for (const title of HERO_CARD_TITLES) {
-      expect(html).toContain(title.replace('&', '&amp;'));
-    }
+    expect(html).toContain(dictionary.home.whatWeHandle);
     expect(html).toContain(dictionary.home.teamHeading);
-    expect(html).toContain('Latest from our advocates');
-    expect(html).toContain('Need legal assistance? Speak to an advocate.');
+    expect(html).toContain(dictionary.home.meetTeam);
+    expect(html).toContain(dictionary.home.allServices);
   });
 
   test('never fetches page content from the browser', async ({ page }) => {
@@ -66,51 +58,37 @@ test.describe('content', () => {
     }
   });
 
-  test('has one visible H1 and a services link in the hero', async ({ page }) => {
+  test('has one visible H1 and intro CTAs', async ({ page }) => {
     await page.goto(ROUTES.home);
     const heading = page.getByRole('heading', { level: 1 });
     await expect(heading).toHaveCount(1);
     await expect(heading).toBeVisible();
     const intro = page.locator('#intro');
-    await expect(intro.getByRole('heading', { level: 1 })).toBeVisible();
-    await expect(intro.getByRole('link', { name: dictionary.home.heroServices })).toBeVisible();
+    await expect(intro.getByRole('heading', { level: 1 })).toContainText(
+      dictionary.home.introHeadlineLead,
+    );
+    await expect(
+      intro.getByRole('link', { name: new RegExp(dictionary.home.introDiscover, 'i') }),
+    ).toHaveAttribute('href', ROUTES.expertise);
+    await expect(
+      intro.getByRole('link', { name: new RegExp(dictionary.home.introSchedule, 'i') }),
+    ).toHaveAttribute('href', ROUTES.consultation);
   });
 
-  test('links each audience card to its practice page, and each page opens', async ({
-    page,
-    request,
-  }) => {
+  test('links practice areas and the services index', async ({ page, request }) => {
     await page.goto(ROUTES.home);
-    const audience = page
-      .locator('main > section')
-      .filter({ hasText: dictionary.home.audienceEyebrow });
-    for (const { title, href } of HERO_CARDS) {
-      await expect(audience.getByRole('link', { name: title })).toHaveAttribute('href', href);
-      expect((await request.get(href)).status(), href).toBe(200);
-    }
-  });
-
-  test('links 8 practice cards, in the design order, to pages that open', async ({
-    page,
-    request,
-  }) => {
-    await page.goto(ROUTES.home);
-    const cards = page
-      .locator('main > section')
-      .filter({ hasText: '01' })
-      .filter({ hasText: '08' })
-      .getByRole('link');
+    const services = page.locator('main > section').filter({ hasText: dictionary.home.whatWeHandle });
+    const cards = services.locator('ul').getByRole('link');
     await expect(cards).toHaveCount(8);
-    await expect(cards.first()).toContainText('01');
-    await expect(cards.last()).toContainText('08');
     for (const href of await cards.evaluateAll((links) =>
       links.map((link) => link.getAttribute('href') ?? ''),
     )) {
       expect((await request.get(href)).status(), href).toBe(200);
     }
-    await cards.first().click();
-    await expect(page).not.toHaveURL(ROUTES.home);
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    await expect(services.getByRole('link', { name: dictionary.home.allServices })).toHaveAttribute(
+      'href',
+      ROUTES.expertise,
+    );
   });
 
   test('links 4 partners, with portraits, to their profiles', async ({ page }) => {
@@ -125,12 +103,13 @@ test.describe('content', () => {
 
   test('links the 3 latest insights, each with a date', async ({ page }) => {
     await page.goto(ROUTES.home);
-    const section = page.locator('main > section').filter({ hasText: 'Latest from our advocates' });
-    const cards = section.getByRole('link').filter({ has: page.getByRole('heading') });
-    await expect(cards).toHaveCount(3);
-    await expect(cards.first()).toContainText(/\d{4}/);
-    const title = (await cards.first().getByRole('heading').textContent()) ?? '';
-    await cards.first().click();
+    const section = page.locator('main > section').filter({
+      has: page.getByRole('link', { name: dictionary.insights.readMore }),
+    });
+    const titles = section.getByRole('heading', { level: 3 });
+    await expect(titles).toHaveCount(3);
+    const title = (await titles.first().textContent()) ?? '';
+    await titles.first().getByRole('link').click();
     await expect(page.getByRole('heading', { level: 1, name: title })).toBeVisible();
   });
 
@@ -175,7 +154,9 @@ test.describe('visual snapshots', () => {
         timeout: 30_000,
         mask: [
           page.locator('main video'),
-          page.locator('main > section').filter({ hasText: 'Latest from our advocates' }),
+          page.locator('main > section').filter({
+            has: page.getByRole('link', { name: dictionary.insights.readMore }),
+          }),
         ],
       });
     });
