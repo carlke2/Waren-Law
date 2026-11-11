@@ -24,7 +24,6 @@ import {
   getPracticeAreas,
   getSettings,
   getTeam,
-  getWebinar,
   getWebinars,
 } from '@/lib/api/content';
 import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/utils/prerender';
@@ -59,11 +58,10 @@ export default async function HomePage() {
     team.groups
       .find(({ memberType }) => memberType === PARTNER_GROUP)
       ?.members.slice(0, FEATURED_TEAM_LIMIT) ?? [];
-  const featureSummary =
+  const feature =
     HOME_FEATURE_SLUGS.map((slug) => webinars.find((item) => item.slug === slug)).find(
       (item) => item !== undefined,
     ) ?? null;
-  const feature = featureSummary ? ((await getWebinar(featureSummary.slug)) ?? featureSummary) : null;
 
   return (
     <>
