@@ -8,8 +8,8 @@ import type { ReactNode } from 'react';
 import { CookieConsent } from '@/components/site/cookie-consent';
 import { VisitCapture } from '@/components/site/visit-capture';
 import { JsonLd } from '@/components/site/json-ld';
-import { SiteFooter } from '@/components/site/site-footer';
-import { SiteHeader } from '@/components/site/site-header';
+import { SiteFooter } from '@/components/site/footer/site-footer';
+import { SiteHeader } from '@/components/site/header/site-header';
 import { WhatsAppButton } from '@/components/site/whatsapp-button';
 import {
   getInsights,

@@ -1,6 +1,8 @@
 # WordPress import
 
-Reads the public WordPress REST API and page HTML, then upserts the content into the database in `DATABASE_URL`. Run it from the repo root with `pnpm import:wp`, after copying `.env.example` to `.env` here and applying migrations.
+Reads the public WordPress REST API and page HTML, then upserts the content into the database in `DATABASE_URL`. Run it from the repo root with `pnpm import:wp`, after copying `.env.example` to `.env` here and applying migrations. **It writes to the database and to `backend/uploads/`: run it only with the owner's approval, after listing what it would overwrite.**
+
+Inputs in `data/`: `url-inventory.csv` (every old URL, for redirects) and `design-assets/` (artwork that is not on WordPress).
 
 - **Safe to re-run:** a record is only written when it differs, so a repeat run changes nothing.
 - **Polite:** requests are spaced by `WP_REQUEST_INTERVAL_MS`, and raw responses are cached in `.cache/` (git-ignored), so nothing is fetched twice.

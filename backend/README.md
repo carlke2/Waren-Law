@@ -1,6 +1,18 @@
 # Backend
 
-NestJS API (Node.js + TypeScript), PostgreSQL via Prisma. See the root `README.md`.
+NestJS API (Node.js + TypeScript), PostgreSQL (Supabase) via Prisma. See the root `README.md` for the whole project.
+
+## Run
+
+Copy `.env.example` to `.env` and set `DATABASE_URL`, `DIRECT_URL` and `SESSION_SECRET` (see the root README). Then `pnpm dev` from the repo root runs the API on port 4000 with the frontend. Never print or commit connection strings.
+
+| Folder | What goes here |
+|---|---|
+| `src/modules/` | One module per feature (controller, service, DTOs), with its `*.spec.ts` unit tests |
+| `tests/` | End-to-end tests against a local `waren_test` database |
+| `prisma/` | Schema and committed migrations (`generated/` is built, git-ignored) |
+| `uploads/` | Media files the **database** refers to (below) |
+| `scripts/import-wordpress/` | The WordPress importer, with its tests and inputs (`data/`) |
 
 ## Commands
 
@@ -54,4 +66,14 @@ All routes are `GET`, under `/api/v1`, and return only published content (and le
 
 `POST /api/v1/newsletter` accepts `{ email, website? }` and returns `{ received: true }`, whether or not the address is new. `website` is a honeypot. It stores a Subscriber with its consent time, and is limited per IP by `NEWSLETTER_RATE_LIMIT_PER_HOUR`. When `SMTP_*` is set it also emails a confirmation link to `GET /api/v1/newsletter/confirm?token=`, which redirects to the Home page.
 
-Uploaded media is served from the path in `PUBLIC_MEDIA_BASE_URL`.
+## Uploads and database media
+
+- `uploads/` holds firm content media: team portraits, insight and webinar images, client and partner logos, partner photos, award images and the home hero video. The folder is git-ignored. The importer creates its files, and deploys copy them to the server (`infra/scripts/deploy.sh`). Exception: the 4 approved grey partner portraits (`team-*-grey.webp`) are committed.
+- Each file normally has a `Media` row (`fileName`, size, dimensions, alt text). Content records link to it by id: team portrait, insight featured image, webinar hero, client logo, partner logo and gallery, award image, home hero image, and settings such as the SEO image and about video poster.
+- The API turns a `Media` row into a URL as `PUBLIC_MEDIA_BASE_URL/<fileName>` (`src/modules/content/content-presenter.service.ts`). The backend serves the folder at that path (`src/app.setup.ts`, `useStaticAssets(UPLOADS_DIR)`), and in production Nginx proxies and caches `/uploads/`.
+- A few files are named in code instead of linked: `hero.mp4` (`HERO_VIDEO_FILE`, looked up by `src/modules/home/home.service.ts`), and the alternative portrait crops in `frontend/src/lib/utils/content/photo-files.ts` (`team-<slug>-profile|speaker|card|grey.webp`).
+- **Before removing a file from `uploads/`, check both the code and the database** (read-only). A file is unused only if neither refers to it.
+
+## WordPress importer
+
+`scripts/import-wordpress/` reads the old WordPress site and **writes to the database** in `DATABASE_URL` and to `uploads/`. It rewrites curated pages. **Never run `pnpm import:wp`, or any other script that writes to the database, without the owner's approval and a list of what it would overwrite.** Its own tests (`pnpm --filter @waren/import-wordpress test`) do not touch the database.

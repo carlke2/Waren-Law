@@ -5,10 +5,10 @@ import type { ReactNode } from 'react';
 import { dictionary } from '@/lib/utils/dictionary';
 import { FOOTER_PRACTICE_LIMIT, LEGAL_LINKS, QUICK_LINKS } from '@/lib/utils/navigation';
 import { formatPhone, mailLink, telLink } from '@/lib/utils/links';
-import { CookiePreferencesButton } from './cookie-consent';
-import { FooterLogo } from './logo';
-import { NewsletterForm } from './newsletter-form';
-import { SocialLinks } from './social-links';
+import { CookiePreferencesButton } from '../cookie-consent';
+import { FooterLogo } from '../logo';
+import { NewsletterForm } from '../newsletter-form';
+import { SocialLinks } from '../social-links';
 
 const text = dictionary.footer;
 const CARD = 'flex h-full flex-col gap-4';

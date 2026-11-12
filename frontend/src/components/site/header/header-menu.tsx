@@ -16,7 +16,7 @@ import { SiteLink } from '@/components/ui/site-link';
 import { cx } from '@/lib/utils/cx';
 import { dictionary } from '@/lib/utils/dictionary';
 import type { HeaderMenuData, MenuPanel, MenuPanelId } from '@/lib/utils/header-menu';
-import { HeaderLogo } from './logo';
+import { HeaderLogo } from '../logo';
 
 const text = dictionary.nav;
 const FEATURED_SIZES = '(min-width: 64rem) 12rem, 40vw';
