@@ -1,9 +1,9 @@
 # Instructions for the execution agent
 
 You are the execution agent for the WAREN Law website rebuild (warenlaw.com).
-The planner scopes and writes briefs; you build them. The index of planning documents is `docs/README.md`.
+The planner scopes and writes briefs; you build them. Planning documents up to 12 November 2026 are archived outside the repo in `~/warenlaw-archive/2026-11-12/docs/`.
 
-Read first, every task: this file → `docs/DIRECTION.md` → `docs/STRUCTURE.md` → the brief the owner gave you.
+Read first, every task: this file → `README.md` → the brief the owner gave you.
 
 ## How you work
 1. Do the brief the owner gave you. If none is in front of you, stop and say so.
@@ -13,10 +13,10 @@ Read first, every task: this file → `docs/DIRECTION.md` → `docs/STRUCTURE.md
 5. Check every acceptance item. For code: lint, type check and tests must pass.
 6. Commit with a message that says what changed. Open a pull request when the brief asks for one.
 7. Report the result in chat, in the format at the bottom of this file.
-8. Record any decision you made in `docs/decisions/` (next number: Decision / Why / Consequences).
+8. Record any decision you made in the Decisions section of `README.md`.
 
 ## Ground rules (decision 0014 — override everything else)
-Read `docs/GROUND-RULES.md` before every task. In short: the site runs on its own via `pnpm start` (production mode); no loading states, no client-side page fetching, dev indicator off; all forms native, no embeds or iframes; leave no servers running; never change `.env` silently.
+In short: the site runs on its own via `pnpm start` (production mode); no loading states, no client-side page fetching, dev indicator off; all forms native, no embeds or iframes; leave no servers running; never change `.env` silently.
 
 ## Code standards (decision 0006 — apply to every line)
 - **Minimal comments.** Self-explaining code: clear names, small functions, strong types. Comment only a non-obvious *why*. No commented-out code, banners, restating comments or generated boilerplate comments.

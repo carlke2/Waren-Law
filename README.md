@@ -4,9 +4,8 @@ Working repository for rebuilding **[warenlaw.com](https://warenlaw.com)** (WARE
 
 - **Repository:** https://github.com/carlke2/Waren-Law
 - **Start date:** 3 November 2026
-- **Plan:** [`docs/PLAN.md`](docs/PLAN.md)
 - **Status:** Public pages built, awaiting owner review
-- **Docs:** [`docs/README.md`](docs/README.md)
+- **Planning archive:** plans, decisions, audits and task reports up to 12 November 2026 are kept outside the repo in `~/warenlaw-archive/2026-11-12/docs/`
 
 ## Getting started
 
@@ -62,7 +61,7 @@ Fill in `POSTGRES_PASSWORD` in `infra/.env` first.
 
 ## Folder structure
 
-One repo, two apps (frontend + backend) and a shared package, managed with pnpm. Full layout and rules: [`docs/STRUCTURE.md`](docs/STRUCTURE.md).
+One repo, two apps (frontend + backend) and a shared package, managed with pnpm.
 
 | Folder | What goes here |
 |---|---|
@@ -71,7 +70,7 @@ One repo, two apps (frontend + backend) and a shared package, managed with pnpm.
 | `shared/` | Types and validation schemas used by both apps |
 | `infra/` | Docker Compose, Nginx, and the scripts that build, start, deploy and back up |
 | `scripts/` | WordPress import and the theme check |
-| `docs/` | Planning only (not deployed). Index: [`docs/README.md`](docs/README.md) |
+| `docs/` | Two importer inputs only (`seo/url-inventory.csv`, `design/assets/`) |
 
 ## Current site at a glance
 
@@ -84,7 +83,7 @@ One repo, two apps (frontend + backend) and a shared package, managed with pnpm.
 
 1. Everything starts here — plans, audits, drafts and agent work are committed to this repo.
 2. Each change gets a clear commit message.
-3. Decisions go in `docs/decisions/` so we can see later why something was done.
+3. Decisions are recorded so we can see later why something was done. Decisions 0001–0031 are archived in `~/warenlaw-archive/2026-11-12/docs/decisions/`.
 
 ## Production and deployment
 
@@ -166,4 +165,4 @@ pnpm import:wp
 
 Back up uploads with `infra/scripts/backup-uploads.sh /path/to/backups`.
 
-Before the live launch, the firm goes through [`docs/FIRM-REVIEW.md`](docs/FIRM-REVIEW.md). Terms and the Cookie Policy stay hidden until an advocate sets each to `approved`. On the live environment, `PREVIEW_UNREVIEWED_PAGES` is `false` and `SITE_INDEXABLE` is `true`. Set `SMTP_*` and confirm a test enquiry arrives. Only web DNS records change at Hostinger.
+Before the live launch, the firm goes through [`FIRM-REVIEW.md`](FIRM-REVIEW.md). Terms and the Cookie Policy stay hidden until an advocate sets each to `approved`. On the live environment, `PREVIEW_UNREVIEWED_PAGES` is `false` and `SITE_INDEXABLE` is `true`. Set `SMTP_*` and confirm a test enquiry arrives. Only web DNS records change at Hostinger.

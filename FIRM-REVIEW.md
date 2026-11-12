@@ -46,7 +46,7 @@ These come from the locked design and also appear on profile pages.
 Once the titles are confirmed, the portrait alt text for Ephraim Ndegwa and Martin Wachira should be updated to match, as it still has their earlier titles.
 
 ## Image rights
-Sources are in [`docs/design/image-sources.md`](../design/image-sources.md).
+Sources are in `docs/design/image-sources.md`, archived in `~/warenlaw-archive/2026-11-12/docs/design/`.
 
 - [ ] Partner portraits: Janice Wachuka, Ephraim Ndegwa, Martin Wachira, Phylis Njane. Does the firm hold the rights, and do the partners agree to their use?
 - [ ] Insight image: cross-border succession planning (origin unknown, and only 624 × 351).

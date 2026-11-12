@@ -1,6 +1,6 @@
 # Backend
 
-NestJS API (Node.js + TypeScript), PostgreSQL via Prisma. See `docs/STRUCTURE.md`.
+NestJS API (Node.js + TypeScript), PostgreSQL via Prisma. See the root `README.md`.
 
 ## Commands
 
