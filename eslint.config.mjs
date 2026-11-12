@@ -16,7 +16,6 @@ export default tseslint.config(
       '**/next-env.d.ts',
       'backend/prisma/generated/**',
       'backend/uploads/**',
-      'docs/**',
     ],
   },
   js.configs.recommended,

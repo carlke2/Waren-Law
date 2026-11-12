@@ -1,6 +1,6 @@
 import { PrismaPg } from '@prisma/adapter-pg';
-import { PrismaClient } from '../../../backend/prisma/generated/client.js';
-import { databaseSslOptions } from '../../../backend/src/database/database-ssl.js';
+import { PrismaClient } from '../../../prisma/generated/client.js';
+import { databaseSslOptions } from '../../../src/database/database-ssl.js';
 import { config } from './config.js';
 
 export function createDatabase(): PrismaClient {

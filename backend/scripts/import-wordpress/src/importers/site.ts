@@ -3,8 +3,8 @@ import { access, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { parse } from 'csv-parse/sync';
 import { HOME_PAGE_SLUG } from '@waren/shared';
-import { claimSlug } from '../../../../backend/src/database/slug-registry.js';
-import type { Prisma } from '../../../../backend/prisma/generated/client.js';
+import { claimSlug } from '../../../../src/database/slug-registry.js';
+import type { Prisma } from '../../../../prisma/generated/client.js';
 import { resolveImages, toDocument } from '../blocks.js';
 import { config } from '../config.js';
 import {

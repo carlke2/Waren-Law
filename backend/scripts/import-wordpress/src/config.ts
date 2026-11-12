@@ -3,7 +3,7 @@ import { config as loadEnv } from 'dotenv';
 import { z } from 'zod';
 
 const scriptRoot = path.resolve(import.meta.dirname, '..');
-const backendRoot = path.resolve(scriptRoot, '../../backend');
+const backendRoot = path.resolve(scriptRoot, '../..');
 
 loadEnv({ path: path.join(scriptRoot, '.env'), quiet: true });
 loadEnv({ path: path.join(backendRoot, '.env'), quiet: true });
@@ -14,7 +14,7 @@ const envSchema = z.object({
   WP_CACHE_DIR: z.string().min(1),
   WP_USER_AGENT: z.string().min(1),
   URL_INVENTORY_PATH: z.string().min(1),
-  DESIGN_ASSETS_DIR: z.string().min(1).default('../../docs/design/assets'),
+  DESIGN_ASSETS_DIR: z.string().min(1).default('data/design-assets'),
   DATABASE_URL: z.url({ protocol: /^postgres(ql)?$/ }),
   DATABASE_SSL: z.enum(['disable', 'require', 'verify']).default('require'),
   DATABASE_SSL_CA_PATH: z.string().optional(),

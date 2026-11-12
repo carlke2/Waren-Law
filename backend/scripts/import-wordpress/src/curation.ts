@@ -2,7 +2,7 @@ import type {
   MemberType,
   OfficeType,
   WebinarState,
-} from '../../../backend/prisma/generated/client.js';
+} from '../../../prisma/generated/client.js';
 import { ROUTES, SETTING_KEYS, type HeroCard, type IconName } from '@waren/shared';
 import { blockText, type ParsedBlock } from './html-to-blocks.js';
 

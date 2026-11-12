@@ -11,7 +11,7 @@
     "build": "bash infra/scripts/build-production.sh",
     "start": "bash infra/scripts/start-production.sh",
     "prod": "pnpm build && pnpm start",
-    "lint": "node scripts/check-theme.ts && eslint .",
+    "lint": "node frontend/scripts/check-theme.ts && eslint .",
     "typecheck": "pnpm -r run --if-present typecheck",
     "test": "pnpm -r run --if-present test",
     "test:e2e": "pnpm --filter @waren/frontend test:e2e",

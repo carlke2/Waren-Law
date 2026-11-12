@@ -33,7 +33,7 @@ export function findThemeViolations(source: string): string[] {
     );
 }
 
-const FRONTEND_SOURCE = path.resolve(import.meta.dirname, '../frontend/src');
+const FRONTEND_SOURCE = path.resolve(import.meta.dirname, '../src');
 const CHECKED_DIRECTORIES = ['app', 'components'];
 const CHECKED_FILES = ['styles/globals.css'];
 const CHECKED_EXTENSIONS = new Set(['.ts', '.tsx', '.css']);

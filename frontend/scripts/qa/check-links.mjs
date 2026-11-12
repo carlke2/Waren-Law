@@ -1,4 +1,4 @@
-// Usage: node infra/scripts/qa/check-links.mjs <siteUrl>
+// Usage: node frontend/scripts/qa/check-links.mjs <siteUrl>
 // Crawls the site from the home page and reports internal links and images that don't return 200.
 const [siteUrl] = process.argv.slice(2);
 const origin = new URL(siteUrl).origin;

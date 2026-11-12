@@ -1,6 +1,6 @@
 import { load } from 'cheerio';
 import type { FaqItem } from '@waren/shared';
-import { claimSlug } from '../../../../backend/src/database/slug-registry.js';
+import { claimSlug } from '../../../../src/database/slug-registry.js';
 import { resolveImages, toDocument } from '../blocks.js';
 import {
   COMMON_SKIPPED_WIDGETS,

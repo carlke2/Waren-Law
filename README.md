@@ -65,12 +65,10 @@ One repo, two apps (frontend + backend) and a shared package, managed with pnpm.
 
 | Folder | What goes here |
 |---|---|
-| `frontend/` | Next.js + React + TypeScript + Tailwind: public website and `/admin` screens |
-| `backend/` | NestJS (Node.js + TypeScript) API, PostgreSQL via Prisma, media uploads |
+| `frontend/` | Next.js + React + TypeScript + Tailwind: public website and `/admin` screens. `frontend/scripts/` has the theme check and the URL/SEO/link QA scripts |
+| `backend/` | NestJS (Node.js + TypeScript) API, PostgreSQL via Prisma, media uploads. `backend/scripts/import-wordpress/` is the WordPress importer |
 | `shared/` | Types and validation schemas used by both apps |
 | `infra/` | Docker Compose, Nginx, and the scripts that build, start, deploy and back up |
-| `scripts/` | WordPress import and the theme check |
-| `docs/` | Two importer inputs only (`seo/url-inventory.csv`, `design/assets/`) |
 
 ## Current site at a glance
 

@@ -2,7 +2,7 @@ packages:
   - frontend
   - backend
   - shared
-  - scripts/import-wordpress
+  - backend/scripts/import-wordpress
 
 allowBuilds:
   '@prisma/engines': true

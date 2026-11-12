@@ -1,4 +1,4 @@
-import { findThemeViolations } from '../../../scripts/check-theme';
+import { findThemeViolations } from '../../scripts/check-theme';
 
 describe('findThemeViolations', () => {
   it.each([

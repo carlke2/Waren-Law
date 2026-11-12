@@ -1,7 +1,7 @@
 import { load } from 'cheerio';
 import { z } from 'zod';
 import { faqSchema, type FaqItem } from '@waren/shared';
-import { claimSlug } from '../../../../backend/src/database/slug-registry.js';
+import { claimSlug } from '../../../../src/database/slug-registry.js';
 import { resolveImages, toDocument } from '../blocks.js';
 import {
   AUTHOR_BIO_PATTERN,

@@ -1,4 +1,4 @@
-// Usage: node infra/scripts/qa/check-urls.mjs <siteUrl> <inventoryCsv> <reportPath>
+// Usage: node frontend/scripts/qa/check-urls.mjs <siteUrl> <inventoryCsv> <reportPath>
 // Each inventory URL must return 200 at its own path, or one 301 to its proposed_new_url.
 import { readFileSync, writeFileSync } from 'node:fs';
 
@@ -63,7 +63,7 @@ const table = results
 
 writeFileSync(
   reportPath,
-  `# V1 URL check\n\nEach URL in \`docs/seo/url-inventory.csv\`, checked against a production build.\n\n**Result: ${results.length - failures.length} passed, ${failures.length} failed, of ${results.length}.**\n\n| URL | Status | Redirects to | Result |\n|---|---|---|---|\n${table}\n`,
+  `# V1 URL check\n\nEach URL in \`backend/scripts/import-wordpress/data/url-inventory.csv\`, checked against a production build.\n\n**Result: ${results.length - failures.length} passed, ${failures.length} failed, of ${results.length}.**\n\n| URL | Status | Redirects to | Result |\n|---|---|---|---|\n${table}\n`,
 );
 console.log(`${results.length - failures.length} passed, ${failures.length} failed`);
 failures.forEach(({ url, problem }) => console.log(`FAIL ${url}: ${problem}`));
