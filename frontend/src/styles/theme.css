@@ -371,56 +371,6 @@
   --aspect-certificate: 3 / 4;
 }
 
-@utility border-b-card-rule {
-  border-bottom-width: var(--border-card-rule);
-}
-
-@utility bg-welcome {
-  background-color: var(--color-surface);
-  background-image:
-    radial-gradient(
-      42rem 24rem at 8% 0%,
-      color-mix(in srgb, var(--palette-navy-700) 14%, transparent),
-      transparent 70%
-    ),
-    radial-gradient(
-      36rem 22rem at 100% 100%,
-      color-mix(in srgb, var(--palette-navy-800) 10%, transparent),
-      transparent 68%
-    );
-}
-
-@utility bg-gold-gradient {
-  background-image: linear-gradient(90deg, var(--palette-gold-500), var(--palette-gold-700));
-}
-
-@utility text-gold-gradient {
-  background-image: linear-gradient(180deg, var(--palette-gold-500), var(--palette-gold-700));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.welcome-statue {
-  object-fit: contain;
-  object-position: left center;
-  opacity: 0.08;
-  -webkit-mask-image:
-    linear-gradient(to right, transparent, black 8%, black 58%, transparent),
-    linear-gradient(to bottom, transparent, black 6%, black 86%, transparent);
-  mask-image:
-    linear-gradient(to right, transparent, black 8%, black 58%, transparent),
-    linear-gradient(to bottom, transparent, black 6%, black 86%, transparent);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
-}
-
-@media (min-width: 64rem) {
-  .welcome-statue {
-    opacity: 0.18;
-  }
-}
-
 @media (min-width: 40rem) {
   :root {
     --gutter: 2rem;
@@ -487,22 +437,6 @@
   aspect-ratio: 16 / 9;
 }
 
-@utility aspect-intro {
-  aspect-ratio: 4 / 5;
-}
-
-@utility aspect-insight-short {
-  aspect-ratio: 16 / 7;
-}
-
-@utility aspect-insight-mid {
-  aspect-ratio: 16 / 10;
-}
-
-@utility aspect-insight-tall {
-  aspect-ratio: 16 / 13;
-}
-
 @utility py-section {
   padding-block: 6rem;
 }
@@ -521,10 +455,6 @@
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
 }
 
-@utility grid-auto-hero {
-  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-hero), 100%), 1fr));
-}
-
 @utility grid-auto-practice {
   grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-practice), 100%), 1fr));
 }
@@ -535,10 +465,6 @@
 
 @utility grid-auto-insight {
   grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-insight), 100%), 1fr));
-}
-
-@utility grid-auto-footer {
-  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-footer), 100%), 1fr));
 }
 
 @utility grid-auto-statement {

@@ -71,15 +71,6 @@
     background-color: var(--color-accent-soft);
   }
 
-  .peach-card {
-    background-color: var(--color-surface-card);
-    transition: background-color var(--motion-fast) ease;
-  }
-
-  .peach-card:hover {
-    background-color: var(--color-surface-deep);
-  }
-
   .logo-quiet {
     filter: grayscale(1);
     transition: filter var(--motion-slow) ease;
