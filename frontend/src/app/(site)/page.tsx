@@ -20,7 +20,6 @@ import {
   getHome,
   getInsights,
   getOffices,
-  getPartners,
   getPracticeAreas,
   getSettings,
   getTeam,
@@ -50,7 +49,6 @@ export default async function HomePage() {
       getWebinars(),
       getClientLogos(),
       getOffices(),
-      getPartners(),
     ]);
   if (!home) notFound();
 
