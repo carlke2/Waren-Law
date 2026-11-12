@@ -26,6 +26,14 @@ export const CARD_PHOTO: Record<string, PhotoFile> = {
   'cecilia-njeri': { file: 'team-cecilia-njeri-card.webp', width: 982, height: 1280 },
 };
 
+/** Approved grey-background portraits (T064 Part 1). Only approved slugs. */
+export const GREY_PHOTO: Record<string, PhotoFile> = {
+  'janice-wachuka': { file: 'team-janice-wachuka-grey.webp', width: 1200, height: 1500 },
+  'ephraim-ndegwa': { file: 'team-ephraim-ndegwa-grey.webp', width: 1200, height: 1500 },
+  'martin-wachira': { file: 'team-martin-wachira-grey.webp', width: 1200, height: 1500 },
+  'phylis-njane': { file: 'team-phylis-njane-grey.webp', width: 1200, height: 1500 },
+};
+
 export function memberPhoto(member: TeamSummary, files?: Record<string, PhotoFile>) {
   const portrait = member.portrait;
   const extra = files?.[member.slug];
