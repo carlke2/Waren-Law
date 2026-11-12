@@ -5,7 +5,18 @@ Working repository for rebuilding **[warenlaw.com](https://warenlaw.com)** (WARE
 - **Repository:** https://github.com/carlke2/Waren-Law
 - **Start date:** 3 November 2026
 - **Status:** Public pages built, awaiting owner review
-- **Planning archive:** plans, decisions, audits and task reports up to 12 November 2026 are kept outside the repo in `~/warenlaw-archive/2026-11-12/docs/`
+- **Planning archive:** plans, decisions 0001–0031, audits and task reports up to 12 November 2026 are kept outside the repo in `~/warenlaw-archive/2026-11-12/docs/`
+- **Agent rules:** [`CLAUDE.md`](CLAUDE.md) · **Before launch:** [`FIRM-REVIEW.md`](FIRM-REVIEW.md)
+
+## Milestones
+
+| Date | Milestone |
+|---|---|
+| 3 Nov 2026 | WordPress analysis (T001); monorepo, backend, database schema, WordPress import and public API (T002–T028a); first full site, SEO, containers and runbook; **V1 released** (T032a, tag `v1.0.0`) |
+| 4 Nov 2026 | Frontend rebuilt from zero on the approved design (T035–T039); About, Partners, practice areas, people, contact and consultation, insights and webinars, search, legal and 404 pages (T041–T050); every old URL checked |
+| 9 Nov 2026 | Codebase cleaned to the agreed structure |
+| 10–12 Nov 2026 | Home redesign: video hero (T055), header mega-menu (T058), intro (T059), services list (T060), pre-footer (T063), latest insights (T062), team section with grey portraits (T064 Part 2). Lint fixed with no visual change (T067, T068) |
+| 12 Nov 2026 | Project put in order (T070): planning files archived, unused code and images removed, scripts moved next to their app, header/footer folders, READMEs. Tags `pre-cleanup` and `pre-lean` mark the state before |
 
 ## Getting started
 
@@ -81,7 +92,17 @@ One repo, two apps (frontend + backend) and a shared package, managed with pnpm.
 
 1. Everything starts here — plans, audits, drafts and agent work are committed to this repo.
 2. Each change gets a clear commit message.
-3. Decisions are recorded so we can see later why something was done. Decisions 0001–0031 are archived in `~/warenlaw-archive/2026-11-12/docs/decisions/`.
+3. Decisions go in the [Decisions](#decisions) section below, so we can see later why something was done. Decisions 0001–0031 are archived in `~/warenlaw-archive/2026-11-12/docs/decisions/`.
+
+## Decisions
+
+Newest first. Format: decision — why.
+
+- **2026-11-12 · `infra/` stays at the root for now.** Moving it to `backend/deploy/` was planned in T070, but Docker is not installed on the work machine, so the Compose files could not be validated after a move. Revisit on a machine with Docker.
+- **2026-11-12 · Planning files live outside the repo** (`~/warenlaw-archive/2026-11-12/`). The repo holds code, tests and the few documents needed to run, deploy and launch.
+- **2026-11-12 · `public/` is for files the code uses, `backend/uploads/` for files the database uses.** Nothing is removed from either without checking both code and database.
+- **2026-11-12 · The 4 approved grey partner portraits are committed** although `backend/uploads/` is otherwise git-ignored, because the code names them directly (`photo-files.ts`).
+- **2026-11-12 · Scripts that write to the database run only with the owner's approval,** after listing what they would overwrite.
 
 ## Production and deployment
 
@@ -155,7 +176,7 @@ docker compose --env-file infra/env/deploy.env -f infra/docker-compose.prod.yml 
 
 Replace `backend` with `frontend` or `nginx`. Locally, logs go to the terminal running `pnpm start`.
 
-The import is safe to repeat. It only writes records that differ, and rewrites curated pages.
+The import writes to the database and to `backend/uploads/`. **Run it only with the owner's approval, after listing what it would overwrite** (see `CLAUDE.md`). A repeat run only writes records that differ, but it rewrites curated pages.
 
 ```bash
 pnpm import:wp
