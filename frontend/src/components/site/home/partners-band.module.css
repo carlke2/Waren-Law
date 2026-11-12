@@ -1,8 +1,8 @@
 .section {
-  --team-ivory: #f9f7f2;
-  --team-ink: #252525;
-  --team-muted: #66645f;
-  --team-gold: #c99b3f;
+  --team-ivory: var(--palette-intro);
+  --team-ink: var(--palette-home-ink);
+  --team-muted: var(--palette-home-muted);
+  --team-gold: var(--palette-home-gold);
   --team-pad: 6.25rem;
   --team-gap: 2rem;
   --team-radius: 0.75rem;
@@ -39,7 +39,7 @@
 
 .rule {
   width: 4.5rem;
-  height: 2px;
+  height: var(--stroke-2);
   margin-top: 1.25rem;
   background-color: var(--team-gold);
 }
@@ -68,8 +68,8 @@
 }
 
 .card:focus-visible {
-  outline: 1px solid var(--team-gold);
-  outline-offset: 4px;
+  outline: var(--stroke-1) solid var(--team-gold);
+  outline-offset: var(--offset-focus-wide);
 }
 
 .media {
@@ -78,7 +78,7 @@
   aspect-ratio: 4 / 5;
   overflow: hidden;
   border-radius: var(--team-radius);
-  background-color: #e6e5e3;
+  background-color: var(--palette-home-photo);
 }
 
 .photo {

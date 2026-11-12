@@ -1,10 +1,10 @@
 .section {
-  --pre-ivory: #f9f7f2;
-  --pre-ink: #252525;
-  --pre-muted: #66645f;
-  --pre-gold: #c99b3f;
-  --pre-card: #ffffff;
-  --pre-line: #e6e0d5;
+  --pre-ivory: var(--palette-intro);
+  --pre-ink: var(--palette-home-ink);
+  --pre-muted: var(--palette-home-muted);
+  --pre-gold: var(--palette-home-gold);
+  --pre-card: var(--palette-white);
+  --pre-line: var(--palette-home-line);
   --pre-pad: 6.25rem;
   --pre-min-h: 40rem;
   --pre-headline: clamp(2.25rem, 1.2rem + 2.2vw, 4rem);
@@ -45,14 +45,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    90deg,
-    rgba(249, 247, 242, 0.95) 0%,
-    rgba(249, 247, 242, 0.88) 26%,
-    rgba(249, 247, 242, 0.45) 46%,
-    rgba(249, 247, 242, 0.12) 58%,
-    rgba(249, 247, 242, 0) 68%
-  );
+  background: var(--prefooter-veil);
 }
 
 .shell {
@@ -96,7 +89,7 @@
 
 .rule {
   width: 4rem;
-  height: 3px;
+  height: var(--stroke-3);
   background-color: var(--pre-gold);
 }
 
@@ -112,10 +105,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.85rem;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   background-color: var(--pre-ink);
   padding: 0.85rem 0.85rem 0.85rem 1.35rem;
-  color: #ffffff;
+  color: var(--palette-white);
   font-size: 1rem;
   font-weight: 500;
   line-height: 1;
@@ -128,8 +121,8 @@
 }
 
 .book:focus-visible {
-  outline: 1px solid var(--pre-gold);
-  outline-offset: 3px;
+  outline: var(--stroke-1) solid var(--pre-gold);
+  outline-offset: var(--offset-focus);
 }
 
 .bookArrow {
@@ -139,14 +132,14 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   background-color: var(--pre-gold);
   color: var(--pre-ink);
   transition: translate var(--pre-hover) ease;
 }
 
 .book:hover .bookArrow {
-  translate: 3px 0;
+  translate: var(--nudge-3) 0;
 }
 
 .cards {
@@ -164,7 +157,7 @@
   min-height: 10.5rem;
   flex-direction: column;
   gap: 1.1rem;
-  border: 1px solid var(--pre-line);
+  border: var(--stroke-1) solid var(--pre-line);
   border-radius: var(--pre-radius);
   background-color: var(--pre-card);
   box-shadow: 0 0.5rem 1.25rem color-mix(in srgb, var(--pre-ink) 6%, transparent);
@@ -179,7 +172,7 @@
 .card::after {
   content: '';
   display: block;
-  height: 3px;
+  height: var(--stroke-3);
   margin: auto -1.2rem -1.15rem;
   border-radius: 0 0 var(--pre-radius) var(--pre-radius);
   background-color: var(--pre-gold);
@@ -188,16 +181,16 @@
 
 .card:hover {
   box-shadow: 0 0.85rem 1.75rem color-mix(in srgb, var(--pre-ink) 12%, transparent);
-  translate: 0 -3px;
+  translate: 0 calc(-1 * var(--nudge-3));
 }
 
 .card:hover::after {
-  height: 4px;
+  height: var(--stroke-4);
 }
 
 .card:focus-visible {
-  outline: 1px solid var(--pre-gold);
-  outline-offset: 3px;
+  outline: var(--stroke-1) solid var(--pre-gold);
+  outline-offset: var(--offset-focus);
 }
 
 .cardTop {
@@ -214,9 +207,9 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   background-color: var(--pre-ink);
-  color: #ffffff;
+  color: var(--palette-white);
 }
 
 .icon {
@@ -225,7 +218,7 @@
 }
 
 .divider {
-  width: 1px;
+  width: var(--stroke-1);
   height: 2.75rem;
   background-color: var(--pre-gold);
 }
@@ -271,7 +264,7 @@
 }
 
 .card:hover .cardActionArrow {
-  translate: 3px 0;
+  translate: var(--nudge-3) 0;
 }
 
 @media (min-width: 48rem) and (max-width: 74.9375rem) {
@@ -282,14 +275,7 @@
   }
 
   .veil {
-    background: linear-gradient(
-      90deg,
-      rgba(249, 247, 242, 0.96) 0%,
-      rgba(249, 247, 242, 0.9) 34%,
-      rgba(249, 247, 242, 0.5) 56%,
-      rgba(249, 247, 242, 0.15) 70%,
-      rgba(249, 247, 242, 0) 80%
-    );
+    background: var(--prefooter-veil-tablet);
   }
 
   .cards {

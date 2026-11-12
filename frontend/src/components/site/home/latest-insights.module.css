@@ -1,11 +1,11 @@
 .section {
-  --insights-ivory: #f9f7f2;
-  --insights-card: #fffdf8;
-  --insights-ink: #252525;
-  --insights-muted: #66645f;
-  --insights-gold: #c99b3f;
-  --insights-pill: #f3e7cc;
-  --insights-line: #e6e0d5;
+  --insights-ivory: var(--palette-intro);
+  --insights-card: var(--palette-home-card);
+  --insights-ink: var(--palette-home-ink);
+  --insights-muted: var(--palette-home-muted);
+  --insights-gold: var(--palette-home-gold);
+  --insights-pill: var(--palette-home-pill);
+  --insights-line: var(--palette-home-line);
   --insights-pad: 6.25rem;
   --insights-card-h: 18.75rem;
   --insights-gap: 1.5rem;
@@ -76,7 +76,7 @@
 }
 
 .ornamentLine {
-  height: 1px;
+  height: var(--stroke-1);
   flex: 1 1 auto;
   background-color: var(--insights-gold);
 }
@@ -113,7 +113,7 @@
 
 .subtitleRule {
   width: 3.75rem;
-  height: 2px;
+  height: var(--stroke-2);
   background-color: var(--insights-gold);
 }
 
@@ -130,7 +130,7 @@
   display: grid;
   min-height: var(--insights-card-h);
   overflow: hidden;
-  border: 1px solid var(--insights-line);
+  border: var(--stroke-1) solid var(--insights-line);
   border-radius: var(--insights-radius);
   background-color: var(--insights-card);
   box-shadow: 0 0.5rem 1.25rem color-mix(in srgb, var(--insights-ink) 6%, transparent);
@@ -143,12 +143,12 @@
 
 .card:hover {
   box-shadow: 0 0.75rem 1.75rem color-mix(in srgb, var(--insights-ink) 10%, transparent);
-  translate: 0 -2px;
+  translate: 0 calc(-1 * var(--nudge-2));
 }
 
 .card:focus-visible {
-  outline: 1px solid var(--insights-gold);
-  outline-offset: 3px;
+  outline: var(--stroke-1) solid var(--insights-gold);
+  outline-offset: var(--offset-focus);
 }
 
 .media {
@@ -197,7 +197,7 @@
   align-items: center;
   gap: 0.4rem;
   align-self: flex-start;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   background-color: var(--insights-pill);
   padding: 0.35rem 0.75rem;
   color: var(--insights-ink);
@@ -258,7 +258,7 @@
 }
 
 .metaDivider {
-  width: 1px;
+  width: var(--stroke-1);
   height: 0.9rem;
   background-color: var(--insights-line);
 }
@@ -273,7 +273,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   background-color: var(--insights-gold);
   padding: 0.65rem 0.95rem 0.65rem 1.1rem;
   color: var(--insights-ink);
@@ -288,13 +288,13 @@
   height: 1.35rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--insights-ink);
-  border-radius: 9999px;
+  border: var(--stroke-1) solid var(--insights-ink);
+  border-radius: var(--radius-full);
   transition: translate var(--insights-hover) ease;
 }
 
 .card:hover .readArrow {
-  translate: 3px 0;
+  translate: var(--nudge-3) 0;
 }
 
 .cta {
@@ -310,7 +310,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border: 1px solid var(--insights-gold);
+  border: var(--stroke-1) solid var(--insights-gold);
   border-radius: 0;
   background: transparent;
   color: var(--insights-ink);
@@ -340,8 +340,8 @@
 }
 
 .ctaLink:focus-visible {
-  outline: 1px solid var(--insights-gold);
-  outline-offset: 3px;
+  outline: var(--stroke-1) solid var(--insights-gold);
+  outline-offset: var(--offset-focus);
 }
 
 @media (min-width: 48rem) {

@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HomePage() {
   await deferToRequestWhenPrerenderIsSkipped();
-  const [home, settings, practiceAreas, team, insights, webinars, logos, offices, partners] =
+  const [home, settings, practiceAreas, team, insights, webinars, logos, offices] =
     await Promise.all([
       getHome(),
       getSettings(),

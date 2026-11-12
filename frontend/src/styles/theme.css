@@ -41,6 +41,39 @@
   --palette-green-300: #7fd3a6;
   --palette-red-700: #b42318;
   --palette-red-300: #ff9c8f;
+  --palette-home-ink: #252525;
+  --palette-home-muted: #66645f;
+  --palette-home-gold: #c99b3f;
+  --palette-home-line: #e6e0d5;
+  --palette-home-card: #fffdf8;
+  --palette-home-pill: #f3e7cc;
+  --palette-home-photo: #e6e5e3;
+
+  --prefooter-veil: linear-gradient(
+    90deg,
+    rgba(249, 247, 242, 0.95) 0%,
+    rgba(249, 247, 242, 0.88) 26%,
+    rgba(249, 247, 242, 0.45) 46%,
+    rgba(249, 247, 242, 0.12) 58%,
+    rgba(249, 247, 242, 0) 68%
+  );
+  --prefooter-veil-tablet: linear-gradient(
+    90deg,
+    rgba(249, 247, 242, 0.96) 0%,
+    rgba(249, 247, 242, 0.9) 34%,
+    rgba(249, 247, 242, 0.5) 56%,
+    rgba(249, 247, 242, 0.15) 70%,
+    rgba(249, 247, 242, 0) 80%
+  );
+
+  --stroke-1: 1px;
+  --stroke-2: 2px;
+  --stroke-3: 3px;
+  --stroke-4: 4px;
+  --nudge-2: 2px;
+  --nudge-3: 3px;
+  --offset-focus: 3px;
+  --offset-focus-wide: 4px;
 
   --overlay-hero-from: color-mix(in srgb, var(--palette-navy-950) 86%, transparent);
   --overlay-hero-via: color-mix(in srgb, var(--palette-navy-950) 55%, transparent);
