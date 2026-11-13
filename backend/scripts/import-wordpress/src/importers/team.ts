@@ -159,6 +159,9 @@ async function importMember(
     linkedInUrl: entry.linkedInUrl ?? null,
     bookingUrl: entry.bookingUrl ?? null,
     hasProfile: PROFILE_MEMBER_TYPES.includes(entry.memberType),
+    showOnHomepage: entry.homepageOrder !== undefined,
+    homepageOrder: entry.homepageOrder ?? 0,
+    featuredInMenu: entry.featuredInMenu ?? false,
     searchText: [
       entry.name,
       entry.roleTitle ?? card.roleTitle,

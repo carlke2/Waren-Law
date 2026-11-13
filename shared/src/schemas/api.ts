@@ -209,6 +209,9 @@ export const teamSummarySchema = z.object({
   memberType: z.enum(MEMBER_TYPES),
   isAdvocate: z.boolean(),
   hasProfile: z.boolean(),
+  showOnHomepage: z.boolean(),
+  homepageOrder: z.number().int(),
+  featuredInMenu: z.boolean(),
   shortBio: z.string(),
   portrait: mediaRefSchema.nullable(),
   practiceAreas: z.array(namedLinkSchema),
@@ -310,6 +313,8 @@ export const webinarSummarySchema = z.object({
   startsAt: z.string().nullable(),
   timezone: z.string().nullable(),
   audience: z.string().nullable(),
+  featuredOnHome: z.boolean(),
+  featuredInMenu: z.boolean(),
   heroImage: mediaRefSchema.nullable(),
 });
 

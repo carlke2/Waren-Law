@@ -246,6 +246,8 @@ export async function importHome(
     pageId: page.id,
     // Home is not legal content (decision 0020).
     legalReviewStatus: 'approved' as const,
+    status: 'published' as const,
+    publishedAt: page.publishedAt,
     heroImageId: heroImage.id,
     ...HOME_CONTENT,
     heroCards: HOME_CONTENT.heroCards as unknown as Prisma.InputJsonValue,

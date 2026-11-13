@@ -34,6 +34,8 @@ Read first, every task: this file, then `README.md` (and `frontend/README.md` or
 
 - Never run `pnpm import:wp`, a seed, a migration against Supabase, or any script that writes to the database without asking the owner first and listing exactly what it would overwrite.
 - Read-only checks run inside a `READ ONLY` transaction. Never print or log connection strings.
+- Every migration that creates a table runs `ALTER TABLE "<Table>" ENABLE ROW LEVEL SECURITY` with no policies (decision 0008). After migrating, check that every table in the `public` schema has RLS on.
+- Development work uses the `waren-dev` Supabase project. Before any command that writes, print the target database host (never the password) and stop unless it is `waren-dev`.
 
 ## Reports, screenshots and working files
 

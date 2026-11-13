@@ -32,6 +32,7 @@ backend/scripts/import-wordpress/.cache/
 # Local media uploads
 backend/uploads/*
 !backend/uploads/.gitkeep
+backend/uploads-dev/
 
 # OS files
 .DS_Store

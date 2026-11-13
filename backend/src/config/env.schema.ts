@@ -28,6 +28,11 @@ export const envSchema = z.object({
   // Empty means the leads API refuses every request.
   LEADS_API_KEY: optionalString,
   UPLOADS_DIR: z.string().min(1),
+  // Set to true only against the development database, until admin sign-in and roles exist.
+  ADMIN_WRITES_ALLOWED: z
+    .enum(['true', 'false'])
+    .default('false')
+    .transform((value) => value === 'true'),
   PREVIEW_UNREVIEWED_PAGES: z
     .enum(['true', 'false'])
     .default('false')

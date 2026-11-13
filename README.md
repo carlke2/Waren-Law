@@ -98,6 +98,10 @@ One repo, two apps (frontend + backend) and a shared package, managed with pnpm.
 
 Newest first. Format: decision — why.
 
+- **2026-11-13 · Development uses its own Supabase project, `waren-dev`,** filled by a fresh migrate and import. Locally, `backend/.env` points at it, with `UPLOADS_DIR=uploads-dev`; the previous values are kept in the git-ignored `backend/.env.production.local`. Admin testing must never touch the database the site launches on.
+- **2026-11-13 · Admin endpoints live under `/api/v1/admin` and refuse changes unless `ADMIN_WRITES_ALLOWED=true`.** The flag is set only in the dev `.env`, so admin work cannot write to staging or live data until sign-in and roles exist.
+- **2026-11-13 · Homepage and menu choices are database flags,** not lists in code: `TeamMember.showOnHomepage`, `homepageOrder`, `featuredInMenu` and `Webinar.featuredOnHome`, `featuredInMenu`. The migration and the importer set them to what the site showed before, so pages are unchanged. `Insight.featuredOnHome` and `featuredInMenu` exist for the admin but are not read yet, because the site shows the latest insights there.
+- **2026-11-13 · Roles are Admin and Editor;** TOTP two-factor for Admins comes in T083. Draft and publish is a status switch, with no separate draft copy. An enquiry is assigned to a team member, and `handledBy` records the admin user.
 - **2026-11-12 · `infra/` stays at the root for now.** Moving it to `backend/deploy/` was planned in T070, but Docker is not installed on the work machine, so the Compose files could not be validated after a move. Revisit on a machine with Docker.
 - **2026-11-12 · Planning files live outside the repo** (`~/warenlaw-archive/2026-11-12/`). The repo holds code, tests and the few documents needed to run, deploy and launch.
 - **2026-11-12 · `public/` is for files the code uses, `backend/uploads/` for files the database uses.** Nothing is removed from either without checking both code and database.

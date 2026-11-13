@@ -6,6 +6,9 @@ export const WEBINAR_STATES = ['upcoming', 'recording', 'past'] as const;
 export const SLUG_TYPES = ['page', 'practice_area', 'insight', 'webinar'] as const;
 export const FAQ_SOURCE_TYPES = ['practice_area', 'insight', 'webinar'] as const;
 export const SUBSCRIBER_SOURCES = ['newsletter', 'webinar'] as const;
+export const ADMIN_ROLES = ['admin', 'editor'] as const;
+export const ENQUIRY_STATUSES = ['new', 'replied', 'handled'] as const;
+export const MEDIA_KINDS = ['image', 'video'] as const;
 export const CHANGE_ACTIONS = [
   'create',
   'update',
@@ -34,16 +37,6 @@ export const ICON_NAMES = [
 export const HERO_CARD_COUNT = 3;
 export const HERO_VIDEO_FILE = 'hero.mp4';
 export const HOME_SERVICE_COUNT = 8;
-export const HOME_FEATURE_SLUGS = [
-  'wealth-protection-plan-for-kenyans-abroad-webinar',
-  'trusts-taxes-protecting-wealth-across-borders',
-] as const;
-export const MENU_WEBINAR_SLUGS = [
-  'trusts-taxes-protecting-wealth-across-borders',
-  'wealth-protection-plan-for-kenyans-abroad-webinar',
-  'wealth-built-abroad-protected-in-kenya-webinar',
-] as const;
-export const MENU_FEATURED_TEAM = 2;
 export const MENU_FEATURED_PARTNERS = 2;
 export const MENU_FEATURED_INSIGHTS = 3;
 export const INTRO_ALLIANCE_SLUG = 'beijing-jingping-law-firm';

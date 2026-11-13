@@ -1,8 +1,6 @@
 import {
   MENU_FEATURED_INSIGHTS,
   MENU_FEATURED_PARTNERS,
-  MENU_FEATURED_TEAM,
-  MENU_WEBINAR_SLUGS,
   ROUTES,
   type InsightSummary,
   type OfficeResponse,
@@ -131,14 +129,9 @@ export function buildHeaderMenu({
   const members = flattenTeam(team);
   const nairobi = offices.find(({ city }) => /nairobi/i.test(city));
   const nakuru = offices.find(({ city }) => /nakuru/i.test(city));
-  const namedWebinars = MENU_WEBINAR_SLUGS.map(
-    (slug) => webinars.find((item) => item.slug === slug) ?? null,
-  );
-  const missingWebinars = MENU_WEBINAR_SLUGS.filter(
-    (slug) => !webinars.some((item) => item.slug === slug),
-  );
-  for (const slug of missingWebinars) {
-    placeholders.push(`Insights menu: webinar "${slug}" is not in the database.`);
+  const menuWebinars = webinars.filter((webinar) => webinar.featuredInMenu);
+  if (menuWebinars.length === 0) {
+    placeholders.push('Insights menu: no webinar is featured in the menu.');
   }
 
   const teamLinks: MenuLink[] = [
@@ -206,17 +199,12 @@ export function buildHeaderMenu({
     { label: text.seeAllInsights, href: ROUTES.insights },
     { label: text.articles, href: ROUTES.insights },
     { label: text.webinars, href: ROUTES.webinars },
-    ...namedWebinars.flatMap((webinar) =>
-      webinar ? [{ label: webinar.title, href: ROUTES.root(webinar.slug) }] : [],
-    ),
+    ...menuWebinars.map((webinar) => ({ label: webinar.title, href: ROUTES.root(webinar.slug) })),
   ];
 
-  const featuredTeam = members
-    .filter((member) => member.portrait)
-    .slice(0, MENU_FEATURED_TEAM)
-    .map(featuredMember);
-  if (featuredTeam.length < MENU_FEATURED_TEAM) {
-    placeholders.push('Our Team featured: fewer than two team photos were available.');
+  const featuredTeam = members.filter((member) => member.featuredInMenu).map(featuredMember);
+  if (featuredTeam.length === 0) {
+    placeholders.push('Our Team featured: no member is featured in the menu.');
   }
 
   const featuredPartners = partners.slice(0, MENU_FEATURED_PARTNERS).map(featuredPartner);

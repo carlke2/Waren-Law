@@ -8,26 +8,7 @@ import styles from './partners-band.module.css';
 const PORTRAIT_SIZES = '(min-width: 64rem) 22vw, (min-width: 48rem) 40vw, 50vw';
 const text = dictionary.home;
 
-const HOME_PARTNER_ORDER = [
-  'janice-wachuka',
-  'ephraim-ndegwa',
-  'martin-wachira',
-  'phylis-njane',
-] as const;
-
-function orderedPartners(partners: readonly TeamSummary[]): TeamSummary[] {
-  const bySlug = new Map(partners.map((member) => [member.slug, member]));
-  const ordered: TeamSummary[] = [];
-  for (const slug of HOME_PARTNER_ORDER) {
-    const member = bySlug.get(slug);
-    if (member) ordered.push(member);
-  }
-  return ordered;
-}
-
-export function PartnersBand({ partners }: { partners: readonly TeamSummary[] }) {
-  const members = orderedPartners(partners);
-
+export function PartnersBand({ members }: { members: readonly TeamSummary[] }) {
   return (
     <section className={`${styles.section} rise`} aria-labelledby="home-team-heading">
       <div className={`site-container ${styles.shell}`}>

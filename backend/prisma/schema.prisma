@@ -52,6 +52,22 @@ enum SubscriberSource {
   webinar
 }
 
+enum AdminRole {
+  admin
+  editor
+}
+
+enum EnquiryStatus {
+  new
+  replied
+  handled
+}
+
+enum MediaKind {
+  image
+  video
+}
+
 enum ChangeAction {
   create
   update
@@ -146,6 +162,8 @@ model HomeContent {
   ctaTitle          String
   ctaBody           String
   legalReviewStatus LegalReviewStatus @default(needs_advocate_review)
+  status            ContentStatus     @default(draft)
+  publishedAt       DateTime?
   createdAt         DateTime          @default(now())
   updatedAt         DateTime          @updatedAt
 }
@@ -185,13 +203,13 @@ model PracticeArea {
 }
 
 model TeamMember {
-  id              String         @id @default(uuid())
-  slug            String         @unique
+  id              String              @id @default(uuid())
+  slug            String              @unique
   fullName        String
   displayName     String?
   roleTitle       String
   memberType      MemberType
-  isAdvocate      Boolean        @default(false)
+  isAdvocate      Boolean             @default(false)
   shortBio        String
   longBio         Json?
   experience      Json?
@@ -204,28 +222,32 @@ model TeamMember {
   whatsApp        String?
   linkedInUrl     String?
   bookingUrl      String?
-  hasProfile      Boolean        @default(false)
-  searchText      String         @default("")
-  sortOrder       Int            @default(0)
-  status          ContentStatus  @default(draft)
+  hasProfile      Boolean             @default(false)
+  showOnHomepage  Boolean             @default(false)
+  homepageOrder   Int                 @default(0)
+  featuredInMenu  Boolean             @default(false)
+  searchText      String              @default("")
+  sortOrder       Int                 @default(0)
+  status          ContentStatus       @default(draft)
   publishedAt     DateTime?
   metaTitle       String?
   metaDescription String?
   canonicalUrl    String?
-  noindex         Boolean        @default(false)
+  noindex         Boolean             @default(false)
   ogImageId       String?
-  ogImage         Media?         @relation("TeamMemberOgImage", fields: [ogImageId], references: [id], onDelete: SetNull)
+  ogImage         Media?              @relation("TeamMemberOgImage", fields: [ogImageId], references: [id], onDelete: SetNull)
   portraitId      String?
-  portrait        Media?         @relation("TeamMemberPortrait", fields: [portraitId], references: [id], onDelete: SetNull)
+  portrait        Media?              @relation("TeamMemberPortrait", fields: [portraitId], references: [id], onDelete: SetNull)
   officeId        String?
-  office          Office?        @relation(fields: [officeId], references: [id], onDelete: SetNull)
+  office          Office?             @relation(fields: [officeId], references: [id], onDelete: SetNull)
   practiceAreas   PracticeArea[]
   insights        Insight[]
   webinars        Webinar[]
   awards          Award[]
   testimonials    Testimonial[]
-  createdAt       DateTime       @default(now())
-  updatedAt       DateTime       @updatedAt
+  enquiries       ContactSubmission[]
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
 
   @@index([memberType, sortOrder])
 }
@@ -239,6 +261,8 @@ model Insight {
   body              Json
   searchText        String            @default("")
   readingMinutes    Int
+  featuredOnHome    Boolean           @default(false)
+  featuredInMenu    Boolean           @default(false)
   legacyWordpressId Int?              @unique
   legalReviewStatus LegalReviewStatus @default(needs_advocate_review)
   status            ContentStatus     @default(draft)
@@ -294,6 +318,8 @@ model Webinar {
   recordingGated    Boolean           @default(false)
   faq               Json              @default("[]")
   audience          String?
+  featuredOnHome    Boolean           @default(false)
+  featuredInMenu    Boolean           @default(false)
   legalReviewStatus LegalReviewStatus @default(needs_advocate_review)
   legacyWordpressId Int?              @unique
   status            ContentStatus     @default(draft)
@@ -390,6 +416,7 @@ model Media {
   fileName           String         @unique
   originalName       String
   mimeType           String
+  kind               MediaKind      @default(image)
   sizeBytes          Int
   width              Int?
   height             Int?
@@ -419,16 +446,16 @@ model Media {
 }
 
 model ContactSubmission {
-  id               String    @id @default(uuid())
+  id               String        @id @default(uuid())
   name             String
   email            String
   phone            String?
-  message          String    @default("")
-  form             String    @default("contact")
+  message          String        @default("")
+  form             String        @default("contact")
   page             String
-  source           String    @default("direct")
+  source           String        @default("direct")
   campaign         String?
-  channel          String    @default("Direct")
+  channel          String        @default("Direct")
   heardAbout       String?
   country          String?
   practiceArea     String?
@@ -437,9 +464,18 @@ model ContactSubmission {
   preferredDates   String?
   consentAt        DateTime?
   emailedAt        DateTime?
-  createdAt        DateTime  @default(now())
+  status           EnquiryStatus @default(new)
+  assignedToId     String?
+  assignedTo       TeamMember?   @relation(fields: [assignedToId], references: [id], onDelete: SetNull)
+  internalNote     String?
+  handledAt        DateTime?
+  handledById      String?
+  handledBy        AdminUser?    @relation(fields: [handledById], references: [id], onDelete: SetNull)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
 
   @@index([createdAt])
+  @@index([status, createdAt])
 }
 
 model Subscriber {
@@ -476,26 +512,46 @@ model Redirect {
 }
 
 model AdminUser {
-  id             String          @id @default(uuid())
-  email          String          @unique
-  passwordHash   String
-  totpSecret     String?
-  failedAttempts Int             @default(0)
-  lockedUntil    DateTime?
-  sessions       Session[]
-  changes        ChangeHistory[]
-  createdAt      DateTime        @default(now())
-  updatedAt      DateTime        @updatedAt
+  id                  String               @id @default(uuid())
+  email               String               @unique
+  name                String
+  role                AdminRole            @default(editor)
+  passwordHash        String
+  totpSecret          String?
+  failedAttempts      Int                  @default(0)
+  lockedUntil         DateTime?
+  disabledAt          DateTime?
+  lastLoginAt         DateTime?
+  sessions            Session[]
+  passwordResetTokens PasswordResetToken[]
+  changes             ChangeHistory[]
+  handledEnquiries    ContactSubmission[]
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
 }
 
 model Session {
   id          String    @id @default(uuid())
   tokenHash   String    @unique
   expiresAt   DateTime
+  lastSeenAt  DateTime  @default(now())
   adminUserId String
   adminUser   AdminUser @relation(fields: [adminUserId], references: [id], onDelete: Cascade)
   createdAt   DateTime  @default(now())
 
+  @@index([expiresAt])
+}
+
+model PasswordResetToken {
+  id          String    @id @default(uuid())
+  tokenHash   String    @unique
+  expiresAt   DateTime
+  usedAt      DateTime?
+  adminUserId String
+  adminUser   AdminUser @relation(fields: [adminUserId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+
+  @@index([adminUserId])
   @@index([expiresAt])
 }
 
@@ -506,8 +562,9 @@ model ChangeHistory {
   action      ChangeAction
   before      Json?
   after       Json?
-  adminUserId String
-  adminUser   AdminUser    @relation(fields: [adminUserId], references: [id], onDelete: Restrict)
+  summary     String?
+  adminUserId String?
+  adminUser   AdminUser?   @relation(fields: [adminUserId], references: [id], onDelete: SetNull)
   createdAt   DateTime     @default(now())
 
   @@index([entityType, entityId, createdAt(sort: Desc)])

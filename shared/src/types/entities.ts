@@ -34,4 +34,5 @@ export type Subscriber = z.infer<typeof entities.subscriberSchema>;
 export type Redirect = z.infer<typeof entities.redirectSchema>;
 export type AdminUser = z.infer<typeof entities.adminUserSchema>;
 export type Session = z.infer<typeof entities.sessionSchema>;
+export type PasswordResetToken = z.infer<typeof entities.passwordResetTokenSchema>;
 export type ChangeHistory = z.infer<typeof entities.changeHistorySchema>;

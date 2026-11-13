@@ -1,9 +1,8 @@
 import {
-  FEATURED_TEAM_LIMIT,
-  HOME_FEATURE_SLUGS,
   HOME_SERVICE_COUNT,
   LATEST_INSIGHTS_LIMIT,
   ROUTES,
+  type TeamListResponse,
 } from '@waren/shared';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -28,7 +27,12 @@ import {
 import { deferToRequestWhenPrerenderIsSkipped } from '@/lib/utils/prerender';
 import { pageMetadata, seoMetadataInput } from '@/lib/utils/seo/metadata';
 
-const PARTNER_GROUP = 'partner';
+function homepageMembers(team: TeamListResponse) {
+  return team.groups
+    .flatMap(({ members }) => members)
+    .filter((member) => member.showOnHomepage)
+    .sort((a, b) => a.homepageOrder - b.homepageOrder);
+}
 
 export async function generateMetadata(): Promise<Metadata> {
   await deferToRequestWhenPrerenderIsSkipped();
@@ -52,14 +56,7 @@ export default async function HomePage() {
     ]);
   if (!home) notFound();
 
-  const featuredPartners =
-    team.groups
-      .find(({ memberType }) => memberType === PARTNER_GROUP)
-      ?.members.slice(0, FEATURED_TEAM_LIMIT) ?? [];
-  const feature =
-    HOME_FEATURE_SLUGS.map((slug) => webinars.find((item) => item.slug === slug)).find(
-      (item) => item !== undefined,
-    ) ?? null;
+  const feature = webinars.find((webinar) => webinar.featuredOnHome) ?? null;
 
   return (
     <>
@@ -69,7 +66,7 @@ export default async function HomePage() {
       <HomeFeature webinar={feature} />
       <LatestInsights home={home} insights={insights.items} />
       <ClientLogos logos={logos} />
-      <PartnersBand partners={featuredPartners} />
+      <PartnersBand members={homepageMembers(team)} />
       <HomePrefooter
         home={home}
         offices={offices}

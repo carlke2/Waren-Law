@@ -1,7 +1,10 @@
 import { z } from 'zod';
 import {
+  ADMIN_ROLES,
   CHANGE_ACTIONS,
+  ENQUIRY_STATUSES,
   ICON_NAMES,
+  MEDIA_KINDS,
   MEMBER_TYPES,
   OFFICE_TYPES,
   SLUG_TYPES,
@@ -114,6 +117,7 @@ export const homeContentSchema = z.object({
   ctaTitle: z.string().min(1),
   ctaBody: z.string().min(1),
   legalReviewStatus: legalReviewStatusSchema,
+  ...publishingFieldsSchema.shape,
 });
 
 export const teamMemberSchema = z.object({
@@ -139,6 +143,9 @@ export const teamMemberSchema = z.object({
   linkedInUrl: z.url().nullable(),
   bookingUrl: z.url().nullable(),
   hasProfile: z.boolean(),
+  showOnHomepage: z.boolean(),
+  homepageOrder: z.number().int(),
+  featuredInMenu: z.boolean(),
   searchText: z.string(),
   sortOrder: z.number().int(),
   portraitId: optionalMediaId,
@@ -156,6 +163,8 @@ export const insightSchema = z.object({
   body: blockDocumentSchema,
   searchText: z.string(),
   readingMinutes: z.number().int().positive(),
+  featuredOnHome: z.boolean(),
+  featuredInMenu: z.boolean(),
   legacyWordpressId: z.number().int().nullable(),
   legalReviewStatus: legalReviewStatusSchema,
   featuredImageId: optionalMediaId,
@@ -187,6 +196,8 @@ export const webinarSchema = z.object({
   recordingGated: z.boolean(),
   faq: faqSchema,
   audience: z.string().nullable(),
+  featuredOnHome: z.boolean(),
+  featuredInMenu: z.boolean(),
   legalReviewStatus: legalReviewStatusSchema,
   legacyWordpressId: z.number().int().nullable(),
   heroImageId: optionalMediaId,
@@ -248,6 +259,7 @@ export const mediaSchema = z.object({
   fileName: z.string().min(1),
   originalName: z.string().min(1),
   mimeType: z.string().min(1),
+  kind: z.enum(MEDIA_KINDS),
   sizeBytes: z.number().int().nonnegative(),
   width: z.number().int().positive().nullable(),
   height: z.number().int().positive().nullable(),
@@ -267,7 +279,12 @@ export const contactSubmissionSchema = z.object({
   source: z.string().min(1),
   consentAt: z.coerce.date().nullable(),
   emailedAt: z.coerce.date().nullable(),
-  createdAt: z.coerce.date(),
+  status: z.enum(ENQUIRY_STATUSES),
+  assignedToId: z.uuid().nullable(),
+  internalNote: z.string().nullable(),
+  handledAt: z.coerce.date().nullable(),
+  handledById: z.uuid().nullable(),
+  ...timestamps.shape,
 });
 
 export const subscriberSchema = z.object({
@@ -293,16 +310,30 @@ export const redirectSchema = z.object({
 export const adminUserSchema = z.object({
   ...recordFieldsSchema.shape,
   email: z.email(),
+  name: z.string().min(1),
+  role: z.enum(ADMIN_ROLES),
   passwordHash: z.string().min(1),
   totpSecret: z.string().nullable(),
   failedAttempts: z.number().int().nonnegative(),
   lockedUntil: z.coerce.date().nullable(),
+  disabledAt: z.coerce.date().nullable(),
+  lastLoginAt: z.coerce.date().nullable(),
 });
 
 export const sessionSchema = z.object({
   id: z.uuid(),
   tokenHash: z.string().min(1),
   expiresAt: z.coerce.date(),
+  lastSeenAt: z.coerce.date(),
+  adminUserId: z.uuid(),
+  createdAt: z.coerce.date(),
+});
+
+export const passwordResetTokenSchema = z.object({
+  id: z.uuid(),
+  tokenHash: z.string().min(1),
+  expiresAt: z.coerce.date(),
+  usedAt: z.coerce.date().nullable(),
   adminUserId: z.uuid(),
   createdAt: z.coerce.date(),
 });
@@ -314,6 +345,7 @@ export const changeHistorySchema = z.object({
   action: z.enum(CHANGE_ACTIONS),
   before: z.unknown().nullable(),
   after: z.unknown().nullable(),
-  adminUserId: z.uuid(),
+  summary: z.string().nullable(),
+  adminUserId: z.uuid().nullable(),
   createdAt: z.coerce.date(),
 });

@@ -233,6 +233,8 @@ export interface TeamEntry {
   linkedInUrl?: string;
   bookingUrl?: string;
   profilePageSlug?: string;
+  homepageOrder?: number;
+  featuredInMenu?: boolean;
 }
 
 const P = {
@@ -258,6 +260,8 @@ export const TEAM: readonly TeamEntry[] = [
     email: 'wmaina@warenlaw.com',
     linkedInUrl: 'https://www.linkedin.com/in/janice-wachuka/',
     profilePageSlug: 'janice-wachuka',
+    homepageOrder: 1,
+    featuredInMenu: true,
   },
   {
     name: 'Nick Amboko',
@@ -279,6 +283,8 @@ export const TEAM: readonly TeamEntry[] = [
     linkedInUrl: 'https://www.linkedin.com/in/ephraim-ndegwa',
     bookingUrl: 'https://calendly.com/endegwa-warenlaw/consultation-with-ephraim-ndegwa',
     profilePageSlug: 'ephraim-ndegwa',
+    homepageOrder: 2,
+    featuredInMenu: true,
   },
   {
     name: 'Martin Wachira',
@@ -287,6 +293,7 @@ export const TEAM: readonly TeamEntry[] = [
     roleTitle: 'Partner, Cross-Border Practice',
     officeSlug: NAIROBI,
     practiceAreas: [P.corporate, P.wealth],
+    homepageOrder: 3,
   },
   {
     name: 'Phylis Njane',
@@ -296,6 +303,7 @@ export const TEAM: readonly TeamEntry[] = [
     portraitAlt: 'Phylis Njane, Partner',
     officeSlug: null,
     practiceAreas: [P.litigation, P.employment],
+    homepageOrder: 4,
   },
   {
     name: 'Barbra Katasi',
@@ -643,6 +651,8 @@ export interface WebinarEntry {
   recordingGated: boolean;
   panel: readonly string[];
   heroImage?: string;
+  featuredOnHome?: boolean;
+  featuredInMenu?: boolean;
 }
 
 export const WEBINARS: readonly WebinarEntry[] = [
@@ -653,6 +663,7 @@ export const WEBINARS: readonly WebinarEntry[] = [
     timezone: 'America/Los_Angeles',
     recordingGated: false,
     panel: ['janice-wachuka', 'ephraim-ndegwa', 'martin-wachira'],
+    featuredInMenu: true,
   },
   {
     slug: 'wealth-protection-plan-for-kenyans-abroad-webinar',
@@ -662,6 +673,8 @@ export const WEBINARS: readonly WebinarEntry[] = [
     recordingGated: true,
     panel: ['janice-wachuka', 'ephraim-ndegwa', 'cecilia-njeri', 'martin-wachira'],
     heroImage: '2026/03/Banner-2-Banner-Landscape-scaled.png',
+    featuredOnHome: true,
+    featuredInMenu: true,
   },
   {
     slug: 'wealth-built-abroad-protected-in-kenya-webinar',
@@ -670,6 +683,7 @@ export const WEBINARS: readonly WebinarEntry[] = [
     timezone: null,
     recordingGated: true,
     panel: ['ephraim-ndegwa', 'cecilia-njeri', 'martin-wachira'],
+    featuredInMenu: true,
   },
 ];
 

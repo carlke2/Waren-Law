@@ -6,6 +6,8 @@ NestJS API (Node.js + TypeScript), PostgreSQL (Supabase) via Prisma. See the roo
 
 Copy `.env.example` to `.env` and set `DATABASE_URL`, `DIRECT_URL` and `SESSION_SECRET` (see the root README). Then `pnpm dev` from the repo root runs the API on port 4000 with the frontend. Never print or commit connection strings.
 
+For admin work, point `.env` at the `waren-dev` Supabase project, set `UPLOADS_DIR=uploads-dev` (git-ignored) and `ADMIN_WRITES_ALLOWED=true`. Only there may admin endpoints change data.
+
 | Folder | What goes here |
 |---|---|
 | `src/modules/` | One module per feature (controller, service, DTOs), with its `*.spec.ts` unit tests |

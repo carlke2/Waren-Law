@@ -24,6 +24,8 @@ export class WebinarsService {
       startsAt: webinar.startsAt?.toISOString() ?? null,
       timezone: webinar.timezone,
       audience: webinar.audience,
+      featuredOnHome: webinar.featuredOnHome,
+      featuredInMenu: webinar.featuredInMenu,
       heroImage: this.present.optionalMedia(webinar.heroImage),
     };
   }

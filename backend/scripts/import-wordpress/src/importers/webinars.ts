@@ -111,6 +111,8 @@ export async function importWebinars(
       recordingGated: entry.recordingGated,
       faq: extractToggleFaq(page.content.rendered),
       audience: audienceBlock ? blockText(audienceBlock) : null,
+      featuredOnHome: entry.featuredOnHome ?? false,
+      featuredInMenu: entry.featuredInMenu ?? false,
       legalReviewStatus: 'approved' as const,
       legacyWordpressId: page.id,
       status: 'published' as const,
