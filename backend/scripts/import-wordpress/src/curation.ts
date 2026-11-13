@@ -3,7 +3,13 @@ import type {
   OfficeType,
   WebinarState,
 } from '../../../prisma/generated/client.js';
-import { ROUTES, SETTING_KEYS, type HeroCard, type IconName } from '@waren/shared';
+import {
+  HERO_VIDEO_FILE,
+  ROUTES,
+  SETTING_KEYS,
+  type HeroCard,
+  type IconName,
+} from '@waren/shared';
 import { blockText, type ParsedBlock } from './html-to-blocks.js';
 
 export const READING_WORDS_PER_MINUTE = 200;
@@ -274,7 +280,6 @@ export const TEAM: readonly TeamEntry[] = [
     name: 'Ephraim Ndegwa',
     memberType: 'partner',
     isAdvocate: true,
-    roleTitle: 'Partner, Strategy & Development',
     officeSlug: NAIROBI,
     practiceAreas: [P.corporate, P.mining],
     email: 'endegwa@warenlaw.com',
@@ -290,7 +295,6 @@ export const TEAM: readonly TeamEntry[] = [
     name: 'Martin Wachira',
     memberType: 'partner',
     isAdvocate: true,
-    roleTitle: 'Partner, Cross-Border Practice',
     officeSlug: NAIROBI,
     practiceAreas: [P.corporate, P.wealth],
     homepageOrder: 3,
@@ -299,7 +303,6 @@ export const TEAM: readonly TeamEntry[] = [
     name: 'Phylis Njane',
     memberType: 'partner',
     isAdvocate: true,
-    roleTitle: 'Partner',
     portraitAlt: 'Phylis Njane, Partner',
     officeSlug: null,
     practiceAreas: [P.litigation, P.employment],
@@ -316,7 +319,9 @@ export const TEAM: readonly TeamEntry[] = [
     name: 'Cecilia Njeri',
     memberType: 'advocate',
     isAdvocate: true,
-    roleTitle: 'Associate Advocate',
+    // Her team card says only "Conveyancing &Commercial"; this is the title her profile page shows.
+    roleTitle:
+      'Associate Advocate | Conveyancing & Real Estate Law | Commercial & Business Law | Succession & Estate Planning',
     officeSlug: NAIROBI,
     practiceAreas: [P.property, P.corporate, P.wealth],
     portrait: '2026/05/CECILIA-NJERI_upd_1.png',
@@ -851,18 +856,20 @@ export const SETTING_MEDIA: Record<string, { file: string; baseName: string; alt
   },
 };
 
-export const HOME_HERO_IMAGES = [
-  {
-    file: 'hero-nairobi.jpg',
-    baseName: 'home-hero-nairobi',
-    altText: 'The Nairobi skyline',
-  },
-  {
-    file: 'hero-skyline-illustration.svg',
-    baseName: 'home-hero-skyline-illustration',
-    altText: 'Illustration of the Nairobi skyline at dusk',
-  },
-] as const;
+export const HOME_HERO_IMAGE = {
+  fileName: 'nairobi-skyline-hero.webp',
+  originalName: 'nairobi-skyline.jpg',
+  mimeType: 'image/webp',
+  altText: 'Nairobi skyline at sunset, with Mount Kenya and the Kenyan flag',
+};
+
+// Not committed (no videos in git): it must already be in UPLOADS_DIR.
+export const HOME_HERO_VIDEO = {
+  fileName: HERO_VIDEO_FILE,
+  originalName: HERO_VIDEO_FILE,
+  mimeType: 'video/mp4',
+  altText: 'Nairobi from the air',
+};
 
 const HERO_CARDS: readonly HeroCard[] = [
   {

@@ -1,5 +1,5 @@
 import { load } from 'cheerio';
-import { access, readFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { parse } from 'csv-parse/sync';
 import { HOME_PAGE_SLUG } from '@waren/shared';
@@ -12,7 +12,8 @@ import {
   CLIENT_LOGOS,
   COMMON_SKIPPED_WIDGETS,
   HOME_CONTENT,
-  HOME_HERO_IMAGES,
+  HOME_HERO_IMAGE,
+  HOME_HERO_VIDEO,
   PAGES,
   PARTNERS,
   PARTNERS_PAGE_SLUG,
@@ -223,25 +224,22 @@ export async function importSettings(
   }
 }
 
-async function heroImageSource() {
-  for (const image of HOME_HERO_IMAGES) {
-    const sourcePath = path.join(config.designAssetsDir, image.file);
-    const exists = await access(sourcePath).then(
-      () => true,
-      () => false,
-    );
-    if (exists) return { sourcePath, baseName: image.baseName, altText: image.altText };
-  }
-  throw new Error(`No hero image found in ${config.designAssetsDir}`);
-}
-
 export async function importHome(
   db: Database,
   report: ImportReport,
   media: MediaLibrary,
 ): Promise<void> {
   const page = await db.page.findUniqueOrThrow({ where: { slug: HOME_PAGE_SLUG } });
-  const heroImage = await media.ensureLocal(await heroImageSource());
+  const heroImage = await media.ensurePrepared({
+    ...HOME_HERO_IMAGE,
+    sourcePath: path.join(config.designAssetsDir, HOME_HERO_IMAGE.fileName),
+  });
+  if (!heroImage) throw new Error(`Missing hero image ${HOME_HERO_IMAGE.fileName}`);
+  if (!(await media.ensurePrepared(HOME_HERO_VIDEO))) {
+    report.warnings.push(
+      `${HOME_HERO_VIDEO.fileName} is not in UPLOADS_DIR, so the home film is not shown. Copy it there and import again.`,
+    );
+  }
   const data = {
     pageId: page.id,
     // Home is not legal content (decision 0020).

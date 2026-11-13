@@ -8,4 +8,5 @@ Inputs in `data/`: `url-inventory.csv` (every old URL, for redirects) and `desig
 - **Polite:** requests are spaced by `WP_REQUEST_INTERVAL_MS`, and raw responses are cached in `.cache/` (git-ignored), so nothing is fetched twice.
 - **Curated facts:** everything WordPress can't provide (member types, practice links, offices, settings, webinar states, what the debt merge keeps) is in `src/curation.ts`.
 - **Media:** only images used by imported records are saved, as WebP, in the backend's `UPLOADS_DIR`.
+- **Home hero:** `data/design-assets/nairobi-skyline-hero.webp` is copied as it is. The film `hero.mp4` is not in git: copy it into `UPLOADS_DIR` before importing (a copy is in the archive, `~/warenlaw-archive/2026-11-13/design/`), otherwise the import warns and the home film is not shown.
 - **Summary:** it prints counts per entity, data fixes, skipped items, notes for review and warnings.

@@ -8,6 +8,8 @@ BACKEND_PORT="${BACKEND_PORT:-4000}"
 HEALTH_ATTEMPTS=30
 
 cd "$ROOT"
+# Next reuses cached API responses across builds, which can pre-render pages from an older API.
+rm -rf frontend/.next/cache
 pnpm --filter @waren/shared build
 pnpm --filter @waren/backend build
 
